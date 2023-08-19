@@ -3,20 +3,6 @@ const Schema = mongoose.Schema;
 
 const managerSchema = new Schema({
 
-  dateOfBirth: {
-    type: Date,
-    required: true
-  },
-
-  nationality:{
-    type: String,
-    required: true
-  },
-
-  phone:{
-    type: Number,
-  },
-
   sport:{
     type: String,
     required: true

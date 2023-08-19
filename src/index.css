@@ -27,7 +27,7 @@ code {
 
 .boxContainer {
   display: grid;
-  grid-template-columns: 3fr 3fr;
+  grid-template-columns: 1fr 1fr;
   margin: 70px;
   gap: 10px;
 }
@@ -35,4 +35,26 @@ code {
 .boxContainer .box.large-box {
   grid-column: 1 / span 2;
   grid-row: 3;
+}
+
+.devContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin: 70px;
+  gap: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+
+  .boxContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .boxContainer .box.large-box {
+    grid-column: 1;
+  }
+
+  .devContainer {
+    grid-template-columns: 1fr;
+  }
 }
