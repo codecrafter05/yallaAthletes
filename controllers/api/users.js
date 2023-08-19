@@ -6,6 +6,7 @@ module.exports = {
   create,
   login, 
   checkToken,
+  getUser
 };
 
 async function login(req, res) {
@@ -32,6 +33,18 @@ async function create(req, res) {
     res.status(400).json(err);
   }
 }
+
+// get user data to display on profile page
+async function getUser(req, res) {
+  try {
+    const user = await User.findById(req.user._id);
+    res.json(user);
+    console.log(JSON.stringify(user));
+  } catch (err) {
+    res.status(400).json(err);
+  }
+}
+
 
 function checkToken(req, res) {
   // req.user will always be there for you when a token is sent

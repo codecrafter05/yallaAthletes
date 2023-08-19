@@ -7,6 +7,7 @@ import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
 import NavBar from '../../components/NavBar/NavBar';
 import './App.css';
 import HomePage from '../HomePage/HomePage';
+import ProfilePage from '../ProfilePage/ProfilePage';
 
 function App() {
   const [user, setUser] = useState(getUser());
@@ -22,6 +23,7 @@ function App() {
             <Route path="/product" element={<NewOrderPage />} />
             <Route path="/athletes" element={<OrderHistoryPage />} />
             <Route path="/news" element={<OrderHistoryPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
           </Routes>
         </>
         :
