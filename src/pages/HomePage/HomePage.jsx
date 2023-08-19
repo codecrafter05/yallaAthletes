@@ -1,4 +1,6 @@
 import React from "react";
+
+
 export default function HomePage() {
 
   return (
@@ -6,5 +8,4 @@ export default function HomePage() {
     <h1>Welcome to yallaAthletes</h1>
     </>
   )
-
 }
