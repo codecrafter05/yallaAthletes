@@ -8,20 +8,6 @@ const athleteSchema = new Schema({
     ref: 'User'
   },
 
-  dateOfBirth: {
-    type: Date,
-    required: true
-  },
-
-  nationality:{
-    type: String,
-    required: true
-  },
-
-  phone:{
-    type: Number,
-  },
-
   sportType:{
     type: String,
     required: true
