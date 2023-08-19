@@ -8,3 +8,26 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+.article {
+  height: 700px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 10px 8px #ccc;
+  margin-bottom: 40px;
+}
+
+.head {
+  color: white;
+  text-align: center;
+}
+
+.boxContainer{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 40px;
+  gap:10px;
+}

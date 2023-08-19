@@ -52,8 +52,8 @@ export default function NavBar({ user, setUser }) {
         <Typography
           variant="h6"
           noWrap
-          component="a"
-          href="/"
+          component={Link}
+          to="/"
           sx={{
             mr: 2,
             display: { xs: 'none', md: 'flex' },
@@ -126,7 +126,8 @@ export default function NavBar({ user, setUser }) {
           {pages.map((page) => (
             <Button
               key={page}
-              href={`/${page}`}
+              component={Link}
+              to={`/${page}`}
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: 'white', display: 'block' }}
             >
