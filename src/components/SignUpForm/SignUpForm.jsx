@@ -162,6 +162,7 @@ export default class SignUpForm extends Component {
           />
           <TextField
             margin="normal"
+            required
             fullWidth
             name="phone"
             value={this.state.phone}
