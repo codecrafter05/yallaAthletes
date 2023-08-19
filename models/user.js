@@ -36,7 +36,7 @@ const userSchema = new Schema({
 
   gender:{
     type: String,
-    enum: ['Male, Female'],
+    enum: ['Male', 'Female'],
     required: true,
   },
 
@@ -51,7 +51,14 @@ const userSchema = new Schema({
   },
 
   phone:{
-    type: Number
+    type: Number,
+    required: true
+  },
+
+  role:{
+    type: String,
+    enum: ['Customer','Athlete', 'Manager', 'Admin'],
+    default: 'Customer'
   }
 
 }, {
