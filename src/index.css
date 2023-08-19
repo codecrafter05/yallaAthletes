@@ -25,9 +25,14 @@ code {
   text-align: center;
 }
 
-.boxContainer{
+.boxContainer {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin: 40px;
-  gap:10px;
+  grid-template-columns: 3fr 3fr;
+  margin: 70px;
+  gap: 10px;
+}
+
+.boxContainer .box.large-box {
+  grid-column: 1 / span 2;
+  grid-row: 3;
 }
