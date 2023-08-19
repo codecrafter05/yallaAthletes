@@ -26,8 +26,8 @@ code {
 }
 
 .boxContainer{
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   margin: 40px;
   gap:10px;
 }

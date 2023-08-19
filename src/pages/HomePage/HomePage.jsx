@@ -5,6 +5,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { CardActionArea } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 
 
@@ -19,7 +20,7 @@ export default function HomePage() {
       <Typography variant="h2" className='head'>yallaAthletes</Typography>
     </article>
     <Card className="boxContainer">
-      <CardActionArea href='/athletes'>
+      <CardActionArea component={Link} to='/athletes'>
         <CardMedia
           component="img"
           height="140"
@@ -37,7 +38,7 @@ export default function HomePage() {
         </CardContent>
       </CardActionArea>
 
-      <CardActionArea href='/products'>
+      <CardActionArea component={Link} to='/products'>
         <CardMedia
           component="img"
           height="140"
@@ -55,7 +56,7 @@ export default function HomePage() {
         </CardContent>
       </CardActionArea>
 
-      <CardActionArea href='/news' className="newsCard">
+      <CardActionArea component={Link} to='/news'>
         <CardMedia
           component="img"
           height="140"
