@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Typography from '@mui/material/Typography';
 import bgImage from '../../assets/bg.jpeg'
 import Card from '@mui/material/Card';
@@ -6,21 +6,52 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { CardActionArea } from '@mui/material';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 
 
 export default function HomePage() {
 
+  const [data, setData] = useState({
+    name: '',
+    type: 'Apparel',
+    description: '',
+    quantity: 0,
+    size: 'S',
+    color: ['Black'],
+  });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+    console.log(data)
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post("/api/products", data);
+      console.log('Product created:', response);
+    } catch (error) {
+      console.error('Error creating product:', error);
+    }
+  };
+
   return (
     <>
-      <h1>Welcome to yallaAthletes</h1>
-
       <article
         className='article'
         style={{ backgroundImage: `url(${bgImage})` }}
       >
         <Typography variant="h2" className='head'>yallaAthletes</Typography>
       </article>
+
+      <Typography variant="h4">Check us out!</Typography>
+
       <Card className="boxContainer">
         <CardActionArea component={Link} to='/athletes'>
           <CardMedia
@@ -77,7 +108,7 @@ export default function HomePage() {
         </CardActionArea>
       </Card>
 
-      <Typography variant="h3">Devs</Typography>
+      <Typography variant="h4">Devs</Typography>
 
       <Card className="devContainer">
         <CardActionArea component={Link} to='/athletes'>
@@ -152,6 +183,69 @@ export default function HomePage() {
           </CardContent>
         </CardActionArea>
       </Card>
+
+      <form>
+        <div>
+          <label htmlFor="name">Product Name: </label>
+          <input type="text" name="name" id="name" placeholder="Enter Product Name" onChange={handleChange} />
+        </div>
+        <div>
+          <label htmlFor="type">Product Type: </label>
+          <select name="type" id="type" onChange={handleChange}>
+            <option value="Apparel">Apparel</option>
+            <option value="Footwear">Footwear</option>
+            <option value="Football">Football</option>
+            <option value="Basketball">Basketball</option>
+            <option value="Tennis">Tennis</option>
+          </select>
+        </div>
+        <div>
+          <label htmlFor="description">Description: </label>
+          <textarea name="description" id="description" cols="30" rows="10"
+            placeholder="Write Product Details..." onChange={handleChange}></textarea>
+        </div>
+        <div>
+          <label htmlFor="quantity">Quantity: </label>
+          <input type="number" id="quantity" name="quantity" min="1" max="5" placeholder="0" onChange={handleChange} />
+        </div>
+        <div>
+          <label htmlFor="size">Size: </label>
+          <select name="size" id="size" onChange={handleChange}>
+            <optgroup label="apparel-choices">
+              <option value="S">S</option>
+              <option value="M">M</option>
+              <option value="L">L</option>
+              <option value="XL">XL</option>
+            </optgroup>
+            <optgroup label="footwear-choices">
+              <option value="40">40</option>
+              <option value="41">41</option>
+              <option value="42">42</option>
+              <option value="43">43</option>
+              <option value="44">44</option>
+              <option value="45">45</option>
+              <option value="46">46</option>
+              <option value="47">47</option>
+              <option value="48">48</option>
+            </optgroup>
+          </select>
+        </div>
+        <div>
+          <label htmlFor="color">Color: </label>
+          <select multiple name="color" id="color" onChange={handleChange}>
+            <option value="Black">Black</option>
+            <option value="Beige">Beige</option>
+            <option value="Blue">Blue</option>
+            <option value="Green">Green</option>
+            <option value="White">White</option>
+            <option value="Red">Red</option>
+            <option value="Yellow">Yellow</option>
+            <option value="Orange">Orange</option>
+          </select>
+        </div>
+        <input type="submit" onClick={handleSubmit} value="Add Product" />
+      </form>
+
     </>
   )
 }
