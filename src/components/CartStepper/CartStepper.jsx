@@ -32,6 +32,9 @@ const CartStepper = () => {
             content: (
                 <div>
                     {/* Replace this with your delivery information form */}
+                    <Form method="post" >
+                        <input type="text" name="City" label="Your City:"></input>
+                    </Form>
                     <Typography variant="h6">Delivery Information</Typography>
                     {/* Your form elements go here */}
                 </div>
@@ -71,14 +74,13 @@ const CartStepper = () => {
     };
 
     return (
-        <div>
-            <Stepper activeStep={activeStep} alternativeLabel>
-                {steps.map((step, index) => (
-                    <Step key={step.label}>
-                        <StepLabel>{step.label}</StepLabel>
-                    </Step>
-                ))}
-            </Stepper>
+        <Container> <Stepper activeStep={activeStep} alternativeLabel>
+            {steps.map((step, index) => (
+                <Step key={step.label}>
+                    <StepLabel>{step.label}</StepLabel>
+                </Step>
+            ))}
+        </Stepper>
             <div>
                 {activeStep === steps.length ? (
                     <div>
@@ -103,8 +105,9 @@ const CartStepper = () => {
                         </div>
                     </div>
                 )}
-            </div>
-        </div>
+            </div></Container>
+
+
     );
 };
 
