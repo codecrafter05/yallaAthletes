@@ -4,7 +4,7 @@ import BasicGrid from "../../components/Grid/Grid";
 export default function AthletePage() {
   const athletes = [
     {
-      name: 'Athlete 1',
+      name: 'Athlete4444',
       sport: 'Football',
       image: 'https://example.com/athlete1.jpg',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
