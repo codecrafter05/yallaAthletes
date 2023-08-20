@@ -2,16 +2,36 @@ import React, { useState, useEffect } from 'react';
 import UserProfile from '../../components/UserProfile/UserProfile';
 import BecomeAthlete from '../../components/BecomeAthlete/BecomeAthlete';
 import EditUserProfile from '../../components/EditUserProfile/EditUserProfile';
-import { getAthlete } from '../../utilities/athletes-service';
-import { getUser } from "../../utilities/users-service";
+import { getAthlete, deleteAthlete } from '../../utilities/athletes-service';
+import { getUser, deleteUser } from "../../utilities/users-service";
 import { Container } from '@mui/material';
+import Button from '@mui/material/Button';
+import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+
 import Alert from '@mui/material/Alert';
+
+const modalStyle = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
 
 export default function ProfilePage() {
   const [showBecomeAthlete, setShowBecomeAthlete] = useState(false);
   const [showEditProfile, setShowEditProfile] = useState(false);
   const [athleteStatus, setAthleteStatus] = useState('');
   const [user, setUser] = useState(getUser());
+
+  const [showConfirmationModal, setShowConfirmationModal] = useState(false);
+  const [confirmationAction, setConfirmationAction] = useState(null);
 
   useEffect(() => {
     async function fetchUserData() {
@@ -36,6 +56,37 @@ export default function ProfilePage() {
       fetchUserAthleteStatus();
     }
   }, [user]);
+
+  const handleDeleteUser = () => {
+    setConfirmationAction('deleteUser');
+    setShowConfirmationModal(true);
+  };
+
+  const handleConfirmDeletion = async () => {
+    if (confirmationAction === 'deleteUser') {
+      try {
+        // Delete athlete schema if it exists
+        if (athleteStatus === 'Approved' || athleteStatus === 'Rejected' || athleteStatus === 'Pending') {
+          await deleteAthlete(); // Added optional chaining
+        }
+
+        // Delete user
+        await deleteUser(); // Added optional chaining
+
+        // Perform necessary actions after deletion, e.g., log out or redirect
+      } catch (error) {
+        // Handle error
+      }
+    }
+
+    // Close the confirmation modal
+    setShowConfirmationModal(false);
+  };
+
+  const handleCancelDeletion = () => {
+    // Close the confirmation modal
+    setShowConfirmationModal(false);
+  };
 
   return (
     <Container>
@@ -76,6 +127,25 @@ export default function ProfilePage() {
           </button>
         </>
       )}
+      <button onClick={handleDeleteUser}>Delete User</button> {/* Added delete button */}
+      
+      {/* Confirmation Modal */}
+      <Modal open={showConfirmationModal} onClose={handleCancelDeletion}>
+        <Box sx={modalStyle}>
+          <Typography variant="h6" component="h2">
+            Confirm Deletion
+          </Typography>
+          <hr />
+          <Typography sx={{ mt: 2, mb: 4 }}>
+            Are you sure you want to delete your account?
+          </Typography>
+          <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+            <Button variant="contained" sx={{ mr: 1 }} onClick={handleConfirmDeletion} color='error'>Confirm</Button>
+            <Button variant="contained" onClick={handleCancelDeletion}>Cancel</Button>
+          </div>
+        </Box>
+      </Modal>
+
     </Container>
   );
 }

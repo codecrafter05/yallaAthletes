@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import { updateUserProfile } from "../../utilities/users-api";
 
 export default function EditUserProfile({ user, setUser }) {

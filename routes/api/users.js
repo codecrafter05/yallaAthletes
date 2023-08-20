@@ -15,5 +15,7 @@ router.get('/check-token',ensureLoggedIn, usersCtrl.checkToken);
 router.get('/profile', ensureLoggedIn, usersCtrl.getUser);
 // PUT /api/users/profile
 router.put('/profile', ensureLoggedIn, usersCtrl.updateUser);
+// DELETE /api/users/:userId
+router.delete('/', usersCtrl.deleteUser);
 
 module.exports = router;

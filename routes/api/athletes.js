@@ -11,6 +11,8 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 router.get('/', athletesCtrl.getAthlete);
 // POST /api/athletes
 router.post('/', ensureLoggedIn, athletesCtrl.create);
+// DELETE /api/athletes/:athleteId
+router.delete('/', athletesCtrl.deleteAthlete);
 
 
 module.exports = router;

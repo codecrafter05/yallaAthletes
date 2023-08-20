@@ -9,6 +9,10 @@ export async function getAthlete() {
   return athleteAPI.getAthlete();
 }
 
+export async function deleteAthlete() {
+  return athleteAPI.deleteAthlete();
+}
+
 // export async function getAthlete() {
 //   try {
 //     const athlete = await athleteAPI.getAthlete();
