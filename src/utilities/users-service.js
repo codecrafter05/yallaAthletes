@@ -44,6 +44,10 @@ export function getUser() {
     null;
 }
 
+export function updateProfile(updatedUserData) {
+  return usersAPI.updateUserProfile(updatedUserData);
+}
+
 export function logOut() {
   localStorage.removeItem('token');
 }

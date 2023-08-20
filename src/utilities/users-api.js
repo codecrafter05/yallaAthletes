@@ -18,6 +18,10 @@ export async function getUser() {
   return sendRequest(`${BASE_URL}/profile`);
 }
 
+export async function updateUserProfile(updatedUserData) {
+  return sendRequest(`${BASE_URL}/profile`, 'PUT', updatedUserData);
+}
+
 export function checkToken() {
   return sendRequest(`${BASE_URL}/check-token`);
 }
