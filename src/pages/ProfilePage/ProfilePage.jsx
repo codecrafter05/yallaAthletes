@@ -1,23 +1,60 @@
-import React, { useState, useEffect } from 'react';
-import * as usersService from '../../utilities/users-service'; 
+import { useState, useEffect } from 'react';
+import UserProfile from '../../components/UserProfile/UserProfile';
+import BecomeAthlete from '../../components/BecomeAthlete/BecomeAthlete';
+import { getAthlete } from '../../utilities/athletes-service';
+import Alert from '@mui/material/Alert';
 
 export default function ProfilePage({user}) {
+  console.log('User prop:', user); 
+  const [showBecomeAthlete, setShowBecomeAthlete] = useState(false);
+  const [athleteStatus, setAthleteStatus] = useState('');
+
+  useEffect(() => {
+    const fetchUserAthleteStatus = async () => {
+      try {
+        console.log(user._id);
+        const athlete = await getAthlete();
+        console.log('athlete ==>', athlete);
+        setAthleteStatus(athlete.status);
+      } catch (error) {
+        console.log('Response ==>', error.response);
+      }
+    };
+  
+    fetchUserAthleteStatus();
+  }, [user._id]);
+  
 
   return (
-    <div>
-    { user.role === 'Customer' || 'Athlete' || 'Manager' || 'Admin' ? <h1>Profile Details Page</h1> : <h1>Error</h1>}
-      <hr/>
-      {user && (
-        <div>
-          <h2>{user.firstName} {user.lastName}'s Profile</h2>
-          <p>Email: {user.email}</p>
-          <p>Phone: {user.phone}</p>
-          <p>Gender: {user.gender}</p>
-          <p>Date of Birth: {user.dateOfBirth}</p>
-          <p>Nationality: {user.nationality}</p>
-          {/* Display other user details here */}
-        </div>
+    <>
+      <h1>{user.role} Details Page</h1>
+      <hr />
+      {user.role === 'Athlete' && athleteStatus === 'Pending' && (
+        <Alert severity="warning">Your athlete status is pending</Alert>
       )}
-    </div>
+
+      {user.role === 'Athlete' && athleteStatus === 'Approved' && (
+        <Alert severity="success">Your athlete status is approved</Alert>
+      )}
+
+      {user.role === 'Athlete' && athleteStatus === 'Rejected' && (
+        <Alert severity="error">Your athlete status is rejected</Alert>
+      )}
+
+
+      {showBecomeAthlete ? (
+        <BecomeAthlete user={user} />
+      ) : (
+        <UserProfile user={user} />
+      )}
+
+
+      {user.role !== 'Athlete' && athleteStatus !== 'Pending' && athleteStatus !== 'Approved' && ( 
+        <button onClick={() => setShowBecomeAthlete(!showBecomeAthlete)}>
+          {showBecomeAthlete ? 'View Profile' : 'Become Athlete'}
+        </button>
+      )}
+    </>
   );
+
 }
