@@ -1,6 +1,6 @@
 import React from 'react';
 import BasicGrid from "../../components/Grid/Grid";
-
+import CartStepper from '../../components/CartStepper/CartStepper';
 export default function Products() {
   const Products = [
     {
@@ -44,7 +44,7 @@ export default function Products() {
       sport: 'Golf',
       image: 'https://example.com/golf_clubs.jpg',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    },
+    }
     // Add more sports products as needed
   ];
 
@@ -54,6 +54,7 @@ export default function Products() {
       <br />
 
       <BasicGrid data={Products} />
+      <CartStepper />
     </>
   );
 }
