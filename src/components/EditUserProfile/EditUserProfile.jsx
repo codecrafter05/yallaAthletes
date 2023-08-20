@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { updateUserProfile } from "../../utilities/users-api";
+import { Card, CardContent, TextField, Button, Grid } from "@mui/material";
 
 export default function EditUserProfile({ user, setUser }) {
   const [editedUser, setEditedUser] = useState({ ...user });
@@ -19,58 +20,89 @@ export default function EditUserProfile({ user, setUser }) {
   };
 
   return (
-    <div>
-      <h1>Edit User Profile</h1>
-      <label>First Name: </label>
-      <input
-        type="text"
-        name="firstName"
-        value={editedUser.firstName}
-        onChange={handleInputChange}
-      />
-      <label>Last Name: </label>
-      <input
-        type="text"
-        name="lastName"
-        value={editedUser.lastName}
-        onChange={handleInputChange}
-      />
-      <label>Email: </label>
-      <input
-        type="email"
-        name="email"
-        value={editedUser.email}
-        onChange={handleInputChange}
-      />
-      <label>Gender: </label>
-      <input
-        type="text"
-        name="gender"
-        value={editedUser.gender}
-        onChange={handleInputChange}
-      />
-      <label>Date of Birth: </label>
-      <input
-        type="date"
-        name="dateOfBirth"
-        value={editedUser.dateOfBirth}
-        onChange={handleInputChange}
-      />
-      <label>Nationality: </label>
-      <input
-        type="text"
-        name="nationality"
-        value={editedUser.nationality}
-        onChange={handleInputChange}
-      />
-      <label>Phone: </label>
-      <input
-        type="text"
-        name="phone"
-        value={editedUser.phone}
-        onChange={handleInputChange}
-      />
-      <button onClick={handleSaveChanges}>Save Changes</button>
-    </div>
+    <Card variant="outlined">
+      <CardContent>
+        <h1>Edit User Profile</h1>
+        <Grid container spacing={2}>
+          <Grid item xs={6}>
+            <TextField
+              label="First Name"
+              variant="outlined"
+              name="firstName"
+              value={editedUser.firstName}
+              onChange={handleInputChange}
+              autoComplete="off"
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={6}>
+            <TextField
+              label="Last Name"
+              variant="outlined"
+              name="lastName"
+              value={editedUser.lastName}
+              onChange={handleInputChange}
+              autoComplete="off"
+              fullWidth
+            />
+          </Grid>
+        </Grid>
+        <Grid container spacing={2} sx={{ marginTop: 2 }}>
+          <Grid item xs={6}>
+            <TextField
+              label="Email"
+              variant="outlined"
+              type="email"
+              name="email"
+              value={editedUser.email}
+              onChange={handleInputChange}
+              autoComplete="off"
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={6}>
+            <TextField
+              label="Phone"
+              variant="outlined"
+              name="phone"
+              value={editedUser.phone}
+              onChange={handleInputChange}
+              autoComplete="off"
+              fullWidth
+            />
+          </Grid>
+        </Grid>
+        <Grid container spacing={2} sx={{ marginTop: 2 }}>
+          <Grid item xs={6}>
+            <TextField
+              label="Gender"
+              variant="outlined"
+              name="gender"
+              value={editedUser.gender}
+              onChange={handleInputChange}
+              autoComplete="off"
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={6}>
+            <TextField
+              label="Date of Birth"
+              variant="outlined"
+              type="date"
+              name="dateOfBirth"
+              value={editedUser.dateOfBirth}
+              onChange={handleInputChange}
+              autoComplete="off"
+              fullWidth
+              InputLabelProps={{ shrink: true }}
+            />
+          </Grid>
+        </Grid>
+        {/* Rest of the fields */}
+        <Button variant="contained" onClick={handleSaveChanges} sx={{ marginTop: 2 }}>
+          Save Changes
+        </Button>
+      </CardContent>
+    </Card>
   );
 }
