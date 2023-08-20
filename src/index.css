@@ -57,8 +57,10 @@ code {
   .devContainer {
     grid-template-columns: 1fr;
   }
-}
-.boxContainerMustafa{
+}.boxContainerMustafa {
   display: grid;
 }
-
+/* 
+.head{
+  color: red;
+} */
