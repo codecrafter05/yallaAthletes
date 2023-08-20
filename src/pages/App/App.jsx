@@ -8,6 +8,7 @@ import './App.css';
 import HomePage from '../HomePage/HomePage';
 import AthletePage from '../AthletePage/AthletePage';
 import ProfilePage from '../ProfilePage/ProfilePage';
+import NewsPage from '../NewsPage/NewsPage';
 
 function App() {
   const [user, setUser] = useState(getUser());
@@ -22,7 +23,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/product" element={<NewOrderPage />} />
             <Route path="/athletes" element={<AthletePage />} />
-            <Route path="/news" element={<NewOrderPage />} />
+            <Route path="/news" element={<NewsPage />} />
             <Route path="/profile" element={<ProfilePage user={user} />} />
           </Routes>
         </>

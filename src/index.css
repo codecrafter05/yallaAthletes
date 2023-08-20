@@ -58,3 +58,7 @@ code {
     grid-template-columns: 1fr;
   }
 }
+.boxContainerMustafa{
+  display: grid;
+}
+
