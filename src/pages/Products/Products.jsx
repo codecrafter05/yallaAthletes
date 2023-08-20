@@ -54,7 +54,7 @@ export default function Products() {
       <br />
 
       <BasicGrid data={Products} />
-      <CartStepper />
+
     </>
   );
 }
