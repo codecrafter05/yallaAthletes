@@ -9,6 +9,7 @@ import AthletePage from '../AthletePage/AthletePage';
 import ProfilePage from '../ProfilePage/ProfilePage';
 import NewsPage from '../NewsPage/NewsPage';
 import DashboardPage from '../DashboardPage/DashboardPage'
+import Cart from '../Cart/Cart';
 import './App.css';
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
             <Route path="/news" element={<NewsPage />} />
             <Route path="/profile" element={<ProfilePage user={user} />} />
             <Route path="/dashboard" element={<DashboardPage/>} />
+            <Route path="/cart" element={<Cart user={user} />} />
           </Routes>
         </>
         :

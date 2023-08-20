@@ -14,6 +14,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const pages = ['Products', 'Athletes', 'News'];
 const settings = ['Profile', 'Dashboard', 'Logout'];
@@ -45,7 +46,7 @@ export default function NavBar({ user, setUser }) {
   };
 
   return (
-    <AppBar position="static" color='secondary'>
+    <AppBar position="static" color="secondary">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -137,6 +138,14 @@ export default function NavBar({ user, setUser }) {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
+            <Tooltip title="Cart">
+              <IconButton component={Link} to="/cart" sx={{ p: 0, color: 'inherit', ml: 2, mr: 2 }}>
+                <ShoppingCartIcon />
+              </IconButton>
+            </Tooltip>
+          </Box>
+
+          <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
@@ -160,6 +169,12 @@ export default function NavBar({ user, setUser }) {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={setting === 'Logout' ? handleLogOut : handleCloseUserMenu} component={Link} to={`/${setting}`}>
+                <MenuItem
+                  key={setting}
+                  onClick={setting === 'Logout' ? handleLogOut : handleCloseUserMenu}
+                  component={Link}
+                  to={`/${setting}`}
+                >
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}

@@ -18,9 +18,17 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { CardActionArea } from '@mui/material';
-
-
-
+import tennisImage from '../../assets/tennis.jpg';
+import sikelsImage from '../../assets/sikels.jpg';
+import bascktballImage from '../../assets/bascktball.jpg';
+import bbImage from '../../assets/bb.jpg';
+import ddImage from '../../assets/dd.jpg';
+import kkImage from '../../assets/kk.jpg';
+import ttImage from '../../assets/tt.jpg';
+import torImage from '../../assets/tor.jpg';
+import vvImage from '../../assets/vv.jpg';
+import ssImage from '../../assets/ss.jpg';
+import nnImage from '../../assets/nn.jpg';
 
 const sections = [
   { title: 'Technology', url: '#' },
@@ -105,7 +113,7 @@ export default function Blog() {
              
     <article
         className='article'
-        style={{ backgroundImage: `url(${bgImage})` }}
+        style={{ backgroundImage: `url(${sikelsImage})` }}
       >
         <Typography variant="h2" className='head'>Breaking News</Typography>
       </article>
@@ -115,17 +123,16 @@ export default function Blog() {
       <CardActionArea to='/athletes'>
         <CardMedia
           component="img"
-          height="300"
-          image={bgImage}
+          height="500"
+          image={tennisImage}
           alt="green iguana"
+          className="imageFitCover" 
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            Athletes
+          Yoga
           </Typography>
-          <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+          <Typography variant="body2" color="text.secondary">Yoga, an ancient art that harmonizes the body and mind, is recommended by doctors for its potential benefits in strengthening the body and calming the mind. Practicing yoga is considered a valuable option for achieving balance between the physical and spiritual aspects.
           </Typography>
         </CardContent>
       </CardActionArea>
@@ -138,8 +145,8 @@ export default function Blog() {
       <CardActionArea to='/athletes'>
         <CardMedia
           component="img"
-          height="400"
-          image={bgImage}
+          height="630"
+          image={bascktballImage}
           alt="green iguana"
         />
         {/* <CardContent>
@@ -162,17 +169,16 @@ export default function Blog() {
       <CardActionArea to='/athletes'>
         <CardMedia
           component="img"
-          height="350"
-          image={bgImage}
+          height="340"
+          image={bbImage}
           alt="green iguana"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            Athletes
+          Michael
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+          The cycling champion, a symbol of determination and challenge, captivates the world with his remarkable achievements on the track. His heart beats with the spirit of competition and determination, as he pushes boundaries and tackles tough terrains with confidence. His history is filled with victories and challenges, making him a role model for youth aspiring to achieve success and break records.
           </Typography>
         </CardContent>
       </CardActionArea>
@@ -185,17 +191,16 @@ export default function Blog() {
       <CardActionArea to='/athletes'>
         <CardMedia
           component="img"
-          height="300"
-          image={bgImage}
+          height="360"
+          image={ddImage}
           alt="green iguana"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            Athletes
+          Mary
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+          Mary excels in the latest championship of the arena, which she contracted with one of the most prominent clubs in Europe.
           </Typography>
         </CardContent>
       </CardActionArea>
@@ -208,17 +213,16 @@ export default function Blog() {
       <CardActionArea to='/athletes'>
         <CardMedia
           component="img"
-          height="220"
-          image={bgImage}
+          height="380"
+          image={kkImage}
           alt="green iguana"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            Athletes
+          David
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+          Coach David has proven his worth by training the youth and has been awarded the best coach in America.
           </Typography>
         </CardContent>
       </CardActionArea>
@@ -231,17 +235,16 @@ export default function Blog() {
       <CardActionArea to='/athletes'>
         <CardMedia
           component="img"
-          height="200"
-          image={bgImage}
+          height="500"
+          image={ttImage}
           alt="green iguana"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            Athletes
+            Sara
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+          Sara returns to the fields with skill and determination.
           </Typography>
         </CardContent>
       </CardActionArea>
@@ -254,17 +257,16 @@ export default function Blog() {
       <CardActionArea to='/athletes'>
         <CardMedia
           component="img"
-          height="180"
-          image={bgImage}
+          height="500"
+          image={torImage}
           alt="green iguana"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            Athletes
+            Tore
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+          Tore returns once again to climb the mountains.
           </Typography>
         </CardContent>
       </CardActionArea>
@@ -277,17 +279,16 @@ export default function Blog() {
       <CardActionArea to='/athletes'>
         <CardMedia
           component="img"
-          height="170"
-          image={bgImage}
+          height="520"
+          image={vvImage}
           alt="green iguana"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            Athletes
+          Karen 
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+          Karen retires from sports after a successful career.
           </Typography>
         </CardContent>
       </CardActionArea>
@@ -295,22 +296,21 @@ export default function Blog() {
   </Grid>
 
 
-  <Grid item xs={12} sm={6} md={6}>
+  <Grid item xs={12} sm={6} md={7}>
     <Card className="boxContainerMustafa">
       <CardActionArea to='/athletes'>
         <CardMedia
           component="img"
-          height="150"
-          image={bgImage}
+          height="700"
+          image={nnImage}
           alt="green iguana"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            Athletes
+            Kides
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+          Determined children in sports pursue their aspirations with ambition.
           </Typography>
         </CardContent>
       </CardActionArea>
@@ -319,22 +319,21 @@ export default function Blog() {
 
 
   
-  <Grid item xs={12} sm={10} md={6}>
+  <Grid item xs={12} sm={10} md={5}>
     <Card className="boxContainerMustafa">
       <CardActionArea to='/athletes'>
         <CardMedia
           component="img"
-          height="150"
-          image={bgImage}
+          height="700"
+          image={ssImage}
           alt="green iguana"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            Athletes
+            Linda
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+          Linda returns to social media platforms.
           </Typography>
         </CardContent>
       </CardActionArea>
@@ -350,8 +349,8 @@ export default function Blog() {
       </Container>
     
           <Footer
-        title="Footer"
-        description="Something here to give the footer a purpose!" />
+        title="Unleash Your Potential, Conquer the Field"
+        description="Calls for expansion and reaching your fullest potential in the sports arena.!" />
 {/* 
           <Sidebar
               // title={sidebar.title}
