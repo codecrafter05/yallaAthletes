@@ -49,6 +49,9 @@ export default function HomePage() {
       >
         <Typography variant="h2" className='head'>yallaAthletes</Typography>
       </article>
+
+      <Typography variant="h4">Check us out!</Typography>
+
       <Card className="boxContainer">
         <CardActionArea component={Link} to='/athletes'>
           <CardMedia
@@ -105,7 +108,7 @@ export default function HomePage() {
         </CardActionArea>
       </Card>
 
-      <Typography variant="h3">Devs</Typography>
+      <Typography variant="h4">Devs</Typography>
 
       <Card className="devContainer">
         <CardActionArea component={Link} to='/athletes'>
