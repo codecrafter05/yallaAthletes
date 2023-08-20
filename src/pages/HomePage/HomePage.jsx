@@ -13,6 +13,8 @@ export default function HomePage() {
 
   return (
     <>
+      <h1>Welcome to yallaAthletes</h1>
+
       <article
         className='article'
         style={{ backgroundImage: `url(${bgImage})` }}

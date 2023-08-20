@@ -1,0 +1,37 @@
+/* card.css */
+
+.card-container {
+    position: relative;
+    width: 200px;
+    height: 300px;
+    min-width: 100px;
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+}
+
+.card-container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    filter: brightness(95%);
+
+}
+
+
+
+.card-image {
+    height: 230px;
+    transition: filter 0.3s;
+}
+
+.card-content {
+    padding: 8px;
+}
+
+.card-name {
+    font-weight: bold;
+}
+
+.card-sport {
+    color: gray;
+}
+
+/* End of card.css */
