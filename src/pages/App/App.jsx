@@ -8,6 +8,7 @@ import HomePage from '../HomePage/HomePage';
 import AthletePage from '../AthletePage/AthletePage';
 import ProfilePage from '../ProfilePage/ProfilePage';
 import NewsPage from '../NewsPage/NewsPage';
+import Cart from '../Cart/Cart';
 import './App.css';
 
 function App() {
@@ -25,6 +26,8 @@ function App() {
             <Route path="/athletes" element={<AthletePage />} />
             <Route path="/news" element={<NewsPage />} />
             <Route path="/profile" element={<ProfilePage user={user} />} />
+            <Route path="/cart" element={<Cart user={user} />} />
+
           </Routes>
         </>
         :
