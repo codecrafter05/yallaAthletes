@@ -29,7 +29,7 @@ export default function ProfilePage({user}) {
     <>
       <h1>{user.role} Details Page</h1>
       <hr />
-      {user.role === 'Athlete' && athleteStatus === 'Pending' && (
+      {athleteStatus === 'Pending' && (
         <Alert severity="warning">Your athlete status is pending</Alert>
       )}
 
