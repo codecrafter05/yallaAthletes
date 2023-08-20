@@ -6,7 +6,8 @@ module.exports = {
   create,
   login, 
   checkToken,
-  getUser
+  getUser,
+  updateUser
 };
 
 async function login(req, res) {
@@ -40,6 +41,19 @@ async function getUser(req, res) {
     const user = await User.findById(req.user._id);
     res.json(user);
     console.log(JSON.stringify(user));
+  } catch (err) {
+    res.status(400).json(err);
+  }
+}
+
+async function updateUser(req, res) {
+  try {
+    const updatedUser = await User.findByIdAndUpdate(
+      req.user._id,
+      { $set: req.body },
+      { new: true }
+    );
+    res.json(updatedUser);
   } catch (err) {
     res.status(400).json(err);
   }

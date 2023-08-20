@@ -3,13 +3,24 @@ import UserProfile from '../../components/UserProfile/UserProfile';
 import BecomeAthlete from '../../components/BecomeAthlete/BecomeAthlete';
 import EditUserProfile from '../../components/EditUserProfile/EditUserProfile';
 import { getAthlete } from '../../utilities/athletes-service';
+import { getUser } from "../../utilities/users-service";
 import { Container } from '@mui/material';
 import Alert from '@mui/material/Alert';
 
-export default function ProfilePage({ user }) {
+export default function ProfilePage() {
   const [showBecomeAthlete, setShowBecomeAthlete] = useState(false);
   const [showEditProfile, setShowEditProfile] = useState(false);
   const [athleteStatus, setAthleteStatus] = useState('');
+  const [user, setUser] = useState(getUser());
+
+  useEffect(() => {
+    async function fetchUserData() {
+      const userData = await getUser();
+      setUser(userData);
+    }
+
+    fetchUserData();
+  }, []);
 
   useEffect(() => {
     const fetchUserAthleteStatus = async () => {
@@ -21,8 +32,10 @@ export default function ProfilePage({ user }) {
       }
     };
 
-    fetchUserAthleteStatus();
-  }, [user._id]);
+    if (user && user._id) {
+      fetchUserAthleteStatus();
+    }
+  }, [user]);
 
   return (
     <Container>
@@ -41,7 +54,7 @@ export default function ProfilePage({ user }) {
       )}
 
       {showEditProfile ? (
-        <EditUserProfile user={user} />
+        <EditUserProfile user={user} setUser={setUser} />
       ) : showBecomeAthlete ? (
         <BecomeAthlete user={user} />
       ) : (
@@ -63,7 +76,6 @@ export default function ProfilePage({ user }) {
           </button>
         </>
       )}
-
     </Container>
   );
 }
