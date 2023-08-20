@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { updateUserProfile } from "../../utilities/users-api";
-import { Card, CardContent, TextField, Button, Grid } from "@mui/material";
+import { Card, CardContent, TextField, Button, Grid, MenuItem } from "@mui/material";
 
 export default function EditUserProfile({ user, setUser }) {
   const [editedUser, setEditedUser] = useState({ ...user });
@@ -73,17 +73,21 @@ export default function EditUserProfile({ user, setUser }) {
           </Grid>
         </Grid>
         <Grid container spacing={2} sx={{ marginTop: 2 }}>
-          <Grid item xs={6}>
-            <TextField
-              label="Gender"
-              variant="outlined"
-              name="gender"
-              value={editedUser.gender}
-              onChange={handleInputChange}
-              autoComplete="off"
-              fullWidth
-            />
-          </Grid>
+        <Grid item xs={6}>
+              <TextField
+                label="Gender"
+                variant="outlined"
+                name="gender"
+                value={editedUser.gender}
+                onChange={handleInputChange}
+                autoComplete="off"
+                select
+                fullWidth
+              >
+                <MenuItem value="Male">Male</MenuItem>
+                <MenuItem value="Female">Female</MenuItem>
+              </TextField>
+            </Grid>
           <Grid item xs={6}>
             <TextField
               label="Date of Birth"
