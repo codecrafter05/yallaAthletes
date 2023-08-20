@@ -15,6 +15,7 @@ const productSchema = new Schema({
 
   type:{
     type: String,
+    enum: ['Apparel', 'Footwear', 'Football', 'Basketball', 'Tennis'],
     required: true
   },
 
@@ -46,7 +47,8 @@ const productSchema = new Schema({
 
   color:{
     type: String,
-    enum:['Black, Beige, Blue, Green, White, Red, Yellow, Orange, Barbie'],
+    enum:['Black, Beige, Blue, Green, White, Red, Yellow, Orange, Pink'],
+    required: true
   },
 }, {
   timestamps: true

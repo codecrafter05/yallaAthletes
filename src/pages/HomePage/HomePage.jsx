@@ -13,8 +13,6 @@ export default function HomePage() {
 
   return (
     <>
-      <h1>Welcome to yallaAthletes</h1>
-
       <article
         className='article'
         style={{ backgroundImage: `url(${bgImage})` }}
@@ -152,6 +150,69 @@ export default function HomePage() {
           </CardContent>
         </CardActionArea>
       </Card>
+      
+      <form action="/products" method="post">
+          <div class="form-group row">
+            <label for="name">Product Name: </label>
+            <input type="text" class="form-control" name="name" id="name" placeholder="Enter Product Name"/>
+          </div>
+          <div class="form-group row">
+            <label for="type">Product Type: </label>
+            <select name="type" id="type" class="form-select">
+              <option value="Apparel">Apparel</option>
+              <option value="Footwear">Footwear</option>
+              <option value="Football">Football</option>
+              <option value="Basketball">Basketball</option>
+              <option value="Tennis">Tennis</option>
+            </select>
+          </div>
+          <div class="form-group row">
+            <label for="description">Description: </label>
+            <textarea class="form-control" name="description" id="description" cols="30" rows="10"
+              placeholder="Write Product Details..."></textarea>
+          </div>
+          <div class="form-group row">
+            <label for="cohort">Quantity: </label>
+            <input type="number" id="quantity" name="quantity" min="1" max="5" placeholder="0"/>
+          </div>
+          <div class="form-group row">
+            <label for="size">Size: </label>
+            <select name="size" id="size" class="form-select">
+            <optgroup label="apparel-choices">
+              <option value="S">S</option>
+              <option value="M">M</option>
+              <option value="L">L</option>
+              <option value="XL">XL</option>
+              </optgroup>
+            <optgroup label="footwear-choices">
+              <option value="40">40</option>
+              <option value="41">41</option>
+              <option value="42">42</option>
+              <option value="43">43</option>
+              <option value="44">44</option>
+              <option value="45">45</option>
+              <option value="46">46</option>
+              <option value="47">47</option>
+              <option value="48">48</option>
+              </optgroup>
+            </select>
+          </div>
+          <div class="form-group row">
+            <label for="color">Color: </label>
+            <select multiple name="color" id="color" class="form-select">
+              <option value="Black">Black</option>
+              <option value="Beige">Beige</option>
+              <option value="Blue">Blue</option>
+              <option value="Green">Green</option>
+              <option value="White">White</option>
+              <option value="Red">Red</option>
+              <option value="Yellow">Yellow</option>
+              <option value="Orange">Orange</option>
+            </select>
+          </div>
+          <input type="submit" value="Add Product" class="button-5 product-submit"/>
+        </form>
+
     </>
   )
 }
