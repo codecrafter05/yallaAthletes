@@ -33,7 +33,6 @@ const athleteSchema = new Schema({
 
   socials:{
     type: {String},
-    required: true
   },
 }, {
   timestamps: true
