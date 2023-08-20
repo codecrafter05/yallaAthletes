@@ -13,7 +13,7 @@ export default function Card2({ item }) {
     return (
         <Card className="card-container">
             <div className="card-wrapper"> {/* Add a wrapper div */}
-                <Link to="/another-page" style={{ textDecoration: 'none' }}>
+                <Link to="#" style={{ textDecoration: 'none' }}>
                     {image && (
                         <CardMedia
                             component="img"
