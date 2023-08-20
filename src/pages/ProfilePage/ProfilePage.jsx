@@ -1,25 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import * as usersService from '../../utilities/users-service'; 
 
-export default function ProfilePage() {
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    async function getUser() {
-      try {
-        const userData = await usersService.getUser();
-        setUser(userData);
-      } catch (error) {
-        console.error('Error fetching user data:', error);
-      }
-    }
-
-    getUser();
-  }, []);
+export default function ProfilePage({user}) {
 
   return (
     <div>
-      <h1>Profile Page</h1>
+    { user.role === 'Customer' || 'Athlete' || 'Manager' || 'Admin' ? <h1>Profile Details Page</h1> : <h1>Error</h1>}
       <hr/>
       {user && (
         <div>
