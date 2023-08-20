@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Typography from '@mui/material/Typography';
 import bgImage from '../../assets/bg.jpeg'
 import Card from '@mui/material/Card';
@@ -40,6 +40,34 @@ export default function HomePage() {
       console.error('Error creating product:', error);
     }
   };
+
+  // useEffect(() => {
+  //   // Fetch the product data based on the productId
+  //   async function fetchProductData() {
+  //     try {
+  //       const response = await axios.get(`/api/products/${productId}`);
+  //       setData(response.data);
+  //     } catch (error) {
+  //       console.error("Error fetching product data:", error);
+  //     }
+  //   }
+
+  //   fetchProductData();
+  // }, [productId]);
+
+  // const handleEditSubmit = async (event) => {
+  //   event.preventDefault();
+
+  //   try {
+  //     // Send PUT request to update the product
+  //     const response = await axios.put(`/api/products/${productId}`, data);
+  //     console.log("Product updated:", response.data);
+  //     // You can add additional logic here for success handling
+  //   } catch (error) {
+  //     console.error("Error updating product:", error);
+  //     // Handle error here
+  //   }
+  // };
 
   return (
     <>

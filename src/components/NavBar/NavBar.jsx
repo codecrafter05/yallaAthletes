@@ -168,6 +168,7 @@ export default function NavBar({ user, setUser }) {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
+                <MenuItem key={setting} onClick={setting === 'Logout' ? handleLogOut : handleCloseUserMenu} component={Link} to={`/${setting}`}>
                 <MenuItem
                   key={setting}
                   onClick={setting === 'Logout' ? handleLogOut : handleCloseUserMenu}
