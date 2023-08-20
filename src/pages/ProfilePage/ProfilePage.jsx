@@ -70,7 +70,7 @@ export default function ProfilePage() {
           await deleteAthlete(); // Added optional chaining
         }
         // Remove token from storage (log out the user)
-        localStorage.removeItem('token'); // Adjust based on your storage method
+        localStorage.removeItem('token');
 
         // Redirect user to the desired page after successful deletion
         // For example, redirect to the home page
