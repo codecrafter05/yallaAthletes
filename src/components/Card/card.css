@@ -1,14 +1,10 @@
-/* card.css */
-
 .card-container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: relative;
 
-    /* Fix the width at 300px */
-    height: auto;
-    min-width: 100px;
+    min-width: 200px;
     transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
 }
 
@@ -20,7 +16,7 @@
 
 .card-image {
     flex: 1;
-    height: 200px;
+    height: auto;
     transition: filter 0.3s;
 }
 
@@ -36,7 +32,3 @@
 .card-sport {
     color: gray;
 }
-
-
-
-/* End of card.css */
