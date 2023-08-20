@@ -3,7 +3,6 @@ export default function UserProfile({user}) {
     <>
       {user && (
         <div>
-          <h1>{user.firstName} {user.lastName}'s Profile</h1>
           <p>Email: {user.email}</p>
           <p>Phone: {user.phone}</p>
           <p>Gender: {user.gender}</p>
