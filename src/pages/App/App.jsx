@@ -4,11 +4,11 @@ import { getUser } from '../../utilities/users-service';
 import AuthPage from '../AuthPage/AuthPage';
 import NewOrderPage from '../NewOrderPage/NewOrderPage';
 import NavBar from '../../components/NavBar/NavBar';
-import './App.css';
 import HomePage from '../HomePage/HomePage';
 import AthletePage from '../AthletePage/AthletePage';
 import ProfilePage from '../ProfilePage/ProfilePage';
 import NewsPage from '../NewsPage/NewsPage';
+import './App.css';
 
 function App() {
   const [user, setUser] = useState(getUser());

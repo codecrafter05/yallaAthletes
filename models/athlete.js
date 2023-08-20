@@ -32,7 +32,14 @@ const athleteSchema = new Schema({
   },
 
   socials:{
-    type: {String},
+    type: String,
+  },
+
+  status:{
+    type: String,
+    enum: ['Pending', 'Approved', 'Rejected'],
+    required: true,
+    default: 'Pending'
   },
 }, {
   timestamps: true
