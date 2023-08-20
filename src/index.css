@@ -8,3 +8,53 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+.article {
+  height: 700px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 10px 8px #ccc;
+  margin-bottom: 40px;
+}
+
+.head {
+  color: white;
+  text-align: center;
+}
+
+.boxContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 70px;
+  gap: 10px;
+}
+
+.boxContainer .box.large-box {
+  grid-column: 1 / span 2;
+  grid-row: 3;
+}
+
+.devContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin: 70px;
+  gap: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+
+  .boxContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .boxContainer .box.large-box {
+    grid-column: 1;
+  }
+
+  .devContainer {
+    grid-template-columns: 1fr;
+  }
+}
