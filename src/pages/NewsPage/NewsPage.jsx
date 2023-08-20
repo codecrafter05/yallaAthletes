@@ -1,19 +1,9 @@
 import * as React from 'react';
-import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Header from '../../components/Newspagecomponents/Header';
-import MainFeaturedPost from '../../components/Newspagecomponents/MainFeaturedPost';
-import FeaturedPost from '../../components/Newspagecomponents/FeaturedPost';
-import Main from '../../components/Newspagecomponents/Main';
-import Sidebar from '../../components/Newspagecomponents/Sidebar';
 import Footer from '../../components/Newspagecomponents/Footer';
 import Typography from '@mui/material/Typography';
-import bgImage from '../../assets/bg.jpeg'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
