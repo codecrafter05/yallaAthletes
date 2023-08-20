@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Typography from '@mui/material/Typography';
 import bgImage from '../../assets/bg.jpeg'
 import Card from '@mui/material/Card';
@@ -6,10 +6,40 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { CardActionArea } from '@mui/material';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 
 
 export default function HomePage() {
+
+  const [data, setData] = useState({
+    name: '',
+    type: 'Apparel',
+    description: '',
+    quantity: 0,
+    size: 'S',
+    color: ['Black'],
+  });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+    console.log(data)
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post("/api/products", data);
+      console.log('Product created:', response);
+    } catch (error) {
+      console.error('Error creating product:', error);
+    }
+  };
 
   return (
     <>
@@ -150,40 +180,40 @@ export default function HomePage() {
           </CardContent>
         </CardActionArea>
       </Card>
-      
-      <form action="/products" method="post">
-          <div class="form-group row">
-            <label for="name">Product Name: </label>
-            <input type="text" class="form-control" name="name" id="name" placeholder="Enter Product Name"/>
-          </div>
-          <div class="form-group row">
-            <label for="type">Product Type: </label>
-            <select name="type" id="type" class="form-select">
-              <option value="Apparel">Apparel</option>
-              <option value="Footwear">Footwear</option>
-              <option value="Football">Football</option>
-              <option value="Basketball">Basketball</option>
-              <option value="Tennis">Tennis</option>
-            </select>
-          </div>
-          <div class="form-group row">
-            <label for="description">Description: </label>
-            <textarea class="form-control" name="description" id="description" cols="30" rows="10"
-              placeholder="Write Product Details..."></textarea>
-          </div>
-          <div class="form-group row">
-            <label for="cohort">Quantity: </label>
-            <input type="number" id="quantity" name="quantity" min="1" max="5" placeholder="0"/>
-          </div>
-          <div class="form-group row">
-            <label for="size">Size: </label>
-            <select name="size" id="size" class="form-select">
+
+      <form>
+        <div>
+          <label htmlFor="name">Product Name: </label>
+          <input type="text" name="name" id="name" placeholder="Enter Product Name" onChange={handleChange} />
+        </div>
+        <div>
+          <label htmlFor="type">Product Type: </label>
+          <select name="type" id="type" onChange={handleChange}>
+            <option value="Apparel">Apparel</option>
+            <option value="Footwear">Footwear</option>
+            <option value="Football">Football</option>
+            <option value="Basketball">Basketball</option>
+            <option value="Tennis">Tennis</option>
+          </select>
+        </div>
+        <div>
+          <label htmlFor="description">Description: </label>
+          <textarea name="description" id="description" cols="30" rows="10"
+            placeholder="Write Product Details..." onChange={handleChange}></textarea>
+        </div>
+        <div>
+          <label htmlFor="quantity">Quantity: </label>
+          <input type="number" id="quantity" name="quantity" min="1" max="5" placeholder="0" onChange={handleChange} />
+        </div>
+        <div>
+          <label htmlFor="size">Size: </label>
+          <select name="size" id="size" onChange={handleChange}>
             <optgroup label="apparel-choices">
               <option value="S">S</option>
               <option value="M">M</option>
               <option value="L">L</option>
               <option value="XL">XL</option>
-              </optgroup>
+            </optgroup>
             <optgroup label="footwear-choices">
               <option value="40">40</option>
               <option value="41">41</option>
@@ -194,24 +224,24 @@ export default function HomePage() {
               <option value="46">46</option>
               <option value="47">47</option>
               <option value="48">48</option>
-              </optgroup>
-            </select>
-          </div>
-          <div class="form-group row">
-            <label for="color">Color: </label>
-            <select multiple name="color" id="color" class="form-select">
-              <option value="Black">Black</option>
-              <option value="Beige">Beige</option>
-              <option value="Blue">Blue</option>
-              <option value="Green">Green</option>
-              <option value="White">White</option>
-              <option value="Red">Red</option>
-              <option value="Yellow">Yellow</option>
-              <option value="Orange">Orange</option>
-            </select>
-          </div>
-          <input type="submit" value="Add Product" class="button-5 product-submit"/>
-        </form>
+            </optgroup>
+          </select>
+        </div>
+        <div>
+          <label htmlFor="color">Color: </label>
+          <select multiple name="color" id="color" onChange={handleChange}>
+            <option value="Black">Black</option>
+            <option value="Beige">Beige</option>
+            <option value="Blue">Blue</option>
+            <option value="Green">Green</option>
+            <option value="White">White</option>
+            <option value="Red">Red</option>
+            <option value="Yellow">Yellow</option>
+            <option value="Orange">Orange</option>
+          </select>
+        </div>
+        <input type="submit" onClick={handleSubmit} value="Add Product" />
+      </form>
 
     </>
   )

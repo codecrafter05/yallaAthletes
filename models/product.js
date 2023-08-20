@@ -21,12 +21,12 @@ const productSchema = new Schema({
 
   photo:{
     type: String,
-    required: true
+
   },
 
   price:{
     type: Number,
-    required: true,
+
   },
 
   quantity:{
@@ -41,13 +41,13 @@ const productSchema = new Schema({
 
   size:{
     type: String,
-    enum:['S, M, L, XL, 40, 41, 42, 43, 44, 45, 46, 47, 48'],
+    enum:['S', 'M', 'L', 'XL', '40', '41', '42', '43', '44', '45', '46', '47', '48'],
     required: true
   },
 
   color:{
     type: String,
-    enum:['Black, Beige, Blue, Green, White, Red, Yellow, Orange, Pink'],
+    enum:['Black', 'Beige', 'Blue', 'Green', 'White', 'Red', 'Yellow', 'Orange', 'Pink'],
     required: true
   },
 }, {
