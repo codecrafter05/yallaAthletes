@@ -4,7 +4,7 @@ import bgImage from '../../assets/bg.jpeg';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import { CardActionArea } from '@mui/material';
+import { CardActionArea, Container } from '@mui/material';
 import { Link } from 'react-router-dom';
 import Footer from '../../components/Newspagecomponents/Footer';
 import axios from 'axios';
@@ -16,6 +16,7 @@ import meImage from '../../assets/me.jpg';
 import hamadImage from '../../assets/hamad.jpg';
 import azizImage from '../../assets/aziz.jpg';
 import abbasImage from '../../assets/abbas.jpg';
+
 
 
 
@@ -51,77 +52,87 @@ export default function HomePage() {
   };
 
   return (
-    <> <article className='article'>
-    <div className='video-container'>
-      <video className='video' autoPlay loop muted>
-        <source src={vi1mp4} type='video/mp4' />
-      </video>
-    </div>
-    <Typography variant="h2" className='head'><h1>yallaAthletes</h1></Typography>
-  </article>
-      <Typography variant="h4"><h1>Check us out!</h1></Typography>
+    <> 
+   <div className='video-container'>
+  {/* <video className='video' autoPlay loop muted>
+    <source src={vi1mp4} type='video/mp4' />
+  </video> */}
+  <Typography variant="h1" className="typography-overlay">
+    yallaAthletes
+  </Typography>
+</div>
+<div className="boxContainer">
+  <Typography variant="h4">Check us out!</Typography>
 
-      <Card className="boxContainer">
-        <CardActionArea  component={Link} to='/athletes'>
+  <div className="cards-container">
+    <Card className="card-with-overlay">
+      <CardActionArea component={Link} to='/athletes'>
+        <div className="image-container">
           <CardMedia
             component="img"
-            height="140"
             image={ggImage}
             alt="green iguana"
           />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              Your Target 
+          <div className="overlay-text">
+            <Typography variant="h5" component="div">
+              Athlete
             </Typography>
-            <Typography variant="body2" color="text.secondary">
-            "Your aim is to reach the impossible. Through determination and perseverance, along with hard work and creativity, you can turn challenges into opportunities and transform dreams into reality. The journey to success might be demanding, but with dedication and belief in your abilities, you'll continue moving forward towards achieving the seemingly unattainable."
-            </Typography>
-          </CardContent>
-        </CardActionArea>
+         
+          </div>
+        </div>
+      </CardActionArea>
+    </Card>
 
-        <CardActionArea component={Link} to='/products'>
+    <Card className="card-with-overlay">
+      <CardActionArea component={Link} to='/products'>
+        <div className="image-container">
           <CardMedia
             component="img"
-            height="140"
-            image={prImage}
+            image={ggImage}
             alt="green iguana"
           />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
+          <div className="overlay-text">
+            <Typography variant="h5" component="div">
               Products
             </Typography>
-            <Typography variant="body2" color="text.secondary">
-            "Experience a premium fitness journey with stylish and high-quality sportswear."
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-
-        <CardActionArea component={Link} to='/news' className="box large-box" >
+           
+          </div>
+        </div>
+      </CardActionArea>
+    </Card>
+    
+    <Card className="card-with-overlay">
+      <CardActionArea component={Link} to='/news'>
+        <div className="image-container">
           <CardMedia
             component="img"
-            height="800"
-            image={inImage}
+            image={ggImage}
             alt="green iguana"
-            
           />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
+          <div className="overlay-text">
+            <Typography variant="h5" component="div">
               News
             </Typography>
-            <Typography variant="body2" color="text.secondary">
-            Stay updated on the latest local and global events and developments. Explore comprehensive and reliable reports covering various fields and issues, and enjoy live coverage of important events.
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-      </Card>
+            {/* <Typography variant="body2" color="text.secondary">
+              Stay updated on the latest local and global events...
+            </Typography> */}
+          </div>
+        </div>
+      </CardActionArea>
+    </Card>
+  </div>
+</div>
+
+
+
 
       <Typography variant="h4">About Us</Typography>
 
-      <Card className="devContainer">
-        <card>
+      
+      <div className="flex-row-container">
+        <Card className="card-with-flex">
           <CardMedia
             component="img"
-            height="140"
             image={meImage}
             alt="green iguana"
             className="ms-image"
@@ -131,19 +142,17 @@ export default function HomePage() {
               Sayed Mustafa
             </Typography>
             <Typography variant="body2" color="text.secondary">
-             software engineer and web developer with previous experience at Google and Netflix. Currently, I am working with ChatGPT to create amazing AI-powered solutions.
+            Lizards are a widespread group of squamate reptiles, with over 6,000
             </Typography>
           </CardContent>
-      </card>
+        </Card>
 
-        <Card>
+        <Card className="card-with-flex">
           <CardMedia
             component="img"
-            height="140"
             image={azizImage}
             alt="green iguana"
             className="ms-image"
-
           />
           <CardContent className="us">
             <Typography gutterBottom variant="h5" component="div">
@@ -151,19 +160,16 @@ export default function HomePage() {
             </Typography>
             <Typography variant="body2" color="text.secondary">
               Lizards are a widespread group of squamate reptiles, with over 6,000
-              species, ranging across all continents except Antarctica
             </Typography>
           </CardContent>
         </Card>
 
-        <card>
+        <Card className="card-with-flex">
           <CardMedia
             component="img"
-            height="140"
             image={hamadImage}
             alt="green iguana"
             className="ms-image"
-
           />
           <CardContent className="us">
             <Typography gutterBottom variant="h5" component="div">
@@ -171,15 +177,13 @@ export default function HomePage() {
             </Typography>
             <Typography variant="body2" color="text.secondary">
               Lizards are a widespread group of squamate reptiles, with over 6,000
-              species, ranging across all continents except Antarctica
             </Typography>
           </CardContent>
-      </card>
+        </Card>
 
-        <card>
+        <Card className="card-with-flex">
           <CardMedia
             component="img"
-            height="140"
             image={abbasImage}
             alt="green iguana"
             className="ms-image"
@@ -190,79 +194,17 @@ export default function HomePage() {
             </Typography>
             <Typography variant="body2" color="text.secondary">
               Lizards are a widespread group of squamate reptiles, with over 6,000
-              species, ranging across all continents except Antarctica
             </Typography>
           </CardContent>
-        </card>
-      </Card>
-
+        </Card>
+      </div>
+    
       
       <Footer
         title="Unleash Your Potential, Conquer the Field"
         description="Calls for expansion and reaching your fullest potential in the sports arena.!" />
 
-      <form>
-        <div>
-          <label htmlFor="name">Product Name: </label>
-          <input type="text" name="name" id="name" placeholder="Enter Product Name" onChange={handleChange} />
-        </div>
-        <div>
-          <label htmlFor="type">Product Type: </label>
-          <select name="type" id="type" onChange={handleChange}>
-            <option value="Apparel">Apparel</option>
-            <option value="Footwear">Footwear</option>
-            <option value="Football">Football</option>
-            <option value="Basketball">Basketball</option>
-            <option value="Tennis">Tennis</option>
-          </select>
-        </div>
-        <div>
-          <label htmlFor="description">Description: </label>
-          <textarea name="description" id="description" cols="30" rows="10"
-            placeholder="Write Product Details..." onChange={handleChange}></textarea>
-        </div>
-        <div>
-          <label htmlFor="quantity">Quantity: </label>
-          <input type="number" id="quantity" name="quantity" min="1" max="5" placeholder="0" onChange={handleChange} />
-        </div>
-        <div>
-          <label htmlFor="size">Size: </label>
-          <select name="size" id="size" onChange={handleChange}>
-            <optgroup label="apparel-choices">
-              <option value="S">S</option>
-              <option value="M">M</option>
-              <option value="L">L</option>
-              <option value="XL">XL</option>
-            </optgroup>
-            <optgroup label="footwear-choices">
-              <option value="40">40</option>
-              <option value="41">41</option>
-              <option value="42">42</option>
-              <option value="43">43</option>
-              <option value="44">44</option>
-              <option value="45">45</option>
-              <option value="46">46</option>
-              <option value="47">47</option>
-              <option value="48">48</option>
-            </optgroup>
-          </select>
-        </div>
-        <div>
-          <label htmlFor="color">Color: </label>
-          <select multiple name="color" id="color" onChange={handleChange}>
-            <option value="Black">Black</option>
-            <option value="Beige">Beige</option>
-            <option value="Blue">Blue</option>
-            <option value="Green">Green</option>
-            <option value="White">White</option>
-            <option value="Red">Red</option>
-            <option value="Yellow">Yellow</option>
-            <option value="Orange">Orange</option>
-          </select>
-        </div>
-        <input type="submit" onClick={handleSubmit} value="Add Product" />
-      </form>
-
+      
     </>
   )
 }
