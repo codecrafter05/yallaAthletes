@@ -10,6 +10,7 @@ import ProfilePage from '../ProfilePage/ProfilePage';
 import NewsPage from '../NewsPage/NewsPage';
 import Cart from '../Cart/Cart';
 import './App.css';
+import Products from '../Products/Products';
 
 function App() {
   const [user, setUser] = useState(getUser());
@@ -27,6 +28,7 @@ function App() {
             <Route path="/news" element={<NewsPage />} />
             <Route path="/profile" element={<ProfilePage user={user} />} />
             <Route path="/cart" element={<Cart user={user} />} />
+            <Route path='/products' element={<Products user={user} />} />
 
           </Routes>
         </>
