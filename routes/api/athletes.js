@@ -9,12 +9,13 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
 // GET /api/athletes
 router.get('/', athletesCtrl.getAthlete);
+// GET /api/athletes/all
+router.get('/allApproved', athletesCtrl.getAllApprovedAthletes);
 // POST /api/athletes
 router.post('/', ensureLoggedIn, athletesCtrl.create);
 // DELETE /api/athletes/:athleteId
 router.delete('/', athletesCtrl.deleteAthlete);
-// GET /api/athletes/all
-router.get('/', athletesCtrl.getAllApprovedAthletes);
+
 
 
 module.exports = router;
