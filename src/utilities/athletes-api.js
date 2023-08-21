@@ -10,6 +10,10 @@ export async function getAthlete() {
   return sendRequest(BASE_URL);
 }
 
+export async function getAllApprovedAthletes() {
+  return sendRequest(BASE_URL);
+}
+
 export async function deleteAthlete() {
   return sendRequest(BASE_URL, 'DELETE');
 }

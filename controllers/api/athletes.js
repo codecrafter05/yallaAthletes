@@ -3,7 +3,8 @@ const Athlete = require('../../models/athlete');
 module.exports = {
   create,
   getAthlete,
-  deleteAthlete
+  deleteAthlete,
+  getAllApprovedAthletes,
 };
 
 async function create(req, res) {
@@ -23,6 +24,16 @@ async function getAthlete(req, res) {
     res.json(athlete);
   } catch (err) {
     console.error('Error fetching athlete data:', err);
+    res.status(400).json(err);
+  }
+}
+
+// Get all athletes, that status is Approved 
+async function getAllApprovedAthletes(req, res) {
+  try {
+    const athletes = await Athlete.find({ status: 'Approved' });
+    res.json(athletes);
+  } catch (err) {
     res.status(400).json(err);
   }
 }
