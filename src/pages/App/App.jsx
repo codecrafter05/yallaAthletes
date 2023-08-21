@@ -11,6 +11,7 @@ import NewsPage from '../NewsPage/NewsPage';
 import DashboardPage from '../DashboardPage/DashboardPage'
 import Cart from '../Cart/Cart';
 import './App.css';
+import Products from '../Products/Products';
 
 function App() {
   const [user, setUser] = useState(getUser());
@@ -29,6 +30,7 @@ function App() {
             <Route path="/profile" element={<ProfilePage user={user} />} />
             <Route path="/dashboard" element={<DashboardPage/>} />
             <Route path="/cart" element={<Cart user={user} />} />
+            <Route path='/products' element={<Products user={user} />} />
           </Routes>
         </>
         :
