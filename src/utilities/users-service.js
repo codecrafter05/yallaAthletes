@@ -48,6 +48,10 @@ export function updateProfile(updatedUserData) {
   return usersAPI.updateUserProfile(updatedUserData);
 }
 
+export function deleteUser() {
+  return usersAPI.deleteUser();
+}
+
 export function logOut() {
   localStorage.removeItem('token');
 }

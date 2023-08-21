@@ -20,18 +20,18 @@ import vvImage from '../../assets/vv.jpg';
 import ssImage from '../../assets/ss.jpg';
 import nnImage from '../../assets/nn.jpg';
 
-const sections = [
-  { title: 'Technology', url: '#' },
-  { title: 'Design', url: '#' },
-  { title: 'Culture', url: '#' },
-  { title: 'Business', url: '#' },
-  { title: 'Politics', url: '#' },
-  { title: 'Opinion', url: '#' },
-  { title: 'Science', url: '#' },
-  { title: 'Health', url: '#' },
-  { title: 'Style', url: '#' },
-  { title: 'Travel', url: '#' },
-];
+// const sections = [
+//   { title: 'Technology', url: '#' },
+//   { title: 'Design', url: '#' },
+//   { title: 'Culture', url: '#' },
+//   { title: 'Business', url: '#' },
+//   { title: 'Politics', url: '#' },
+//   { title: 'Opinion', url: '#' },
+//   { title: 'Science', url: '#' },
+//   { title: 'Health', url: '#' },
+//   { title: 'Style', url: '#' },
+//   { title: 'Travel', url: '#' },
+// ];
 
 
 
@@ -44,24 +44,24 @@ const sections = [
 //   linkText: 'Continue reading…',
 // };
 
-const featuredPosts = [
-  {
-    title: 'Featured post',
-    date: 'Nov 12',
-    description:
-      'This is a wider card with supporting text below as a natural lead-in to additional content.',
-    image: 'https://source.unsplash.com/random?wallpapers',
-    imageLabel: 'Image Text',
-  },
-  {
-    title: 'Post title',
-    date: 'Nov 11',
-    description:
-      'This is a wider card with supporting text below as a natural lead-in to additional content.',
-    image: 'https://source.unsplash.com/random?wallpapers',
-    imageLabel: 'Image Text',
-  },
-];
+// const featuredPosts = [
+//   {
+//     title: 'Featured post',
+//     date: 'Nov 12',
+//     description:
+//       'This is a wider card with supporting text below as a natural lead-in to additional content.',
+//     image: 'https://source.unsplash.com/random?wallpapers',
+//     imageLabel: 'Image Text',
+//   },
+//   {
+//     title: 'Post title',
+//     date: 'Nov 11',
+//     description:
+//       'This is a wider card with supporting text below as a natural lead-in to additional content.',
+//     image: 'https://source.unsplash.com/random?wallpapers',
+//     imageLabel: 'Image Text',
+//   },
+// ];
 
 
 

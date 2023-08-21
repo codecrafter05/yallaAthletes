@@ -3,6 +3,7 @@ const Athlete = require('../../models/athlete');
 module.exports = {
   create,
   getAthlete,
+  deleteAthlete
 };
 
 async function create(req, res) {
@@ -23,5 +24,15 @@ async function getAthlete(req, res) {
   } catch (err) {
     console.error('Error fetching athlete data:', err);
     res.status(400).json(err);
+  }
+}
+
+async function deleteAthlete(req, res) {
+  try {
+    // Delete the athlete by user ID
+    await Athlete.findOneAndDelete({ user: req.user._id });
+    res.json({ message: 'Athlete deleted successfully' });
+  } catch (error) {
+    res.status(500).json({ error: 'Error deleting athlete' });
   }
 }

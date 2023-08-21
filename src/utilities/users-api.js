@@ -22,6 +22,10 @@ export async function updateUserProfile(updatedUserData) {
   return sendRequest(`${BASE_URL}/profile`, 'PUT', updatedUserData);
 }
 
+export async function deleteUser() {
+  return sendRequest(BASE_URL, 'DELETE');
+}
+
 export function checkToken() {
   return sendRequest(`${BASE_URL}/check-token`);
 }
