@@ -17,8 +17,39 @@
 //     );
 // }
 
-export default function AthleteCard ({athlete}) {
-    return (
-        <h1>{athlete.user}</h1>
-    );
+import { Card, CardContent, Typography } from "@mui/material";
+
+export default function AthleteCard({ athlete }) {
+
+  return (
+    <Card>
+      <CardContent>
+        <Typography variant="h5" component="h2">
+          {athlete.user.name} {/* Assuming 'name' is a property of the user object */}
+        </Typography>
+        <Typography color="textSecondary">
+          Sport: {athlete.sportType}
+        </Typography>
+        {/* Display other athlete details using Typography components */}
+        <Typography color="textSecondary">
+          Personal Record: {athlete.personalRecord || "N/A"}
+        </Typography>
+        <Typography color="textSecondary">
+          Height: {athlete.height} cm
+        </Typography>
+        <Typography color="textSecondary">
+          Weight: {athlete.weight} kg
+        </Typography>
+        <Typography color="textSecondary">
+          Achievements: {athlete.achievements || "None"}
+        </Typography>
+        <Typography color="textSecondary">
+          Socials: {athlete.socials || "None"}
+        </Typography>
+        <Typography color="textSecondary">
+          Status: {athlete.status}
+        </Typography>
+      </CardContent>
+    </Card>
+  );
 }
