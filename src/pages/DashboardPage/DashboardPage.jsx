@@ -1,9 +1,7 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
-import CssBaseline from '@mui/material/CssBaseline';
 import List from '@mui/material/List';
-import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -16,9 +14,8 @@ import * as userService from '../../utilities/users-service';
 
 const drawerWidth = 240;
 
-export default function PermanentDrawerLeft({user, setUser}) {
+export default function PermanentDrawerLeft({ user, setUser }) {
 
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   function handleLogOut() {
@@ -31,11 +28,10 @@ export default function PermanentDrawerLeft({user, setUser}) {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-  
+
 
   return (
     <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
       <Drawer
         sx={{
           width: drawerWidth,
@@ -43,6 +39,7 @@ export default function PermanentDrawerLeft({user, setUser}) {
           '& .MuiDrawer-paper': {
             marginTop: '68.5px',
             width: drawerWidth,
+            height: '91%',
             boxSizing: 'border-box',
             position: 'absolute',
           },

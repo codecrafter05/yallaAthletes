@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Typography from '@mui/material/Typography';
 import bgImage from '../../assets/bg.jpeg'
 import Card from '@mui/material/Card';
@@ -6,22 +6,25 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { CardActionArea } from '@mui/material';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import { createA_Product } from '../../utilities/products-services';
 
 
 export default function HomePage() {
 
-  const [data, setData] = useState({
+  const initialProductData = {
     name: '',
     type: 'Apparel',
     description: '',
     quantity: 0,
     size: 'S',
     color: ['Black'],
-  });
+    photo: ''
+  };
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
+  const [data, setData] = useState(initialProductData);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
     setData((prevData) => ({
       ...prevData,
       [name]: value,
@@ -29,14 +32,26 @@ export default function HomePage() {
     console.log(data)
   };
 
+  const handleChangeMutiple = (e) => {
+    const { name, options } = e.target;
+    const selectedValues = Array.from(options)
+      .filter((option) => option.selected)
+      .map((option) => option.value);
+  
+    setData((prevData) => ({
+      ...prevData,
+      [name]: selectedValues,
+    }));
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
-      const response = await axios.post("/api/products", data);
-      console.log('Product created:', response);
-    } catch (error) {
-      console.error('Error creating product:', error);
+      const product = await createA_Product(setData);
+      console.log('New Product:', product);
+      setData(initialProductData);
+    } catch (err) {
+      console.error('Error creating product:', err);
     }
   };
 
@@ -183,7 +198,7 @@ export default function HomePage() {
         </CardActionArea>
       </Card>
 
-      <form>
+      <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name">Product Name: </label>
           <input type="text" name="name" id="name" placeholder="Enter Product Name" onChange={handleChange} />
@@ -242,7 +257,8 @@ export default function HomePage() {
             <option value="Orange">Orange</option>
           </select>
         </div>
-        <input type="submit" onClick={handleSubmit} value="Add Product" />
+        <input type="file" name="photo" id='photo' accept="image/*"/>
+        <button type="submit">Add Product</button>
       </form>
 
     </>
