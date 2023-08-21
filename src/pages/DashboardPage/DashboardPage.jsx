@@ -13,14 +13,11 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import { Link } from 'react-router-dom';
 import * as userService from '../../utilities/users-service';
-import './Dashboard.css'
+import './Dashboard.css';
+
 const drawerWidth = 240;
 
-export default function PermanentDrawerLeft({ user, setUser }) {
-
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
-
+export default function Sidebar({ user, setUser }) {
   function handleLogOut() {
     // Remove token using the user service
     userService.logOut();
@@ -28,15 +25,10 @@ export default function PermanentDrawerLeft({ user, setUser }) {
     setUser(null);
   }
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
-
   return (
-    <Box className="divider-left" sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <Drawer className='sidebar-style'
+      <Drawer
         sx={{
           width: drawerWidth,
           flexShrink: 0,
@@ -65,18 +57,14 @@ export default function PermanentDrawerLeft({ user, setUser }) {
         </List>
         <Divider />
         <List>
-          {['Logout'].map((text, index) => (
-            <ListItem key={text} disablePadding onClick={text === 'Logout' ? handleLogOut : handleCloseUserMenu}
-              component={Link}
-              to={`/${text}`}>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
+          <ListItem key="Logout" disablePadding onClick={handleLogOut} component={Link} to="/Logout">
+            <ListItemButton>
+              <ListItemIcon>
+                <MailIcon />
+              </ListItemIcon>
+              <ListItemText primary="Logout" />
+            </ListItemButton>
+          </ListItem>
         </List>
       </Drawer>
     </Box>

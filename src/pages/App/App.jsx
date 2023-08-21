@@ -34,14 +34,14 @@ function App() {
             <Route path="/athletes" element={<AthletePage />} />
             <Route path="/news" element={<NewsPage />} />
             <Route path="/profile" element={<ProfilePage user={user} />} />
-            <Route path="/dashboard" element={<DashboardPage user={user}/>} />
+            <Route path="/dashboard" element={<DashboardPage user={user} />} />
             <Route path="/cart" element={<Cart user={user} />} />
             <Route path="/dashboard/profile" element={<ProfileDashboardPage />} />
-            <Route path="/dashboard/users" element={<UsersDashboardPage/>} />
-            <Route path="/dashboard/athletes" element={<AthletesDashboardPage/>} />
-            <Route path="/dashboard/manager" element={<ManagerPageDashboard/>} />
-            <Route path="/dashboard/products" element={<ProductsPageDashboard/>} />
-            <Route path="/dashboard/news" element={<NewsPageDashboard/>} />
+            <Route path="/dashboard/users" element={<UsersDashboardPage />} />
+            <Route path="/dashboard/athletes" element={<AthletePage />} />
+            <Route path="/dashboard/manager" element={<ManagerPageDashboard />} />
+            <Route path="/dashboard/products" element={<ProductsPageDashboard />} />
+            <Route path="/dashboard/news" element={<NewsPageDashboard />} />
             <Route path='/products' element={<Products user={user} />} />
           </Routes>
         </>

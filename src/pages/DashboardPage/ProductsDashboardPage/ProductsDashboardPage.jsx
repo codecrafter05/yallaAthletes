@@ -1,9 +1,22 @@
 import DashboardPage from '../DashboardPage'
+import Products from '../../Products/Products'
+import { Box, Container } from '@mui/material'
+export default function ProductsPageDashboard() {
+  return (
 
-export default function ProductsPageDashboard(){
-  return( <>
-    <DashboardPage />
-    <h1>Products</h1>
+
+    <>
+
+      <Container sx={{ display: 'grid', gridTemplateColumns: 'auto 1fr' }}>
+        <Box>
+          <DashboardPage />
+        </Box>
+        <Box sx={{ backgroundColor: "red" }}>
+          <h1>Products</h1>
+          <Products />
+        </Box>
+      </Container>
     </>
   )
 }
+

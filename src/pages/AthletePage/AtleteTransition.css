@@ -18,3 +18,52 @@
         transform: translateX(0);
     }
 }
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    min-height: 300px;
+    /* min-width: 200px; */
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.card-container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    filter: brightness(95%);
+}
+
+.card-image {
+    flex: 1;
+    height: 150px;
+    transition: filter 0.3s;
+}
+
+.card-content {
+    flex: 0 0 auto;
+    padding: 8px;
+
+}
+
+.card-name {
+    font-weight: bold;
+}
+
+.card-sport {
+    color: gray;
+}
+
+.card-wrapper {
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.links {
+    font-size: 12px;
+    text-decoration: none;
+
+}
