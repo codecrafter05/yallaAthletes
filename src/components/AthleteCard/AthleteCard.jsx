@@ -17,8 +17,8 @@
 //     );
 // }
 
-export default function AthleteCard () {
+export default function AthleteCard ({athlete}) {
     return (
-        <h1>Athlete Card</h1>
+        <h1>{athlete.user}</h1>
     );
 }

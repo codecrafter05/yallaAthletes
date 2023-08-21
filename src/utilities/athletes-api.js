@@ -11,7 +11,7 @@ export async function getAthlete() {
 }
 
 export async function getAllApprovedAthletes() {
-  return sendRequest(BASE_URL);
+  return sendRequest(`${BASE_URL}/allApproved`);
 }
 
 export async function deleteAthlete() {

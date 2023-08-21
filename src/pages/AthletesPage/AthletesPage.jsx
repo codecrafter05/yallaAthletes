@@ -14,7 +14,7 @@ export default function AthletePage() {
     try {
       const response = await getAllApprovedAthletes();
       console.log(response);
-      setAthletes(response); // Update the state with the entire response object
+      setAthletes(response);
     } catch (error) {
       console.error("Error fetching approved athletes:", error);
     }
@@ -24,12 +24,15 @@ export default function AthletePage() {
     <Container>
       <h1>Athlete Page</h1>
       <hr />
-      {Object.keys(athletes).map((athleteId) => (
-        <div key={athleteId}>{athleteId}</div>
-      ))}
       {/* {Object.keys(athletes).map((athleteId) => (
-        <AthleteCard key={athleteId} athlete={athletes[athleteId]} />
+        <div key={athleteId}>{athleteId}</div>
       ))} */}
+      {Object.keys(athletes).map((athleteId) => {
+        const athlete = athletes[athleteId];
+        return (
+          <AthleteCard key={athleteId} athlete={athlete} />
+        );
+      })}
     </Container>
   );
 }
