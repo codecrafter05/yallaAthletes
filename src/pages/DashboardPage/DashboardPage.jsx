@@ -13,10 +13,10 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import { Link } from 'react-router-dom';
 import * as userService from '../../utilities/users-service';
-
+import './Dashboard.css'
 const drawerWidth = 240;
 
-export default function PermanentDrawerLeft({user, setUser}) {
+export default function PermanentDrawerLeft({ user, setUser }) {
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -31,12 +31,12 @@ export default function PermanentDrawerLeft({user, setUser}) {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-  
+
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box className="divider-left" sx={{ display: 'flex' }}>
       <CssBaseline />
-      <Drawer
+      <Drawer className='sidebar-style'
         sx={{
           width: drawerWidth,
           flexShrink: 0,
@@ -51,9 +51,9 @@ export default function PermanentDrawerLeft({user, setUser}) {
         anchor="left"
       >
         <Divider />
-        <List>
+        <List className='list'>
           {['Profile', 'Users', 'Athletes', 'Manager', 'Products', 'News'].map((text, index) => (
-            <ListItem key={text} disablePadding component={Link} to={`/Dashboard/${text}`}>
+            <ListItem className='links' key={text} disablePadding component={Link} to={`/Dashboard/${text}`}>
               <ListItemButton>
                 <ListItemIcon>
                   {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
