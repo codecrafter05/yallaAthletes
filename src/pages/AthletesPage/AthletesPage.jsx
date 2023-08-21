@@ -4,10 +4,9 @@ import { Container } from "@mui/material";
 import { getAllApprovedAthletes } from "../../utilities/athletes-service"; 
 
 export default function AthletePage() {
-  const [athletes, setAthletes] = useState([]);
+  const [athletes, setAthletes] = useState({}); // Initialize as an object
 
   useEffect(() => {
-    // Fetch the approved athletes when the component mounts
     fetchApprovedAthletes();
   }, []);
 
@@ -15,7 +14,7 @@ export default function AthletePage() {
     try {
       const response = await getAllApprovedAthletes();
       console.log(response);
-      setAthletes(response.data); // Assuming the API response returns the athlete data
+      setAthletes(response); // Update the state with the entire response object
     } catch (error) {
       console.error("Error fetching approved athletes:", error);
     }
@@ -25,9 +24,12 @@ export default function AthletePage() {
     <Container>
       <h1>Athlete Page</h1>
       <hr />
-      {athletes.map((athlete) => (
-        <AthleteCard key={athlete._id} athlete={athlete} />
+      {Object.keys(athletes).map((athleteId) => (
+        <div key={athleteId}>{athleteId}</div>
       ))}
+      {/* {Object.keys(athletes).map((athleteId) => (
+        <AthleteCard key={athleteId} athlete={athletes[athleteId]} />
+      ))} */}
     </Container>
   );
 }
