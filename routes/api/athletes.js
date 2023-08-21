@@ -13,6 +13,8 @@ router.get('/', athletesCtrl.getAthlete);
 router.post('/', ensureLoggedIn, athletesCtrl.create);
 // DELETE /api/athletes/:athleteId
 router.delete('/', athletesCtrl.deleteAthlete);
+// GET /api/athletes/all
+router.get('/', athletesCtrl.getAllApprovedAthletes);
 
 
 module.exports = router;
