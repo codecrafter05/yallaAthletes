@@ -5,7 +5,7 @@ import AuthPage from '../AuthPage/AuthPage';
 import NewOrderPage from '../NewOrderPage/NewOrderPage';
 import NavBar from '../../components/NavBar/NavBar';
 import HomePage from '../HomePage/HomePage';
-import AthletePage from '../AthletePage/AthletePage';
+import AthletesListPage from '../AthletesListPage/AthletesListPage';
 import ProfilePage from '../ProfilePage/ProfilePage';
 import NewsPage from '../NewsPage/NewsPage';
 import DashboardPage from '../DashboardPage/DashboardPage'
@@ -17,6 +17,7 @@ import ManagerPageDashboard from '../DashboardPage/ManagerDashboardPage/ManagerD
 import ProductsPageDashboard from '../DashboardPage/ProductsDashboardPage/ProductsDashboardPage'
 import NewsPageDashboard from '../DashboardPage/NewsDashboardPage/NewsDashboardPage'
 import './App.css';
+// import Products from '../Products/Products';
 
 function App() {
   const [user, setUser] = useState(getUser());
@@ -30,7 +31,7 @@ function App() {
             {/* Route components in here */}
             <Route path="/" element={<HomePage />} />
             <Route path="/api/products" element={<NewOrderPage />} />
-            <Route path="/athletes" element={<AthletePage />} />
+            <Route path="/athletes" element={<AthletesListPage />} />
             <Route path="/news" element={<NewsPage />} />
             <Route path="/profile" element={<ProfilePage user={user} />} />
             <Route path="/dashboard" element={<DashboardPage user={user}/>} />
@@ -41,6 +42,7 @@ function App() {
             <Route path="/dashboard/manager" element={<ManagerPageDashboard/>} />
             <Route path="/dashboard/products" element={<ProductsPageDashboard/>} />
             <Route path="/dashboard/news" element={<NewsPageDashboard/>} />
+            {/* <Route path='/products' element={<Products user={user} />} /> */}
           </Routes>
         </>
         :

@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Stepper, Step, StepLabel, Button, Typography, List, ListItem, ListItemText, TextField, Container, Grid } from '@mui/material';
+import './stepperstyle.css'
+
 
 const CartStepper = () => {
     const [activeStep, setActiveStep] = useState(0);
@@ -17,118 +19,151 @@ const CartStepper = () => {
     });
     const [paymentMethod, setPaymentMethod] = useState('');
 
+    function getTotalPrice(cartItems) {
+        let totalPrice = 0;
+        for (const item of cartItems) {
+            totalPrice += item.price * item.quantity;
+        }
+        return totalPrice;
+    }
+
     const steps = [
         {
             label: 'Show the items in the cart and the total price',
             content: (
-                <div>
-                    <Typography variant="h6">Cart Items</Typography>
+                <Container className='gg'>
+                    <Typography variant="h5">Cart Items</Typography>
                     <List>
                         {cartItems.map((item, index) => (
+
                             <ListItem key={index}>
-                                <ListItemText primary={item.product} secondary={`Quantity: ${item.quantity} - Price: $${item.price}`} />
+                                <ListItemText
+                                    primary={item.product}
+                                    secondary={`Quantity: ${item.quantity} - Price: BD ${item.price}`}
+                                />
                             </ListItem>
                         ))}
                     </List>
-                    <Typography variant="h6">Total Price: $XX.XX</Typography>
-                </div>
+
+                </Container>
             ),
         },
         {
             label: 'Submit the delivery information',
             content: (
-                <div>
-                    <Typography variant="h6">Delivery Information</Typography>
-                    <Container maxWidth="sm">
-                        <Grid container spacing={2}>
-                            <Grid item xs={12}>
-                                <Typography variant="subtitle1">Country</Typography>
-                                <TextField
-                                    fullWidth
-                                    value={shippingAddress.country}
-                                    onChange={(e) => setShippingAddress({ ...shippingAddress, country: e.target.value })}
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <Typography variant="subtitle1">City</Typography>
-                                <TextField
-                                    fullWidth
-                                    value={shippingAddress.city}
-                                    onChange={(e) => setShippingAddress({ ...shippingAddress, city: e.target.value })}
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <Typography variant="subtitle1">House No</Typography>
-                                <TextField
-                                    fullWidth
-                                    value={shippingAddress.houseNo}
-                                    onChange={(e) => setShippingAddress({ ...shippingAddress, houseNo: e.target.value })}
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <Typography variant="subtitle1">Block No</Typography>
-                                <TextField
-                                    fullWidth
-                                    value={shippingAddress.blockNo}
-                                    onChange={(e) => setShippingAddress({ ...shippingAddress, blockNo: e.target.value })}
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <Typography variant="subtitle1">Road No</Typography>
-                                <TextField
-                                    fullWidth
-                                    value={shippingAddress.roadNo}
-                                    onChange={(e) => setShippingAddress({ ...shippingAddress, roadNo: e.target.value })}
-                                />
-                            </Grid>
+                <Container className='gg'>
+                    <Typography variant="h5">Delivery Information</Typography>
+
+                    <Grid container spacing={2}>
+                        <Grid item xs={12}>
+                            <TextField
+                                fullWidth
+                                value={shippingAddress.country}
+                                onChange={(e) => setShippingAddress({ ...shippingAddress, country: e.target.value })}
+                                placeholder="Country"
+                            />
                         </Grid>
-                    </Container>
-                </div>
+                        <Grid item xs={12}>
+                            <TextField
+                                fullWidth
+                                value={shippingAddress.city}
+                                onChange={(e) => setShippingAddress({ ...shippingAddress, city: e.target.value })}
+                                placeholder="City"
+                            />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField
+                                fullWidth
+                                value={shippingAddress.houseNo}
+                                onChange={(e) => setShippingAddress({ ...shippingAddress, houseNo: e.target.value })}
+                                placeholder="House No"
+                            />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField
+                                fullWidth
+                                value={shippingAddress.blockNo}
+                                onChange={(e) => setShippingAddress({ ...shippingAddress, blockNo: e.target.value })}
+                                placeholder="Block No"
+                            />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField
+                                fullWidth
+                                value={shippingAddress.roadNo}
+                                onChange={(e) => setShippingAddress({ ...shippingAddress, roadNo: e.target.value })}
+                                placeholder="Road No"
+                            />
+                        </Grid>
+                    </Grid>
+
+                </Container>
             ),
         },
         {
             label: 'Choose the payment method',
             content: (
-                <div>
-                    <Typography variant="h6">Payment Method</Typography>
-                    <Typography variant="subtitle1">Payment Method</Typography>
+                <Container className='gg'>
+                    <Typography variant="h5">Payment Method</Typography>
                     <TextField
                         fullWidth
                         value={paymentMethod}
                         onChange={(e) => setPaymentMethod(e.target.value)}
+                        placeholder="Payment Method"
                     />
-                </div>
+                </Container>
             ),
         },
         {
             label: 'View the receipt and proceed to payment',
             content: (
-                <div>
-                    <Typography variant="h6">Receipt and Payment Summary</Typography>
+                <Container className='gg'>
+                    <Typography variant="h4">Receipt and Payment Summary</Typography>
 
-                    <Typography variant="h6">Cart Items</Typography>
                     <List>
+                        <Typography variant="h5">Cart Items</Typography>
                         {cartItems.map((item, index) => (
                             <ListItem key={index}>
-                                <ListItemText primary={item.product} secondary={`Quantity: ${item.quantity} - Price: $${item.price}`} />
+                                <ListItemText
+                                    primary={item.product}
+                                    secondary={`Quantity: ${item.quantity} - Price: $${item.price}`}
+                                />
                             </ListItem>
                         ))}
+                        <ListItem primary={`Total Price: BD`}
+                            secondary={`${getTotalPrice(cartItems)}`}
+                        ></ListItem>
                     </List>
 
-                    <Typography variant="h6">Total Price: $XX.XX</Typography>
 
-                    <Typography variant="h6">Delivery Information</Typography>
-                    <Typography variant="subtitle1">Country: {shippingAddress.country}</Typography>
-                    <Typography variant="subtitle1">City: {shippingAddress.city}</Typography>
-                    <Typography variant="subtitle1">House No: {shippingAddress.houseNo}</Typography>
-                    <Typography variant="subtitle1">Block No: {shippingAddress.blockNo}</Typography>
-                    <Typography variant="subtitle1">Road No: {shippingAddress.roadNo}</Typography>
 
-                    <Typography variant="h6">Payment Method</Typography>
-                    <Typography variant="subtitle1">Payment Method: {paymentMethod}</Typography>
+                    <List>
+                        <Typography variant="h6">Delivery Information</Typography>
+                        <ListItem>
+                            <Typography>Country: {shippingAddress.country}</Typography>
+                        </ListItem>
+                        <ListItem>
+                            <Typography variant="subtitle1">City: {shippingAddress.city}</Typography>
+                        </ListItem>
+                        <ListItem>
+                            <Typography variant="subtitle1">House No: {shippingAddress.houseNo}</Typography>
+                        </ListItem>
+                        <ListItem>
+                            <Typography variant="subtitle1">Block No: {shippingAddress.blockNo}</Typography>
+                        </ListItem>
+                        <ListItem>
+                            <Typography variant="subtitle1">Road No: {shippingAddress.roadNo}</Typography>
+                        </ListItem>
+                    </List>
 
-                    <Button variant="contained" color="primary">Proceed to Payment</Button>
-                </div>
+                    <List>
+                        <Typography variant="h6">Payment Method</Typography>
+                        <ListItem>
+                            <Typography variant="subtitle1">Payment Method: {paymentMethod}</Typography>
+                        </ListItem>
+                    </List>
+                </Container>
+
             ),
         }
     ];

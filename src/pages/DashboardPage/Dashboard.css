@@ -1,0 +1,24 @@
+.sidebar-style>* {
+    color: black;
+}
+
+.links {
+    text-decoration: none;
+
+    color: black;
+}
+
+.list a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.list a:hover {
+    text-decoration: none
+}
+
+.divider-left {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background-color: black !important;
+}

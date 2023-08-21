@@ -29,33 +29,41 @@ export default function ProfilePage() {
   const [showEditProfile, setShowEditProfile] = useState(false);
   const [athleteStatus, setAthleteStatus] = useState('');
   const [user, setUser] = useState(getUser());
+  const [athleteUpgrade, setAthleteUpgrade] = useState(false);
 
   const [showConfirmationModal, setShowConfirmationModal] = useState(false);
   const [confirmationAction, setConfirmationAction] = useState(null);
 
   useEffect(() => {
+    console.log(`useEffect user...`);
+    
     async function fetchUserData() {
-      const userData = await getUser();
-      setUser(userData);
+      try {
+        const userData = await getUser();
+        setUser(userData);
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      }
     }
-
+  
     fetchUserData();
-  }, []);
-
+  }, [athleteUpgrade]);
+  
   useEffect(() => {
     const fetchUserAthleteStatus = async () => {
       try {
         const athlete = await getAthlete(user._id);
         setAthleteStatus(athlete.status);
       } catch (error) {
-        console.log('Response ==>', error.response);
+        console.log('Error fetching athlete status:', error.response);
       }
     };
-
+  
     if (user && user._id) {
       fetchUserAthleteStatus();
     }
   }, [user]);
+   
 
   const handleDeleteUser = () => {
     setConfirmationAction('deleteUser');
@@ -93,6 +101,13 @@ export default function ProfilePage() {
     setShowConfirmationModal(false);
   };
 
+  const handleBecomeAthlete = () => {
+    setShowBecomeAthlete(false);
+    setShowEditProfile(false);
+    setAthleteUpgrade(true);
+  };
+
+  console.log(`re-rendering...`);
   return (
     <Container>
       <h1>Profile</h1>
@@ -112,7 +127,7 @@ export default function ProfilePage() {
       {showEditProfile ? (
         <EditUserProfile user={user} setUser={setUser} />
       ) : showBecomeAthlete ? (
-        <BecomeAthlete user={user} />
+        <BecomeAthlete user={user} handleBecomeAthlete={handleBecomeAthlete}/>
       ) : (
         <UserProfile user={user} />
       )}
