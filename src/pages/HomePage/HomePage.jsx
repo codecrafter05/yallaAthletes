@@ -2,7 +2,7 @@ import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import { CardActionArea } from '@mui/material';
+import { CardActionArea, Container } from '@mui/material';
 import { Link } from 'react-router-dom';
 import Footer from '../../components/Newspagecomponents/Footer';
 import vi1mp4 from '../../assets/vi1.mp4';
@@ -19,77 +19,87 @@ export default function HomePage() {
 
 
   return (
-    <> <article className='article'>
-    <div className='video-container'>
-      <video className='video' autoPlay loop muted>
-        <source src={vi1mp4} type='video/mp4' />
-      </video>
-    </div>
-    <Typography variant="h2" className='head'><h1>yallaAthletes</h1></Typography>
-  </article>
-      <Typography variant="h4"><h1>Check us out!</h1></Typography>
+    <> 
+   <div className='video-container'>
+  {/* <video className='video' autoPlay loop muted>
+    <source src={vi1mp4} type='video/mp4' />
+  </video> */}
+  <Typography variant="h1" className="typography-overlay">
+    yallaAthletes
+  </Typography>
+</div>
+<div className="boxContainer">
+  <Typography variant="h4">Check us out!</Typography>
 
-      <Card className="boxContainer">
-        <CardActionArea  component={Link} to='/athletes'>
+  <div className="cards-container">
+    <Card className="card-with-overlay">
+      <CardActionArea component={Link} to='/athletes'>
+        <div className="image-container">
           <CardMedia
             component="img"
-            height="140"
             image={ggImage}
             alt="green iguana"
           />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              Your Target 
+          <div className="overlay-text">
+            <Typography variant="h5" component="div">
+              Athlete
             </Typography>
-            <Typography variant="body2" color="text.secondary">
-            "Your aim is to reach the impossible. Through determination and perseverance, along with hard work and creativity, you can turn challenges into opportunities and transform dreams into reality. The journey to success might be demanding, but with dedication and belief in your abilities, you'll continue moving forward towards achieving the seemingly unattainable."
-            </Typography>
-          </CardContent>
-        </CardActionArea>
+         
+          </div>
+        </div>
+      </CardActionArea>
+    </Card>
 
-        <CardActionArea component={Link} to='/products'>
+    <Card className="card-with-overlay">
+      <CardActionArea component={Link} to='/products'>
+        <div className="image-container">
           <CardMedia
             component="img"
-            height="140"
-            image={prImage}
+            image={ggImage}
             alt="green iguana"
           />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
+          <div className="overlay-text">
+            <Typography variant="h5" component="div">
               Products
             </Typography>
-            <Typography variant="body2" color="text.secondary">
-            "Experience a premium fitness journey with stylish and high-quality sportswear."
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-
-        <CardActionArea component={Link} to='/news' className="box large-box" >
+           
+          </div>
+        </div>
+      </CardActionArea>
+    </Card>
+    
+    <Card className="card-with-overlay">
+      <CardActionArea component={Link} to='/news'>
+        <div className="image-container">
           <CardMedia
             component="img"
-            height="800"
-            image={inImage}
+            image={ggImage}
             alt="green iguana"
-            
           />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
+          <div className="overlay-text">
+            <Typography variant="h5" component="div">
               News
             </Typography>
-            <Typography variant="body2" color="text.secondary">
-            Stay updated on the latest local and global events and developments. Explore comprehensive and reliable reports covering various fields and issues, and enjoy live coverage of important events.
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-      </Card>
+            {/* <Typography variant="body2" color="text.secondary">
+              Stay updated on the latest local and global events...
+            </Typography> */}
+          </div>
+        </div>
+      </CardActionArea>
+    </Card>
+  </div>
+</div>
+
+
+
 
       <Typography variant="h4">About Us</Typography>
 
-      <Card className="devContainer">
-        <card>
+      
+      <div className="flex-row-container">
+        <Card className="card-with-flex">
           <CardMedia
             component="img"
-            height="140"
             image={meImage}
             alt="green iguana"
             className="ms-image"
@@ -99,19 +109,17 @@ export default function HomePage() {
               Sayed Mustafa
             </Typography>
             <Typography variant="body2" color="text.secondary">
-             software engineer and web developer with previous experience at Google and Netflix. Currently, I am working with ChatGPT to create amazing AI-powered solutions.
+            Lizards are a widespread group of squamate reptiles, with over 6,000
             </Typography>
           </CardContent>
-      </card>
+        </Card>
 
-        <Card>
+        <Card className="card-with-flex">
           <CardMedia
             component="img"
-            height="140"
             image={azizImage}
             alt="green iguana"
             className="ms-image"
-
           />
           <CardContent className="us">
             <Typography gutterBottom variant="h5" component="div">
@@ -119,19 +127,16 @@ export default function HomePage() {
             </Typography>
             <Typography variant="body2" color="text.secondary">
               Lizards are a widespread group of squamate reptiles, with over 6,000
-              species, ranging across all continents except Antarctica
             </Typography>
           </CardContent>
         </Card>
 
-        <card>
+        <Card className="card-with-flex">
           <CardMedia
             component="img"
-            height="140"
             image={hamadImage}
             alt="green iguana"
             className="ms-image"
-
           />
           <CardContent className="us">
             <Typography gutterBottom variant="h5" component="div">
@@ -139,15 +144,13 @@ export default function HomePage() {
             </Typography>
             <Typography variant="body2" color="text.secondary">
               Lizards are a widespread group of squamate reptiles, with over 6,000
-              species, ranging across all continents except Antarctica
             </Typography>
           </CardContent>
-      </card>
+        </Card>
 
-        <card>
+        <Card className="card-with-flex">
           <CardMedia
             component="img"
-            height="140"
             image={abbasImage}
             alt="green iguana"
             className="ms-image"
@@ -158,13 +161,11 @@ export default function HomePage() {
             </Typography>
             <Typography variant="body2" color="text.secondary">
               Lizards are a widespread group of squamate reptiles, with over 6,000
-              species, ranging across all continents except Antarctica
             </Typography>
           </CardContent>
-        </card>
-      </Card>
-
-
+        </Card>
+      </div>
+   
       
       <Footer
         title="Unleash Your Potential, Conquer the Field"
