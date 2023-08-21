@@ -3,14 +3,6 @@ const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
 
-app.use(cors());
-app.use(express.json({limit:'25mb'}))
-app.use(express.urlencoded({limit:'25mb'}))
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  next();
-});
-
 
 require('dotenv').config();
 // Connect to db after the dotenv above

@@ -32,18 +32,6 @@ export default function HomePage() {
     console.log(data)
   };
 
-  const handleChangeMutiple = (e) => {
-    const { name, options } = e.target;
-    const selectedValues = Array.from(options)
-      .filter((option) => option.selected)
-      .map((option) => option.value);
-  
-    setData((prevData) => ({
-      ...prevData,
-      [name]: selectedValues,
-    }));
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -257,7 +245,6 @@ export default function HomePage() {
             <option value="Orange">Orange</option>
           </select>
         </div>
-        <input type="file" name="photo" id='photo' accept="image/*"/>
         <button type="submit">Add Product</button>
       </form>
 

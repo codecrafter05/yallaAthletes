@@ -19,17 +19,6 @@ const productSchema = new Schema({
     required: true
   },
 
-  photo:{
-    public_id:{
-      type: String,
-      required: true
-    },
-    url:{
-      type: String,
-      required: true
-    }
-  },
-
   price:{
     type: Number,
 
