@@ -1,6 +1,5 @@
 import React from 'react';
 import BasicGrid from "../../components/Grid/Grid";
-import CartStepper from '../../components/CartStepper/CartStepper';
 export default function Products() {
   const Products = [
     {

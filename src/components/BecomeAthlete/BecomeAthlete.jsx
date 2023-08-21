@@ -2,7 +2,7 @@ import { create } from '../../utilities/athletes-service'; // Import the createA
 import { useState } from 'react';
 import { Card, CardContent, TextField, Button, Grid } from '@mui/material';
 
-export default function BecomeAthlete({ user }) {
+export default function BecomeAthlete({ user, handleBecomeAthlete }) {
   const initialAthleteData = {
     user: user._id,
     sportType: '',
@@ -30,6 +30,7 @@ export default function BecomeAthlete({ user }) {
       console.log('New Athlete:', athlete);
       // Handle success, show a message, or redirect the user
       setAthleteData(initialAthleteData); // Reset form fields
+      handleBecomeAthlete(user);
     } catch (error) {
       console.error('Error creating athlete:', error);
       // Handle error, show an error message, etc.
