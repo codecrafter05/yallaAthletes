@@ -5,7 +5,7 @@ import AuthPage from '../AuthPage/AuthPage';
 import NewOrderPage from '../NewOrderPage/NewOrderPage';
 import NavBar from '../../components/NavBar/NavBar';
 import HomePage from '../HomePage/HomePage';
-import AthletesPage from '../AthletesPage/AthletesPage';
+import AthletesListPage from '../AthletesListPage/AthletesListPage';
 import ProfilePage from '../ProfilePage/ProfilePage';
 import NewsPage from '../NewsPage/NewsPage';
 import DashboardPage from '../DashboardPage/DashboardPage'
@@ -31,7 +31,7 @@ function App() {
             {/* Route components in here */}
             <Route path="/" element={<HomePage />} />
             <Route path="/api/products" element={<NewOrderPage />} />
-            <Route path="/athletes" element={<AthletesPage />} />
+            <Route path="/athletes" element={<AthletesListPage />} />
             <Route path="/news" element={<NewsPage />} />
             <Route path="/profile" element={<ProfilePage user={user} />} />
             <Route path="/dashboard" element={<DashboardPage user={user}/>} />

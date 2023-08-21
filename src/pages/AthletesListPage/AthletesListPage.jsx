@@ -1,7 +1,8 @@
 import {useState, useEffect } from "react"; 
 import AthleteCard from "../../components/AthleteCard/AthleteCard";
-import { Container } from "@mui/material";
 import { getAllApprovedAthletes } from "../../utilities/athletes-service"; 
+import { Container } from "@mui/material";
+import Grid from "@mui/material/Grid";
 
 export default function AthletePage() {
   const [athletes, setAthletes] = useState({}); // Initialize as an object
@@ -24,15 +25,16 @@ export default function AthletePage() {
     <Container>
       <h1>Athlete Page</h1>
       <hr />
-      {/* {Object.keys(athletes).map((athleteId) => (
-        <div key={athleteId}>{athleteId}</div>
-      ))} */}
-      {Object.keys(athletes).map((athleteId) => {
-        const athlete = athletes[athleteId];
-        return (
-          <AthleteCard key={athleteId} athlete={athlete} />
-        );
-      })}
+      <Grid container spacing={2}> {/* Create a responsive grid container */}
+        {Object.keys(athletes).map((athleteId) => {
+          const athlete = athletes[athleteId];
+          return (
+            <Grid key={athleteId} item xs={12} sm={6} md={4} lg={3}> {/* Adjust the grid item sizes for responsiveness */}
+              <AthleteCard athlete={athlete} />
+            </Grid>
+          );
+        })}
+      </Grid>
     </Container>
   );
 }
