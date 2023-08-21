@@ -1,55 +1,34 @@
-// import React from 'react';
-// import Box from '@mui/material/Box';
-// import Card2 from "../Card/Card";
-// import Grid from '@mui/material/Unstable_Grid2';
+import React from "react";
+import { Card, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
+import Grid from "@mui/material/Grid";
+import "./AthleteCard.css";
 
-// export default function AthleteCard({ athlete }) {
-//     return (
-//         <Box sx={{ flexGrow: 1, marginLeft: '5%', marginRight: '5%' }}>
-//             <Grid container spacing={10}>
-//                 {athlete.map((athlete, index) => (
-//                     <Grid athlete xs={12} sm={6} md={4} lg={3} xl={2} key={index} sx={{ height: 400 }}>
-//                         <Card2 item={item} />
-//                     </Grid>
-//                 ))}
-//             </Grid>
-//         </Box>
-//     );
-// }
+function getRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
+  }
 
-import { Card, CardContent, Typography } from "@mui/material";
+  let num = getRandomNumber(250, 400);
 
 export default function AthleteCard({ athlete }) {
-
   return (
-    <Card>
-      <CardContent>
-        <Typography variant="h5" component="h2">
-          {athlete.user.name} {/* Assuming 'name' is a property of the user object */}
-        </Typography>
-        <Typography color="textSecondary">
-          Sport: {athlete.sportType}
-        </Typography>
-        {/* Display other athlete details using Typography components */}
-        <Typography color="textSecondary">
-          Personal Record: {athlete.personalRecord || "N/A"}
-        </Typography>
-        <Typography color="textSecondary">
-          Height: {athlete.height} cm
-        </Typography>
-        <Typography color="textSecondary">
-          Weight: {athlete.weight} kg
-        </Typography>
-        <Typography color="textSecondary">
-          Achievements: {athlete.achievements || "None"}
-        </Typography>
-        <Typography color="textSecondary">
-          Socials: {athlete.socials || "None"}
-        </Typography>
-        <Typography color="textSecondary">
-          Status: {athlete.status}
-        </Typography>
-      </CardContent>
-    </Card>
+    <Grid item xs={12} sm={6} md={4} lg={3}>
+      <Link to={`/athletes/${athlete.user}`} className="card-link">
+        <Card className="athlete-card"
+        style={{
+            backgroundImage: `url('https://picsum.photos/${num}')`,
+            backgroundAlt: `${athlete.user}`,
+          }}>
+          <div className="overlay">
+            <Typography variant="h6" component="h2" className="athlete-name">
+              {athlete.user}
+            </Typography>
+            <Typography className="sport-type">
+              Sport: {athlete.sportType}
+            </Typography>
+          </div>
+        </Card>
+      </Link>
+    </Grid>
   );
 }
