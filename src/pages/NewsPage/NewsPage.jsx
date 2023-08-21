@@ -341,13 +341,7 @@ export default function Blog() {
           <Footer
         title="Unleash Your Potential, Conquer the Field"
         description="Calls for expansion and reaching your fullest potential in the sports arena.!" />
-{/* 
-          <Sidebar
-              // title={sidebar.title}
-              // description={sidebar.description}
-              archives={sidebar.archives}
-              // social={sidebar.social}
-          /> */}
+
     </ThemeProvider>
     </>
   );

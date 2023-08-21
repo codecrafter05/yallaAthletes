@@ -1,12 +1,22 @@
 import React, { useState, useEffect } from "react";
 import Typography from '@mui/material/Typography';
-import bgImage from '../../assets/bg.jpeg'
+import bgImage from '../../assets/bg.jpeg';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { CardActionArea } from '@mui/material';
 import { Link } from 'react-router-dom';
+import Footer from '../../components/Newspagecomponents/Footer';
 import axios from 'axios';
+import vi1mp4 from '../../assets/vi1.mp4';
+import ggImage from '../../assets/gg.jpg';
+import prImage from '../../assets/pr.jpg';
+import inImage from '../../assets/in.jpg';
+import meImage from '../../assets/me.jpg';
+import hamadImage from '../../assets/hamad.jpg';
+import azizImage from '../../assets/aziz.jpg';
+import abbasImage from '../../assets/abbas.jpg';
+
 
 
 export default function HomePage() {
@@ -41,31 +51,30 @@ export default function HomePage() {
   };
 
   return (
-    <>
-      <article
-        className='article'
-        style={{ backgroundImage: `url(${bgImage})` }}
-      >
-        <Typography variant="h2" className='head'>yallaAthletes</Typography>
-      </article>
-
-      <Typography variant="h4">Check us out!</Typography>
+    <> <article className='article'>
+    <div className='video-container'>
+      <video className='video' autoPlay loop muted>
+        <source src={vi1mp4} type='video/mp4' />
+      </video>
+    </div>
+    <Typography variant="h2" className='head'><h1>yallaAthletes</h1></Typography>
+  </article>
+      <Typography variant="h4"><h1>Check us out!</h1></Typography>
 
       <Card className="boxContainer">
-        <CardActionArea component={Link} to='/athletes'>
+        <CardActionArea  component={Link} to='/athletes'>
           <CardMedia
             component="img"
             height="140"
-            image={bgImage}
+            image={ggImage}
             alt="green iguana"
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-              Athletes
+              Your Target 
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Lizards are a widespread group of squamate reptiles, with over 6,000
-              species, ranging across all continents except Antarctica
+            "Your aim is to reach the impossible. Through determination and perseverance, along with hard work and creativity, you can turn challenges into opportunities and transform dreams into reality. The journey to success might be demanding, but with dedication and belief in your abilities, you'll continue moving forward towards achieving the seemingly unattainable."
             </Typography>
           </CardContent>
         </CardActionArea>
@@ -74,7 +83,7 @@ export default function HomePage() {
           <CardMedia
             component="img"
             height="140"
-            image={bgImage}
+            image={prImage}
             alt="green iguana"
           />
           <CardContent>
@@ -82,8 +91,7 @@ export default function HomePage() {
               Products
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Lizards are a widespread group of squamate reptiles, with over 6,000
-              species, ranging across all continents except Antarctica
+            "Experience a premium fitness journey with stylish and high-quality sportswear."
             </Typography>
           </CardContent>
         </CardActionArea>
@@ -91,97 +99,107 @@ export default function HomePage() {
         <CardActionArea component={Link} to='/news' className="box large-box" >
           <CardMedia
             component="img"
-            height="140"
-            image={bgImage}
+            height="800"
+            image={inImage}
             alt="green iguana"
+            
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
               News
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Lizards are a widespread group of squamate reptiles, with over 6,000
-              species, ranging across all continents except Antarctica
+            Stay updated on the latest local and global events and developments. Explore comprehensive and reliable reports covering various fields and issues, and enjoy live coverage of important events.
             </Typography>
           </CardContent>
         </CardActionArea>
       </Card>
 
-      <Typography variant="h4">Devs</Typography>
+      <Typography variant="h4">About Us</Typography>
 
       <Card className="devContainer">
-        <CardActionArea component={Link} to='/athletes'>
+        <card>
           <CardMedia
             component="img"
             height="140"
-            image={bgImage}
+            image={meImage}
             alt="green iguana"
+            className="ms-image"
           />
-          <CardContent>
+          <CardContent className="us">
             <Typography gutterBottom variant="h5" component="div">
-              Athletes
+              Sayed Mustafa
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Lizards are a widespread group of squamate reptiles, with over 6,000
-              species, ranging across all continents except Antarctica
+             software engineer and web developer with previous experience at Google and Netflix. Currently, I am working with ChatGPT to create amazing AI-powered solutions.
             </Typography>
           </CardContent>
-        </CardActionArea>
+      </card>
 
-        <CardActionArea component={Link} to='/products'>
+        <Card>
           <CardMedia
             component="img"
             height="140"
-            image={bgImage}
+            image={azizImage}
             alt="green iguana"
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              Products
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              Lizards are a widespread group of squamate reptiles, with over 6,000
-              species, ranging across all continents except Antarctica
-            </Typography>
-          </CardContent>
-        </CardActionArea>
+            className="ms-image"
 
-        <CardActionArea component={Link} to='/news' className="box large-box" >
-          <CardMedia
-            component="img"
-            height="140"
-            image={bgImage}
-            alt="green iguana"
           />
-          <CardContent>
+          <CardContent className="us">
             <Typography gutterBottom variant="h5" component="div">
-              News
+              Abdulaziz Hijris
             </Typography>
             <Typography variant="body2" color="text.secondary">
               Lizards are a widespread group of squamate reptiles, with over 6,000
               species, ranging across all continents except Antarctica
             </Typography>
           </CardContent>
-        </CardActionArea>
+        </Card>
 
-        <CardActionArea component={Link} to='/news'>
+        <card>
           <CardMedia
             component="img"
             height="140"
-            image={bgImage}
+            image={hamadImage}
             alt="green iguana"
+            className="ms-image"
+
           />
-          <CardContent>
+          <CardContent className="us">
             <Typography gutterBottom variant="h5" component="div">
-              News
+              Hamad Alhibshi
             </Typography>
             <Typography variant="body2" color="text.secondary">
               Lizards are a widespread group of squamate reptiles, with over 6,000
               species, ranging across all continents except Antarctica
             </Typography>
           </CardContent>
-        </CardActionArea>
+      </card>
+
+        <card>
+          <CardMedia
+            component="img"
+            height="140"
+            image={abbasImage}
+            alt="green iguana"
+            className="ms-image"
+          />
+          <CardContent className="us">
+            <Typography gutterBottom variant="h5" component="div">
+              Abbas Naser
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              Lizards are a widespread group of squamate reptiles, with over 6,000
+              species, ranging across all continents except Antarctica
+            </Typography>
+          </CardContent>
+        </card>
       </Card>
+
+      
+      <Footer
+        title="Unleash Your Potential, Conquer the Field"
+        description="Calls for expansion and reaching your fullest potential in the sports arena.!" />
 
       <form>
         <div>

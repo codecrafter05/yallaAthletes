@@ -3,6 +3,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color:eeeeee;
 }
 
 code {
@@ -18,32 +19,35 @@ code {
   place-items: center;
   box-shadow: 0 10px 8px #ccc;
   margin-bottom: 40px;
+
 }
 
 .head {
   color: white;
   text-align: center;
+
 }
 
 .boxContainer {
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin: 70px;
-  gap: 10px;
+  gap: 10px; 
+
+
 }
 
 .boxContainer .box.large-box {
   grid-column: 1 / span 2;
   grid-row: 3;
+
 }
 
 .devContainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   margin: 70px;
-  gap: 10px;
 }
-
 @media only screen and (max-width: 600px) {
 
   .boxContainer {
@@ -52,6 +56,7 @@ code {
 
   .boxContainer .box.large-box {
     grid-column: 1;
+  
   }
 
   .devContainer {
@@ -62,3 +67,56 @@ code {
   display: grid;
 }
 
+.article {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.video {
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  object-fit: cover;
+}
+
+.head {
+  position: relative;
+  z-index: 1;
+  /* Additional styles for your heading */
+}
+
+.us-card {
+  /* ... Your existing styles ... */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+
+ 
+}
+
+.ms-image {
+  width: 200px !important; /* Fixed width for the circular image */
+  height: 200px; /* Fixed height for the circular image */
+  border-radius: 50%; /* Make the image circular */
+  object-fit: cover;
+  margin-bottom: 10px; 
+  margin: 0 auto;
+  object-position:top; 
+}
+
+.card-style :hover{
+  text-decoration:none }
