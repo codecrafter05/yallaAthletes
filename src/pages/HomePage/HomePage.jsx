@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import Typography from '@mui/material/Typography';
-// import bgImage from '../../assets/bg.jpeg';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { CardActionArea } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { createA_Product } from '../../utilities/products-services';
 import Footer from '../../components/Newspagecomponents/Footer';
-import axios from 'axios';
 import vi1mp4 from '../../assets/vi1.mp4';
 import ggImage from '../../assets/gg.jpg';
 import prImage from '../../assets/pr.jpg';
@@ -18,20 +17,22 @@ import azizImage from '../../assets/aziz.jpg';
 import abbasImage from '../../assets/abbas.jpg';
 
 
-
 export default function HomePage() {
 
-  const [data, setData] = useState({
+  const initialProductData = {
     name: '',
     type: 'Apparel',
     description: '',
     quantity: 0,
     size: 'S',
     color: ['Black'],
-  });
+    photo: ''
+  };
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
+  const [data, setData] = useState(initialProductData);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
     setData((prevData) => ({
       ...prevData,
       [name]: value,
@@ -41,12 +42,12 @@ export default function HomePage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
-      const response = await axios.post("/api/products", data);
-      console.log('Product created:', response);
-    } catch (error) {
-      console.error('Error creating product:', error);
+      const product = await createA_Product(setData);
+      console.log('New Product:', product);
+      setData(initialProductData);
+    } catch (err) {
+      console.error('Error creating product:', err);
     }
   };
 
@@ -196,12 +197,13 @@ export default function HomePage() {
         </card>
       </Card>
 
+
       
       <Footer
         title="Unleash Your Potential, Conquer the Field"
         description="Calls for expansion and reaching your fullest potential in the sports arena.!" />
 
-      <form>
+      <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name">Product Name: </label>
           <input type="text" name="name" id="name" placeholder="Enter Product Name" onChange={handleChange} />
@@ -260,7 +262,7 @@ export default function HomePage() {
             <option value="Orange">Orange</option>
           </select>
         </div>
-        <input type="submit" onClick={handleSubmit} value="Add Product" />
+        <button type="submit">Add Product</button>
       </form>
 
     </>
