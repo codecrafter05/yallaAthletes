@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from "react";
 import Typography from '@mui/material/Typography';
-import bgImage from '../../assets/bg.jpeg';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { CardActionArea, Container } from '@mui/material';
 import { Link } from 'react-router-dom';
 import Footer from '../../components/Newspagecomponents/Footer';
-import axios from 'axios';
 import vi1mp4 from '../../assets/vi1.mp4';
 import ggImage from '../../assets/gg.jpg';
 import prImage from '../../assets/pr.jpg';
@@ -18,38 +15,8 @@ import azizImage from '../../assets/aziz.jpg';
 import abbasImage from '../../assets/abbas.jpg';
 
 
-
-
 export default function HomePage() {
 
-  const [data, setData] = useState({
-    name: '',
-    type: 'Apparel',
-    description: '',
-    quantity: 0,
-    size: 'S',
-    color: ['Black'],
-  });
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-    console.log(data)
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const response = await axios.post("/api/products", data);
-      console.log('Product created:', response);
-    } catch (error) {
-      console.error('Error creating product:', error);
-    }
-  };
 
   return (
     <> 
@@ -198,13 +165,11 @@ export default function HomePage() {
           </CardContent>
         </Card>
       </div>
-    
+   
       
       <Footer
         title="Unleash Your Potential, Conquer the Field"
         description="Calls for expansion and reaching your fullest potential in the sports arena.!" />
-
-      
     </>
   )
 }
