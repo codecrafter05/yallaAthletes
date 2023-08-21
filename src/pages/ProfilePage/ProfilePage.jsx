@@ -29,18 +29,20 @@ export default function ProfilePage() {
   const [showEditProfile, setShowEditProfile] = useState(false);
   const [athleteStatus, setAthleteStatus] = useState('');
   const [user, setUser] = useState(getUser());
+  const [athleteUpgrade, setAthleteUpgrade] = useState(false);
 
   const [showConfirmationModal, setShowConfirmationModal] = useState(false);
   const [confirmationAction, setConfirmationAction] = useState(null);
 
   useEffect(() => {
+    console.log(`useEffect user...`)
     async function fetchUserData() {
       const userData = await getUser();
       setUser(userData);
     }
 
     fetchUserData();
-  }, []);
+  }, [athleteUpgrade]);
 
   useEffect(() => {
     const fetchUserAthleteStatus = async () => {
@@ -93,6 +95,17 @@ export default function ProfilePage() {
     setShowConfirmationModal(false);
   };
 
+  const handleBecomeAthlete = () => {
+    console.log(`handleBecomeAthlete`)
+    setShowBecomeAthlete(false);
+    setShowEditProfile(false);
+    setAthleteUpgrade(true);
+    console.log(`showEditProfile ==> ${showEditProfile}`)
+    console.log(`showBecomeAthlete ==> ${showBecomeAthlete}`)
+  };
+
+  console.log(`re-rendering...`);
+  console.log(`showEditProfile ==> ${showEditProfile}`)
   return (
     <Container>
       <h1>Profile</h1>
@@ -112,7 +125,7 @@ export default function ProfilePage() {
       {showEditProfile ? (
         <EditUserProfile user={user} setUser={setUser} />
       ) : showBecomeAthlete ? (
-        <BecomeAthlete user={user} />
+        <BecomeAthlete user={user} handleBecomeAthlete={handleBecomeAthlete}/>
       ) : (
         <UserProfile user={user} />
       )}
