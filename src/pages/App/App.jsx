@@ -8,6 +8,7 @@ import HomePage from '../HomePage/HomePage';
 import AthletePage from '../AthletePage/AthletePage';
 import ProfilePage from '../ProfilePage/ProfilePage';
 import NewsPage from '../NewsPage/NewsPage';
+import DashboardPage from '../DashboardPage/DashboardPage'
 import Cart from '../Cart/Cart';
 import './App.css';
 import Products from '../Products/Products';
@@ -27,9 +28,9 @@ function App() {
             <Route path="/athletes" element={<AthletePage />} />
             <Route path="/news" element={<NewsPage />} />
             <Route path="/profile" element={<ProfilePage user={user} />} />
+            <Route path="/dashboard" element={<DashboardPage/>} />
             <Route path="/cart" element={<Cart user={user} />} />
             <Route path='/products' element={<Products user={user} />} />
-
           </Routes>
         </>
         :

@@ -6,7 +6,9 @@ module.exports = {
   create,
   login, 
   checkToken,
-  getUser
+  getUser,
+  updateUser, 
+  deleteUser
 };
 
 async function login(req, res) {
@@ -42,6 +44,29 @@ async function getUser(req, res) {
     console.log(JSON.stringify(user));
   } catch (err) {
     res.status(400).json(err);
+  }
+}
+
+async function updateUser(req, res) {
+  try {
+    const updatedUser = await User.findByIdAndUpdate(
+      req.user._id,
+      { $set: req.body },
+      { new: true }
+    );
+    res.json(updatedUser);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+}
+
+async function deleteUser(req, res) {
+  try {
+    // Delete the user by ID
+    await User.findByIdAndDelete(req.user._id);
+    res.json({ message: 'User deleted successfully' });
+  } catch (error) {
+    res.status(500).json({ error: 'Error deleting user' });
   }
 }
 

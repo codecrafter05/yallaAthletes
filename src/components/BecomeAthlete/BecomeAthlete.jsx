@@ -1,6 +1,6 @@
 import { create } from '../../utilities/athletes-service'; // Import the createAthlete function
 import { useState } from 'react';
-
+import { Card, CardContent, TextField, Button, Grid } from '@mui/material';
 
 export default function BecomeAthlete({ user }) {
   const initialAthleteData = {
@@ -37,73 +37,88 @@ export default function BecomeAthlete({ user }) {
   };
 
   return (
-    <>
-      <h1>Become Athlete</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Sport Type:
-          <input
-            type="text"
-            name="sportType"
-            value={athleteData.sportType}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <br />
-        <label>
-          Personal Record:
-          <input
-            type="number"
-            name="personalRecord"
-            value={athleteData.personalRecord}
-            onChange={handleChange}
-          />
-        </label>
-        <br />
-        <label>
-          Height:
-          <input
-            type="number"
-            name="height"
-            value={athleteData.height}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <br />
-        <label>
-          Weight:
-          <input
-            type="number"
-            name="weight"
-            value={athleteData.weight}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <br />
-        <label>
-          Achievements:
-          <textarea
-            name="achievements"
-            value={athleteData.achievements}
-            onChange={handleChange}
-          />
-        </label>
-        <br />
-        <label>
-          Socials:
-          <input
-            type="text"
-            name="socials"
-            value={athleteData.socials}
-            onChange={handleChange}
-          />
-        </label>
-        <br />
-        <button type="submit">Submit</button>
-      </form>
-    </>
+    <Card variant="outlined">
+      <CardContent>
+        <h1>Become Athlete</h1>
+        <form onSubmit={handleSubmit}>
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <TextField
+                label="Sport Type"
+                variant="outlined"
+                type="text"
+                name="sportType"
+                value={athleteData.sportType}
+                onChange={handleChange}
+                autoComplete='off'
+                fullWidth
+                required
+              />
+            </Grid>
+            <Grid item xs={6}>
+              <TextField
+                label="Height"
+                variant="outlined"
+                type="number"
+                name="height"
+                value={athleteData.height}
+                onChange={handleChange}
+                fullWidth
+                required
+              />
+            </Grid>
+            <Grid item xs={6}>
+              <TextField
+                label="Weight"
+                variant="outlined"
+                type="number"
+                name="weight"
+                value={athleteData.weight}
+                onChange={handleChange}
+                fullWidth
+                required
+              />
+            </Grid>
+            <Grid item xs={6}>
+              <TextField
+                label="Personal Record"
+                variant="outlined"
+                type="number"
+                name="personalRecord"
+                value={athleteData.personalRecord}
+                onChange={handleChange}
+                fullWidth
+              />
+            </Grid>
+            <Grid item xs={6}>
+              <TextField
+                label="Socials"
+                variant="outlined"
+                type="text"
+                name="socials"
+                value={athleteData.socials}
+                onChange={handleChange}
+                fullWidth
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                label="Achievements"
+                variant="outlined"
+                name="achievements"
+                value={athleteData.achievements}
+                onChange={handleChange}
+                multiline
+                rows={4}
+                fullWidth
+              />
+            </Grid>
+          </Grid>
+          <Button type="submit" variant="contained" color='success' sx={{ mt: 3 }}>
+            Yalla!
+          </Button>
+        </form>
+      </CardContent>
+    </Card>
   );
 }

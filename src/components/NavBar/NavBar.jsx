@@ -167,17 +167,12 @@ export default function NavBar({ user, setUser }) {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem
-                  key={setting}
-                  onClick={setting === 'Logout' ? handleLogOut : handleCloseUserMenu}
-                  component={Link}
-                  to={`/${setting}`}
-                >
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
+             {settings.map((setting) => (
+              <MenuItem key={setting} onClick={setting === 'Logout' ? handleLogOut : handleCloseUserMenu} component={Link} to={`/${setting}`}>
+                <Typography textAlign="center">{setting}</Typography>
+              </MenuItem>
+            ))}
+          </Menu>
           </Box>
         </Toolbar>
       </Container>
