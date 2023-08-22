@@ -1,9 +1,7 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
-import CssBaseline from '@mui/material/CssBaseline';
 import List from '@mui/material/List';
-import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -18,6 +16,12 @@ import './Dashboard.css';
 const drawerWidth = 240;
 
 export default function Sidebar({ user, setUser }) {
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+
+
+
+
   function handleLogOut() {
     // Remove token using the user service
     userService.logOut();
@@ -27,7 +31,6 @@ export default function Sidebar({ user, setUser }) {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
       <Drawer
         sx={{
           width: drawerWidth,
@@ -35,6 +38,7 @@ export default function Sidebar({ user, setUser }) {
           '& .MuiDrawer-paper': {
             marginTop: '68.5px',
             width: drawerWidth,
+            height: '91%',
             boxSizing: 'border-box',
             position: 'absolute',
           },
@@ -43,9 +47,9 @@ export default function Sidebar({ user, setUser }) {
         anchor="left"
       >
         <Divider />
-        <List className='list'>
+        <List>
           {['Profile', 'Users', 'Athletes', 'Manager', 'Products', 'News'].map((text, index) => (
-            <ListItem className='links' key={text} disablePadding component={Link} to={`/Dashboard/${text}`}>
+            <ListItem key={text} disablePadding component={Link} to={`/Dashboard/${text}`}>
               <ListItemButton>
                 <ListItemIcon>
                   {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}

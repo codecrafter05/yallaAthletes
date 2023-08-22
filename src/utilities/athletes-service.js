@@ -8,6 +8,10 @@ export async function getAthlete() {
   return athleteAPI.getAthlete();
 }
 
+export async function getAllApprovedAthletes() {
+  return athleteAPI.getAllApprovedAthletes();
+}
+
 export async function deleteAthlete() {
   return athleteAPI.deleteAthlete();
 }

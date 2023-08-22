@@ -102,16 +102,12 @@ export default function ProfilePage() {
   };
 
   const handleBecomeAthlete = () => {
-    console.log(`handleBecomeAthlete`)
     setShowBecomeAthlete(false);
     setShowEditProfile(false);
     setAthleteUpgrade(true);
-    console.log(`showEditProfile ==> ${showEditProfile}`)
-    console.log(`showBecomeAthlete ==> ${showBecomeAthlete}`)
   };
 
   console.log(`re-rendering...`);
-  console.log(`showEditProfile ==> ${showEditProfile}`)
   return (
     <Container>
       <h1>Profile</h1>
