@@ -5,7 +5,7 @@ import { showAthleteDetails } from '../../utilities/athletes-service';
 
 export default function AthletesDetailsPage() {
   const { athleteId } = useParams();
-  const [athleteDetails, setAthleteDetails] = useState(null);
+  const [ athlete, setAthlete] = useState(null);
 
   useEffect(() => {
     fetchAthleteDetails(athleteId);
@@ -14,25 +14,44 @@ export default function AthletesDetailsPage() {
   const fetchAthleteDetails = async (athleteId) => {
     try {
       const response = await showAthleteDetails(athleteId);
-      setAthleteDetails(response);
+      setAthlete(response);
     } catch (error) {
       console.error("Error fetching athlete details:", error);
     }
   }
 
-  console.log("Athlete ID:", athleteId);
-  console.log("Athlete Details:", athleteDetails);
+  const calculateAge = (dateOfBirth) => {
+    const dob = new Date(dateOfBirth);
+    const today = new Date();
+    const age = today.getFullYear() - dob.getFullYear();
+    const monthDiff = today.getMonth() - dob.getMonth();
+
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
+      return age - 1;
+    }
+
+    return age;
+  };
+
+  // console.log("Athlete ID:", athleteId);
+  // console.log("Athlete Details:", athlete);
 
   return (
     <Container>
-      <h1>Athletes Details Page</h1>
+      <h1>Athlete Details Page</h1>
       <hr />
-      {athleteDetails && (
+      {athlete && (
         <div>
-          <p>First Name: {athleteDetails.user?.firstName}</p>
-          <p>Last Name: {athleteDetails.user?.lastName}</p>
-          <p>Email: {athleteDetails.user?.email}</p>
-          {/* Display other user details here */}
+          <p>Name: {athlete.user?.firstName} {athlete.user?.lastName}</p>
+          <p>Sport Type: {athlete.sportType}</p>
+          <p>Date of Birth: {athlete.user.dateOfBirth}</p>
+          <p>Nationality: {athlete.user.nationality}</p>
+          <p>Age: {calculateAge(athlete.user?.dateOfBirth)}</p>
+          <p>Height: {athlete.height} cm</p>
+          <p>Weight: {athlete.weight} kg</p>
+          <p>Personal Record: {athlete.personalRecord}</p>
+          <p>Achievements: {athlete.achievements}</p>
+          <p>Socials: {athlete.socials}</p>
         </div>
       )}
     </Container>
