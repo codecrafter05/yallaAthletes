@@ -29,72 +29,72 @@ export default function HomePage() {
         </Typography>
       </div>
       <Container>
-      <div className="boxContainer">
-        <Typography variant="h4">Check us out!</Typography>
+        <div className="boxContainer">
+          <Typography variant="h4">Check us out!</Typography>
 
-        <div className="cards-container">
-          <Card className="card-with-overlay">
-            <CardActionArea component={Link} to='/athletes'>
-              <div className="image-container">
-                <CardMedia
-                  component="img"
-                  image={ggImage}
-                  alt="green iguana"
-                />
-                <div className="overlay-text">
-                  <Typography variant="h5" component="div">
-                    Athlete
-                  </Typography>
+          <div className="cards-container">
+            <Card className="card-with-overlay">
+              <CardActionArea component={Link} to='/athletes'>
+                <div className="image-container">
+                  <CardMedia
+                    component="img"
+                    image={ggImage}
+                    alt="green iguana"
+                  />
+                  <div className="overlay-text">
+                    <Typography variant="h5" component="div">
+                      Athlete
+                    </Typography>
 
+                  </div>
                 </div>
-              </div>
-            </CardActionArea>
-          </Card>
+              </CardActionArea>
+            </Card>
 
-          <Card className="card-with-overlay">
-            <CardActionArea component={Link} to='/products'>
-              <div className="image-container">
-                <CardMedia
-                  component="img"
-                  image={ggImage}
-                  alt="green iguana"
-                />
-                <div className="overlay-text">
-                  <Typography variant="h5" component="div">
-                    Products
-                  </Typography>
+            <Card className="card-with-overlay">
+              <CardActionArea component={Link} to='/products'>
+                <div className="image-container">
+                  <CardMedia
+                    component="img"
+                    image={ggImage}
+                    alt="green iguana"
+                  />
+                  <div className="overlay-text">
+                    <Typography variant="h5" component="div">
+                      Products
+                    </Typography>
 
+                  </div>
                 </div>
-              </div>
-            </CardActionArea>
-          </Card>
+              </CardActionArea>
+            </Card>
 
-          <Card className="card-with-overlay">
-            <CardActionArea component={Link} to='/news'>
-              <div className="image-container">
-                <CardMedia
-                  component="img"
-                  image={ggImage}
-                  alt="green iguana"
-                />
-                <div className="overlay-text">
-                  <Typography variant="h5" component="div">
-                    News
-                  </Typography>
-                  {/* <Typography variant="body2" color="text.secondary">
+            <Card className="card-with-overlay">
+              <CardActionArea component={Link} to='/news'>
+                <div className="image-container">
+                  <CardMedia
+                    component="img"
+                    image={ggImage}
+                    alt="green iguana"
+                  />
+                  <div className="overlay-text">
+                    <Typography variant="h5" component="div">
+                      News
+                    </Typography>
+                    {/* <Typography variant="body2" color="text.secondary">
               Stay updated on the latest local and global events...
             </Typography> */}
+                  </div>
                 </div>
-              </div>
-            </CardActionArea>
-          </Card>
+              </CardActionArea>
+            </Card>
+          </div>
         </div>
-      </div>
 
 
 
 
-      <Typography variant="h4">About Us</Typography>
+        {/* <Typography variant="h4">About Us</Typography>
 
 
       <div className="flex-row-container">
@@ -165,13 +165,13 @@ export default function HomePage() {
             </Typography>
           </CardContent>
         </Card>
-      </div>
+      </div> */}
 
 
-      <Footer
-        title="Unleash Your Potential, Conquer the Field"
-        description="Calls for expansion and reaching your fullest potential in the sports arena.!" />
-        </Container>
+        <Footer
+          title="Unleash Your Potential, Conquer the Field"
+          description="Calls for expansion and reaching your fullest potential in the sports arena.!" />
+      </Container>
     </>
   )
 }

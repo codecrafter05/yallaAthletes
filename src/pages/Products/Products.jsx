@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
+import { getProduct } from "../../utilities/products-services";
 import { Container, Divider } from '@mui/material';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -10,74 +11,49 @@ import Typography from '@mui/material/Typography';
 import CardActions from '@mui/material/CardActions';
 import './products.css'
 export default function Products() {
-  const Products = [
-    {
-      name: 'Basketball',
-      price: 'Basketball',
-      image: 'https://example.com/basketball.jpg',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    },
-    {
-      name: 'Football Shoes',
-      price: 'Football',
-      image: 'https://example.com/football_shoes.jpg',
-      description: 'Bahraini',
-    },
-    {
-      name: 'Tennis Racket',
-      price: 'Tennis',
-      image: 'https://example.com/tennis_racket.jpg',
-      description: 'Indian',
-    },
-    {
-      name: 'Running Shoes',
-      price: 'Running',
-      image: 'https://example.com/running_shoes.jpg',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    },
-    {
-      name: 'Golf Clubs',
-      price: 'Golf',
-      image: 'https://example.com/golf_clubs.jpg',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    },
-    {
-      name: 'Golf Clubs',
-      price: 'Golf',
-      image: 'https://example.com/golf_clubs.jpg',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    },
-    {
-      name: 'Golf Clubs',
-      price: 'Golf',
-      image: 'https://example.com/golf_clubs.jpg',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+
+
+  const [products, setProducts] = useState([]);
+
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  const fetchProducts = async () => {
+    try {
+      const response = await getProduct();
+      console.log("API Response:", response); // Add this line
+      setProducts(response);
+    } catch (error) {
+      console.log('response isnt working')
+      console.error("Error fetching products:", error);
     }
-    // Add more sports products as needed
-  ];
+  };
+
 
   return (
     <><Container> <h1>Products Page</h1>
       <Divider />
       <Box sx={{ flexGrow: 1, margin: "5%" }}>
         <Grid container spacing={3}>
-          {Products.map((product, index) => (
-            <Grid item xs={12} sm={6} md={4} lg={3} xl={3} key={index} sx={{}}>
+          {products.map((product) => (
+            <Grid item xs={12} sm={6} md={4} lg={3} xl={3} key={product} sx={{}}>
               <Card className="card-container">
                 <div className="card-wrapper">
                   <Link className="links" to="#">
-                    <CardMedia
+                    {/* <CardMedia
                       component="img"
                       className="card-image"
                       image={product.image}
                       alt={`image for ${product.name}`}
-                    />
+                    /> */}
                     <CardContent className="card-content">
                       <Typography variant="body2" color="textSecondary" component="p" className="card-name">
                         {product.name}
                       </Typography>
                       <Typography variant="body2" color="textSecondary" component="p" className="card-description">
-                        {product.price}
+                        {product.description}
                       </Typography>
                     </CardContent>
                     <CardActions></CardActions>
@@ -93,3 +69,42 @@ export default function Products() {
 
 
 
+// export default function ProductsPage() {
+
+//   const [products, setProducts] = useState([]);
+
+
+//   useEffect(() => {
+//     fetchProducts();
+//   }, []);
+
+//   const fetchProducts = async () => {
+//     try {
+//       const response = await getProduct();
+//       console.log("API Response:", response); // Add this line
+//       setProducts(response);
+//     } catch (error) {
+//       console.log('response isnt working')
+//       console.error("Error fetching products:", error);
+//     }
+//   };
+
+//   return (
+//     <Container>
+//       <Typography variant="h4" gutterBottom>
+//         Products Page
+//       </Typography>
+//       <hr />
+//       <Grid container spacing={2}>
+//         {products.map((product) => (
+//           <Grid key={product} item xs={12} sm={6} md={4} lg={3}>
+//             <div>
+//               <h3>{product.name}</h3>
+//               <p>{product.description}</p>
+//             </div>
+//           </Grid>
+//         ))}
+//       </Grid>
+//     </Container>
+//   );
+// }
