@@ -1,62 +1,43 @@
-// import React from 'react';
-// import AthleteCard from "../../components/AthleteCard/AthleteCard";
-// export default function Products() {
-//   const Products = [
-//     {
-//       name: 'Basketball',
-//       sport: 'Basketball',
-//       image: 'https://example.com/basketball.jpg',
-//       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-//     },
-//     {
-//       name: 'Football Shoes',
-//       sport: 'Football',
-//       image: 'https://example.com/football_shoes.jpg',
-//       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-//     },
-//     {
-//       name: 'Tennis Racket',
-//       sport: 'Tennis',
-//       image: 'https://example.com/tennis_racket.jpg',
-//       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-//     },
-//     {
-//       name: 'Running Shoes',
-//       sport: 'Running',
-//       image: 'https://example.com/running_shoes.jpg',
-//       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-//     },
-//     {
-//       name: 'Golf Clubs',
-//       sport: 'Golf',
-//       image: 'https://example.com/golf_clubs.jpg',
-//       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-//     },
-//     {
-//       name: 'Golf Clubs',
-//       sport: 'Golf',
-//       image: 'https://example.com/golf_clubs.jpg',
-//       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-//     },
-//     {
-//       name: 'Golf Clubs',
-//       sport: 'Golf',
-//       image: 'https://example.com/golf_clubs.jpg',
-//       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-//     }
-//     // Add more sports products as needed
-//   ];
+import React, { useState, useEffect } from "react";
+import { getProduct } from "../../utilities/products-services";
+import { Container, Typography } from "@mui/material";
+import Grid from "@mui/material/Grid";
 
-//   return (
-//     <>
-//       <h1>Products Page</h1>
-//       <br />
+export default function ProductsPage() {
 
-//       <AthleteCard data={Products} />
+  const [products, setProducts] = useState([]);
 
-//     </>
-//   );
-// }
+  useEffect(() => {
+    fetchProducts();
+  }, []);
 
+  const fetchProducts = async () => {
+    try {
+      const response = await getProduct();
+      console.log("API Response:", response); // Add this line
+      setProducts(response);
+    } catch (error) {
+      console.log('response isnt working')
+      console.error("Error fetching products:", error);
+    }
+  };
 
-
+  return (
+    <Container>
+      <Typography variant="h4" gutterBottom>
+        Products Page
+      </Typography>
+      <hr />
+      <Grid container spacing={2}>
+        {products.map((product) => (
+          <Grid key={product} item xs={12} sm={6} md={4} lg={3}>
+            <div>
+              <h3>{product.name}</h3>
+              <p>{product.description}</p>
+            </div>
+          </Grid>
+        ))}
+      </Grid>
+    </Container>
+  );
+}

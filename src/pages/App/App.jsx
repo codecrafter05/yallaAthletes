@@ -18,7 +18,7 @@ import ManagerPageDashboard from '../DashboardPage/ManagerDashboardPage/ManagerD
 import ProductsPageDashboard from '../DashboardPage/ProductsDashboardPage/ProductsDashboardPage'
 import NewsPageDashboard from '../DashboardPage/NewsDashboardPage/NewsDashboardPage'
 import './App.css';
-// import Products from '../Products/Products';
+import Products from '../Products/Products';
 
 function App() {
   const [user, setUser] = useState(getUser());
@@ -44,7 +44,7 @@ function App() {
             <Route path="/dashboard/manager" element={<ManagerPageDashboard/>} />
             <Route path="/dashboard/products" element={<ProductsPageDashboard/>} />
             <Route path="/dashboard/news" element={<NewsPageDashboard/>} />
-            {/* <Route path='/products' element={<Products user={user} />} /> */}
+            <Route path='/products' element={<Products user={user} />} />
           </Routes>
         </>
         :
