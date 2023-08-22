@@ -11,7 +11,6 @@ export default function ProductsPageDashboard() {
         </Box>
         <Box sx={{ backgroundColor: "red" }}>
           <h1>Products</h1>
-          <Products />
         </Box>
       </Container>
     </>

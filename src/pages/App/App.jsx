@@ -17,6 +17,7 @@ import AthletesDashboardPage from '../DashboardPage/AthletesDashboardPage/Athlet
 import ManagerPageDashboard from '../DashboardPage/ManagerDashboardPage/ManagerDashboardPage'
 import ProductsPageDashboard from '../DashboardPage/ProductsDashboardPage/ProductsDashboardPage'
 import NewsPageDashboard from '../DashboardPage/NewsDashboardPage/NewsDashboardPage'
+import Products from '../Products/Products';
 import './App.css';
 // import Products from '../Products/Products';
 
