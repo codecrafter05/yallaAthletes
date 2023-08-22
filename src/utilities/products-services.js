@@ -8,6 +8,6 @@ export async function getProduct() {
   return productsAPI.getProduct();
 }
 
-export async function deleteProduct() {
-  return productsAPI.deleteProduct();
+export async function deleteProduct(productId) {
+  return productsAPI.deleteProduct(productId);
 }
