@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import { Container, Typography } from "@mui/material";
 import { Card, CardContent, TextField, Grid, Button } from "@mui/material";
 import {createA_Product} from '../../utilities/products-services'
+import { Paper, Select, MenuItem, FormControl, InputLabel, TextareaAutosize, Box } from "@mui/material";
+
+
+
 
 function ProductForm() {
   const initialProductData = {
@@ -38,65 +42,90 @@ function ProductForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-    <div>
-      <label htmlFor="name">Product Name: </label>
-      <input type="text" name="name" id="name" placeholder="Enter Product Name" onChange={handleChange} />
-    </div>
-    <div>
-      <label htmlFor="type">Product Type: </label>
-      <select name="type" id="type" onChange={handleChange}>
-        <option value="Apparel">Apparel</option>
-        <option value="Footwear">Footwear</option>
-        <option value="Football">Football</option>
-        <option value="Basketball">Basketball</option>
-        <option value="Tennis">Tennis</option>
-      </select>
-    </div>
-    <div>
-      <label htmlFor="description">Description: </label>
-      <textarea name="description" id="description" cols="30" rows="10"
-        placeholder="Write Product Details..." onChange={handleChange}></textarea>
-    </div>
-    <div>
-      <label htmlFor="quantity">Quantity: </label>
-      <input type="number" id="quantity" name="quantity" min="1" max="5" placeholder="0" onChange={handleChange} />
-    </div>
-    <div>
-      <label htmlFor="size">Size: </label>
-      <select name="size" id="size" onChange={handleChange}>
-        <optgroup label="apparel-choices">
-          <option value="S">S</option>
-          <option value="M">M</option>
-          <option value="L">L</option>
-          <option value="XL">XL</option>
-        </optgroup>
-        <optgroup label="footwear-choices">
-          <option value="40">40</option>
-          <option value="41">41</option>
-          <option value="42">42</option>
-          <option value="43">43</option>
-          <option value="44">44</option>
-          <option value="45">45</option>
-          <option value="46">46</option>
-          <option value="47">47</option>
-          <option value="48">48</option>
-        </optgroup>
-      </select>
-    </div>
-    <div>
-      <label htmlFor="color">Color: </label>
-      <select multiple name="color" id="color" onChange={handleChange}>
-        <option value="Black">Black</option>
-        <option value="Beige">Beige</option>
-        <option value="Blue">Blue</option>
-        <option value="Green">Green</option>
-        <option value="White">White</option>
-        <option value="Red">Red</option>
-        <option value="Yellow">Yellow</option>
-        <option value="Orange">Orange</option>
-      </select>
-    </div>
-    <button type="submit">Add Product</button>
+    <Box sx={{ width: "100%", maxWidth: "600px", margin: "0 auto", marginTop: "20px" }}>
+      <Paper elevation={3} sx={{ padding: "16px", marginBottom: "16px" }}>
+        <Box sx={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+          <TextField
+            label="Product Name"
+            name="name"
+            placeholder="Enter Product Name"
+            onChange={handleChange}
+          />
+          <FormControl>
+            <InputLabel>Product Type</InputLabel>
+            <Select name="type" onChange={handleChange}>
+              <MenuItem value="Apparel">Apparel</MenuItem>
+              <MenuItem value="Footwear">Footwear</MenuItem>
+              <MenuItem value="Football">Football</MenuItem>
+              <MenuItem value="Basketball">Basketball</MenuItem>
+              <MenuItem value="Tennis">Tennis</MenuItem>
+            </Select>
+          </FormControl>
+            <TextField
+              label="Write Product Details"
+              placeholder="Write Product Details..."
+              name="description"
+              rowsMin={3}
+              onChange={handleChange}
+            />
+
+        </Box>
+      </Paper>
+
+      <Paper elevation={3} sx={{ padding: "16px", marginBottom: "16px" }}>
+        <Box sx={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+          <TextField
+            type="number"
+            label="Quantity"
+            name="quantity"
+            inputProps={{ min: "1", max: "5" }}
+            onChange={handleChange}
+          />
+          <TextField
+            type="number"
+            label="Price"
+            name="price"
+            inputProps={{ min: "1", max: "5" }}
+            onChange={handleChange}
+          />
+          <FormControl>
+            <InputLabel>Size</InputLabel>
+            <Select name="size" onChange={handleChange} >
+              <MenuItem value="S">S</MenuItem>
+              <MenuItem value="M">M</MenuItem>
+              <MenuItem value="L">L</MenuItem>
+              <MenuItem value="XL">XL</MenuItem>
+              <MenuItem value="40">40</MenuItem>
+              <MenuItem value="41">41</MenuItem>
+              <MenuItem value="42">42</MenuItem>
+              <MenuItem value="43">43</MenuItem>
+              <MenuItem value="44">44</MenuItem>
+              <MenuItem value="45">45</MenuItem>
+              <MenuItem value="46">46</MenuItem>
+              <MenuItem value="47">47</MenuItem>
+              <MenuItem value="48">48</MenuItem>
+            </Select>
+          </FormControl>
+          <FormControl>
+            <InputLabel>Color</InputLabel>
+            <Select name="color" onChange={handleChange}>
+              <MenuItem value="Black">Black</MenuItem>
+              <MenuItem value="Beige">Beige</MenuItem>
+              <MenuItem value="Blue">Blue</MenuItem>
+              <MenuItem value="Green">Green</MenuItem>
+              <MenuItem value="White">White</MenuItem>
+              <MenuItem value="Red">Red</MenuItem>
+              <MenuItem value="Yellow">Yellow</MenuItem>
+              <MenuItem value="Orange">Orange</MenuItem>
+            </Select>
+          </FormControl>
+        </Box>
+      </Paper>
+
+      <Button type="submit" variant="contained" color="primary">
+        Add Product
+      </Button>
+    </Box>
   </form>
   );
 }
