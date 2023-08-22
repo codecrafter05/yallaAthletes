@@ -75,6 +75,7 @@ export default function ProductList() {
                 <TableCell>Sport Type</TableCell>
                 <TableCell>Quantity</TableCell>
                 <TableCell>Size</TableCell>
+                <TableCell>Price</TableCell>
                 <TableCell>Actions</TableCell>
               </TableRow>
             </TableHead>
@@ -91,6 +92,7 @@ export default function ProductList() {
                   <TableCell>{product.type}</TableCell>
                   <TableCell>{product.quantity}</TableCell>
                   <TableCell>{product.size}</TableCell>
+                  <TableCell>{product.price}</TableCell>
                   <TableCell>
                     <Button
                       variant="contained"

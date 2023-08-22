@@ -8,7 +8,7 @@ router.get('/', productsCtrl.getProduct);
 
 router.post('/', ensureLoggedIn, productsCtrl.createProduct);
 
-router.delete('/', ensureLoggedIn, productsCtrl.deleteProduct);
+router.delete('/:productId', ensureLoggedIn, productsCtrl.deleteProduct);
 
 
 

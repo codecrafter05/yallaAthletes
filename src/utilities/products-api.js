@@ -10,6 +10,7 @@ export async function getProduct() {
   return sendRequest(BASE_URL);
 }
 
-export async function deleteProduct() {
-  return sendRequest(BASE_URL, 'DELETE');
+export async function deleteProduct(productId) {
+  const url = `${BASE_URL}/${productId}`;
+  return sendRequest(url, 'DELETE');
 }
