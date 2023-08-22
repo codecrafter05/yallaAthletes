@@ -16,7 +16,7 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
-const pages = ['Products', 'Athletes', 'News'];
+const pages = ['Products', 'Athletes', 'News', 'AboutUs'];
 const settings = ['Profile', 'Dashboard', 'Logout'];
 
 export default function NavBar({ user, setUser }) {
