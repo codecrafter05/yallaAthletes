@@ -34,7 +34,8 @@ async function getProduct(req, res) {
 
 async function deleteProduct(req, res) {
   try {
-    await Athlete.findOneAndDelete({ product: req.product._id });
+    // Assuming `req.product` should be `req.body.product` or `req.params.product`
+    await Product.findOneAndDelete({ product: req.product._id });
     res.json({ message: 'Product deleted successfully' });
   } catch (error) {
     res.status(500).json({ error: 'Error deleting product' });
