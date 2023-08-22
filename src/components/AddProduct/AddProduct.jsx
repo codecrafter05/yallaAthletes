@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import { Container, Typography } from "@mui/material";
 import { Card, CardContent, TextField, Grid, Button } from "@mui/material";
+import {createA_Product} from '../../utilities/products-services'
 
 function ProductForm() {
   const initialProductData = {
-    name: "",
-    type: "Apparel",
-    description: "",
-    quantity: "",
-    size: "S",
-    color: [],
+    name: '',
+    type: 'Apparel',
+    description: '',
+    quantity: 0,
+    size: 'S',
+    color: ['Black'],
+    photo: ''
   };
 
   const [data, setData] = useState(initialProductData);
@@ -20,136 +22,82 @@ function ProductForm() {
       ...prevData,
       [name]: value,
     }));
+    console.log(data)
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Add code here to handle form submission
-      console.log("Form submitted:", data);
+      const product = await createA_Product(data);
+      console.log('New Product:', product);
       setData(initialProductData);
     } catch (err) {
-      console.error("Error submitting form:", err);
+      console.error('Error creating product:', err);
     }
   };
 
   return (
-    <Container maxWidth="md">
-      <Typography variant="h4" sx={{ mt: 3, mb: 2 }}>
-        Add Product
-      </Typography>
-      <Card variant="outlined" sx={{ mt: 2 }}>
-        <CardContent>
-          <form onSubmit={handleSubmit}>
-            <Grid container spacing={2}>
-              <Grid item xs={12}>
-                <TextField
-                  label="Product Name"
-                  variant="outlined"
-                  name="name"
-                  value={data.name}
-                  fullWidth
-                  onChange={handleChange}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  label="Product Type"
-                  variant="outlined"
-                  name="type"
-                  select
-                  value={data.type}
-                  fullWidth
-                  onChange={handleChange}
-                >
-                  <option value="Apparel">Apparel</option>
-                  <option value="Footwear">Footwear</option>
-                  <option value="Football">Football</option>
-                  <option value="Basketball">Basketball</option>
-                  <option value="Tennis">Tennis</option>
-                </TextField>
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  label="Description"
-                  variant="outlined"
-                  name="description"
-                  multiline
-                  rows={5}
-                  value={data.description}
-                  fullWidth
-                  onChange={handleChange}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  label="Quantity"
-                  variant="outlined"
-                  name="quantity"
-                  type="number"
-                  value={data.quantity}
-                  fullWidth
-                  onChange={handleChange}
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  label="Size"
-                  variant="outlined"
-                  name="size"
-                  select
-                  value={data.size}
-                  fullWidth
-                  onChange={handleChange}
-                >
-                  <optgroup label="apparel-choices">
-                    <option value="S">S</option>
-                    <option value="M">M</option>
-                    <option value="L">L</option>
-                    <option value="XL">XL</option>
-                  </optgroup>
-                  <optgroup label="footwear-choices">
-                    <option value="40">40</option>
-                    <option value="41">41</option>
-                    <option value="42">42</option>
-                    <option value="43">43</option>
-                    <option value="44">44</option>
-                    <option value="45">45</option>
-                    <option value="46">46</option>
-                    <option value="47">47</option>
-                    <option value="48">48</option>
-                  </optgroup>
-                </TextField>
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  label="Color"
-                  variant="outlined"
-                  name="color"
-                  select
-                  multiple
-                  value={data.color}
-                  fullWidth
-                  onChange={handleChange}
-                >
-                  <option value="Black">Black</option>
-                  <option value="Beige">Beige</option>
-                  <option value="Blue">Blue</option>
-                  <option value="Green">Green</option>
-                  <option value="White">White</option>
-                  <option value="Red">Red</option>
-                  <option value="Yellow">Yellow</option>
-                  <option value="Orange">Orange</option>
-                </TextField>
-              </Grid>
-            </Grid>
-            <Button type="submit" variant="contained" color="primary" sx={{ mt: 2 }}>
-              Add Product
-            </Button>
-          </form>
-        </CardContent>
-      </Card>
-    </Container>
+    <form onSubmit={handleSubmit}>
+    <div>
+      <label htmlFor="name">Product Name: </label>
+      <input type="text" name="name" id="name" placeholder="Enter Product Name" onChange={handleChange} />
+    </div>
+    <div>
+      <label htmlFor="type">Product Type: </label>
+      <select name="type" id="type" onChange={handleChange}>
+        <option value="Apparel">Apparel</option>
+        <option value="Footwear">Footwear</option>
+        <option value="Football">Football</option>
+        <option value="Basketball">Basketball</option>
+        <option value="Tennis">Tennis</option>
+      </select>
+    </div>
+    <div>
+      <label htmlFor="description">Description: </label>
+      <textarea name="description" id="description" cols="30" rows="10"
+        placeholder="Write Product Details..." onChange={handleChange}></textarea>
+    </div>
+    <div>
+      <label htmlFor="quantity">Quantity: </label>
+      <input type="number" id="quantity" name="quantity" min="1" max="5" placeholder="0" onChange={handleChange} />
+    </div>
+    <div>
+      <label htmlFor="size">Size: </label>
+      <select name="size" id="size" onChange={handleChange}>
+        <optgroup label="apparel-choices">
+          <option value="S">S</option>
+          <option value="M">M</option>
+          <option value="L">L</option>
+          <option value="XL">XL</option>
+        </optgroup>
+        <optgroup label="footwear-choices">
+          <option value="40">40</option>
+          <option value="41">41</option>
+          <option value="42">42</option>
+          <option value="43">43</option>
+          <option value="44">44</option>
+          <option value="45">45</option>
+          <option value="46">46</option>
+          <option value="47">47</option>
+          <option value="48">48</option>
+        </optgroup>
+      </select>
+    </div>
+    <div>
+      <label htmlFor="color">Color: </label>
+      <select multiple name="color" id="color" onChange={handleChange}>
+        <option value="Black">Black</option>
+        <option value="Beige">Beige</option>
+        <option value="Blue">Blue</option>
+        <option value="Green">Green</option>
+        <option value="White">White</option>
+        <option value="Red">Red</option>
+        <option value="Yellow">Yellow</option>
+        <option value="Orange">Orange</option>
+      </select>
+    </div>
+    <button type="submit">Add Product</button>
+  </form>
   );
 }
 

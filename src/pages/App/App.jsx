@@ -8,6 +8,7 @@ import HomePage from '../HomePage/HomePage';
 import AthletesListPage from '../AthletesListPage/AthletesListPage';
 import ProfilePage from '../ProfilePage/ProfilePage';
 import NewsPage from '../NewsPage/NewsPage';
+import AboutUsPage from '../AboutUs/AboutUs';
 import DashboardPage from '../DashboardPage/DashboardPage'
 import Cart from '../Cart/Cart';
 import ProfileDashboardPage from '../DashboardPage/ProfileDashboardPage/ProfileDashboardPage'
@@ -33,6 +34,7 @@ function App() {
             <Route path="/api/products" element={<NewOrderPage />} />
             <Route path="/athletes" element={<AthletesListPage />} />
             <Route path="/news" element={<NewsPage />} />
+            <Route path="/aboutus" element={<AboutUsPage />} />
             <Route path="/profile" element={<ProfilePage user={user} />} />
             <Route path="/dashboard" element={<DashboardPage user={user}/>} />
             <Route path="/cart" element={<Cart user={user} />} />

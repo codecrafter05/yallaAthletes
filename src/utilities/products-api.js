@@ -5,3 +5,11 @@ const BASE_URL = '/api/products';
 export async function createA_Product(productData) {
   return sendRequest(BASE_URL, 'POST', productData);
 }
+
+export async function getProduct() {
+  return sendRequest(BASE_URL);
+}
+
+export async function deleteProduct() {
+  return sendRequest(BASE_URL, 'DELETE');
+}
