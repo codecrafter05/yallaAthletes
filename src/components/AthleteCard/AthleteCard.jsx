@@ -21,7 +21,7 @@ export default function AthleteCard({ athlete }) {
           }}>
           <div className="overlay">
             <Typography variant="h6" component="h2" className="athlete-name">
-              {athlete.user}
+              {athlete.user.firstName}
             </Typography>
             <Typography className="sport-type">
               Sport: {athlete.sportType}
