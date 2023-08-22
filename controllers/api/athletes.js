@@ -5,7 +5,7 @@ module.exports = {
   getAthlete,
   deleteAthlete,
   getAllApprovedAthletes,
-  
+  showAthleteDetails,
 };
 
 async function create(req, res) {
@@ -29,7 +29,20 @@ async function getAthlete(req, res) {
   }
 }
 
-// Get all athletes, that status is Approved, regardless of logged in user
+// show athlete details page
+async function showAthleteDetails(req, res) {
+  try {
+    const athlete = await Athlete.findById(req.params.athleteId).populate('user');
+    console.log('Fetched athlete details:', athlete);
+
+    res.json(athlete);
+  } catch (err) {
+    console.error('Error fetching athlete details:', err);
+    res.status(400).json(err);
+  }
+}
+
+// Get all athletes, that status is Approved
 async function getAllApprovedAthletes(req, res) {
   try {
     const athletes = await Athlete.find({ status: 'Approved' }).populate('user');

@@ -17,3 +17,7 @@ export async function getAllApprovedAthletes() {
 export async function deleteAthlete() {
   return sendRequest(BASE_URL, 'DELETE');
 }
+
+export async function showAthleteDetails(athleteId) {
+  return sendRequest(`${BASE_URL}/${athleteId}`);
+}

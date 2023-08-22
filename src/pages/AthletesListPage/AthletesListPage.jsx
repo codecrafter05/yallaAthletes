@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import AthleteCard from "../../components/AthleteCard/AthleteCard";
 import { getAllApprovedAthletes } from "../../utilities/athletes-service";
 import { Container, Typography } from "@mui/material";
@@ -14,9 +14,9 @@ export default function AthleteListPage() {
   const fetchApprovedAthletes = async () => {
     try {
       const response = await getAllApprovedAthletes();
-      console.log(`response => ${JSON.stringify(response)}`)
-      console.log(`response => ${JSON.stringify(typeof response)}`)
-      console.log(`response => ${JSON.stringify(response[0])}`)
+      // console.log(`response => ${JSON.stringify(response)}`)
+      // console.log(`response => ${JSON.stringify(typeof response)}`)
+      // console.log(`response => ${JSON.stringify(response[0])}`)
       setAthletes(response);
     } catch (error) {
       console.error("Error fetching approved athletes:", error);
@@ -37,7 +37,6 @@ export default function AthleteListPage() {
             <Grid key={athlete._id} item xs={12} sm={6} md={4} lg={3}>
               <AthleteCard athlete={athlete} />
             </Grid>
-            
           );
         })}
       </Grid>

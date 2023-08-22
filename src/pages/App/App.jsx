@@ -19,6 +19,7 @@ import ProductsPageDashboard from '../DashboardPage/ProductsDashboardPage/Produc
 import NewsPageDashboard from '../DashboardPage/NewsDashboardPage/NewsDashboardPage'
 import './App.css';
 import Products from '../Products/Products';
+import AthletesDetailsPage from '../AthletesDetailPage/AthletesDetailPage';
 
 function App() {
   const [user, setUser] = useState(getUser());
@@ -33,6 +34,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/api/products" element={<NewOrderPage />} />
             <Route path="/athletes" element={<AthletesListPage />} />
+            <Route path="/athletes/:athleteId" element={<AthletesDetailsPage />} />
             <Route path="/news" element={<NewsPage />} />
             <Route path="/aboutus" element={<AboutUsPage />} />
             <Route path="/profile" element={<ProfilePage user={user} />} />
