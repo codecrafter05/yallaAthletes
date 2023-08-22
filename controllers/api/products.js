@@ -23,9 +23,9 @@ async function createProduct(req, res) {
 async function getProduct(req, res) {
   console.log('req.user:', req.user);
   try {
-    const product = await Product.findOne({ product: req.product._id });
+    const product = await Product.find();
     console.log('Fetched product data:', product);
-    res.json(athlete);
+    res.json(product);
   } catch (err) {
     console.error('Error fetching product data:', err);
     res.status(400).json(err);
