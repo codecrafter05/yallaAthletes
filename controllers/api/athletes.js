@@ -5,6 +5,7 @@ module.exports = {
   getAthlete,
   deleteAthlete,
   getAllApprovedAthletes,
+  
 };
 
 async function create(req, res) {
@@ -31,21 +32,12 @@ async function getAthlete(req, res) {
 // Get all athletes, that status is Approved, regardless of logged in user
 async function getAllApprovedAthletes(req, res) {
   try {
-    const athletes = await Athlete.find({ status: 'Approved' });
+    const athletes = await Athlete.find({ status: 'Approved' }).populate('user');
     res.json(athletes);
   } catch (err) {
     res.status(400).json(err);
   }
 }
-
-// async function getAllApprovedAthletes(req, res) {
-//   try {
-//     const athletes = await Athlete.find({ status: 'Approved' });
-//     res.json(athletes);
-//   } catch (err) {
-//     res.status(400).json(err);
-//   }
-// }
 
 async function deleteAthlete(req, res) {
   try {
