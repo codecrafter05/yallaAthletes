@@ -4,7 +4,6 @@ import { Box, Container } from '@mui/material'
 import AddProduct from '../../../components/AddProduct/AddProduct'
 import ProductList from '../../../components/ProductList/ProductList'
 import * as React from 'react';
-import Box from '@mui/material/Box';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import { Typography } from '@mui/material';
