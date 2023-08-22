@@ -15,6 +15,9 @@ router.get('/allApproved', athletesCtrl.getAllApprovedAthletes);
 router.post('/', ensureLoggedIn, athletesCtrl.create);
 // DELETE /api/athletes/:athleteId
 router.delete('/', ensureLoggedIn, athletesCtrl.deleteAthlete);
+// display athlete details
+router.get('/:athleteId', athletesCtrl.showAthleteDetails);
+
 
 
 

@@ -12,6 +12,10 @@ export async function getAllApprovedAthletes() {
   return athleteAPI.getAllApprovedAthletes();
 }
 
+export async function showAthleteDetails(athleteId) {
+  return athleteAPI.showAthleteDetails(athleteId);
+}
+
 export async function deleteAthlete() {
   return athleteAPI.deleteAthlete();
 }
