@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Container, Typography } from "@mui/material";
 import { Card, CardContent, TextField, Grid, Button } from "@mui/material";
 import {createA_Product} from '../../utilities/products-services'
-import { Paper, Select, MenuItem, FormControl, InputLabel, TextareaAutosize, Box } from "@mui/material";
+import { Paper, Select, MenuItem, FormControl, InputLabel, Box } from "@mui/material";
 
 
 

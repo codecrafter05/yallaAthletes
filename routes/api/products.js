@@ -8,5 +8,8 @@ router.get('/', productsCtrl.getProduct);
 
 router.post('/', ensureLoggedIn, productsCtrl.createProduct);
 
+router.delete('/', ensureLoggedIn, productsCtrl.deleteProduct);
+
+
 
 module.exports = router;
