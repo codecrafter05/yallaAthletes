@@ -6,18 +6,18 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import './card.css'; // Import the CSS file
-
+import { Button } from '@mui/material';
 const Card2 = ({ item }) => {
     const { name, image, description } = item;
     return (
         <Card className="card-container">
             <div className="card-wrapper">
-                <Link to="#">
+                <Link className="links" to="#">
                     {image && (
                         <CardMedia
                             component="img"
                             className="card-image"
-                            height="230"
+
                             image={image}
                             alt={name}
                         />
@@ -31,11 +31,12 @@ const Card2 = ({ item }) => {
                         </Typography>
                     </CardContent>
                     <CardActions>
-                        {/* Add card actions here */}
+                        <Button>Edit</Button>
+                        <Button>Delete</Button>
                     </CardActions>
                 </Link>
             </div>
-        </Card>
+        </Card >
     );
 };
 

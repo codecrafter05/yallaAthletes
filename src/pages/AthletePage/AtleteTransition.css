@@ -1,3 +1,24 @@
+/* Add this CSS code to your stylesheet */
+
+.page-transition {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    animation: slide-in 0.5s forwards;
+}
+
+@keyframes slide-in {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
 .card-container {
     display: flex;
     flex-direction: column;
