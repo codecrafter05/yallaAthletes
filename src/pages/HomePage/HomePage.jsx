@@ -19,6 +19,7 @@ import { getProduct } from '../../utilities/products-api';
 import Grid from '@mui/material/Grid';
 import CardActions from '@mui/material/CardActions';
 import Box from '@mui/material/Box';
+
 import './HomePage.css'
 export default function HomePage() {
   const [products, setProducts] = useState([]);
