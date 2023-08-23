@@ -27,7 +27,7 @@ export default function AboutUsPage() {
   return (
     <>
 
-    <Card className="aboutus">
+    <Card className="aboutus ">
       <CardMedia
         component="div" // Use a div as the component
         className="aboutusimg-container"
@@ -43,11 +43,13 @@ export default function AboutUsPage() {
 
 
     <div className='allcontainers'>
-    <Card className='Downer'> 
-     <CardContent className="downer-us">
+
+    
+    <Card className='midel'> 
+     <CardContent className="uper-us">
       <div className="sps">
-          <Typography className='text' gutterBottom variant="h5" component="div">
-           About Us
+          <Typography className='key' gutterBottom variant="h5" component="div">
+            About Us
           </Typography>
       </div>
       <div className="sps">
@@ -69,10 +71,10 @@ export default function AboutUsPage() {
 
 
 
-    <Card className='uper'> 
-     <CardContent className="uper-us">
+    <Card className='Downer'> 
+     <CardContent className="downer-us">
       <div className="sps">
-          <Typography className='key' gutterBottom variant="h5" component="div">
+          <Typography className='text' gutterBottom variant="h5" component="div">
            About Yalla
           </Typography>
       </div>
@@ -88,8 +90,7 @@ export default function AboutUsPage() {
             Lizards are a widespread group of squamate reptiles, with over 6,000
             Lizards are a widespread group of squamate reptiles, with over 6,000
           </Typography>
-      </div>
-        </CardContent>
+      </div> </CardContent>
         
     </Card>
 
@@ -99,7 +100,7 @@ export default function AboutUsPage() {
      <CardContent className="uper-us">
       <div className="sps">
           <Typography className='key' gutterBottom variant="h5" component="div">
-            Our Goals
+           Ouer Goals 
           </Typography>
       </div>
       <div className="sps">
@@ -118,6 +119,9 @@ export default function AboutUsPage() {
         </CardContent>
         
     </Card>
+
+
+
 
 
     
