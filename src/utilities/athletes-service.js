@@ -19,3 +19,15 @@ export async function showAthleteDetails(athleteId) {
 export async function deleteAthlete() {
   return athleteAPI.deleteAthlete();
 }
+
+export async function approveAthlete(athleteId) {
+  return athleteAPI.approveAthlete(athleteId);
+}
+
+export async function rejectAthlete(athleteId) {
+  return athleteAPI.rejectAthlete(athleteId);
+}
+
+export async function removeAthlete(athleteId) {
+  return athleteAPI.removeAthlete(athleteId);
+}

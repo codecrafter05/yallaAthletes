@@ -34,31 +34,30 @@ export default function ProfilePage() {
   const [showConfirmationModal, setShowConfirmationModal] = useState(false);
   const [confirmationAction, setConfirmationAction] = useState(null);
 
-  useEffect(() => {
-    console.log(`useEffect user...`);
-    
-    async function fetchUserData() {
-      try {
-        const userData = await getUser();
-        setUser(userData);
-      } catch (error) {
-        console.error('Error fetching user data:', error);
-      }
+  async function fetchUserData() {
+    try {
+      const userData = await getUser();
+      setUser(userData);
+    } catch (error) {
+      console.error('Error fetching user data:', error);
     }
+  }
   
+  useEffect(() => {
+    console.log(`useEffect user...`);  
     fetchUserData();
   }, [athleteUpgrade]);
-  
+
+  const fetchUserAthleteStatus = async () => {
+    try {
+      const athlete = await getAthlete(user._id);
+      setAthleteStatus(athlete.status);
+    } catch (error) {
+      console.log('Error fetching athlete status:', error.response);
+    }
+  };
+
   useEffect(() => {
-    const fetchUserAthleteStatus = async () => {
-      try {
-        const athlete = await getAthlete(user._id);
-        setAthleteStatus(athlete.status);
-      } catch (error) {
-        console.log('Error fetching athlete status:', error.response);
-      }
-    };
-  
     if (user && user._id) {
       fetchUserAthleteStatus();
     }

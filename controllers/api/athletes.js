@@ -5,7 +5,10 @@ module.exports = {
   getAthlete,
   getAllAthletesFiltered,
   deleteAthlete,
-  showAthleteDetails
+  showAthleteDetails,
+  approveAthlete,
+  rejectAthlete,
+  removeAthlete
 };
 
 async function create(req, res) {
@@ -59,5 +62,50 @@ async function deleteAthlete(req, res) {
     res.json({ message: 'Athlete deleted successfully' });
   } catch (error) {
     res.status(500).json({ error: 'Error deleting athlete' });
+  }
+}
+
+// Add approveAthlete function
+// will update user.role to Athlete
+// will update athlete.status to Approved
+async function approveAthlete(req, res) {
+  try {
+    const athlete = await Athlete.findById(req.params.athleteId).populate('user');
+    console.log('Fetched athlete details:', athlete);
+    athlete.user.role = 'Athlete';
+    athlete.status = 'Approved';
+    athlete.save();
+    res.json({ message: 'Athlete approved successfully' });
+  } catch (error) {
+    res.status(500).json({ error: 'Error approving athlete' });
+  }
+}
+
+// Add rejectAthlete function
+// will update athlete.status to Rejected
+async function rejectAthlete(req, res) {
+  try {
+    const athlete = await Athlete.findById(req.params.athleteId);
+    console.log('Fetched athlete details:', athlete);
+    athlete.status = 'Rejected';
+    athlete.save();
+    res.json({ message: 'Athlete rejected successfully' });
+  } catch (error) {
+    res.status(500).json({ error: 'Error rejecting athlete' });
+  }
+}
+
+// add removeAthlete function with id
+// will remove athlete from database
+async function removeAthlete(req, res) {
+  try {
+    const athlete = await Athlete.findById(req.params.athleteId).populate('user');
+    console.log('Fetched athlete details:', athlete);
+    athlete.user.role = 'Customer';
+    athlete.save();
+    athlete.remove();
+    res.json({ message: 'Athlete removed successfully' });
+  } catch (error) {
+    res.status(500).json({ error: 'Error removing athlete' });
   }
 }
