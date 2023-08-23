@@ -1,5 +1,4 @@
 import DashboardPage from '../DashboardPage'
-import Products from '../../Products/Products'
 import { Box, Container } from '@mui/material'
 import AddProduct from '../../../components/AddProduct/AddProduct'
 import ProductList from '../../../components/ProductList/ProductList'
