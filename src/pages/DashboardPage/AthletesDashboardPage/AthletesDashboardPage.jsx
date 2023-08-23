@@ -5,15 +5,6 @@ import DashboardPage from '../DashboardPage';
 import { getAllAthletesFiltered } from '../../../utilities/athletes-service';
 
 const columns = [
-  { field: 'id', headerName: 'ID', width: 70 },
-  { field: 'firstName', headerName: 'First name', width: 130 },
-  { field: 'lastName', headerName: 'Last name', width: 130 },
-  {
-    field: 'age',
-    headerName: 'Age',
-    type: 'number',
-    width: 90,
-  },
   {
     field: 'fullName',
     headerName: 'Full name',
@@ -23,10 +14,32 @@ const columns = [
     valueGetter: (params) =>
       `${params.row.firstName || ''} ${params.row.lastName || ''}`,
   },
+  { field: 'id', headerName: 'ID', width: 70 },
+  { field: 'firstName', headerName: 'First name', width: 130 },
+  { field: 'lastName', headerName: 'Last name', width: 130 },
+  {
+    field: 'age',
+    headerName: 'Age',
+    type: 'number',
+    width: 90,
+  },
 ];
 
 export default function AthletesPageDashboard() {
   const [pendingAthletes, setPendingAthletes] = useState([]);
+
+  const calculateAge = (dateOfBirth) => {
+    const dob = new Date(dateOfBirth);
+    const today = new Date();
+    const age = today.getFullYear() - dob.getFullYear();
+    const monthDiff = today.getMonth() - dob.getMonth();
+
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
+      return age - 1;
+    }
+
+    return age;
+  };
 
   useEffect(() => {
     async function fetchPendingAthletes() {
@@ -46,13 +59,13 @@ export default function AthletesPageDashboard() {
     id: index,
     firstName: athlete.user.firstName,
     lastName: athlete.user.lastName,
-    age: athlete.age,
+    age: calculateAge(athlete.user.dateOfBirth),
     fullName: `${athlete.firstName || ''} ${athlete.lastName || ''}`,
   }));
 
   return (
     <>
-      <Box sx={{ marginLeft: '150px', marginTop: '2px' }}>
+      <Box sx={{ marginLeft: '250px', marginTop: '2px' }}>
         <DashboardPage />
         <h1>Athletes</h1>
         <hr />
@@ -68,7 +81,6 @@ export default function AthletesPageDashboard() {
               },
             }}
             pageSizeOptions={[5, 10]}
-            checkboxSelection
           />
         </div>
       </Box>
