@@ -10,7 +10,7 @@ import meImage from '../../assets/me.jpg';
 import hamadImage from '../../assets/hamad.jpg';
 import azizImage from '../../assets/aziz.jpg';
 import abbasImage from '../../assets/abbas.jpg';
-import '../AboutUs/AboutUs.css';
+import './AboutUs.css'
 
 export default function AboutUsPage() {
   // const cardStyles = {
