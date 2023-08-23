@@ -355,7 +355,7 @@ html {
   margin-bottom: 40px;
   padding: 200px;
   position: relative;
-  background-image: url('./assets/olympic.jpg');
+  /* background-image: url('./assets/olympic.jpg'); */
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -407,7 +407,7 @@ html {
   margin-bottom: 100px;
   padding: 200px;
   position: relative;
-  background-image: url('./assets/bask.jpg');
+  /* background-image: url('./assets/bask.jpg'); */
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

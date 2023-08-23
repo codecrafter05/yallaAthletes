@@ -6,13 +6,13 @@ import CardMedia from '@mui/material/CardMedia';
 import { CardActionArea, Container } from '@mui/material';
 import { Link } from 'react-router-dom';
 import Footer from '../../components/Newspagecomponents/Footer';
+import '../AboutUs/AboutUs.css';
 import meImage from '../../assets/me.jpg';
 import hamadImage from '../../assets/hamad.jpg';
 import azizImage from '../../assets/aziz.jpg';
 import abbasImage from '../../assets/abbas.jpg';
 import abcImage from '../../assets/abc.jpg';
 // import React, { useState } from 'react'; // Import the useState hook
-
 
 
 export default function AboutUsPage() {
@@ -34,7 +34,7 @@ export default function AboutUsPage() {
         // style={{ backgroundImage: `url(${abcImage})`}} // Set the background image
       >
         <Typography variant="h1" className='abutusimgback'>
-          About Us
+          Oure Story 
           <h5>Lizards are a widespread group of squamate reptiles, with over 6,000</h5>
         </Typography>
       </CardMedia>
@@ -47,7 +47,33 @@ export default function AboutUsPage() {
      <CardContent className="downer-us">
       <div className="sps">
           <Typography className='text' gutterBottom variant="h5" component="div">
-            About Yalla
+           About Us
+          </Typography>
+      </div>
+      <div className="sps">
+          <Typography  variant="body2" className="text">
+           Lizards are a widespread group of squamate reptiles, with over 6,000
+            Lizards are a widespread group of squamate reptiles, with over 6,000
+            Lizards are a widespread group of squamate reptiles, with over 6,000
+            Lizards are a widespread group of squamate reptiles, with over 6,000
+            Lizards are a widespread group of squamate reptiles, with over 6,000
+            Lizards are a widespread group of squamate reptiles, with over 6,000
+            Lizards are a widespread group of squamate reptiles, with over 6,000
+            Lizards are a widespread group of squamate reptiles, with over 6,000
+            Lizards are a widespread group of squamate reptiles, with over 6,000
+          </Typography>
+      </div>
+        </CardContent>
+        
+    </Card>
+
+
+
+    <Card className='uper'> 
+     <CardContent className="uper-us">
+      <div className="sps">
+          <Typography className='key' gutterBottom variant="h5" component="div">
+           About Yalla
           </Typography>
       </div>
       <div className="sps">
@@ -92,7 +118,6 @@ export default function AboutUsPage() {
         </CardContent>
         
     </Card>
-
 
 
     
