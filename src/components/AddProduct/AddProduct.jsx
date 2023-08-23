@@ -1,10 +1,7 @@
 import React, { useState } from "react";
-import { Container, Typography } from "@mui/material";
-import { Card, CardContent, TextField, Grid, Button } from "@mui/material";
+import { TextField, Button } from "@mui/material";
 import {createA_Product} from '../../utilities/products-services'
 import { Paper, Select, MenuItem, FormControl, InputLabel, Box } from "@mui/material";
-
-
 
 
 function ProductForm() {
@@ -39,6 +36,36 @@ function ProductForm() {
       console.error('Error creating product:', err);
     }
   };
+
+  function handleImageUpload(evt) {
+    // get the image uploaded in input file, it will be the first element in files arr
+    const file = evt.target.files[0];
+    console.log(file);
+
+    TransformFileData(file);
+  }
+  // transfer file/image to base64 string
+  function TransformFileData(file) {
+    //The FileReader object lets web applications asynchronously read the contents of files (or raw data buffers) stored on the user's computer, using File or Blob objects to specify the file or data to read.
+    // FileReader can only access the contents of files that the user has explicitly selected, either using an HTML <input type="file"> element or by drag and drop
+    // filereader is js object
+    const reader = new FileReader();
+
+    if (file) {
+      // Starts reading the contents of the specified Blob, once finished, the "result" attribute contains a data: URL representing the file's data.
+      reader.readAsDataURL(file);
+      // Fired when a read has completed, successfully or not.
+      reader.onloadend = () => {
+        console.log(reader.result);
+        setData({ ...data, photo: reader.result });
+        // setError("");
+      };
+    } else {
+      // no image
+      setData({ ...data, photo: "" });
+      // setError("");
+    }
+  }
 
   return (
     <form onSubmit={handleSubmit}>
@@ -88,6 +115,13 @@ function ProductForm() {
             inputProps={{ min: "1", max: "5" }}
             onChange={handleChange}
           />
+            <TextField
+              type="file"
+              label="Image"
+              name="photo"
+              inputProps={{ accept: "image/*" }} 
+              onChange={handleImageUpload}
+            />
           <FormControl>
             <InputLabel>Size</InputLabel>
             <Select name="size" onChange={handleChange} >

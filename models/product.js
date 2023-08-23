@@ -21,7 +21,17 @@ const productSchema = new Schema({
 
   price:{
     type: Number,
+    required: true,
+  },
 
+  photo:{
+    type: String,
+    required: true
+  },
+
+  cloudinaryId:{
+    type: String,
+    required: true,
   },
 
   quantity:{
