@@ -9,16 +9,25 @@ body {
 
 
 .aboutusimg-container {
-  background-color: #614f4f; /* Use your preferred color code here */
+  background-color: #ffffff; /* Use your preferred color code here */
   display: flex;
   align-items: center;
   justify-content: center;
   height: 300px; /* Adjust the height as needed */
+  box-shadow: none !important; 
 }
 
 .abutusimgback {
   text-align: center;
-  color: #333; /* Text color */
+  color: #000000; /* Text color */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+
+  /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); */
+
 }
 
 
@@ -199,7 +208,7 @@ body {
   justify-content: center;
   gap: 9px;
   padding: 15px;
-  background-color: rgb(78, 76, 76); /* Set background color */
+  background-color: rgb(255, 255, 255); /* Set background color */
 }
 
 .card-with-flex {
@@ -239,6 +248,7 @@ body {
   background-position: center;
   background-size: cover;
   border-radius: 100px !important;
+  background-attachment: fixed; /* Keep the background fixed while scrolling */
 }
 
 .Downer::before {
@@ -249,23 +259,25 @@ body {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 50; /* Place the color overlay above the background image */
-
+  z-index: 50;
 }
 
 .downer-us {
-  position: relative; /* Ensure the content remains above the overlay */
-  z-index: 60; /* Place the content above the overlay */
+  position: relative;
+  z-index: 60;
 }
 
 .sps {
   width: 100%;
   text-align: left;
   padding-left: 20px;
-  max-width: 400px;
+  max-width: 600px;
   overflow: hidden;
   /* white-space: nowrap; */
   /* text-overflow: ellipsis;  */
+  text-align: justify;
+  text-justify: inter-character;
+  font-size: 12px;
 
 }
 
@@ -288,7 +300,7 @@ body {
   background-position: center;
   background-size: cover;
   border-radius: 100px !important;
-
+  background-attachment: fixed; /* Keep the background fixed while scrolling */
 }
 
 .uper::before {
@@ -299,17 +311,18 @@ body {
   width: 100%;
   height: 100%;
   background-color: rgba(29, 3, 3, 0.5);
-  z-index: 50; 
+  z-index: 50;
 }
 
 .uper-us {
-  position: relative; /* Ensure the content remains above the overlay */
-  z-index: 60; /* Place the content above the overlay */
+  position: relative;
+  z-index: 60;
 }
 
+/* 
 .sps {
   width: 100%;
-}
+} */
 
 .key {
   color: white; /* Set the text color to white for better visibility on the overlay */
@@ -324,7 +337,7 @@ body {
 
 
 .midel {
-  margin-bottom: 100px;
+  margin-bottom: 40px;
   padding: 200px;
   position: relative;
   background-image: url('/src/assets/team.jpg');
@@ -332,7 +345,7 @@ body {
   background-position: center;
   background-size: cover;
   border-radius: 100px !important;
-
+  background-attachment: fixed; /* Keep the background fixed while scrolling */
 }
 
 .midel::before {
@@ -343,17 +356,15 @@ body {
   width: 100%;
   height: 100%;
   background-color: rgba(29, 3, 3, 0.5);
-  z-index: 50; 
+  z-index: 50;
 }
 
 .midel-us {
-  position: relative; /* Ensure the content remains above the overlay */
-  z-index: 60; /* Place the content above the overlay */
+  position: relative;
+  z-index: 60;
 }
 
-.sps {
-  width: 100%;
-}
+
 
 .key {
   color: white; /* Set the text color to white for better visibility on the overlay */

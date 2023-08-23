@@ -32,7 +32,7 @@ export default function AboutUsPage() {
       >
         <Typography variant="h1" className='abutusimgback'>
           Our Story 
-          <h5>Lizards are a widespread group of squamate reptiles, with over 6,000</h5>
+          <h5>Lizards are a widespread group of squamate reptiles, with over 6,000 Lizards are a widespread group of squamate reptiles, with over 6,000 Lizards are a widespread group of squamate reptiles, with over 6,000</h5>
         </Typography>
       </CardMedia>
     </Card>
