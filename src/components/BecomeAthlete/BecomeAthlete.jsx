@@ -38,7 +38,7 @@ export default function BecomeAthlete({ user, handleBecomeAthlete }) {
   };
 
   return (
-    <Card variant="outlined">
+    <Card variant="outlined" sx={{ mt: 2 }}>
       <CardContent>
         <h1>Become Athlete</h1>
         <form onSubmit={handleSubmit}>
