@@ -21,3 +21,15 @@ export async function deleteAthlete() {
 export async function showAthleteDetails(athleteId) {
   return sendRequest(`${BASE_URL}/${athleteId}`);
 }
+
+export async function approveAthlete(athleteId) {
+  return sendRequest(`${BASE_URL}/approveAthlete/${athleteId}`, 'PUT');
+}
+
+export async function rejectAthlete(athleteId) {
+  return sendRequest(`${BASE_URL}/rejectAthlete/${athleteId}`, 'PUT');
+}
+
+export async function removeAthlete(athleteId) {
+  return sendRequest(`${BASE_URL}/removeAthlete/${athleteId}`, 'PUT');
+}
