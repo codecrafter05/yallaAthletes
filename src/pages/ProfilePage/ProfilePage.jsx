@@ -48,21 +48,20 @@ export default function ProfilePage() {
     fetchUserData();
   }, [athleteUpgrade]);
 
-  const fetchUserAthleteStatus = async () => {
-    try {
-      const athlete = await getAthlete(user._id);
-      setAthleteStatus(athlete.status);
-    } catch (error) {
-      console.log('Error fetching athlete status:', error.response);
-    }
-  };
-
   useEffect(() => {
+    const fetchUserAthleteStatus = async () => {
+      try {
+        const athlete = await getAthlete(user._id);
+        setAthleteStatus(athlete.status);
+      } catch (error) {
+        console.log('Error fetching athlete status:', error.response);
+      }
+    };
+
     if (user && user._id) {
       fetchUserAthleteStatus();
     }
   }, [user]);
-   
 
   const handleDeleteUser = () => {
     setConfirmationAction('deleteUser');
@@ -132,21 +131,35 @@ export default function ProfilePage() {
       )}
 
       {showEditProfile ? (
-        <button onClick={() => setShowEditProfile(false)}>Cancel Edit</button>
+        <Button variant='outlined' color='primary' sx={{ mt: 2 }} onClick={() => setShowEditProfile(false)}>Back to profile</Button>
       ) : (
         <>
           {user.role !== 'Athlete' && athleteStatus !== 'Pending' && athleteStatus !== 'Approved' && (
-            <button onClick={() => setShowBecomeAthlete(!showBecomeAthlete)}>
+            <Button variant='contained' color='primary' onClick={() => setShowBecomeAthlete(!showBecomeAthlete)}>
               {showBecomeAthlete ? 'Back to Profile' : 'Become Athlete'}
-            </button>
+            </Button>
           )}
+            
+            <Button
+              variant="contained"
+              color="primary"
+              sx = {{ mt: 2 }}
+              onClick={() => setShowEditProfile(true)}
+            >
+              Edit Profile
+            </Button>
 
-          <button onClick={() => setShowEditProfile(true)}>
-            Edit Profile
-          </button>
+            <Box sx={{ mt: 2 }} >
+              <Button
+                variant="contained"
+                color="error"
+                onClick={handleDeleteUser}
+                >Delete User
+              </Button>
+            </Box>
         </>
       )}
-      <button onClick={handleDeleteUser}>Delete User</button> {/* Added delete button */}
+
       
       {/* Confirmation Modal */}
       <Modal open={showConfirmationModal} onClose={handleCancelDeletion}>
@@ -158,9 +171,9 @@ export default function ProfilePage() {
           <Typography sx={{ mt: 2, mb: 4 }}>
             Are you sure you want to delete your account?
           </Typography>
-          <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-            <Button variant="contained" sx={{ mr: 1 }} onClick={handleConfirmDeletion} color='error'>Confirm</Button>
-            <Button variant="contained" onClick={handleCancelDeletion}>Cancel</Button>
+          <div style={{ display: 'flex', justifyContent: 'flex-end' }}>        
+            <Button variant="contained" onClick={handleCancelDeletion} sx={{ mr: 1 }}>Cancel</Button>
+            <Button variant="contained" onClick={handleConfirmDeletion} color='error'>Confirm</Button>
           </div>
         </Box>
       </Modal>
