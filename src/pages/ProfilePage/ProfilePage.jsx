@@ -34,17 +34,16 @@ export default function ProfilePage() {
   const [showConfirmationModal, setShowConfirmationModal] = useState(false);
   const [confirmationAction, setConfirmationAction] = useState(null);
 
-  async function fetchUserData() {
-    try {
-      const userData = await getUser();
-      setUser(userData);
-    } catch (error) {
-      console.error('Error fetching user data:', error);
-    }
-  }
-  
   useEffect(() => {
-    console.log(`useEffect user...`);  
+    async function fetchUserData() {
+      try {
+        const userData = await getUser();
+        setUser(userData);
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      }
+    }
+
     fetchUserData();
   }, [athleteUpgrade]);
 
@@ -104,8 +103,6 @@ export default function ProfilePage() {
     setShowEditProfile(false);
     setAthleteUpgrade(true);
   };
-
-  console.log(`re-rendering...`);
   return (
     <Container>
       <h1>Profile</h1>
@@ -114,11 +111,11 @@ export default function ProfilePage() {
         <Alert severity="warning">Your athlete status is pending</Alert>
       )}
 
-      {user.role === 'Athlete' && athleteStatus === 'Approved' && (
+      {athleteStatus === 'Approved' && (
         <Alert severity="success">Your athlete status is approved</Alert>
       )}
 
-      {user.role === 'Athlete' && athleteStatus === 'Rejected' && (
+      { athleteStatus === 'Rejected' && (
         <Alert severity="error">Your athlete status is rejected</Alert>
       )}
 
@@ -134,20 +131,22 @@ export default function ProfilePage() {
         <Button variant='outlined' color='primary' sx={{ mt: 2 }} onClick={() => setShowEditProfile(false)}>Back to profile</Button>
       ) : (
         <>
-          {user.role !== 'Athlete' && athleteStatus !== 'Pending' && athleteStatus !== 'Approved' && (
-            <Button variant='contained' color='primary' onClick={() => setShowBecomeAthlete(!showBecomeAthlete)}>
+          {user.role !== 'Athlete' && user.role !== 'Manager' && user.role !== 'Admin' && athleteStatus !== 'Pending' && athleteStatus !== 'Approved' && athleteStatus !== 'Rejected' && (
+            <Button variant='contained' color='primary' sx={{ mt: 2, mr: 1 }} onClick={() => setShowBecomeAthlete(!showBecomeAthlete)}>
               {showBecomeAthlete ? 'Back to Profile' : 'Become Athlete'}
             </Button>
           )}
             
+          {!showBecomeAthlete && (
             <Button
               variant="contained"
               color="primary"
-              sx = {{ mt: 2 }}
+              sx={{ mt: 2 }}
               onClick={() => setShowEditProfile(true)}
             >
               Edit Profile
             </Button>
+          )}
 
             <Box sx={{ mt: 2 }} >
               <Button

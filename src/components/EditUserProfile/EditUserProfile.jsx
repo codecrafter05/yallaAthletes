@@ -20,7 +20,7 @@ export default function EditUserProfile({ user, setUser }) {
   };
 
   return (
-    <Card variant="outlined">
+    <Card variant="outlined" sx={{ mt: 2 }}>
       <CardContent>
         <h1>Edit User Profile</h1>
         <Grid container spacing={2}>

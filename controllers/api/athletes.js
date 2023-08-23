@@ -21,7 +21,6 @@ async function create(req, res) {
 }
 
 async function getAthlete(req, res) {
-  console.log('req.user:', req.user);
   try {
     const athlete = await Athlete.findOne({ user: req.user._id });
     console.log('Fetched athlete data:', athlete);
@@ -72,14 +71,19 @@ async function approveAthlete(req, res) {
   try {
     const athlete = await Athlete.findById(req.params.athleteId).populate('user');
     console.log('Fetched athlete details:', athlete);
+    
     athlete.user.role = 'Athlete';
     athlete.status = 'Approved';
-    athlete.save();
+
+    await athlete.user.save();
+    await athlete.save();
+    
     res.json({ message: 'Athlete approved successfully' });
   } catch (error) {
     res.status(500).json({ error: 'Error approving athlete' });
   }
 }
+
 
 // Add rejectAthlete function
 // will update athlete.status to Rejected
@@ -88,7 +92,7 @@ async function rejectAthlete(req, res) {
     const athlete = await Athlete.findById(req.params.athleteId);
     console.log('Fetched athlete details:', athlete);
     athlete.status = 'Rejected';
-    athlete.save();
+    await athlete.save();
     res.json({ message: 'Athlete rejected successfully' });
   } catch (error) {
     res.status(500).json({ error: 'Error rejecting athlete' });
@@ -102,8 +106,8 @@ async function removeAthlete(req, res) {
     const athlete = await Athlete.findById(req.params.athleteId).populate('user');
     console.log('Fetched athlete details:', athlete);
     athlete.user.role = 'Customer';
-    athlete.save();
-    athlete.remove();
+    await athlete.user.save();
+    await athlete.remove();
     res.json({ message: 'Athlete removed successfully' });
   } catch (error) {
     res.status(500).json({ error: 'Error removing athlete' });
