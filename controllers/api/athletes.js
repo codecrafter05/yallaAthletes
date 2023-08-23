@@ -3,9 +3,9 @@ const Athlete = require('../../models/athlete');
 module.exports = {
   create,
   getAthlete,
+  getAllAthletesFiltered,
   deleteAthlete,
-  getAllApprovedAthletes,
-  showAthleteDetails,
+  showAthleteDetails
 };
 
 async function create(req, res) {
@@ -29,6 +29,16 @@ async function getAthlete(req, res) {
   }
 }
 
+// Get all athletes, take status from params
+async function getAllAthletesFiltered(req, res) {
+  try {
+    const athletes = await Athlete.find({ status: req.params.status }).populate('user');
+    res.json(athletes);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+}
+
 // show athlete details page
 async function showAthleteDetails(req, res) {
   try {
@@ -38,16 +48,6 @@ async function showAthleteDetails(req, res) {
     res.json(athlete);
   } catch (err) {
     console.error('Error fetching athlete details:', err);
-    res.status(400).json(err);
-  }
-}
-
-// Get all athletes, that status is Approved
-async function getAllApprovedAthletes(req, res) {
-  try {
-    const athletes = await Athlete.find({ status: 'Approved' }).populate('user');
-    res.json(athletes);
-  } catch (err) {
     res.status(400).json(err);
   }
 }

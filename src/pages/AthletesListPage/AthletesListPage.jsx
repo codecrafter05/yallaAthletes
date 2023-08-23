@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import AthleteCard from "../../components/AthleteCard/AthleteCard";
-import { getAllApprovedAthletes } from "../../utilities/athletes-service";
+import { getAllAthletesFiltered } from '../../utilities/athletes-service';
 import { Container } from "@mui/material";
 import Grid from "@mui/material/Grid";
 
@@ -8,17 +8,17 @@ export default function AthleteListPage() {
   const [athletes, setAthletes] = useState([]);
 
   useEffect(() => {
-    fetchApprovedAthletes();
-  }, []);
-
-  const fetchApprovedAthletes = async () => {
-    try {
-      const response = await getAllApprovedAthletes();
-      setAthletes(response);
-    } catch (error) {
-      console.error("Error fetching approved athletes:", error);
+    async function fetchAthletes() {
+      try {
+        const response = await getAllAthletesFiltered('Approved'); // Fetch pending athletes
+        console.log('Fetched athletes:', response);
+        setAthletes(response); // Update the state with pending athletes' data
+      } catch (error) {
+        console.error('Error fetching athletes:', error);
+      }
     }
-  };
+    fetchAthletes();
+  }, []);
 
   return (
     <Container>
