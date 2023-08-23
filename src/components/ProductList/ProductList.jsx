@@ -71,6 +71,7 @@ export default function ProductList() {
           <Table>
             <TableHead>
               <TableRow>
+                <TableCell>Image</TableCell>
                 <TableCell>Product</TableCell>
                 <TableCell>Sport Type</TableCell>
                 <TableCell>Quantity</TableCell>
@@ -88,6 +89,7 @@ export default function ProductList() {
                 : products
               ).map((product, index) => (
                 <TableRow key={index}>
+                  <TableCell><img src={product.photo} style={{ width: '90px' }} alt="Product" /></TableCell>
                   <TableCell>{product.name}</TableCell>
                   <TableCell>{product.type}</TableCell>
                   <TableCell>{product.quantity}</TableCell>
