@@ -5,6 +5,7 @@ import DashboardPage from '../DashboardPage';
 import { getAllAthletesFiltered } from '../../../utilities/athletes-service';
 
 const columns = [
+  { field: 'id', headerName: 'ID', width: 70 },
   {
     field: 'fullName',
     headerName: 'Full name',
@@ -14,7 +15,6 @@ const columns = [
     valueGetter: (params) =>
       `${params.row.firstName || ''} ${params.row.lastName || ''}`,
   },
-  { field: 'id', headerName: 'ID', width: 70 },
   { field: 'firstName', headerName: 'First name', width: 130 },
   { field: 'lastName', headerName: 'Last name', width: 130 },
   {
@@ -56,7 +56,7 @@ export default function AthletesPageDashboard() {
   }, []);
 
   const rows = pendingAthletes.map((athlete, index) => ({
-    id: index,
+    id: index + 1,
     firstName: athlete.user.firstName,
     lastName: athlete.user.lastName,
     age: calculateAge(athlete.user.dateOfBirth),
