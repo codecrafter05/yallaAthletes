@@ -2,26 +2,16 @@ import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import { CardActionArea, Container } from '@mui/material';
+import { CardActionArea } from '@mui/material';
 import { Link } from 'react-router-dom';
 import Footer from '../../components/Newspagecomponents/Footer';
 import vi1mp4 from '../../assets/vi1.mp4';
-import ggImage from '../../assets/gg.jpg';
-import prImage from '../../assets/pr.jpg';
-import inImage from '../../assets/in.jpg';
-import meImage from '../../assets/me.jpg';
-import hamadImage from '../../assets/hamad.jpg';
-import azizImage from '../../assets/aziz.jpg';
-import abbasImage from '../../assets/abbas.jpg';
 import { useEffect, useState } from 'react';
 import Button from '@mui/material/Button';
 import { getProduct } from '../../utilities/products-api';
-import Grid from '@mui/material/Grid';
 import CardActions from '@mui/material/CardActions';
-import Box from '@mui/material/Box';
 export default function HomePage() {
   const [products, setProducts] = useState([]);
-
 
   useEffect(() => {
     fetchProducts();

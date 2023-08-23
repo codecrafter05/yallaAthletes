@@ -3,26 +3,23 @@ import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import { CardActionArea, Container } from '@mui/material';
-import { Link } from 'react-router-dom';
+// import { CardActionArea, Container } from '@mui/material';
+// import { Link } from 'react-router-dom';
 import Footer from '../../components/Newspagecomponents/Footer';
-import '../AboutUs/AboutUs.css';
 import meImage from '../../assets/me.jpg';
 import hamadImage from '../../assets/hamad.jpg';
 import azizImage from '../../assets/aziz.jpg';
 import abbasImage from '../../assets/abbas.jpg';
-import abcImage from '../../assets/abc.jpg';
-// import React, { useState } from 'react'; // Import the useState hook
-
+import '../AboutUs/AboutUs.css';
 
 export default function AboutUsPage() {
-  const cardStyles = {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    padding: '16px',
-    borderRadius: '10px',
-  };
+  // const cardStyles = {
+  //   display: 'flex',
+  //   flexDirection: 'column',
+  //   alignItems: 'center',
+  //   padding: '16px',
+  //   borderRadius: '10px',
+  // };
  
   return (
     <>
@@ -34,7 +31,7 @@ export default function AboutUsPage() {
         // style={{ backgroundImage: `url(${abcImage})`}} // Set the background image
       >
         <Typography variant="h1" className='abutusimgback'>
-          Oure Story 
+          Our Story 
           <h5>Lizards are a widespread group of squamate reptiles, with over 6,000</h5>
         </Typography>
       </CardMedia>
