@@ -45,6 +45,7 @@ async function getProduct(req, res) {
   }
 }
 
+
 async function deleteProduct(req, res) {
   const productId = req.params.productId;
   console.log(productId);
