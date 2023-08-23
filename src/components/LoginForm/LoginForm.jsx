@@ -29,6 +29,7 @@ export default function LoginForm({ setUser, setShowSignUp }) {
       // payload of the JSON Web Token (JWT)
       const user = await usersService.login(credentials);
       setUser(user);
+
     } catch {
       setError('Log In Failed - Try Again');
     }
@@ -39,7 +40,7 @@ export default function LoginForm({ setUser, setShowSignUp }) {
       <Typography variant="body2" color="text.secondary" align="center" {...props}>
         {'Copyright © '}
         <Link color="inherit" href="/">
-        yallaAthletes
+          yallaAthletes
         </Link>{' '}
         {new Date().getFullYear()}
         {'.'}
@@ -49,65 +50,65 @@ export default function LoginForm({ setUser, setShowSignUp }) {
 
   // <p>&nbsp;{error}</p>
   return (
-      <>
-        <Typography component="h1" variant="h5">
-          Sign in
+    <>
+      <Typography component="h1" variant="h5">
+        Sign in
+      </Typography>
+      <Box component="form" noValidate autoComplete="off" onSubmit={handleSubmit} sx={{ mt: 1 }}>
+        <TextField
+          margin="normal"
+          required
+          fullWidth
+          id="email"
+          label="Email Address"
+          name="email"
+          value={credentials.email}
+          onChange={handleChange}
+          autoComplete="off"
+          autoFocus
+        />
+        <TextField
+          margin="normal"
+          required
+          fullWidth
+          name="password"
+          value={credentials.password}
+          onChange={handleChange}
+          label="Password"
+          type="password"
+          id="password"
+          autoComplete="off"
+        />
+        <Typography color="error" sx={{ margin: 0, padding: 0 }}>
+          {error}
         </Typography>
-        <Box component="form" noValidate autoComplete="off" onSubmit={handleSubmit} sx={{ mt: 1 }}>
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            value={credentials.email}
-            onChange={handleChange}
-            autoComplete="off"
-            autoFocus
-          />
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            value={credentials.password}
-            onChange={handleChange}
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="off"
-          />
-          <Typography color="error" sx={{ margin: 0, padding: 0 }}>
-            {error}
-          </Typography>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            sx={{ mt: 3, mb: 2 }}
-          >
-            Sign In
-          </Button>
-          <Grid container justifyContent="space-between">
-            <Grid item>
-              <Link href="#" variant="body2">
-                Forgot password?
-              </Link>
-            </Grid>
-            <Grid item>
-              <Link
-                href="#"
-                variant="body2"
-                onClick={() => setShowSignUp(true)}
-              >
-                {"Don't have an account? Sign Up"}
-              </Link>
-            </Grid>
+        <Button
+          type="submit"
+          fullWidth
+          variant="contained"
+          sx={{ mt: 3, mb: 2 }}
+        >
+          Sign In
+        </Button>
+        <Grid container justifyContent="space-between">
+          <Grid item>
+            <Link href="#" variant="body2">
+              Forgot password?
+            </Link>
           </Grid>
-          <Copyright sx={{ mt: 5 }} />
-        </Box>
-      </>
+          <Grid item>
+            <Link
+              href="#"
+              variant="body2"
+              onClick={() => setShowSignUp(true)}
+            >
+              {"Don't have an account? Sign Up"}
+            </Link>
+          </Grid>
+        </Grid>
+        <Copyright sx={{ mt: 5 }} />
+      </Box>
+    </>
     // <div>
     //   <div className="form-container">
     //     <form autoComplete="off" onSubmit={handleSubmit}>
