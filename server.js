@@ -8,7 +8,10 @@ require('dotenv').config();
 // Connect to db after the dotenv above
 require('./config/database');
 
+const bodyParser = require("body-parser");
 const app = express();
+app.use(bodyParser.json({ limit: "30mb" }));
+app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 
 app.use(logger('dev'));
 // Process data in body of request if 
