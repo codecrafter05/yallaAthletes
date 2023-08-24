@@ -9,6 +9,9 @@ import MenuItem from '@mui/material/MenuItem';
 import Grid from '@mui/material/Grid';
 
 export default class SignUpForm extends Component {
+
+  // const [user, setUser]
+
   state = {
     firstName: '',
     lastName: '',

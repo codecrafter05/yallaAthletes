@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { TextField, Button } from "@mui/material";
 import {createA_Product} from '../../utilities/products-services'
 import { Paper, Select, MenuItem, FormControl, InputLabel, Box } from "@mui/material";
+import ProductList from "../ProductList/ProductList";
 
 
-function ProductForm({user, setUser}) {
+export default function EditProduct() {
   const initialProductData = {
     name: '',
     type: 'Apparel',
@@ -14,8 +15,6 @@ function ProductForm({user, setUser}) {
     color: ['Black'],
     photo: ''
   };
-
-  console.log(user)
 
   const [data, setData] = useState(initialProductData);
 
@@ -119,6 +118,7 @@ function ProductForm({user, setUser}) {
           />
             <TextField
               type="file"
+
               name="photo"
               inputProps={{ accept: "image/*" }} 
               onChange={handleImageUpload}
@@ -160,9 +160,11 @@ function ProductForm({user, setUser}) {
       <Button type="submit" variant="contained" color="primary">
         Add Product
       </Button>
+
+      <Button type="submit" variant="contained" color="primary">
+        Cancel
+      </Button>
     </Box>
   </form>
   );
 }
-
-export default ProductForm;

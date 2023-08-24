@@ -12,15 +12,12 @@ import MailIcon from '@mui/icons-material/Mail';
 import { Link } from 'react-router-dom';
 import * as userService from '../../utilities/users-service';
 import './Dashboard.css';
+import {handleImageUpload} from '../../components/AddProduct/AddProduct'
 
 const drawerWidth = 240;
 
 export default function Sidebar({ user, setUser }) {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-
-
-
-
 
   function handleLogOut() {
     // Remove token using the user service
