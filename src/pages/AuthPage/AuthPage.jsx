@@ -19,47 +19,56 @@ export default function AuthPage({ setUser }) {
 
   return (
     <ThemeProvider theme={defaultTheme}>
-        <Grid container component="main" sx={{ height: '100vh' }}>
-    <CssBaseline />
-    <Grid
-      item
-      xs={false}
-      sm={4}
-      md={7}
-      sx={{
-        backgroundImage: 'url(https://source.unsplash.com/random?wallpapers)',
-        backgroundRepeat: 'no-repeat',
-        backgroundColor: (t) =>
-          t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
-    />
-    <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-      <Box
-        sx={{
-          my: 8,
-          mx: 4,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-        }}
-      >
-        <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-          <LockOutlinedIcon />
-        </Avatar>
-      {/* <h1>AuthPage</h1>
-      <button onClick={() => setShowSignUp(!showSignUp)}>{showSignUp ? 'Log In' : 'Sign Up'}</button> */}
-      {showSignUp ? (
-        <SignUpForm setUser={setUser} setShowSignUp={setShowSignUp} />
-      ) : (
-        <LoginForm setUser={setUser} setShowSignUp={setShowSignUp} />
-      )}
-      </Box>
-      </Grid>
+      <Grid container component="main" sx={{ height: '100vh' }}>
+        <CssBaseline />
+        <Grid
+          item
+          xs={12}
+          sx={{
+            backgroundImage: 'url(https://source.unsplash.com/collection/COLLECTION_ID/800x600/?sports)',
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <Paper
+            elevation={6}
+            square
+            sx={{
+              padding: '20px',
+              borderRadius: '20px',
+              backgroundColor: 'rgba(255, 255, 255, 0.8)', // You can adjust the background color and opacity here
+            }}
+          >
+            {/* Your login form components */}
+            <Box
+              sx={{
+                my: 8,
+                mx: 4,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+              }}
+            >
+              <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+                <LockOutlinedIcon />
+              </Avatar>
+              {showSignUp ? (
+                <SignUpForm setUser={setUser} setShowSignUp={setShowSignUp} />
+              ) : (
+                <LoginForm setUser={setUser} setShowSignUp={setShowSignUp} />
+              )}
+            </Box>
+          </Paper>
+        </Grid>
       </Grid>
     </ThemeProvider>
   );
+  
+  
 
   // return (
   //   <main>
