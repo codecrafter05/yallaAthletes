@@ -68,7 +68,16 @@ const userSchema = new Schema({
   role:{
     type: String,
     enum: ['Customer','Athlete', 'Manager', 'Admin'],
-    default: 'Customer'
+    default: 'Customer',
+    required: true
+  },
+
+  club:{
+    type: String,
+  },
+
+  country:{
+    type: String,
   }
 
 }, {
