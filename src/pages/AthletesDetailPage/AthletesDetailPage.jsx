@@ -28,17 +28,17 @@ export default function AthletesDetailsPage() {
   // };
 
   useEffect(() => {
+    const fetchAthleteDetails = async (athleteId) => {
+      try {
+        const response = await showAthleteDetails(athleteId);
+        setAthlete(response);
+      } catch (error) {
+        console.error("Error fetching athlete details:", error);
+      }
+    }
+
     fetchAthleteDetails(athleteId);
   }, [athleteId]);
-
-  const fetchAthleteDetails = async (athleteId) => {
-    try {
-      const response = await showAthleteDetails(athleteId);
-      setAthlete(response);
-    } catch (error) {
-      console.error("Error fetching athlete details:", error);
-    }
-  }
 
   const calculateAge = (dateOfBirth) => {
     const dob = new Date(dateOfBirth);
@@ -79,13 +79,13 @@ export default function AthletesDetailsPage() {
           <div style={{ display: 'flex', flexDirection: 'column',  color: 'blue', width: 'calc(100% - 240px)' }}>
             <div className="info-row">
               <div className="info-box">
-                <Typography variant="subtitle1">Name:  {athlete.user.firstName} {athlete.user.lastName} </Typography>
+                <Typography variant="subtitle1">Name:  {athlete.user?.firstName} {athlete.user?.lastName} </Typography>
               
                 <Typography variant="subtitle1">Sport Type: {athlete.sportType} </Typography>
                 
               </div>
               <div className="info-box">
-                <Typography variant="subtitle1">Date of Birth: {athlete.user.dateOfBirth} </Typography>
+                <Typography variant="subtitle1">Date of Birth: {athlete.user?.dateOfBirth} </Typography>
                 
                 <Typography variant="subtitle1">Nationality: {athlete.user.nationality}</Typography>
                 

@@ -74,14 +74,14 @@ export default function ProfilePage() {
         if (athleteStatus === 'Approved' || athleteStatus === 'Rejected' || athleteStatus === 'Pending') {
           await deleteAthlete(); // Added optional chaining
         }
+        // Delete user
+        await deleteUser(); // Added optional chaining
         // Remove token from storage (log out the user)
         localStorage.removeItem('token');
 
         // Redirect user to the desired page after successful deletion
         // For example, redirect to the home page
         window.location.href = '/'; // Change the URL as needed
-        // Delete user
-        await deleteUser(); // Added optional chaining
 
         // Perform necessary actions after deletion, e.g., log out or redirect
       } catch (error) {
