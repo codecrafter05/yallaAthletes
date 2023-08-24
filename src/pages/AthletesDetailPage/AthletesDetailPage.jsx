@@ -1,11 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Container, Paper, Typography, Grid, Card, CardContent } from '@mui/material';
+import { Container, Paper, Typography, Grid, Card, CardContent, TextField, Button } from '@mui/material';
 import { showAthleteDetails } from '../../utilities/athletes-service';
+import { createOffer } from "../../utilities/offers-api";
+
 
 export default function AthletesDetailsPage() {
   const { athleteId } = useParams();
   const [athlete, setAthlete] = useState(null);
+  // const [offerData, setOfferData] = useState(initialOfferData);
+
+  // const initialOfferData = {
+  //   bid: '20',
+  //   status: 'pending'
+  // };
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const offer = await createOffer(offerData);
+  //     console.log('New bid:', offer);
+  //     setOfferData(initialOfferData);
+  //   } catch (err) {
+  //     console.error('Error creating a bid:', err);
+  //   }
+  // };
 
   useEffect(() => {
     fetchAthleteDetails(athleteId);
@@ -33,7 +52,9 @@ export default function AthletesDetailsPage() {
     return age;
   };
 
+
   return (
+    <>
     <Container>
       <Paper elevation={3} style={{ padding: '20px' }}>
         <Typography variant="h4" gutterBottom>
@@ -110,9 +131,23 @@ export default function AthletesDetailsPage() {
           <Typography>
             We apologize, but there is currently no data available for this athlete.
           </Typography>
-        </Card>
+        </Card>    
       </div>
-      )}
+      )} 
+      </Container>
+      <form onChange>
+                <TextField
+                    type="number"
+                    label="Bid"
+                    name="bid"
+                    inputProps={{ min: "20", max: "50" }}
+                    sx={{mt:1}} 
+                    // onChange={handleChange}
+                  />
+                  <Button type="submit" variant="contained" color="primary">
+                    Submit
+                  </Button>
+                  </form>
       <style>
         {`
         .info-row {
@@ -140,8 +175,8 @@ export default function AthletesDetailsPage() {
         }
         `}
       </style>
-    </Container>
 
+</>
 
 
   );
