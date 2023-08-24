@@ -1,25 +1,18 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  /* background-color:#eeeeee; */
-}
-
-
-
 .aboutusimg-container {
-  background-color: #ffffff; /* Use your preferred color code here */
+  background-color: #ffffff;
+  /* Use your preferred color code here */
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 300px; /* Adjust the height as needed */
-  box-shadow: none !important; 
+  height: 300px;
+  /* Adjust the height as needed */
+  box-shadow: none !important;
 }
 
 .abutusimgback {
   text-align: center;
-  color: #000000; /* Text color */
+  color: #000000;
+  /* Text color */
   position: absolute;
   top: 50%;
   left: 50%;
@@ -54,7 +47,7 @@ body {
   display: flex;
   justify-content: space-between;
   margin: 20px 0;
-  gap:10px;
+  gap: 10px;
 }
 
 
@@ -84,7 +77,7 @@ body {
 .card-with-overlay:hover {
   opacity: 1;
   background-color: black;
-  
+
 }
 
 .card-with-overlay:hover .overlay-text {
@@ -98,21 +91,28 @@ body {
 .card-with-overlay .image-container img {
   transition: opacity 0.3s;
 }
+
 .flex-row-container {
   display: flex;
-  flex-wrap: wrap; /* Allow cards to wrap if they exceed container width */
-  justify-content: space-between; /* Distribute cards evenly across the row */
-  align-items: center; /* Align items vertically in the center */
+  flex-wrap: wrap;
+  /* Allow cards to wrap if they exceed container width */
+  justify-content: space-between;
+  /* Distribute cards evenly across the row */
+  align-items: center;
+  /* Align items vertically in the center */
   margin-bottom: 5%;
 }
 
 .card-with-flex {
-  flex: 1; /* Distribute available space equally among cards */
-  width:200px; /* Adjust the width as needed (3 cards per row) */
-  padding-top:1%;
+  flex: 1;
+  /* Distribute available space equally among cards */
+  width: 200px;
+  /* Adjust the width as needed (3 cards per row) */
+  padding-top: 1%;
   padding-bottom: 1%;
-  margin: 10px; /* Add some space around each card */
-  max-height:200px;
+  margin: 10px;
+  /* Add some space around each card */
+  max-height: 200px;
 }
 
 .devContainer {
@@ -120,6 +120,7 @@ body {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   margin: 70px;
 }
+
 @media only screen and (max-width: 600px) {
 
   .boxContainer {
@@ -128,7 +129,7 @@ body {
 
   .boxContainer .box.large-box {
     grid-column: 1;
-  
+
   }
 
   .devContainer {
@@ -186,17 +187,20 @@ body {
   align-content: center;
   justify-content: center;
 
- 
+
 }
 
 .ms-image {
-  width: 100px !important; /* Fixed width for the circular image */
-  height: 100px; /* Fixed height for the circular image */
-  border-radius: 50%; /* Make the image circular */
+  width: 100px !important;
+  /* Fixed width for the circular image */
+  height: 100px;
+  /* Fixed height for the circular image */
+  border-radius: 50%;
+  /* Make the image circular */
   object-fit: cover;
-  margin-bottom: 10px; 
+  margin-bottom: 10px;
   margin: 0 auto;
-  object-position:top; 
+  object-position: top;
 }
 
 .pageus {
@@ -205,7 +209,8 @@ body {
   justify-content: center;
   gap: 9px;
   padding: 15px;
-  background-color: rgb(255, 255, 255); /* Set background color */
+  background-color: rgb(255, 255, 255);
+  /* Set background color */
 }
 
 .card-with-flex {
@@ -223,7 +228,7 @@ body {
   }
 }
 
-.allcontainers{
+.allcontainers {
 
   gap: 10px;
   padding: 50px;
@@ -236,6 +241,7 @@ body {
   object-fit: cover;
   border-radius: 10px 10px 0 0;
 }
+
 .Downer {
   margin-bottom: 40px;
   padding: 200px;
@@ -245,7 +251,8 @@ body {
   background-position: center;
   background-size: cover;
   border-radius: 100px !important;
-  background-attachment: fixed; /* Keep the background fixed while scrolling */
+  background-attachment: fixed;
+  /* Keep the background fixed while scrolling */
 }
 
 .Downer::before {
@@ -279,7 +286,8 @@ body {
 }
 
 .text {
-  color: white; /* Set the text color to white for better visibility on the overlay */
+  color: white;
+  /* Set the text color to white for better visibility on the overlay */
 }
 
 
@@ -297,7 +305,8 @@ body {
   background-position: center;
   background-size: cover;
   border-radius: 100px !important;
-  background-attachment: fixed; /* Keep the background fixed while scrolling */
+  background-attachment: fixed;
+  /* Keep the background fixed while scrolling */
 }
 
 .uper::before {
@@ -322,7 +331,8 @@ body {
 } */
 
 .key {
-  color: white; /* Set the text color to white for better visibility on the overlay */
+  color: white;
+  /* Set the text color to white for better visibility on the overlay */
 }
 
 /*end her */
@@ -342,7 +352,8 @@ body {
   background-position: center;
   background-size: cover;
   border-radius: 100px !important;
-  background-attachment: fixed; /* Keep the background fixed while scrolling */
+  background-attachment: fixed;
+  /* Keep the background fixed while scrolling */
 }
 
 .midel::before {
@@ -364,7 +375,8 @@ body {
 
 
 .key {
-  color: white; /* Set the text color to white for better visibility on the overlay */
+  color: white;
+  /* Set the text color to white for better visibility on the overlay */
 }
 
 /*end her */
@@ -384,22 +396,28 @@ h5 {
 body2 {
   color: #555;
   font-size: 1rem;
-  
+
 }
 
 .card-link {
-  text-decoration: none; /* Remove underline from the link */
-  cursor: pointer; /* Change cursor to indicate the link is clickable */
-  transition: background-color 0.3s; /* Add transition for hover effect */
+  text-decoration: none;
+  /* Remove underline from the link */
+  cursor: pointer;
+  /* Change cursor to indicate the link is clickable */
+  transition: background-color 0.3s;
+  /* Add transition for hover effect */
 
   /* Add any other styling you want for the link */
 }
 
 .card-link:hover {
-  background-color: #f5f5f5; /* Change background color on hover */
+  background-color: #f5f5f5;
+  /* Change background color on hover */
 }
+
 .card-container {
-  display: inline-block; /* Ensures the container takes up the same space as the card */
+  display: inline-block;
+  /* Ensures the container takes up the same space as the card */
 }
 
 /* Your other styles */
@@ -409,7 +427,8 @@ body2 {
 }
 
 .nightmode-hover:hover {
-  background-color: rgba(151, 151, 151, 0.9); /* Adjust the opacity as needed */
+  background-color: rgba(151, 151, 151, 0.9);
+  /* Adjust the opacity as needed */
   color: #fff;
 }
 
@@ -423,7 +442,9 @@ body2 {
     align-items: center;
   }
 
-  .midel, .Downer, .uper {
+  .midel,
+  .Downer,
+  .uper {
     width: 100%;
     margin-bottom: 20px;
   }
@@ -433,7 +454,7 @@ body2 {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .ms-image {
     height: 80px;
     width: 80px;
