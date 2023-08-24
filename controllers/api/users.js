@@ -79,9 +79,14 @@ function checkToken(req, res) {
 
 /*-- Helper Functions --*/
 function createJWT(user) {
+  delete user.photo;
+  
+  const { ['photo']: omittedField, ...restOfObject } = user;
+  
+  const leanUser = {_id: user._id, email: user.email, name: user.name, role: user.role};
   return jwt.sign(
     // extra data for the payload
-    { user },
+    { user: leanUser },
     process.env.SECRET,
     { expiresIn: '24h' }
   );

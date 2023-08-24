@@ -24,6 +24,11 @@ import AthletesDetailsPage from '../AthletesDetailPage/AthletesDetailPage';
 function App() {
   const [user, setUser] = useState(getUser());
 
+  // TODO 
+  // Add useEffect 
+  // Make an API call to get user using user state _id field
+  // Set user state to the response
+
   return (
     <main className="App">
       {user ?
