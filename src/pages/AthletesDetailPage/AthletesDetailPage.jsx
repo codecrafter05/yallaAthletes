@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Container, Paper, Typography, Card, TextField, Button } from '@mui/material';
 import Box from '@mui/material/Box';
-import { getUser } from '../../utilities/users-service';
 import { showAthleteDetails } from '../../utilities/athletes-service';
 import { createOffer } from "../../utilities/offers-service";
 import './AthletesDetailPage.css';
