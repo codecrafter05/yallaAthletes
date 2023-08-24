@@ -1,5 +1,9 @@
-import * as productsAPI from './offers-api';
+import * as offersAPI from './offers-api';
 
 export async function createOffer(offerData) {
-  return productsAPI.createOffer(offerData);
+  return offersAPI.createOffer(offerData);
+}
+
+export async function getAllOffers(status) {
+  return offersAPI.getAllOffers(status);
 }
