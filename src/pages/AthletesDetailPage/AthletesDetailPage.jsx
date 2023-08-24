@@ -43,6 +43,9 @@ export default function AthletesDetailsPage({ user }) {
     }
   }
 
+
+
+
   const calculateAge = (dateOfBirth) => {
     const dob = new Date(dateOfBirth);
     const today = new Date();

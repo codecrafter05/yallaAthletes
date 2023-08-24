@@ -56,7 +56,7 @@ export default function DashboardPage({ user, setUser }) {
         <Box sx={{ width: drawerWidth}}>
           <Divider />
           <List>
-            {['Profile', 'Users', 'Athletes', 'Manager', 'Products', 'News'].map((text, index) => (
+            {['Profile', 'Users', 'Athletes', 'Manager', 'Products', 'Offers'].map((text, index) => (
               <ListItem key={text} disablePadding component={Link} to={`/Dashboard/${text}`}>
                 <ListItemButton>
                   <ListItemIcon>

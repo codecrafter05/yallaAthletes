@@ -16,7 +16,7 @@ import UsersDashboardPage from '../DashboardPage/UsersDashboardPage/UsersDashboa
 import AthletesDashboardPage from '../DashboardPage/AthletesDashboardPage/AthletesDashboardPage'
 import ManagerPageDashboard from '../DashboardPage/ManagerDashboardPage/ManagerDashboardPage'
 import ProductsPageDashboard from '../DashboardPage/ProductsDashboardPage/ProductsDashboardPage'
-import NewsPageDashboard from '../DashboardPage/NewsDashboardPage/NewsDashboardPage'
+import OffersPageDashboard from '../DashboardPage/OffersDashboardPage/OffersDashboardPage'
 import './App.css';
 import Products from '../Products/Products';
 import AthletesDetailsPage from '../AthletesDetailPage/AthletesDetailPage';
@@ -45,7 +45,7 @@ function App() {
             <Route path="/dashboard/athletes" element={<AthletesDashboardPage />} />
             <Route path="/dashboard/manager" element={<ManagerPageDashboard />} />
             <Route path="/dashboard/products" element={<ProductsPageDashboard />} />
-            <Route path="/dashboard/news" element={<NewsPageDashboard />} />
+            <Route path="/dashboard/offers" element={<OffersPageDashboard />} />
             <Route path="/products" element={<Products />} />
             {/* <Route path='/products' element={<Products user={user} />} /> */}
           </Routes>
