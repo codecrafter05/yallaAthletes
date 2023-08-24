@@ -1,11 +1,19 @@
 import { useState, useEffect } from "react";
 import AthleteCard from "../../components/AthleteCard/AthleteCard";
 import { getAllAthletesFiltered } from '../../utilities/athletes-service';
-import { Container } from "@mui/material";
+import { Button, Container, TextField } from "@mui/material";
 import Grid from "@mui/material/Grid";
+import { createOffer } from "../../utilities/offers-api";
 
 export default function AthleteListPage() {
+  const initialOfferData = {
+    bid: '20',
+    status: 'pending'
+  };
+
   const [athletes, setAthletes] = useState([]);
+  const [offerData, setOfferData] = useState(initialOfferData);
+
 
   useEffect(() => {
     async function fetchAthletes() {
@@ -19,6 +27,19 @@ export default function AthleteListPage() {
     }
     fetchAthletes();
   }, []);
+  
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const offer = await createOffer(offerData);
+      console.log('New bid:', offer);
+      setOfferData(initialOfferData);
+    } catch (err) {
+      console.error('Error creating a bid:', err);
+    }
+  };
+
 
   return (
     <Container>
@@ -29,6 +50,19 @@ export default function AthleteListPage() {
             return (
               <Grid key={athlete._id} item xs={12} sm={6} md={4} lg={3}>
                 <AthleteCard athlete={athlete} />
+                <form onChange={handleSubmit}>
+                <TextField
+                    type="number"
+                    label="Bid"
+                    name="bid"
+                    inputProps={{ min: "20", max: "50" }}
+                    sx={{mt:1}} 
+                    // onChange={handleChange}
+                  />
+                  <Button type="submit" variant="contained" color="primary">
+                    Submit
+                  </Button>
+                  </form>
               </Grid>
             );
         })}
