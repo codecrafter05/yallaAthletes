@@ -24,17 +24,17 @@
     top: 50%;
     left: 20%;
     transform: translate(-50%, -50%);
-    text-align: center;
+    /* text-align: center; */
     z-index: 1;
     width: 100%;
 }
 
 
 
-@media (max-width: 500px) {
+@media (max-width: 820px) {
     /* Adjust the font size for smaller screens */
-    .text2 {
-        font-size: 1rem; /* Example size, adjust as needed */
+    .css-1sra7t5-MuiTypography-root {
+font-size:1rem !important;
     }
 }
 
