@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react';
 import Button from '@mui/material/Button';
 import { getProduct } from '../../utilities/products-api';
 import CardActions from '@mui/material/CardActions';
+import './HomePage.css'
 export default function HomePage() {
   const [products, setProducts] = useState([]);
 
@@ -30,39 +31,39 @@ export default function HomePage() {
 
   return (
     <>
-      <div className='video-container'>
+      <div className='video-container-home'>
         <video className='video' autoPlay={true} loop={true} muted={true}>
           <source src={vi1mp4} type='video/mp4' />
         </video>
 
-        <div className="content-wrapper">
-          <Typography variant="h1" className="typography-overlay">
+        <div className="content-wrapper-home">
+          <Typography variant="h1" className="typography-overlay-home">
             yallaAthletes
           </Typography>
-          <Typography variant="h4" className="typography-overlay">
+          <Typography variant="h4" className="typography-overlay-home">
             Fitness! Fun! Community!
           </Typography>
-          <Button href='#di' className="discover-button" >
+          <Button href='#di' className="discover-button-home" >
             Discover more
           </Button>
         </div>
       </div>
-      <div id="di" className="boxContainer">
+      <div id="di" className="boxContainer-home">
 
 
 
 
 
-        <div className="cards-container">
-          <div className="card-column">
-            <Card className="card-with-overlay">
+        <div className="cards-container-home">
+          <div className="card-column-home">
+            <Card className="card-with-overlay-home">
               {/* Card content */}
 
               <CardActionArea component={Link} to="/athletes">
-                <div className="image-container">
+                <div className="image-container-home">
                   <CardMedia component="img" src='https://pbs.twimg.com/ext_tw_video_thumb/1681047906340462593/pu/img/noyQeOr2pED5TDac.jpg' alt="green iguana" />
                   <div className="overlay-text">
-                    <Typography variant="h5" component="div">
+                    <Typography variant="h5" component="div-home">
                       Athlete
                     </Typography>
                   </div>
@@ -71,13 +72,13 @@ export default function HomePage() {
 
             </Card>
 
-            <Card className="card-with-overlay">
+            <Card className="card-with-overlay-home">
               {/* Card content */}
               <CardActionArea comp onent={Link} to="/products">
-                <div className="image-container">
+                <div className="image-container-home">
                   <CardMedia component="img" src='https://www.agon-systems.com/wp-content/uploads/2021/08/ck1.jpg' alt="green iguana" />
-                  <div className="overlay-text">
-                    <Typography variant="h5" component="div">
+                  <div className="overlay-text-home">
+                    <Typography variant="h5" component="div-home">
                       Products
                     </Typography>
                   </div>
@@ -86,13 +87,13 @@ export default function HomePage() {
             </Card>
           </div>
 
-          <div className="card-middle">
-            <Card className="card-with-overlay">
+          <div className="card-middle-home">
+            <Card className="card-with-overlay-home">
               <CardActionArea component={Link} to="/news">
-                <div className="image-container">
+                <div className="image-container-home">
                   <CardMedia component="img" src='https://images.unsplash.com/photo-1641138628182-44dafabba70f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8&w=1000&q=80' alt="green iguana" />
-                  <div className="overlay-text">
-                    <Typography variant="h5" component="div">
+                  <div className="overlay-text-home">
+                    <Typography variant="h5" component="div-home">
                       News
                     </Typography>
                   </div>
@@ -100,30 +101,30 @@ export default function HomePage() {
               </CardActionArea>
             </Card>
           </div>
-          <Typography variant="h4">Enjoy this services</Typography>
+          <Typography variant="h4"><h4>Enjoy this services</h4><h6>Choose your destination  to the next world </h6></Typography>
         </div>
 
-        <div className="container-pro">
-          <div className="text-container">
+        <div className="container-atl-home">
+          <div className="text-container-home">
             <Typography sx={{ fontSize: 90 }}>Our Popular Athletes</Typography>
           </div>
-          <div className="grid-container">
+          <div className="grid-container-home">
             {products.map((product) => (
               <div className="grid-item" key={product}>
-                <Card className="product-card-container">
-                  <div className="product-card-wrapper">
-                    <Link className="product-card-link" to="#">
+                <Card className="product-card-container-home">
+                  <div className="product-card-wrapper-home">
+                    <Link className="product-card-link-home" to="#">
                       {/* <CardMedia
                   component="img"
                   className="product-card-image"
                   image={product.image}
                   alt={`image for ${product.name}`}
                 /> */}
-                      <CardContent className="product-card-content">
-                        <Typography variant="body2" color="textSecondary" component="p" className="product-card-name">
+                      <CardContent className="product-card-content-home">
+                        <Typography variant="body2" color="textSecondary" component="p" className="product-card-name-home">
                           {product.name}
                         </Typography>
-                        <Typography variant="body2" color="textSecondary" component="p" className="product-card-description">
+                        <Typography variant="body2" color="textSecondary" component="p" className="product-card-description-home">
                           {product.description}
                         </Typography>
                       </CardContent>
@@ -136,27 +137,27 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="container-pro-1">
-          <div className="text-container-1">
+        <div className="container-pro-home">
+          <div className="text-container-home">
             <Typography sx={{ fontSize: 90 }}>Most Selling Products</Typography>
           </div>
-          <div className="grid-container-1">
+          <div className="grid-container-home">
             {products.map((product) => (
-              <div className="grid-item-1" key={product}>
-                <Card className="product-card-container-1">
-                  <div className="product-card-wrapper-1">
-                    <Link className="product-card-link-1" to="#">
+              <div className="grid-item-home" key={product}>
+                <Card className="product-card-container-home">
+                  <div className="product-card-wrapper-home">
+                    <Link className="product-card-link-home" to="#">
                       {/* <CardMedia
                   component="img"
                   className="product-card-image-1"
                   image={product.image}
                   alt={`image for ${product.name}`}
                 /> */}
-                      <CardContent className="product-card-content-1">
-                        <Typography variant="body2" color="textSecondary" component="p" className="product-card-name-1">
+                      <CardContent className="product-card-content-home">
+                        <Typography variant="body2" color="textSecondary" component="p" className="product-card-name-home">
                           {product.name}
                         </Typography>
-                        <Typography variant="body2" color="textSecondary" component="p" className="product-card-description-1">
+                        <Typography variant="body2" color="textSecondary" component="p" className="product-card-description-home">
                           {product.description}
                         </Typography>
                       </CardContent>
