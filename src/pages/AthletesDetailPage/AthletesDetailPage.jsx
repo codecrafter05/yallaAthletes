@@ -79,7 +79,7 @@ export default function AthletesDetailsPage() {
           <div style={{ display: 'flex', flexDirection: 'column',  color: 'blue', width: 'calc(100% - 240px)' }}>
             <div className="info-row">
               <div className="info-box">
-                <Typography variant="subtitle1">Name:  {athlete.user?.firstName} {athlete.user?.lastName} </Typography>
+                <Typography variant="subtitle1">Name:  {athlete.user.firstName} {athlete.user.lastName} </Typography>
               
                 <Typography variant="subtitle1">Sport Type: {athlete.sportType} </Typography>
                 
