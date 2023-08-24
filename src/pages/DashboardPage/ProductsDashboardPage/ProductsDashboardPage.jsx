@@ -1,5 +1,5 @@
 import DashboardPage from '../DashboardPage'
-import { Box, Container } from '@mui/material'
+import { Box } from '@mui/material'
 import AddProduct from '../../../components/AddProduct/AddProduct'
 import ProductList from '../../../components/ProductList/ProductList'
 import * as React from 'react';
