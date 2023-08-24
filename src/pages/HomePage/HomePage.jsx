@@ -29,6 +29,33 @@ export default function HomePage() {
     }
   };
 
+
+  useEffect(() => {
+    const handleClick = (event) => {
+      event.preventDefault();
+      const targetId = event.target.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }
+    };
+
+    const button = document.querySelector('.discover-button-home');
+    if (button) {
+      button.addEventListener('click', handleClick);
+    }
+
+    return () => {
+      if (button) {
+        button.removeEventListener('click', handleClick);
+      }
+    };
+  }, []);
+
   return (
     <>
       <div className='video-container-home'>
@@ -58,27 +85,25 @@ export default function HomePage() {
           <div className="card-column-home">
             <Card className="card-with-overlay-home">
               {/* Card content */}
-
               <CardActionArea component={Link} to="/athletes">
                 <div className="image-container-home">
                   <CardMedia component="img" src='https://pbs.twimg.com/ext_tw_video_thumb/1681047906340462593/pu/img/noyQeOr2pED5TDac.jpg' alt="green iguana" />
                   <div className="overlay-text">
-                    <Typography variant="h5" component="div-home">
+                    <Typography variant="h5" component="div-home" className="card-title">
                       Athlete
                     </Typography>
                   </div>
                 </div>
               </CardActionArea>
-
             </Card>
 
             <Card className="card-with-overlay-home">
               {/* Card content */}
-              <CardActionArea comp onent={Link} to="/products">
+              <CardActionArea component={Link} to="/products">
                 <div className="image-container-home">
                   <CardMedia component="img" src='https://www.agon-systems.com/wp-content/uploads/2021/08/ck1.jpg' alt="green iguana" />
                   <div className="overlay-text-home">
-                    <Typography variant="h5" component="div-home">
+                    <Typography variant="h5" component="div-home" className="card-title">
                       Products
                     </Typography>
                   </div>
@@ -93,7 +118,7 @@ export default function HomePage() {
                 <div className="image-container-home">
                   <CardMedia component="img" src='https://images.unsplash.com/photo-1641138628182-44dafabba70f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8&w=1000&q=80' alt="green iguana" />
                   <div className="overlay-text-home">
-                    <Typography variant="h5" component="div-home">
+                    <Typography variant="h5" component="div-home" className="card-title">
                       News
                     </Typography>
                   </div>
@@ -101,7 +126,7 @@ export default function HomePage() {
               </CardActionArea>
             </Card>
           </div>
-          <Typography variant="h4"><h4>Enjoy this services</h4><h6>Choose your destination  to the next world </h6></Typography>
+          <Typography variant="h4"><h4>Enjoy this services</h4><h6>Choose your destination to the next world</h6></Typography>
         </div>
 
         <div className="container-atl-home">
