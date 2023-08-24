@@ -1,23 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-<<<<<<< HEAD
+
 import { Container, Paper, Typography, Grid, Card, CardContent, TextField, Button } from '@mui/material';
-=======
-import { Container, Paper, Typography, Card, TextField, Button } from '@mui/material';
+
 import Box from '@mui/material/Box';
 import { getUser } from '../../utilities/users-service';
->>>>>>> d69befe7985c2eac72baef0dbe0d67c93addb33b
+
 import { showAthleteDetails } from '../../utilities/athletes-service';
 import { createOffer } from "../../utilities/offers-service";
 import './AthletesDetailPage.css';
 
 
-<<<<<<< HEAD
-export default function AthletesDetailsPage() {
-=======
+
+
 
 export default function AthletesDetailsPage({ user }) {
->>>>>>> d69befe7985c2eac72baef0dbe0d67c93addb33b
   const { athleteId } = useParams();
   const initialOfferData = {
     user: user._id,
@@ -25,7 +22,7 @@ export default function AthletesDetailsPage({ user }) {
     bid: '',
   };
   const [athlete, setAthlete] = useState(null);
-<<<<<<< HEAD
+
   // const [offerData, setOfferData] = useState(initialOfferData);
 
   // const initialOfferData = {
@@ -43,7 +40,7 @@ export default function AthletesDetailsPage({ user }) {
   //     console.error('Error creating a bid:', err);
   //   }
   // };
-=======
+
   const [offerData, setOfferData] = useState(initialOfferData);
 
   const handleSubmit = async (e) => {
@@ -56,7 +53,6 @@ export default function AthletesDetailsPage({ user }) {
       console.error('Error creating a offer:', err);
     }
   };
->>>>>>> d69befe7985c2eac72baef0dbe0d67c93addb33b
 
   useEffect(() => {
     fetchAthleteDetails(athleteId);

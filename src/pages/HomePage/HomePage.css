@@ -128,8 +128,7 @@
     }
 }
 
-<<<<<<< HEAD
-=======
+
 @media (max-width: 768px) {
     .video-container-home .content-wrapper-home {
         left: 50% !important;
@@ -186,7 +185,46 @@
     }
 }
 
->>>>>>> d69befe7985c2eac72baef0dbe0d67c93addb33b
+  
+
+
+@media (max-width: 768px) {
+
+    /* Apply responsive styles for screens smaller or equal to 768px */
+    .cards-container-home {
+        justify-content: space-between;
+    }
+
+    .card-with-overlay-home .image-container-home img {
+        height: 300px;
+    }
+
+    .image-container-home {
+        position: relative;
+    }
+
+    .card-column-home {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .container-atl-home {
+        margin: 0;
+        font-size: 2rem !important;
+        flex-direction: column;
+    }
+
+    .container-pro-home {
+        margin: 0;
+        font-size: 2rem !important;
+        flex-direction: column;
+    }
+
+    .css-lvo1hb-MuiTypography-root {
+        font-size: 2rem !important;
+    }
+}
+
 .video-container-home {
     position: relative;
     width: 100%;
