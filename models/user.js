@@ -45,6 +45,16 @@ const userSchema = new Schema({
     required: true
   },
 
+  photo:{
+    type: String,
+    required: true
+  },
+
+  cloudinaryId:{
+    type: String,
+    // required: true,
+  },
+
   nationality:{
     type: String,
     required: true
