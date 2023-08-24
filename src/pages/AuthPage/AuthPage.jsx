@@ -60,8 +60,6 @@ export default function AuthPage({ setUser }) {
       </Grid>
     </ThemeProvider>
   );
-  
-  
 
   // return (
   //   <main>
