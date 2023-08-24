@@ -1,31 +1,34 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Container, Paper, Typography, Grid, Card, CardContent, TextField, Button } from '@mui/material';
+import { Container, Paper, Typography, Card, TextField, Button } from '@mui/material';
+import Box from '@mui/material/Box';
+import { getUser } from '../../utilities/users-service';
 import { showAthleteDetails } from '../../utilities/athletes-service';
 import { createOffer } from "../../utilities/offers-service";
 import './AthletesDetailPage.css';
 
 
-export default function AthletesDetailsPage() {
+
+export default function AthletesDetailsPage({ user }) {
   const { athleteId } = useParams();
+  const initialOfferData = {
+    user: user._id,
+    athlete: athleteId,
+    bid: '',
+  };
   const [athlete, setAthlete] = useState(null);
-  // const [offerData, setOfferData] = useState(initialOfferData);
+  const [offerData, setOfferData] = useState(initialOfferData);
 
-  // const initialOfferData = {
-  //   bid: '20',
-  //   status: 'pending'
-  // };
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     const offer = await createOffer(offerData);
-  //     console.log('New bid:', offer);
-  //     setOfferData(initialOfferData);
-  //   } catch (err) {
-  //     console.error('Error creating a bid:', err);
-  //   }
-  // };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const offer = await createOffer(offerData);
+      console.log('New offer:', offer);
+      setOfferData(initialOfferData);
+    } catch (err) {
+      console.error('Error creating a offer:', err);
+    }
+  };
 
   useEffect(() => {
     fetchAthleteDetails(athleteId);
@@ -82,11 +85,11 @@ export default function AthletesDetailsPage() {
             <div className="info-row">
               <div className="info-box">
                 <Typography variant="subtitle1">Name:  {athlete.user.firstName} {athlete.user.lastName} </Typography>
-                <Typography variant="subtitle1">Sport Type: {athlete.sportType} </Typography>
-              </div>
-              <div className="info-box">
-                <Typography variant="subtitle1">Date of Birth: {athlete.user.dateOfBirth} </Typography>
                 <Typography variant="subtitle1">Nationality: {athlete.user.nationality}</Typography>
+              </div>
+              <div className="info-box">               
+                <Typography variant="subtitle1">Date of Birth: {athlete.user.dateOfBirth} </Typography>         
+                <Typography variant="subtitle1">Age: {calculateAge(athlete.user?.dateOfBirth)}</Typography>
               </div>
             </div>
             <div className="info-row">
@@ -95,7 +98,7 @@ export default function AthletesDetailsPage() {
                 <Typography variant="subtitle1">Weight: {athlete.weight} kg</Typography>
               </div>
               <div className="info-box">
-                <Typography variant="subtitle1">Age: {calculateAge(athlete.user?.dateOfBirth)}</Typography>
+                <Typography variant="subtitle1">Sport Type: {athlete.sportType} </Typography>
                 <Typography variant="subtitle1">Personal Record: {athlete.personalRecord}</Typography>
               </div>
             </div>
@@ -110,18 +113,19 @@ export default function AthletesDetailsPage() {
           </div>
         </Card>
 
-        <form>
+        <Box component="form" onSubmit={handleSubmit}>
           <TextField
             type="number"
             label="Bid"
             name="bid"
-            inputProps={{ min: "20", max: "50" }}
-            sx={{ mt: 1 }} 
+            inputProps={{ min: 0}}
+            sx={{ mt: 1 }}
+            onChange={(e) => setOfferData({ ...offerData, [e.target.name]: e.target.value })}
           />
-          <Button type="submit" variant="contained" color="primary">
-            Submit
+          <Button type="submit" variant="contained" color="success">
+            Add Offer
           </Button>
-        </form>
+        </Box>
       </>
     ) : (
       <Typography>Loading athlete details...</Typography>

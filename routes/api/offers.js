@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const athletesCtrl = require('../../controllers/api/athletes');
+const offersCtrl = require('../../controllers/api/offers');
 const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
-
+// add create offer route
+router.post('/', ensureLoggedIn, offersCtrl.createOffer);
 
 module.exports = router;

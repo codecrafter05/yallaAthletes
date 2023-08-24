@@ -3,9 +3,9 @@ const Schema = mongoose.Schema;
 
 const offerSchema = new Schema({
 
-  manager:{
+  user:{
     type: Schema.Types.ObjectId,
-    ref: 'Manager'
+    ref: 'Athlete'
   },
 
   athlete:{
@@ -20,6 +20,8 @@ const offerSchema = new Schema({
 
   status:{
     type: String,
+    enum: ['Pending', 'Accepted', 'Rejected'],
+    default: 'Pending',
     required: true
   }
 
