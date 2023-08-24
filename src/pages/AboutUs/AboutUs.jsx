@@ -30,7 +30,7 @@ export default function AboutUsPage() {
         className="aboutusimg-container"
         // style={{ backgroundImage: `url(${abcImage})`}} // Set the background image
       >
-        <Typography variant="h1" className='abutusimgback'>
+        <Typography variant="h1" className='abutusimgbackmustafa'>
           Our Story 
           <h5>Lizards are a widespread group of squamate reptiles, with over 6,000 Lizards are a widespread group of squamate reptiles, with over 6,000 Lizards are a widespread group of squamate reptiles, with over 6,000</h5>
         </Typography>
