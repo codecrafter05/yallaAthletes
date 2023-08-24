@@ -149,6 +149,12 @@ export default function NavBar({ user, setUser }) {
             </Tooltip>
           </Box>
 
+          <Box sx={{ flexGrow: 0, mr: 2}}>
+            <Tooltip title="Username">
+            <Typography>Welcome, {`${user.firstName} ${user.lastName}`} </Typography>
+            </Tooltip>
+          </Box>
+
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
