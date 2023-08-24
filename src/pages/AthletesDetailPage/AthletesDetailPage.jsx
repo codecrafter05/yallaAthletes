@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Container, Paper, Typography, Card, TextField, Button } from '@mui/material';
+
+import { Container, Paper, Typography, Grid, Card, CardContent, TextField, Button } from '@mui/material';
+
 import Box from '@mui/material/Box';
 import { getUser } from '../../utilities/users-service';
+
 import { showAthleteDetails } from '../../utilities/athletes-service';
 import { createOffer } from "../../utilities/offers-service";
 import './AthletesDetailPage.css';
+
+
 
 
 
@@ -17,6 +22,25 @@ export default function AthletesDetailsPage({ user }) {
     bid: '',
   };
   const [athlete, setAthlete] = useState(null);
+
+  // const [offerData, setOfferData] = useState(initialOfferData);
+
+  // const initialOfferData = {
+  //   bid: '20',
+  //   status: 'pending'
+  // };
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const offer = await createOffer(offerData);
+  //     console.log('New bid:', offer);
+  //     setOfferData(initialOfferData);
+  //   } catch (err) {
+  //     console.error('Error creating a bid:', err);
+  //   }
+  // };
+
   const [offerData, setOfferData] = useState(initialOfferData);
 
   const handleSubmit = async (e) => {
