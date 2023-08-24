@@ -19,7 +19,7 @@ import torImage from '../../assets/tor.jpg';
 import vvImage from '../../assets/vv.jpg';
 import ssImage from '../../assets/ss.jpg';
 import nnImage from '../../assets/nn.jpg';
-
+import "./news.css"
 // const sections = [
 //   { title: 'Technology', url: '#' },
 //   { title: 'Design', url: '#' },
@@ -95,51 +95,55 @@ const defaultTheme = createTheme();
 export default function Blog() {
   return (
     <>
- 
-    <ThemeProvider theme={defaultTheme}>
-      <Container maxWidth="lg">
-       
-        <main>
-             
-    <article
-        className='article'
-        style={{ backgroundImage: `url(${sikelsImage})` }}
-      >
-        <Typography variant="h2" className='head'>Breaking News</Typography>
-      </article>
-      <Grid container spacing={3}>
-  <Grid item xs={12} sm={10} md={9}>
-    <Card className="boxContainerMustafa">
-      <CardActionArea to='/athletes'>
-        <CardMedia
-          component="img"
-          height="500"
-          image={tennisImage}
-          alt="green iguana"
-          className="imageFitCover" 
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-          Yoga
-          </Typography>
-          <Typography variant="body2" color="text.secondary">Yoga, an ancient art that harmonizes the body and mind, is recommended by doctors for its potential benefits in strengthening the body and calming the mind. Practicing yoga is considered a valuable option for achieving balance between the physical and spiritual aspects.
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
-  </Grid>
+
+      <ThemeProvider theme={defaultTheme}>
+
+        <div className="image-container2">
+          <img src={sikelsImage} alt="Background" className="background-image2" />
+          <div className="overlay2"></div>
+          <div className="text-container2">
+            <Typography variant="h2" className="text2">Breaking News</Typography>
+          </div>
+        </div>
+
+        <Container maxWidth="lg">
+
+          <main>
 
 
-  <Grid item xs={12} sm={10} md={3}>
-    <Card className="boxContainerMustafa">
-      <CardActionArea to='/athletes'>
-        <CardMedia
-          component="img"
-          height="630"
-          image={bascktballImage}
-          alt="green iguana"
-        />
-        {/* <CardContent>
+            <Grid container spacing={3}>
+              <Grid item xs={12} sm={10} md={9}>
+                <Card className="boxContainerMustafa">
+                  <CardActionArea to='/athletes'>
+                    <CardMedia
+                      component="img"
+                      height="500"
+                      image={tennisImage}
+                      alt="green iguana"
+                      className="imageFitCover"
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="div">
+                        Yoga
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">Yoga, an ancient art that harmonizes the body and mind, is recommended by doctors for its potential benefits in strengthening the body and calming the mind. Practicing yoga is considered a valuable option for achieving balance between the physical and spiritual aspects.
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+              </Grid>
+
+
+              <Grid item xs={12} sm={10} md={3}>
+                <Card className="boxContainerMustafa">
+                  <CardActionArea to='/athletes'>
+                    <CardMedia
+                      component="img"
+                      height="630"
+                      image={bascktballImage}
+                      alt="green iguana"
+                    />
+                    {/* <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             Athletes
           </Typography>
@@ -148,201 +152,201 @@ export default function Blog() {
             species, ranging across all continents except Antarctica
           </Typography>
         </CardContent> */}
-      </CardActionArea>
-    </Card>
-  </Grid>
+                  </CardActionArea>
+                </Card>
+              </Grid>
 
 
 
-  <Grid item xs={3} sm={6} md={6}>
-    <Card className="boxContainerMustafa">
-      <CardActionArea to='/athletes'>
-        <CardMedia
-          component="img"
-          height="340"
-          image={bbImage}
-          alt="green iguana"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-          Michael
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-          The cycling champion, a symbol of determination and challenge, captivates the world with his remarkable achievements on the track. His heart beats with the spirit of competition and determination, as he pushes boundaries and tackles tough terrains with confidence. His history is filled with victories and challenges, making him a role model for youth aspiring to achieve success and break records.
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
-  </Grid>
-
-  
-  <Grid item xs={12} sm={6} md={3}>
-    <Card className="boxContainerMustafa">
-      <CardActionArea to='/athletes'>
-        <CardMedia
-          component="img"
-          height="360"
-          image={ddImage}
-          alt="green iguana"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-          Mary
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-          Mary excels in the latest championship of the arena, which she contracted with one of the most prominent clubs in Europe.
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
-  </Grid>
+              <Grid item xs={3} sm={6} md={6}>
+                <Card className="boxContainerMustafa">
+                  <CardActionArea to='/athletes'>
+                    <CardMedia
+                      component="img"
+                      height="340"
+                      image={bbImage}
+                      alt="green iguana"
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="div">
+                        Michael
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        The cycling champion, a symbol of determination and challenge, captivates the world with his remarkable achievements on the track. His heart beats with the spirit of competition and determination, as he pushes boundaries and tackles tough terrains with confidence. His history is filled with victories and challenges, making him a role model for youth aspiring to achieve success and break records.
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+              </Grid>
 
 
-  <Grid item xs={12} sm={6} md={3}>
-    <Card className="boxContainerMustafa">
-      <CardActionArea to='/athletes'>
-        <CardMedia
-          component="img"
-          height="380"
-          image={kkImage}
-          alt="green iguana"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-          David
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-          Coach David has proven his worth by training the youth and has been awarded the best coach in America.
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
-  </Grid>
+              <Grid item xs={12} sm={6} md={3}>
+                <Card className="boxContainerMustafa">
+                  <CardActionArea to='/athletes'>
+                    <CardMedia
+                      component="img"
+                      height="360"
+                      image={ddImage}
+                      alt="green iguana"
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="div">
+                        Mary
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        Mary excels in the latest championship of the arena, which she contracted with one of the most prominent clubs in Europe.
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+              </Grid>
 
 
-  <Grid item xs={12} sm={6} md={3}>
-    <Card className="boxContainerMustafa">
-      <CardActionArea to='/athletes'>
-        <CardMedia
-          component="img"
-          height="500"
-          image={ttImage}
-          alt="green iguana"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            Sara
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-          Sara returns to the fields with skill and determination.
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
-  </Grid>
+              <Grid item xs={12} sm={6} md={3}>
+                <Card className="boxContainerMustafa">
+                  <CardActionArea to='/athletes'>
+                    <CardMedia
+                      component="img"
+                      height="380"
+                      image={kkImage}
+                      alt="green iguana"
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="div">
+                        David
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        Coach David has proven his worth by training the youth and has been awarded the best coach in America.
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+              </Grid>
 
 
-  <Grid item xs={12} sm={6} md={3}>
-    <Card className="boxContainerMustafa">
-      <CardActionArea to='/athletes'>
-        <CardMedia
-          component="img"
-          height="500"
-          image={torImage}
-          alt="green iguana"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            Tore
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-          Tore returns once again to climb the mountains.
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
-  </Grid>
+              <Grid item xs={12} sm={6} md={3}>
+                <Card className="boxContainerMustafa">
+                  <CardActionArea to='/athletes'>
+                    <CardMedia
+                      component="img"
+                      height="500"
+                      image={ttImage}
+                      alt="green iguana"
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="div">
+                        Sara
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        Sara returns to the fields with skill and determination.
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+              </Grid>
 
 
-  <Grid item xs={12} sm={6} md={6}>
-    <Card className="boxContainerMustafa">
-      <CardActionArea to='/athletes'>
-        <CardMedia
-          component="img"
-          height="520"
-          image={vvImage}
-          alt="green iguana"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-          Karen 
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-          Karen retires from sports after a successful career.
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
-  </Grid>
+              <Grid item xs={12} sm={6} md={3}>
+                <Card className="boxContainerMustafa">
+                  <CardActionArea to='/athletes'>
+                    <CardMedia
+                      component="img"
+                      height="500"
+                      image={torImage}
+                      alt="green iguana"
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="div">
+                        Tore
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        Tore returns once again to climb the mountains.
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+              </Grid>
 
 
-  <Grid item xs={12} sm={6} md={7}>
-    <Card className="boxContainerMustafa">
-      <CardActionArea to='/athletes'>
-        <CardMedia
-          component="img"
-          height="700"
-          image={nnImage}
-          alt="green iguana"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            Kides
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-          Determined children in sports pursue their aspirations with ambition.
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
-  </Grid>
+              <Grid item xs={12} sm={6} md={6}>
+                <Card className="boxContainerMustafa">
+                  <CardActionArea to='/athletes'>
+                    <CardMedia
+                      component="img"
+                      height="520"
+                      image={vvImage}
+                      alt="green iguana"
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="div">
+                        Karen
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        Karen retires from sports after a successful career.
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+              </Grid>
 
 
-  
-  <Grid item xs={12} sm={10} md={5}>
-    <Card className="boxContainerMustafa">
-      <CardActionArea to='/athletes'>
-        <CardMedia
-          component="img"
-          height="700"
-          image={ssImage}
-          alt="green iguana"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            Linda
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-          Linda returns to social media platforms.
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
-  </Grid>
+              <Grid item xs={12} sm={6} md={7}>
+                <Card className="boxContainerMustafa">
+                  <CardActionArea to='/athletes'>
+                    <CardMedia
+                      component="img"
+                      height="700"
+                      image={nnImage}
+                      alt="green iguana"
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="div">
+                        Kides
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        Determined children in sports pursue their aspirations with ambition.
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+              </Grid>
 
 
 
-  
-</Grid>
+              <Grid item xs={12} sm={10} md={5}>
+                <Card className="boxContainerMustafa">
+                  <CardActionArea to='/athletes'>
+                    <CardMedia
+                      component="img"
+                      height="700"
+                      image={ssImage}
+                      alt="green iguana"
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="div">
+                        Linda
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        Linda returns to social media platforms.
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+              </Grid>
 
-        </main>
-      </Container>
-    
-          <Footer
-        title="Unleash Your Potential, Conquer the Field"
-        description="Calls for expansion and reaching your fullest potential in the sports arena.!" />
 
-    </ThemeProvider>
+
+
+            </Grid>
+
+          </main>
+        </Container>
+
+        <Footer
+          title="Unleash Your Potential, Conquer the Field"
+          description="Calls for expansion and reaching your fullest potential in the sports arena.!" />
+
+      </ThemeProvider>
     </>
   );
 }

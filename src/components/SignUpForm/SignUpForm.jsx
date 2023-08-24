@@ -10,8 +10,6 @@ import Grid from '@mui/material/Grid';
 
 export default class SignUpForm extends Component {
 
-  // const [user, setUser]
-
   state = {
     firstName: '',
     lastName: '',
@@ -23,6 +21,7 @@ export default class SignUpForm extends Component {
     nationality: '',
     phone: '',
     error: '',
+    // photo: ''
   };
 
   handleSubmit = async (evt) => {
@@ -56,16 +55,56 @@ export default class SignUpForm extends Component {
     this.props.setShowSignUp(false); // Call the function to switch back to the login form
   }
 
+  // handleImageUpload = (evt) => {
+  //   // get the image uploaded in input file, it will be the first element in files arr
+  //   const file = evt.target.files[0];
+  //   console.log(file);
+
+  //   this.transformFileData(file);
+  // }
+  // // transfer file/image to base64 string
+  // transformFileData = (file) => {
+  //   //The FileReader object lets web applications asynchronously read the contents of files (or raw data buffers) stored on the user's computer, using File or Blob objects to specify the file or data to read.
+  //   // FileReader can only access the contents of files that the user has explicitly selected, either using an HTML <input type="file"> element or by drag and drop
+  //   // filereader is js object
+  //   const reader = new FileReader();
+
+  //   if (file) {
+  //     // Starts reading the contents of the specified Blob, once finished, the "result" attribute contains a data: URL representing the file's data.
+  //     reader.readAsDataURL(file);
+  //     // Fired when a read has completed, successfully or not.
+  //     reader.onloadend = () => {
+  //       console.log(reader.result);
+  //       this.setState(prevState => ({
+  //         ...prevState,
+  //         photo: reader.result
+  //       }));
+
+  //       // setError("");
+  //     };
+  //   } else {
+  //     // no image
+  //     this.setState(prevState => ({
+  //       ...prevState,
+  //       photo: ""
+  //     }));
+
+  //     // setError("");
+  //   }
+  // }
+
+
+
   render() {
     const disable = this.state.password !== this.state.confirm;
-  
+
     return (
       <>
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
         <Box component="form" noValidate autoComplete="off" onSubmit={this.handleSubmit} sx={{ mt: 1 }}>
-        <Grid container spacing={2}>
+          <Grid container spacing={2}>
             <Grid item xs={6}>
               <TextField
                 margin="normal"
@@ -102,58 +141,68 @@ export default class SignUpForm extends Component {
             onChange={this.handleChange}
             autoComplete="off"
           />
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            value={this.state.password}
-            onChange={this.handleChange}
-            label="Password"
-            type="password"
-            autoComplete="off"
-          />
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            name="confirm"
-            value={this.state.confirm}
-            onChange={this.handleChange}
-            label="Confirm Password"
-            type="password"
-            autoComplete="off"
-          />
           <Grid container spacing={2}>
-          <Grid item xs={6}>
+            <Grid item xs={6}>
               <TextField
                 margin="normal"
                 required
                 fullWidth
-                name="gender"
-                value={this.state.gender}
+                name="password"
+                value={this.state.password}
                 onChange={this.handleChange}
-                label="Gender"
-                select
-              >
-                <MenuItem value="Male">Male</MenuItem>
-                <MenuItem value="Female">Female</MenuItem>
-              </TextField>
+                label="Password"
+                type="password"
+                autoComplete="off"
+              />
             </Grid>
             <Grid item xs={6}>
               <TextField
                 margin="normal"
                 required
                 fullWidth
-                name="dateOfBirth"
-                value={this.state.dateOfBirth}
+                name="confirm"
+                value={this.state.confirm}
                 onChange={this.handleChange}
-                label="Date of Birth"
-                type="date"
-                InputLabelProps={{ shrink: true }}
+                label="Confirm Password"
+                type="password"
+                autoComplete="off"
+                error={this.state.password !== this.state.confirm}
+                helperText={this.state.password !== this.state.confirm ? "Passwords do not match" : ""}
               />
             </Grid>
           </Grid>
+          {/* <TextField
+            margin="normal"
+            fullWidth
+            type="file"
+            name="photo"
+            inputProps={{ accept: "image/*" }}
+            onChange={this.handleImageUpload}
+          /> */}
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            name="gender"
+            value={this.state.gender}
+            onChange={this.handleChange}
+            label="Gender"
+            select
+          >
+            <MenuItem value="Male">Male</MenuItem>
+            <MenuItem value="Female">Female</MenuItem>
+          </TextField>
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            name="dateOfBirth"
+            value={this.state.dateOfBirth}
+            onChange={this.handleChange}
+            label="Date of Birth"
+            type="date"
+            InputLabelProps={{ shrink: true }}
+          />
           <TextField
             margin="normal"
             required
@@ -195,6 +244,8 @@ export default class SignUpForm extends Component {
         </Link>
       </>
     );
-  }
   
+
+  }
+
 }

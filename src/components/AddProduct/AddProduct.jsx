@@ -39,7 +39,8 @@ function ProductForm({user, setUser}) {
     }
   };
 
-  function handleImageUpload(evt) {
+
+ function handleImageUpload(evt) {
     // get the image uploaded in input file, it will be the first element in files arr
     const file = evt.target.files[0];
     console.log(file);

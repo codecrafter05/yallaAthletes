@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
 import AthleteCard from "../../components/AthleteCard/AthleteCard";
 import { getAllAthletesFiltered } from '../../utilities/athletes-service';
-import { Container } from "@mui/material";
+import { Button, Container, TextField } from "@mui/material";
 import Grid from "@mui/material/Grid";
 
 export default function AthleteListPage() {
+
+
   const [athletes, setAthletes] = useState([]);
+
 
   useEffect(() => {
     async function fetchAthletes() {
@@ -19,6 +22,8 @@ export default function AthleteListPage() {
     }
     fetchAthletes();
   }, []);
+  
+
 
   return (
     <Container>

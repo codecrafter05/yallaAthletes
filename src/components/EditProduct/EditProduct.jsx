@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { TextField, Button } from "@mui/material";
 import {createA_Product} from '../../utilities/products-services'
 import { Paper, Select, MenuItem, FormControl, InputLabel, Box } from "@mui/material";
-import ProductList from "../ProductList/ProductList";
 
 
 export default function EditProduct() {
@@ -118,7 +117,6 @@ export default function EditProduct() {
           />
             <TextField
               type="file"
-
               name="photo"
               inputProps={{ accept: "image/*" }} 
               onChange={handleImageUpload}

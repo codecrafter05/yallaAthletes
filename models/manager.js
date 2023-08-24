@@ -14,7 +14,12 @@ const managerSchema = new Schema({
   },
 
   country:{
+<<<<<<< HEAD
 
+=======
+    type: String,
+    required: true
+>>>>>>> 0002ca51e910c88355e5d908c74468f7766e351e
   }
 
 }, {
