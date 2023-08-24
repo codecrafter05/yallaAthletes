@@ -89,6 +89,7 @@ export default function BecomeAthlete({ user, handleBecomeAthlete }) {
                 value={athleteData.personalRecord}
                 onChange={handleChange}
                 fullWidth
+                required
               />
             </Grid>
             <Grid item xs={6}>
@@ -100,6 +101,7 @@ export default function BecomeAthlete({ user, handleBecomeAthlete }) {
                 value={athleteData.socials}
                 onChange={handleChange}
                 fullWidth
+                required
               />
             </Grid>
             <Grid item xs={12}>
@@ -112,6 +114,7 @@ export default function BecomeAthlete({ user, handleBecomeAthlete }) {
                 multiline
                 rows={4}
                 fullWidth
+                required
               />
             </Grid>
           </Grid>
