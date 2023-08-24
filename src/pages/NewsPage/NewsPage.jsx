@@ -97,7 +97,7 @@ export default function Blog() {
     <>
 
       <ThemeProvider theme={defaultTheme}>
-
+      <Grid item xs={12} sm={10} md={9}>
         <div className="image-container2">
           <img src={sikelsImage} alt="Background" className="background-image2" />
           <div className="overlay2"></div>
@@ -105,6 +105,7 @@ export default function Blog() {
             <Typography variant="h2" className="text2">Breaking News</Typography>
           </div>
         </div>
+        </Grid>
 
         <Container maxWidth="lg">
 
@@ -158,7 +159,7 @@ export default function Blog() {
 
 
 
-              <Grid item xs={3} sm={6} md={6}>
+              <Grid item xs={12} sm={6} md={3}>
                 <Card className="boxContainerMustafa">
                   <CardActionArea to='/athletes'>
                     <CardMedia

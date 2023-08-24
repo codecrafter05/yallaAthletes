@@ -29,33 +29,21 @@
     width: 100%;
 }
 
-.text2 {
-    color: white;
-    /* Adjust the text color as needed */
+
+
+@media (max-width: 500px) {
+    /* Adjust the font size for smaller screens */
+    .text2 {
+        font-size: 1rem; /* Example size, adjust as needed */
+    }
 }
 
 
 
-/* Blog.css */
-/* Default styles for the cards */
-.cardContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 10px;
-  }
-  
-  @media (min-width: 600px) {
-    /* Apply styles for screens with a minimum width of 600px */
-    .cardContainer {
-      flex-direction: row;
-    }
-  }
-  
-  @media (min-width: 960px) {
-    /* Apply styles for screens with a minimum width of 960px */
-    .cardContainer {
-      margin: 20px;
-    }
-  }
-  
+.text2 {
+    color: white;
+}
+
+
+
+
