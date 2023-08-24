@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { Box } from '@mui/material';
+import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import DashboardPage from '../DashboardPage';
 import { getAllAthletesFiltered, approveAthlete, rejectAthlete, removeAthlete } from '../../../utilities/athletes-service';
@@ -194,8 +195,8 @@ export default function AthletesPageDashboard() {
   }));
 
   return (
-    <>
-      <Box sx={{ marginLeft: '250px', marginRight:'20px', marginTop: '20px' }}>
+    <Container>
+      <Box sx={{ marginTop: '20px', marginBottom: '20px' }}>
         <DashboardPage />
         <h1>Athletes</h1>
         <hr />
@@ -246,6 +247,6 @@ export default function AthletesPageDashboard() {
           />
         </div>
       </Box>
-    </>
+    </Container>
   );
 }
