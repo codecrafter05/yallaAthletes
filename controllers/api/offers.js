@@ -16,10 +16,10 @@ async function createOffer(req, res) {
   }
 }
 
-// Get all ofers, for logged in user
+// Get all ofers, take status of offer from params
 async function getAllOffers(req, res) {
   try {
-    const offers = await Offer.find({ user: req.user._id }).populate('athlete');
+    const offers = await Offer.find({ status: req.params.status }).populate('user');
     res.json(offers);
   } catch (err) {
     res.status(400).json(err);
