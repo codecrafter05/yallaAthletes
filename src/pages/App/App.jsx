@@ -12,7 +12,6 @@ import AboutUsPage from '../AboutUs/AboutUs';
 import DashboardPage from '../DashboardPage/DashboardPage'
 import Cart from '../Cart/Cart';
 import ProfileDashboardPage from '../DashboardPage/ProfileDashboardPage/ProfileDashboardPage'
-import UsersDashboardPage from '../DashboardPage/UsersDashboardPage/UsersDashboardPage'
 import AthletesDashboardPage from '../DashboardPage/AthletesDashboardPage/AthletesDashboardPage'
 import ProductsPageDashboard from '../DashboardPage/ProductsDashboardPage/ProductsDashboardPage'
 import OffersPageDashboard from '../DashboardPage/OffersDashboardPage/OffersDashboardPage'
@@ -40,7 +39,6 @@ function App() {
             <Route path="/dashboard" element={<DashboardPage user={user} />} />
             <Route path="/cart" element={<Cart user={user} />} />
             <Route path="/dashboard/profile" element={<ProfileDashboardPage />} />
-            <Route path="/dashboard/users" element={<UsersDashboardPage />} />
             <Route path="/dashboard/athletes" element={<AthletesDashboardPage />} />
             <Route path="/dashboard/products" element={<ProductsPageDashboard />} />
             <Route path="/dashboard/offers" element={<OffersPageDashboard user={user}/>} />
