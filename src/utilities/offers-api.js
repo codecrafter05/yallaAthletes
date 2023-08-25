@@ -17,3 +17,15 @@ export async function getAllAthleteOffers(id, status) {
 export async function getAllManagerOffers(id, status) {
   return sendRequest(`${BASE_URL}/manager/${id}/status/${status}`);
 }
+
+export async function approveOffer(offerId) {
+  return sendRequest(`${BASE_URL}/approveOffer/${offerId}`, 'PUT');
+}
+
+export async function rejectOffer(offerId) {
+  return sendRequest(`${BASE_URL}/rejectOffer/${offerId}`, 'PUT');
+}
+
+export async function removeOffer(offerId) {
+  return sendRequest(`${BASE_URL}/removeOffer/${offerId}`, 'PUT');
+}
