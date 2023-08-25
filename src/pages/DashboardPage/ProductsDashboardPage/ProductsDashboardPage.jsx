@@ -7,7 +7,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import { Typography } from '@mui/material';
 
-export default function ProductsPageDashboard(){
+export default function ProductsPageDashboard({user, setUser}){
 
     const [value, setValue] = React.useState(0);
   
@@ -23,7 +23,7 @@ export default function ProductsPageDashboard(){
   return (
     <Container>
       <Box>
-      <DashboardPage />
+      <DashboardPage user={user}/>
       <Typography variant='h3'>Products</Typography>
       <Box sx={{ width: '100%', bgcolor: 'background.paper', }}>
         <Tabs value={value} onChange={handleChange} centered>

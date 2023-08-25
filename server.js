@@ -2,13 +2,12 @@ const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
-
+const bodyParser = require('body-parser');
 
 require('dotenv').config();
 // Connect to db after the dotenv above
 require('./config/database');
 
-const bodyParser = require("body-parser");
 const app = express();
 app.use(bodyParser.json({ limit: "30mb" }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
@@ -35,6 +34,12 @@ app.use('/api/offers', require('./routes/api/offers'));
 // that don't match an API route defined above
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
+// Middleware for handling 404 errors
+app.use(function(req, res, next) {
+  res.status(404);
+  res.sendFile(path.join(__dirname, 'build', 'index.html')); // Provide the path to your 404 page
 });
 
 const port = process.env.PORT || 3001;

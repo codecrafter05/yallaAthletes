@@ -11,7 +11,7 @@ export default function AthletesDetailsPage({ user }) {
   const [athlete, setAthlete] = useState(null);
   const initialOfferData = {
     user: user._id,
-    athlete: athleteId,
+    athlete: '',
     athleteName: '',
     sportType: '',
     bid: '',
@@ -25,7 +25,7 @@ export default function AthletesDetailsPage({ user }) {
     try {
       const offer = await createOffer({
         user: offerData.user,
-        athlete: offerData.athlete,
+        athlete: athlete.user?._id,
         athleteName: `${athlete.user.firstName} ${athlete.user.lastName}`,
         athleteAge: calculateAge(athlete.user?.dateOfBirth),
         sportType: athlete.sportType,

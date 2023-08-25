@@ -5,11 +5,10 @@ import AthleteOffers from '../../../components/Offers/AthleteOffers/AthleteOffer
 import { Container } from '@mui/material'
 
 export default function OffersPageDashboard({ user }){
-  console.log(user.role)
 
   return (
     <Container>
-      <DashboardPage />
+      <DashboardPage user={user} />
       <h1>Offers</h1>
       <hr />
       { user.role === 'Admin' && (
@@ -17,11 +16,11 @@ export default function OffersPageDashboard({ user }){
       )}
 
       { user.role === 'Manager' && (
-        <ManagerOffers />
+        <ManagerOffers user={user} />
       )}
 
       { user.role === 'Athlete' && (
-        <AthleteOffers />
+        <AthleteOffers user={user} />
       )}
     </Container>
   )
