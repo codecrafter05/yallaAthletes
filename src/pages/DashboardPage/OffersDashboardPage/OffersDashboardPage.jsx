@@ -17,11 +17,11 @@ export default function OffersPageDashboard({ user }){
       )}
 
       { user.role === 'Manager' && (
-        <ManagerOffers />
+        <ManagerOffers user={user} />
       )}
 
       { user.role === 'Athlete' && (
-        <AthleteOffers />
+        <AthleteOffers user={user} />
       )}
     </Container>
   )
