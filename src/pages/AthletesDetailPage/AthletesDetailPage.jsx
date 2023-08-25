@@ -120,7 +120,7 @@ export default function AthletesDetailsPage({ user }) {
             </div>
           </div>
         </Card>
-        {/* {user.role === 'Manager' && ( */}
+        {user.role === 'Manager' && (
           <Box component="form" onSubmit={handleSubmit}>
             <TextField
               type="number"
@@ -141,7 +141,7 @@ export default function AthletesDetailsPage({ user }) {
               Add Offer
             </Button>
           </Box>
-        {/* )} */}
+        )}
       </>
     ) : (
       <Typography>Loading athlete details...</Typography>
