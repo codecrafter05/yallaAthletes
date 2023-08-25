@@ -60,7 +60,6 @@
     align-items: center;
     justify-content: center;
     z-index: 1;
-    font-family: 'Libre Baskerville', serif !important;
 }
 
 
@@ -88,13 +87,6 @@
     margin: 10px;
     /* Add some space around each card */
     max-height: 200px;
-}
-
-
-
-.fontmedil{
-
-    font-family: 'Libre Baskerville', serif !important;
 }
 
 .devContainer-home {
@@ -260,7 +252,6 @@
     color: white !important;
     font-family: 'Roboto', serif;
     font-size: 3rem;
-    font-family: 'Libre Baskerville', serif !important;
     /* font-family: 'Noto Sans Multani', sans-serif !important; */
 }
 
@@ -274,8 +265,6 @@
     padding: 10px 20px;
     border-radius: 4px;
     transition: background-color 0.3s;
-    font-family: 'Libre Baskerville', serif !important;
-
 }
 
 .discover-button-home:hover {
@@ -307,9 +296,6 @@
     background-image: url("https://64.media.tumblr.com/c64b27792a2d346109c6bb95b2be5237/23470b3abcef12ae-37/s2048x3072/0d11c5cb225f37d64839d58ca08abb96167ccd51.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    font-family: 'Libre Baskerville', serif !important;
-
-    
 }
 
 .container-pro-home::before {
@@ -329,9 +315,6 @@
     flex: 1;
     margin: 2%;
     z-index: 1;
-    font-family: 'Libre Baskerville', serif !important;
-    
-    
 }
 
 .grid-container-home {
@@ -404,8 +387,6 @@
     flex: 1;
     margin: 2%;
     z-index: 1;
-    font-family: 'Libre Baskerville', serif !important;
-    font-family: 'Noto Sans Multani', sans-serif !important;
 } */
 
 .grid-container-home {

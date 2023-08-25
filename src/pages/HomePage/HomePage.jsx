@@ -131,7 +131,7 @@ export default function HomePage() {
 
         <div className="container-atl-home">
           <div className="text-container-home">
-          <Typography sx={{ fontSize: 90, fontFamily: "'Libre Baskerville', serif" }}>
+          <Typography sx={{ fontSize: 90 }}>
            Our Popular Athletes
           </Typography>
 
@@ -167,7 +167,7 @@ export default function HomePage() {
 
         <div className="container-pro-home">
           <div className="text-container-home">
-            <Typography sx={{ fontSize: 90, fontFamily: "'Libre Baskerville', serif" }}>Most Selling Products</Typography>
+            <Typography>Most Selling Products</Typography>
           </div>
           <div className="grid-container-home">
             {products.map((product) => (
