@@ -39,9 +39,9 @@ function App() {
             <Route path="/profile" element={<ProfilePage user={user} />} />
             <Route path="/dashboard" element={<DashboardPage user={user} />} />
             <Route path="/cart" element={<Cart user={user} />} />
-            <Route path="/dashboard/profile" element={<ProfileDashboardPage />} />
-            <Route path="/dashboard/athletes" element={<AthletesDashboardPage />} />
-            <Route path="/dashboard/products" element={<ProductsPageDashboard />} />
+            <Route path="/dashboard/profile" element={<ProfileDashboardPage user={user} />} />
+            <Route path="/dashboard/athletes" element={<AthletesDashboardPage user={user} />} />
+            <Route path="/dashboard/products" element={<ProductsPageDashboard user={user} />} />
             <Route path="/dashboard/offers" element={<OffersPageDashboard user={user}/>} />
             <Route path="/products" element={<Products />} />
             {/* <Route path='/products' element={<Products user={user} />} /> */}

@@ -8,7 +8,7 @@ export default function OffersPageDashboard({ user }){
 
   return (
     <Container>
-      <DashboardPage />
+      <DashboardPage user={user} />
       <h1>Offers</h1>
       <hr />
       { user.role === 'Admin' && (
