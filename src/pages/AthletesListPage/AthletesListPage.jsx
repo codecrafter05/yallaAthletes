@@ -29,9 +29,9 @@ export default function AthleteListPage() {
 
   return (
     <Container>
-      <Typography variant="h1" sx={{ fontFamily: "'Libre Baskerville', serif" }}>
+      <h1>
         Athlete List Page
-      </Typography>
+      </h1>
       <hr />
       <Grid container spacing={2} sx={{ mt: 2 }}>
         {athletes.map((athlete) => {
