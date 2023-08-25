@@ -3,7 +3,8 @@ const Offer = require('../../models/offer');
 module.exports = {
   createOffer,
   getAllOffers,
-  getAllUserOffers
+  getAllManagerOffers,
+  getAllAthleteOffers,
 }
 
 async function createOffer(req, res) {
@@ -27,10 +28,19 @@ async function getAllOffers(req, res) {
   }
 }
 
-// Get all offers that made by logged in user with status of offer
-async function getAllUserOffers(req, res) {
+async function getAllManagerOffers(req, res) {
   try {
     const offers = await Offer.find({ user: req.user._id, status: req.params.status }).populate('user').populate('athlete');
+    res.json(offers);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+}
+
+// Get all offers that made by logged in user with status of offer
+async function getAllAthleteOffers(req, res) {
+  try {
+    const offers = await Offer.find({ athlete: req.user._id, status: req.params.status }).populate('user').populate('athlete');
     res.json(offers);
   } catch (err) {
     res.status(400).json(err);

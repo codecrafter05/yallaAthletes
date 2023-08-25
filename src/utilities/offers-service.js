@@ -8,6 +8,10 @@ export async function getAllOffers(status) {
   return offersAPI.getAllOffers(status);
 }
 
-export async function getAllUserOffers(id, status) {
-  return offersAPI.getAllUserOffers(id, status);
+export async function getAllManagerOffers(id, status) {
+  return offersAPI.getAllManagerOffers(id, status);
+}
+
+export async function getAllAthleteOffers(id, status) {
+  return offersAPI.getAllAthleteOffers(id, status);
 }
