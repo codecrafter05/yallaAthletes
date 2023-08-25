@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#container {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  right: 10%;
+  bottom: 10%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("../../assets/pattern.png"), #333333;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, .5);
+}
+
+#container .content {
+  max-width: 600px;
+  text-align: center;
+}
+
+#container .content h1 {
+  font-size: 18vw;
+  color: #fff;
+  line-height: 1em;
+}
+
+#container .content h4 {
+  position: relative;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  color: #111;
+  background: #fff;
+  font-weight: 300;
+  padding: 10px 20px;
+  display: inline-block;
+}
+
+#container .content p {
+  color: #fff;
+  font-size: 1.2em;
+  padding: 10px;
+}
+
+#container .content a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 25px;
+  color: #fff;
+  text-decoration: none;
+  margin-top: 25px;
+  border-radius: 25px;
+}
+@media (max-width: 768px) {
+  #container{
+      top: 7%;
+      left: 2%;
+      right: 2%;
+      bottom: 5%;
+  }
+  #container .content h1{
+      font-size: 150px;
+  }
+}
