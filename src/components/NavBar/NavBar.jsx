@@ -51,7 +51,7 @@ export default function NavBar({ user, setUser }) {
   };
 
   return (
-    <AppBar position="stick" style={{ backgroundColor: '#333333' }}>
+    <AppBar position="sticky" style={{ backgroundColor: '#333333' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />

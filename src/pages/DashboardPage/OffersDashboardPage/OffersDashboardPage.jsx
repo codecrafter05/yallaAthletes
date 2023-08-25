@@ -5,7 +5,6 @@ import AthleteOffers from '../../../components/Offers/AthleteOffers/AthleteOffer
 import { Container } from '@mui/material'
 
 export default function OffersPageDashboard({ user }){
-  console.log(user.role)
 
   return (
     <Container>

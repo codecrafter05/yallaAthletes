@@ -19,8 +19,6 @@ export default function AthleteOffers ({ user }) {
         setPendingOffers(pendingOffers);
         setAcceptedOffers(acceptedOffers);
         setRejectedOffers(rejectedOffers);
-
-        console.log(`pendingOffers ==> ${pendingOffers}`);
       } catch(err) {
         console.log(`Error displaying Offers: ${err}`);
       }
