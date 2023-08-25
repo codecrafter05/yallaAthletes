@@ -48,6 +48,10 @@ export function updateProfile(updatedUserData) {
   return usersAPI.updateUserProfile(updatedUserData);
 }
 
+export function getUserImage(userId) {
+  return usersAPI.getUserImage(userId);
+}
+
 export function deleteUser() {
   return usersAPI.deleteUser();
 }

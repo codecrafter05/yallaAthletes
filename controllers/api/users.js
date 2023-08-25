@@ -8,6 +8,7 @@ module.exports = {
   checkToken,
   getUser,
   updateUser, 
+  getUserImage,
   deleteUser
 };
 
@@ -68,6 +69,17 @@ async function deleteUser(req, res) {
   } catch (error) {
     res.status(500).json({ error: 'Error deleting user' });
   }
+}
+
+function getUserImage(req, res) {
+  User.findById(req.params.userId)
+  .then(user => {
+    res.set('Content-Type', 'image/jpeg');
+    res.send(user.photo);
+  })
+  .catch(err => {
+    res.status(400).json(err);
+  });
 }
 
 

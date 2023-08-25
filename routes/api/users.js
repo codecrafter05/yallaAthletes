@@ -17,5 +17,7 @@ router.get('/profile', ensureLoggedIn, usersCtrl.getUser);
 router.put('/profile', ensureLoggedIn, usersCtrl.updateUser);
 // DELETE /api/users/:userId
 router.delete('/', usersCtrl.deleteUser);
+// GET /api/users/image/:userId
+router.get('/image/:userId', ensureLoggedIn, usersCtrl.getUserImage);
 
 module.exports = router;

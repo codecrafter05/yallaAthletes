@@ -29,3 +29,7 @@ export async function deleteUser() {
 export function checkToken() {
   return sendRequest(`${BASE_URL}/check-token`);
 }
+
+export async function getUserImage(userId) { 
+  return sendRequest(`${BASE_URL}/image/${userId}`)
+}

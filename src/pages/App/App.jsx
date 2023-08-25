@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
+import * as UserAPI from '../../utilities/users-api';
 import AuthPage from '../AuthPage/AuthPage';
 import NewOrderPage from '../NewOrderPage/NewOrderPage';
 import NavBar from '../../components/NavBar/NavBar';
@@ -26,8 +27,21 @@ function App() {
 
   // TODO 
   // Add useEffect 
-  // Make an API call to get user using user state _id field
-  // Set user state to the response
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     // Make an API call to get user using user state _id field
+  //     try {
+  //       const userData = await getUser();
+  //       console.log(`userData`, userData)
+  //       // Set user state to the response
+  //       setUser(userData);
+  //     } catch (error) {
+  //       console.log(error)
+  //     }
+  //   }
+  //   fetchData();
+   
+  // }, []);
 
   return (
     <main className="App">

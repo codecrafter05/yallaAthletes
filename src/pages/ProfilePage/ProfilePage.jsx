@@ -3,7 +3,7 @@ import UserProfile from '../../components/UserProfile/UserProfile';
 import BecomeAthlete from '../../components/BecomeAthlete/BecomeAthlete';
 import EditUserProfile from '../../components/EditUserProfile/EditUserProfile';
 import { getAthlete, deleteAthlete } from '../../utilities/athletes-service';
-import { getUser, deleteUser } from "../../utilities/users-service";
+import { getUser, getUserImage, deleteUser } from "../../utilities/users-service";
 import { Container } from '@mui/material';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
@@ -33,12 +33,16 @@ export default function ProfilePage() {
 
   const [showConfirmationModal, setShowConfirmationModal] = useState(false);
   const [confirmationAction, setConfirmationAction] = useState(null);
+  const [userPhoto, setUserPhoto] = useState(null);
 
   useEffect(() => {
     async function fetchUserData() {
       try {
         const userData = await getUser();
         setUser(userData);
+        const userPhoto = await getUserImage(userData._id);
+        setUserPhoto(userPhoto);
+        console.log(`userPhoto`, userPhoto);
       } catch (error) {
         console.error('Error fetching user data:', error);
       }
