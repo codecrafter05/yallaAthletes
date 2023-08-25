@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import DashboardPage from '../DashboardPage';
 import { getAllAthletesFiltered, approveAthlete, rejectAthlete, removeAthlete } from '../../../utilities/athletes-service';
 
-export default function AthletesPageDashboard() {
+export default function AthletesPageDashboard({user, setUser}) {
   const [pendingAthletes, setPendingAthletes] = useState([]);
   const [approvedAthletes, setApprovedAthletes] = useState([]);
   const [rejectedAthletes, setRejectedAthletes] = useState([]);
@@ -197,7 +197,7 @@ export default function AthletesPageDashboard() {
   return (
     <Container>
       <Box sx={{ marginTop: '20px', marginBottom: '20px' }}>
-        <DashboardPage />
+        <DashboardPage user={user} setUser={setUser} />
         <h1>Athletes</h1>
         <hr />
 

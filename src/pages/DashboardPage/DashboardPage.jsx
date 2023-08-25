@@ -42,6 +42,17 @@ export default function DashboardPage({ user, setUser }) {
     setUser(null);
   }
 
+    // Define role-based lists
+    const roleBasedLists = {
+      Admin: ['Profile', 'Athletes', 'Offers', 'Products', 'Logout'],
+      Customer: ['Profile', 'Products', 'Logout'],
+      Manager: ['Profile', 'Offers', 'Products', 'Logout'],
+      Athlete: ['Profile', 'Logout'],
+    };
+  
+    // Get the user's role
+    const userRole = user ? user.role : '';
+
   return (
     <div>
      <Button onClick={toggleDrawer('left', true)} sx={{ display:'flex', justify: 'start' }}>
@@ -57,7 +68,7 @@ export default function DashboardPage({ user, setUser }) {
         <Box sx={{ width: drawerWidth}}>
           <Divider />
           <List>
-            {['Profile', 'Athletes', 'Offers', 'Products'].map((text, index) => (
+            {roleBasedLists[userRole]?.map((text, index) => (
               <ListItem key={text} disablePadding component={Link} to={`/Dashboard/${text}`}>
                 <ListItemButton>
                   <ListItemIcon>
