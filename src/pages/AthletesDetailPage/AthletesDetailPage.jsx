@@ -6,32 +6,37 @@ import { showAthleteDetails } from '../../utilities/athletes-service';
 import { createOffer } from "../../utilities/offers-service";
 import './AthletesDetailPage.css';
 
-
-
 export default function AthletesDetailsPage({ user }) {
   const { athleteId } = useParams();
+  const [athlete, setAthlete] = useState(null);
   const initialOfferData = {
     user: user._id,
     athlete: athleteId,
+    athleteName: '',
+    sportType: '',
     bid: '',
+    description: '',
   };
-  const [athlete, setAthlete] = useState(null);
   const [offerData, setOfferData] = useState(initialOfferData);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const offer = await createOffer(offerData);
+      const offer = await createOffer({
+        user: offerData.user,
+        athlete: offerData.athlete,
+        athleteName: `${athlete.user.firstName} ${athlete.user.lastName}`,
+        athleteAge: calculateAge(athlete.user?.dateOfBirth),
+        sportType: athlete.sportType,
+        bid: offerData.bid,
+        description: offerData.description,
+      });
       console.log('New offer:', offer);
       setOfferData(initialOfferData);
     } catch (err) {
-      console.error('Error creating a offer:', err);
+      console.error('Error creating an offer:', err);
     }
   };
-
-  useEffect(() => {
-    fetchAthleteDetails(athleteId);
-  }, [athleteId]);
 
   const fetchAthleteDetails = async (athleteId) => {
     try {
@@ -42,8 +47,9 @@ export default function AthletesDetailsPage({ user }) {
     }
   }
 
-
-
+  useEffect(() => {
+    fetchAthleteDetails(athleteId);
+  }, [athleteId]);
 
   const calculateAge = (dateOfBirth) => {
     const dob = new Date(dateOfBirth);
@@ -57,7 +63,6 @@ export default function AthletesDetailsPage({ user }) {
 
     return age;
   };
-
 
   return (
     <Container>
@@ -114,20 +119,30 @@ export default function AthletesDetailsPage({ user }) {
             </div>
           </div>
         </Card>
+        {user.role === 'Manager' && (
+          <Box component="form" onSubmit={handleSubmit}>
+            <TextField
+              type="number"
+              label="Bid"
+              name="bid"
+              inputProps={{ min: 0}}
+              sx={{ mt: 1 }}
+              onChange={(e) => setOfferData({ ...offerData, [e.target.name]: e.target.value })}
+            />
+            <TextField
+              type="text"
+              label="Description"
+              name="description"
+              sx={{ mt: 1 }}
+              onChange={(e) => setOfferData({ ...offerData, [e.target.name]: e.target.value })}
+            />
+            <Button type="submit" variant="contained" color="success">
+              Add Offer
+            </Button>
+          </Box>
+        )}
 
-        <Box component="form" onSubmit={handleSubmit}>
-          <TextField
-            type="number"
-            label="Bid"
-            name="bid"
-            inputProps={{ min: 0}}
-            sx={{ mt: 1 }}
-            onChange={(e) => setOfferData({ ...offerData, [e.target.name]: e.target.value })}
-          />
-          <Button type="submit" variant="contained" color="success">
-            Add Offer
-          </Button>
-        </Box>
+
       </>
     ) : (
       <Typography>Loading athlete details...</Typography>
