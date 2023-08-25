@@ -9,12 +9,14 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import './Dashboard.css';
 import ForwardTwoToneIcon from '@mui/icons-material/ForwardTwoTone';
+import SportsGymnasticsIcon from '@mui/icons-material/SportsGymnastics';
+import LocalOfferIcon from '@mui/icons-material/LocalOffer';
+import InventoryIcon from '@mui/icons-material/Inventory';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 
 const drawerWidth = 240;
@@ -47,6 +49,12 @@ export default function DashboardPage({ user, setUser }) {
       Admin: ['Athletes', 'Offers', 'Products'],
       Manager: ['Offers', 'Products'],
     };
+
+    const itemIcons = {
+      Athletes: <SportsGymnasticsIcon />,
+      Offers: <LocalOfferIcon />,
+      Products: <InventoryIcon />,
+    };
   
     // Get the user's role
     const userRole = user ? user.role : '';
@@ -72,7 +80,7 @@ export default function DashboardPage({ user, setUser }) {
               <ListItem key={text} disablePadding component={Link} to={`/Dashboard/${text}`}>
                 <ListItemButton>
                   <ListItemIcon>
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                  {itemIcons[text] }
                   </ListItemIcon>
                   <ListItemText primary={text} />
                 </ListItemButton>
@@ -84,7 +92,7 @@ export default function DashboardPage({ user, setUser }) {
             <ListItem key="Logout" disablePadding onClick={handleLogOut} component={Link} to="/Logout">
               <ListItemButton>
                 <ListItemIcon>
-                  <MailIcon />
+                  <LogoutIcon />
                 </ListItemIcon>
                 <ListItemText primary="Logout" />
               </ListItemButton>
