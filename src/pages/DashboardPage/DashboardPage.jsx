@@ -44,10 +44,9 @@ export default function DashboardPage({ user, setUser }) {
 
     // Define role-based lists
     const roleBasedLists = {
-      Admin: ['Profile', 'Athletes', 'Offers', 'Products', 'Logout'],
-      Customer: ['Profile', 'Products', 'Logout'],
-      Manager: ['Profile', 'Offers', 'Products', 'Logout'],
-      Athlete: ['Profile', 'Logout'],
+      Admin: ['Profile', 'Athletes', 'Offers', 'Products'],
+      Manager: ['Profile', 'Offers', 'Products'],
+      Athlete: ['Profile', 'Offers'],
     };
   
     // Get the user's role
