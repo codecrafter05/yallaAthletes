@@ -97,7 +97,7 @@ export default function AboutUsPage() {
      <CardContent className="uper-us">
       <div className="sps">
           <Typography className='key' gutterBottom variant="h5" component="div">
-           Ouer Goals 
+           Our Goals 
           </Typography>
       </div>
       <div className="sps">
@@ -127,7 +127,7 @@ export default function AboutUsPage() {
 
 
         <Typography gutterBottom variant="h5" component="div">
-                        About Members
+                        Our Team
         </Typography>
 
 
@@ -238,7 +238,7 @@ export default function AboutUsPage() {
 
     <Footer
       title="Unleash Your Potential, Conquer the Field"
-      description="Calls for expansion and reaching your fullest potential in the sports arena.!" />
+      description="Calls for expansion and reaching your fullest potential in the sports arena!" />
      
   </>
   );

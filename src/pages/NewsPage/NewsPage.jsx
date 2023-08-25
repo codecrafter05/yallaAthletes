@@ -345,7 +345,7 @@ export default function Blog() {
 
         <Footer
           title="Unleash Your Potential, Conquer the Field"
-          description="Calls for expansion and reaching your fullest potential in the sports arena.!" />
+          description="Calls for expansion and reaching your fullest potential in the sports arena!" />
 
       </ThemeProvider>
     </>
