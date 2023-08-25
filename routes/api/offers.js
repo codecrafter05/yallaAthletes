@@ -7,7 +7,9 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 router.post('/', ensureLoggedIn, offersCtrl.createOffer);
 // add get all offers route
 router.get('/:status', ensureLoggedIn, offersCtrl.getAllOffers);
+// add get all manager offers route
+router.get('/manager/:id/status/:status', ensureLoggedIn, offersCtrl.getAllManagerOffers);
 // add get all user offers route
-router.get('/user/:id/status/:status', ensureLoggedIn, offersCtrl.getAllUserOffers);
+router.get('/athlete/:id/status/:status', ensureLoggedIn, offersCtrl.getAllAthleteOffers);
 
 module.exports = router;

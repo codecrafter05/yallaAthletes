@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getAllUserOffers } from "../../../utilities/offers-service";
+import { getAllManagerOffers } from "../../../utilities/offers-service";
 import { DataGrid } from '@mui/x-data-grid';
 import { Box } from '@mui/material';
 import Container from '@mui/material/Container';
@@ -12,9 +12,9 @@ export default function ManagerOffers ({ user }) {
   useEffect(() => {
     async function fetchOffers() {
       try {
-        const pendingOffers = await getAllUserOffers(user._id, 'Pending');
-        const acceptedOffers = await getAllUserOffers(user._id, 'Accepted');
-        const rejectedOffers = await getAllUserOffers(user._id, 'Rejected');
+        const pendingOffers = await getAllManagerOffers(user._id, 'Pending');
+        const acceptedOffers = await getAllManagerOffers(user._id, 'Accepted');
+        const rejectedOffers = await getAllManagerOffers(user._id, 'Rejected');
 
         setPendingOffers(pendingOffers);
         setAcceptedOffers(acceptedOffers);

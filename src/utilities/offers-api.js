@@ -10,6 +10,10 @@ export async function getAllOffers(status) {
   return sendRequest(`${BASE_URL}/${status}`);
 }
 
-export async function getAllUserOffers(id, status) {
-  return sendRequest(`${BASE_URL}/user/${id}/status/${status}`);
+export async function getAllAthleteOffers(id, status) {
+  return sendRequest(`${BASE_URL}/athlete/${id}/status/${status}`);
+}
+
+export async function getAllManagerOffers(id, status) {
+  return sendRequest(`${BASE_URL}/manager/${id}/status/${status}`);
 }
