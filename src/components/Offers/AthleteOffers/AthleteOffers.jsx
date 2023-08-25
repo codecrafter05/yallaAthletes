@@ -20,13 +20,13 @@ export default function AthleteOffers ({ user }) {
         setAcceptedOffers(acceptedOffers);
         setRejectedOffers(rejectedOffers);
 
-        console.log(pendingOffers);
+        console.log(`pendingOffers ==> ${pendingOffers}`);
       } catch(err) {
         console.log(`Error displaying Offers: ${err}`);
       }
     }
     fetchOffers();
-  }, []);
+  }, [user._id]);
 
   const pendingOffersColumns = [
     { field: 'id', headerName: 'ID', width: 70 },

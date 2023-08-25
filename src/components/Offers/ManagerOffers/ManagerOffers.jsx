@@ -26,7 +26,7 @@ export default function ManagerOffers ({ user }) {
       }
     }
     fetchOffers();
-  }, []);
+  }, [user._id]);
 
   const pendingOffersColumns = [
     { field: 'id', headerName: 'ID', width: 70 },
