@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Container, Paper, Typography, Card, TextField, Button } from '@mui/material';
 import Box from '@mui/material/Box';
@@ -17,6 +17,7 @@ export default function AthletesDetailsPage({ user }) {
     bid: '',
     description: '',
   };
+
   const [offerData, setOfferData] = useState(initialOfferData);
 
   const handleSubmit = async (e) => {
@@ -119,7 +120,7 @@ export default function AthletesDetailsPage({ user }) {
             </div>
           </div>
         </Card>
-        {user.role === 'Manager' && (
+        {/* {user.role === 'Manager' && ( */}
           <Box component="form" onSubmit={handleSubmit}>
             <TextField
               type="number"
@@ -140,9 +141,7 @@ export default function AthletesDetailsPage({ user }) {
               Add Offer
             </Button>
           </Box>
-        )}
-
-
+        {/* )} */}
       </>
     ) : (
       <Typography>Loading athlete details...</Typography>
