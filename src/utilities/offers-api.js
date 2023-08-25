@@ -9,3 +9,7 @@ export async function createOffer(offerData) {
 export async function getAllOffers(status) {
   return sendRequest(`${BASE_URL}/${status}`);
 }
+
+export async function getAllUserOffers(id, status) {
+  return sendRequest(`${BASE_URL}/user/${id}/status/${status}`);
+}
