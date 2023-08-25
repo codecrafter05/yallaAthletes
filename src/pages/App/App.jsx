@@ -18,6 +18,7 @@ import OffersPageDashboard from '../DashboardPage/OffersDashboardPage/OffersDash
 import './App.css';
 import Products from '../Products/Products';
 import AthletesDetailsPage from '../AthletesDetailPage/AthletesDetailPage';
+import NotFound from '../../components/NotFound/NotFound';
 
 function App() {
   const [user, setUser] = useState(getUser());
@@ -44,6 +45,8 @@ function App() {
             <Route path="/dashboard/offers" element={<OffersPageDashboard user={user}/>} />
             <Route path="/products" element={<Products />} />
             {/* <Route path='/products' element={<Products user={user} />} /> */}
+            {/* Catch-all route for 404 */}
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </>
         :
