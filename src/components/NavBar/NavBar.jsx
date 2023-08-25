@@ -158,9 +158,7 @@ export default function NavBar({ user, setUser }) {
           </Box>
 
           <Box sx={{ flexGrow: 0, mr: 2}}>
-            <Tooltip title="Username">
             <Typography>Welcome, {`${user.firstName} ${user.lastName}`} </Typography>
-            </Tooltip>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
