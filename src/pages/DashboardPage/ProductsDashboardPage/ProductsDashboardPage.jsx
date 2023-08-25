@@ -1,5 +1,5 @@
 import DashboardPage from '../DashboardPage'
-import { Box } from '@mui/material'
+import { Box, Container } from '@mui/material'
 import AddProduct from '../../../components/AddProduct/AddProduct'
 import ProductList from '../../../components/ProductList/ProductList'
 import * as React from 'react';
@@ -21,8 +21,8 @@ export default function ProductsPageDashboard(){
     ];
   
   return (
-    <>
-      <Box sx={{ marginLeft:'150px', marginTop:'2px' }}>
+    <Container>
+      <Box>
       <DashboardPage />
       <Typography variant='h3'>Products</Typography>
       <Box sx={{ width: '100%', bgcolor: 'background.paper', }}>
@@ -33,7 +33,7 @@ export default function ProductsPageDashboard(){
       </Box>
       {tabComponents[value]}
       </Box>
-    </>
+      </Container>
   );
 }
 
