@@ -4,10 +4,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 300px;
+  height: auto;
+  padding: 2%;
   /* Adjust the height as needed */
-  box-shadow: none !important;
 }
+
 
 .abutusimgback {
   text-align: center;
@@ -474,4 +475,8 @@ body2 {
     margin: 5px;
     font-size: 1rem;
   }
+}
+
+.aboutus {
+  margin: 5%;
 }

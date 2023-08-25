@@ -6,56 +6,10 @@
 
 
 
-.left-home {
-    justify-content: flex-end !important;
-}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-.flex-row-container-home {
-    display: flex;
-    flex-wrap: wrap;
-    /* Allow cards to wrap if they exceed container width */
-    justify-content: space-between;
-    /* Distribute cards evenly across the row */
-    align-items: center;
-    /* Align items vertically in the center */
-    margin-bottom: 5%;
-}
-
-.card-with-flex-home {
-    flex: 1;
-    /* Distribute available space equally among cards */
-    width: 200px;
-    /* Adjust the width as needed (3 cards per row) */
-    padding-top: 1%;
-    padding-bottom: 1%;
-    margin: 10px;
-    /* Add some space around each card */
-    max-height: 200px;
-}
-
-.devContainer-home {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    margin: 70px;
-}
-
-@media only screen and (max-width: 820px) {
-
+@media (max-width: 820px) {
     .boxContainer-home {
         grid-template-columns: 1fr !important;
 
@@ -70,18 +24,44 @@
 
     }
 
-    .devContainer-home {
-        grid-template-columns: 1fr;
-    }
-}
-
-
-@media (max-width: 820px) {
     .video-container-home .content-wrapper-home {
         left: 50% !important;
 
     }
 
+    .row-categories {
+        flex-direction: column-reverse;
+        margin: 50%;
+
+
+    }
+
+    .image-container-categories img {
+        height: 150px;
+        width: 150px;
+    }
+
+    .full-height-element-categories {
+        height: 150px;
+        width: 150px;
+    }
+
+    .container-atl-home {
+        margin: 0;
+        font-size: 2rem !important;
+        flex-direction: column;
+
+    }
+
+    .container-pro-home {
+        margin: 0;
+        font-size: 2rem !important;
+        flex-direction: column;
+    }
+
+    .css-lvo1hb-MuiTypography-root {
+        font-size: 2rem !important;
+    }
 
 
     .typography-overlay-home {
@@ -94,60 +74,11 @@
     }
 }
 
-@media (max-width: 768px) {
 
 
 
 
 
-
-
-    .container-atl-home {
-        margin: 0;
-        font-size: 2rem !important;
-        flex-direction: column;
-
-    }
-
-    .container-pro-home {
-        margin: 0;
-        font-size: 2rem !important;
-        flex-direction: column;
-    }
-
-    .css-lvo1hb-MuiTypography-root {
-        font-size: 2rem !important;
-    }
-}
-
-
-
-
-@media (max-width: 820px) {
-
-    /* Apply responsive styles for screens smaller or equal to 768px */
-
-
-
-
-
-
-    .container-atl-home {
-        margin: 0;
-        font-size: 2rem !important;
-        flex-direction: column;
-    }
-
-    .container-pro-home {
-        margin: 0;
-        font-size: 2rem !important;
-        flex-direction: column;
-    }
-
-    .css-lvo1hb-MuiTypography-root {
-        font-size: 2rem !important;
-    }
-}
 
 .video-container-home {
     position: relative;
@@ -465,24 +396,7 @@
 }
 
 
-@media (max-width: 820px) {
-    .row-categories {
-        flex-direction: column-reverse;
-        margin: 50%;
 
-
-    }
-
-    .image-container-categories img {
-        height: 150px;
-        width: 150px;
-    }
-
-    .full-height-element-categories {
-        height: 150px;
-        width: 150px;
-    }
-}
 
 
 
