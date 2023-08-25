@@ -45,6 +45,7 @@ export default function DashboardPage({ user, setUser }) {
   return (
     <div>
      <Button onClick={toggleDrawer('left', true)} sx={{ display:'flex', justify: 'start' }}>
+      Show SideBar
         <ForwardTwoToneIcon /> {/* Use the ArrowBackIcon */}
       </Button>
       <SwipeableDrawer

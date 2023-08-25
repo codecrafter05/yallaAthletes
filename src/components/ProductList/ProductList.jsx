@@ -21,7 +21,7 @@ import { getProduct, deleteProduct } from "../../utilities/products-services";
 export default function ProductList() {
   const [products, setProducts] = useState([]);
   const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [rowsPerPage, setRowsPerPage] = useState(4);
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
@@ -126,7 +126,7 @@ export default function ProductList() {
         </TableContainer>
 
         <TablePagination
-          rowsPerPageOptions={[5, 10, 25]}
+          rowsPerPageOptions={[4, 10, 25]}
           component="div"
           count={products.length}
           rowsPerPage={rowsPerPage}

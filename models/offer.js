@@ -5,7 +5,7 @@ const offerSchema = new Schema({
 
   user:{
     type: Schema.Types.ObjectId,
-    ref: 'Athlete'
+    ref: 'User'
   },
 
   athlete:{
@@ -13,8 +13,28 @@ const offerSchema = new Schema({
     ref: 'Athlete'
   },
 
+  athleteName:{
+    type: String,
+    required: true
+  },
+
+  athleteAge:{
+    type: Number,
+    required: true
+  },
+
+  sportType:{
+    type: String,
+    required: true
+  },
+
   bid:{
     type: Number,
+    required: true
+  },
+
+  description:{
+    type: String,
     required: true
   },
 

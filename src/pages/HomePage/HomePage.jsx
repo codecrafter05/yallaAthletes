@@ -126,12 +126,15 @@ export default function HomePage() {
               </CardActionArea>
             </Card>
           </div>
-          <Typography variant="h4"><h4>Enjoy this services</h4><h6>Choose your destination to the next world</h6></Typography>
+          <Typography variant="h4" className="fontmedil"><h4>Enjoy this services</h4><h6>Choose your destination to the next world</h6></Typography>
         </div>
 
         <div className="container-atl-home">
           <div className="text-container-home">
-            <Typography sx={{ fontSize: 90 }}>Our Popular Athletes</Typography>
+          <Typography sx={{ fontSize: 90 }}>
+           Our Popular Athletes
+          </Typography>
+
           </div>
           <div className="grid-container-home">
             {products.map((product) => (
@@ -164,7 +167,7 @@ export default function HomePage() {
 
         <div className="container-pro-home">
           <div className="text-container-home">
-            <Typography sx={{ fontSize: 90 }}>Most Selling Products</Typography>
+            <Typography>Most Selling Products</Typography>
           </div>
           <div className="grid-container-home">
             {products.map((product) => (

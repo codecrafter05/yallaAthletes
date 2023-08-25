@@ -19,7 +19,7 @@ async function createOffer(req, res) {
 // Get all ofers, take status of offer from params
 async function getAllOffers(req, res) {
   try {
-    const offers = await Offer.find({ status: req.params.status }).populate('user');
+    const offers = await Offer.find({ status: req.params.status }).populate('user').populate('athlete');
     res.json(offers);
   } catch (err) {
     res.status(400).json(err);
