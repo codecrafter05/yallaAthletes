@@ -45,6 +45,7 @@
     transform: translate(-50%, -50%);
     color: white;
     z-index: 2;
+    
 }
 
 
@@ -54,16 +55,13 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(53, 52, 52, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 1;
+    font-family: 'Libre Baskerville', serif !important;
 }
-
-
-
-
 
 
 
@@ -90,6 +88,13 @@
     margin: 10px;
     /* Add some space around each card */
     max-height: 200px;
+}
+
+
+
+.fontmedil{
+
+    font-family: 'Libre Baskerville', serif !important;
 }
 
 .devContainer-home {
@@ -172,6 +177,7 @@
         margin: 0;
         font-size: 2rem !important;
         flex-direction: column;
+        
     }
 
     .container-pro-home {
@@ -254,6 +260,8 @@
     color: white !important;
     font-family: 'Roboto', serif;
     font-size: 3rem;
+    font-family: 'Libre Baskerville', serif !important;
+    /* font-family: 'Noto Sans Multani', sans-serif !important; */
 }
 
 .discover-button-home {
@@ -266,6 +274,8 @@
     padding: 10px 20px;
     border-radius: 4px;
     transition: background-color 0.3s;
+    font-family: 'Libre Baskerville', serif !important;
+
 }
 
 .discover-button-home:hover {
@@ -283,6 +293,7 @@
     background-image: url("https://mvcmagazine.com/wp-content/uploads/2020/08/COPSNEAK.png");
     background-repeat: no-repeat;
     background-size: cover;
+    
 }
 
 
@@ -296,6 +307,9 @@
     background-image: url("https://64.media.tumblr.com/c64b27792a2d346109c6bb95b2be5237/23470b3abcef12ae-37/s2048x3072/0d11c5cb225f37d64839d58ca08abb96167ccd51.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    font-family: 'Libre Baskerville', serif !important;
+
+    
 }
 
 .container-pro-home::before {
@@ -315,6 +329,9 @@
     flex: 1;
     margin: 2%;
     z-index: 1;
+    font-family: 'Libre Baskerville', serif !important;
+    
+    
 }
 
 .grid-container-home {
@@ -383,11 +400,13 @@
     /* Adjust the opacity and color as desired */
 }
 
-.text-container-home {
+/* .text-container-home {
     flex: 1;
     margin: 2%;
     z-index: 1;
-}
+    font-family: 'Libre Baskerville', serif !important;
+    font-family: 'Noto Sans Multani', sans-serif !important;
+} */
 
 .grid-container-home {
     display: grid;

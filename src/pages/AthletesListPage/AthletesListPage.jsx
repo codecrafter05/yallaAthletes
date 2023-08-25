@@ -3,6 +3,8 @@ import AthleteCard from "../../components/AthleteCard/AthleteCard";
 import { getAllAthletesFiltered } from '../../utilities/athletes-service';
 import { Button, Container, TextField } from "@mui/material";
 import Grid from "@mui/material/Grid";
+import { Typography } from '@mui/material'; // Import Typography from Material-UI
+
 
 export default function AthleteListPage() {
 
@@ -27,17 +29,20 @@ export default function AthleteListPage() {
 
   return (
     <Container>
-      <h1>Athlete List Page</h1>
+      <Typography variant="h1" sx={{ fontFamily: "'Libre Baskerville', serif" }}>
+        Athlete List Page
+      </Typography>
       <hr />
-      <Grid container spacing={2} sx={{mt:2}}>
+      <Grid container spacing={2} sx={{ mt: 2 }}>
         {athletes.map((athlete) => {
-            return (
-              <Grid key={athlete._id} item xs={12} sm={6} md={4} lg={3}>
-                <AthleteCard athlete={athlete} />
-              </Grid>
-            );
+          return (
+            <Grid key={athlete._id} item xs={12} sm={6} md={4} lg={3}>
+              <AthleteCard athlete={athlete} />
+            </Grid>
+          );
         })}
       </Grid>
     </Container>
   );
+  
 }
