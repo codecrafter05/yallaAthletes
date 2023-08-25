@@ -36,7 +36,7 @@ export default function Products() {
         <Box sx={{ flexGrow: 1, margin: "5%" }}>
           <Grid container spacing={3}>
             {products.map((product) => (
-              <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
+              <Grid item xs={12} sm={6} md={4} lg={3} key={product._id}>
                 <Card className="card-container">
                   {/* <div className="card-wrapper"> */}
                     <CardMedia

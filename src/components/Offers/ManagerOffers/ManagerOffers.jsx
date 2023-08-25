@@ -19,8 +19,6 @@ export default function ManagerOffers ({ user }) {
         setPendingOffers(pendingOffers);
         setAcceptedOffers(acceptedOffers);
         setRejectedOffers(rejectedOffers);
-
-        console.log(pendingOffers);
       } catch(err) {
         console.log(`Error displaying Offers: ${err}`);
       }
