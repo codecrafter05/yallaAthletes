@@ -4,6 +4,10 @@ export async function createImage(imageData) {
   return userImageAPI.createImage(imageData);
 }
 
+export async function getAllImages(imageData) {
+  return userImageAPI.getAllImages(imageData);
+}
+
 export async function getImageForLoggedInUser() {
   return userImageAPI.getImageForLoggedInUser();
 }
