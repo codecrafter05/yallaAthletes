@@ -212,7 +212,8 @@ export default function AboutUsPage() {
               </Card>
             </a>
           </div>
-        </div></Container>
+        </div>
+        </Container>
 
 
 
