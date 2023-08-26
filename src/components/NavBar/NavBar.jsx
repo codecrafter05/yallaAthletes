@@ -64,7 +64,6 @@ export default function NavBar({ user, setUser }) {
   const fetchUserImage = async () => {
     try {
       const response = await getImageForLoggedInUser();
-      console.log('Fetched user image data:', response);
       setUserImage(response.photo);
     } catch (error) {
       console.error("Error fetching user's image:", error);
