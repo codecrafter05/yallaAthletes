@@ -92,11 +92,11 @@ export default function HomePage() {
           </Button>
         </div>
       </div>
-      <div className="boxContainer-home">
+      <div id="di" className="boxContainer-home">
 
 
 
-        <div id="di" class="container-categories-flex">
+        <div class="container-categories-flex">
           <div class="row-categories">
             <div class="col-categories">
               <div class="image-container-categories">
