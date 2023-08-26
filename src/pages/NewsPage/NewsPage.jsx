@@ -38,8 +38,8 @@ export default function MultiActionAreaCard() {
   return (
   <>
        
-  
-    <Grid container spacing={5} sx={{ maxWidth: 1000, margin: '0 auto' }}>
+       <container spacing={5} sx={{ maxWidth: 1000, margin: '0 auto' }}> 
+        <Grid container spacing={5} sx={{ maxWidth: 1000, margin: '0 auto' }}>
       <Grid item xs={8} sm={5} md={4}>
         <Card sx={{ height: '100%' }}>
           <CardActionArea>
@@ -303,7 +303,8 @@ export default function MultiActionAreaCard() {
       </Grid>
       
     </Grid>
-    
+    </container>
+  
     <Footer
     title="Unleash Your Potential, Conquer the Field"
     description="Calls for expansion and reaching your fullest potential in the sports arena.!" />
