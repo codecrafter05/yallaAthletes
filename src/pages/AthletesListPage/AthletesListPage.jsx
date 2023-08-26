@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import AthleteCard from "../../components/AthleteCard/AthleteCard";
 import { getAllAthletesFiltered } from '../../utilities/athletes-service';
+import { getImageForUser } from '../../utilities/userImage-service';
 import { Button, Container, TextField } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import { Typography } from '@mui/material'; // Import Typography from Material-UI
@@ -10,6 +11,7 @@ export default function AthleteListPage() {
 
 
   const [athletes, setAthletes] = useState([]);
+
 
 
   useEffect(() => {
@@ -26,6 +28,7 @@ export default function AthleteListPage() {
   }, []);
   
 
+  
 
   return (
     <Container>

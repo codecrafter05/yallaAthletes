@@ -47,6 +47,8 @@ export default function Products() {
                 flexDirection: 'column',
                 justifyContent: 'space-between',
                 transition: 'transform 0.3s ease-in-out', // Add transition property
+                backgroundImage: `url(${product.photo})`, // Set the background image
+                backgroundSize: 'cover', // Adjust background size
                 '&:hover': {
                   transform: 'translateY(-5px)', // Add lift effect on hover
                 },
