@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import DashboardPage from '../DashboardPage'
 import { Box, Container } from '@mui/material'
 import AddProduct from '../../../components/AddProduct/AddProduct'
@@ -9,7 +10,8 @@ import { Typography } from '@mui/material';
 
 export default function ProductsPageDashboard({user, setUser}){
 
-    const [value, setValue] = React.useState(0);
+
+    const [value, setValue] = useState(0);
   
     const handleChange = (event, newValue) => {
       setValue(newValue);
@@ -19,16 +21,16 @@ export default function ProductsPageDashboard({user, setUser}){
       <AddProduct />,
       <ProductList /> // Replace this with your actual component for the Products List
     ];
-  
-    if (user.role !== 'Admin' && user.role !== 'Manager') {
-      return (
-        <Container>
-          <Box sx={{ marginTop: '20px', marginBottom: '20px' }}>
-            <h1>You are not authorized to view this page.</h1>
-          </Box>
-        </Container>
-      );
-    }
+
+  if (user.role !== 'Admin' && user.role !== 'Manager') {
+    return (
+      <Container>
+        <Box sx={{ marginTop: '20px', marginBottom: '20px' }}>
+          <h1>You are not authorized to view this page.</h1>
+        </Box>
+      </Container>
+    );
+  }
   
   return (
     <Container>

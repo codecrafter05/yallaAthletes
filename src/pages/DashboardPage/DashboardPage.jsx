@@ -60,7 +60,7 @@ export default function DashboardPage({ user, setUser }) {
     // Get the user's role
     const userRole = user ? user.role : '';
 
-  if (user.role !== 'Admin' && user.role !== 'Manager' && user.role !== 'Athlete') {
+  if (user.role !== 'Admin' && user.role !== 'Manager') {
     return (
       <Container>
         <Box sx={{ marginTop: '20px', marginBottom: '20px' }}>
@@ -77,7 +77,7 @@ export default function DashboardPage({ user, setUser }) {
           Show SideBar
           <ForwardTwoToneIcon />
         </Button>
-      ) : null}
+      ) : null }
       <SwipeableDrawer
         anchor="left"
         open={state.left}
