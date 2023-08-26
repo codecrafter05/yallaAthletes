@@ -7,4 +7,6 @@ router.post('/', ensureLoggedIn, userImageCtrl.createImage);
 
 router.get('/', ensureLoggedIn, userImageCtrl.getImageForLoggedInUser);
 
+router.get('/:id', ensureLoggedIn, userImageCtrl.getImageForUser);
+
 module.exports = router;

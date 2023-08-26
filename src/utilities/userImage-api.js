@@ -9,3 +9,7 @@ export async function createImage(imageData) {
 export async function getImageForLoggedInUser() {
   return sendRequest(BASE_URL);
 }
+
+export async function getImageForUser(id) {
+  return sendRequest(`${BASE_URL}/${id}`);
+}
