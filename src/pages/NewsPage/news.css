@@ -1,0 +1,35 @@
+.image-container2 {
+    position: relative;
+    margin-bottom: 5%;
+}
+
+.background-image2 {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.overlay2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Adjust the color and opacity as needed */
+}
+
+.text-container2 {
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    /* text-align: center; */
+    z-index: 1;
+    width: 100%;
+}
+
+.text2 {
+    color: white;
+}
+
