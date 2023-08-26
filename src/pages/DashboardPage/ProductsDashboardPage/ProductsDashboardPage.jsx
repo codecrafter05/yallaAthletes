@@ -35,8 +35,10 @@ export default function ProductsPageDashboard({user, setUser}){
   return (
     <Container>
       <Box>
-      <DashboardPage user={user}/>
-      <Typography variant='h3'>Products</Typography>
+      <h1>Products Dashboard Page</h1>
+      <hr />
+      <DashboardPage user={user} setUser={setUser} />
+
       <Box sx={{ width: '100%', bgcolor: 'background.paper', }}>
         <Tabs value={value} onChange={handleChange} centered>
           <Tab label="Add Products" />

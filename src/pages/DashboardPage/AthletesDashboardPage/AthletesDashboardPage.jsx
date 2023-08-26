@@ -207,10 +207,9 @@ export default function AthletesPageDashboard({user, setUser}) {
   return (
     <Container>
       <Box sx={{ marginTop: '20px', marginBottom: '20px' }}>
-        <DashboardPage user={user} setUser={setUser} />
         <h1>Athletes</h1>
         <hr />
-
+        <DashboardPage user={user} setUser={setUser} />
         {/* DataGrid */}
         <h2>Pending athletes</h2>
         
