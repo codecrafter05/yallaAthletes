@@ -95,7 +95,7 @@ export default function HomePage() {
       <div id="di" className="boxContainer-home">
 
 
-
+      
         <div class="container-categories-flex">
           <div class="row-categories">
             <div class="col-categories">

@@ -5,7 +5,12 @@
 }
 
 
-
+.background-image-container {
+    background-image: url('../../assets/swm.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
 
 
 
@@ -350,7 +355,6 @@
     transition: transform 0.1s ease;
 
 }
-
 .text-container-categories {
     display: flex;
     flex-direction: column;
