@@ -24,14 +24,12 @@ export default function AboutUsPage() {
 
   return (
     <>
-      <div className="aboutus">
 
-        <Typography variant="h2" className='a' >
-          Our Story
 
-        </Typography>
+      <Typography variant="h2" sx={{ mt: 4, mb: 5 }}>
+        Our Story
+      </Typography>
 
-      </div>
 
 
 
@@ -103,7 +101,7 @@ export default function AboutUsPage() {
         <div className="pageus">
 
 
-          <Card className="card-with-flex nightmode-hover">  <a href="https://www.linkedin.com/in/halhibshi/" target="_blank" rel="noopener noreferrer" className="card-link">
+          <Card className="card-with-flex nightmode-hover">  <a href="https://www.linkedin.com/in/halhibshi/" style={{ textDecoration: 'none', color: 'black' }} target="_blank" rel="noopener noreferrer" className="card-link">
             <CardMedia
               component="img"
               image={hamadImage}
@@ -127,7 +125,7 @@ export default function AboutUsPage() {
 
 
           <Card className="card-with-flex nightmode-hover">
-            <a href="https://www.linkedin.com/in/abbas9naser/" target="_blank" rel="noopener noreferrer" className="card-link">
+            <a href="https://www.linkedin.com/in/abbas9naser/" style={{ textDecoration: 'none', color: 'black' }} target="_blank" rel="noopener noreferrer" className="card-link">
               <CardMedia
                 component="img"
                 image={abbasImage}
@@ -151,7 +149,7 @@ export default function AboutUsPage() {
 
 
 
-          <Card className="card-with-flex nightmode-hover" > <a href="https://www.linkedin.com/in/sayed-mustafa-qarooni-64161a161/" target="_blank" rel="noopener noreferrer" className="card-link">
+          <Card className="card-with-flex nightmode-hover" > <a href="https://www.linkedin.com/in/sayed-mustafa-qarooni-64161a161/" style={{ textDecoration: 'none', color: 'black' }} target="_blank" rel="noopener noreferrer" className="card-link">
 
             <CardMedia
               component="img"
@@ -177,7 +175,7 @@ export default function AboutUsPage() {
 
 
 
-          <Card className="card-with-flex nightmode-hover">  <a href="https://www.linkedin.com/in/sayed-mustafa-qarooni-64161a161/" target="_blank" rel="noopener noreferrer" className="card-link">
+          <Card className="card-with-flex nightmode-hover">  <a href="https://www.linkedin.com/in/sayed-mustafa-qarooni-64161a161/" style={{ textDecoration: 'none', color: 'black' }} target="_blank" rel="noopener noreferrer" className="card-link">
             <CardMedia
               component="img"
               image={azizImage}

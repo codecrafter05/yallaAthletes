@@ -4,7 +4,7 @@ import { getImageForUser } from '../../utilities/userImage-service';
 import { Button, Container, TextField } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import { Typography, Card, CardActionArea, CardMedia, CardContent } from '@mui/material'; // Import Typography from Material-UI
-
+import { Link } from "react-router-dom";
 
 export default function AthleteListPage() {
 
@@ -31,9 +31,9 @@ export default function AthleteListPage() {
 
   return (
     <Container>
-      <h1>
-        Athlete List Page
-      </h1>
+      <Typography variant="h2" sx={{ mt: 4, mb: 5 }}>
+        Athletes Page
+      </Typography>
 
 
 
@@ -47,27 +47,27 @@ export default function AthleteListPage() {
                 transform: 'scale(1.05)'
               }
             }}>
-              <a href={`/athletes/${athlete._id}`} style={{ textDecoration: "none", color: 'black' }}>
-                <CardActionArea>
-                  <CardMedia
-                    component="img"
-                    height="200"
-                    image={athlete.photo}
-                    alt="green iguana"
 
-                  />
+              <CardActionArea> <Link to={`/athletes/${athlete._id}`} style={{ textDecoration: "none", color: 'black' }}>
+                <CardMedia
+                  component="img"
+                  height="200"
+                  image={athlete.photo}
+                  alt="green iguana"
 
-                  <CardContent>
-                    <Typography gutterBottom variant="h6" component="div">
-                      Name: {athlete.user.firstName}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      Nationality: {athlete.user.nationality}
-                    </Typography>
+                />
 
-                  </CardContent>
-                </CardActionArea>
-              </a>
+                <CardContent>
+                  <Typography gutterBottom variant="h6" component="div">
+                    Name: {athlete.user.firstName}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    Nationality: {athlete.user.nationality}
+                  </Typography>
+
+                </CardContent>        </Link>
+              </CardActionArea>
+
             </Card>
           </Grid>
         ))}
