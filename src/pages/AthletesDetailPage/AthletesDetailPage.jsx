@@ -5,16 +5,10 @@ import Box from '@mui/material/Box';
 import { showAthleteDetails } from '../../utilities/athletes-service';
 import { createOffer } from "../../utilities/offers-service";
 import './AthletesDetailPage.css';
-import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
-import CssBaseline from '@mui/material/CssBaseline';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
+
 import Grid from '@mui/material/Grid';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+
 
 export default function AthletesDetailsPage({ user }) {
   const { athleteId } = useParams();
