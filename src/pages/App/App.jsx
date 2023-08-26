@@ -9,6 +9,7 @@ import ProfilePage from '../ProfilePage/ProfilePage';
 import NewsPage from '../NewsPage/NewsPage';
 import AboutUsPage from '../AboutUs/AboutUs';
 import DashboardPage from '../DashboardPage/DashboardPage'
+import SupportPage from '../SupportPage/SupportPage'
 import Cart from '../Cart/Cart';
 import AthletesDashboardPage from '../DashboardPage/AthletesDashboardPage/AthletesDashboardPage'
 import ProductsPageDashboard from '../DashboardPage/ProductsDashboardPage/ProductsDashboardPage'
@@ -37,6 +38,7 @@ function App() {
             <Route path="/profile" element={<ProfilePage user={user} />} />
             <Route path="/dashboard" element={<DashboardPage user={user} />} />
             <Route path="/rights" element={<RightsPage user={user} />} />
+            <Route path="/support" element={<SupportPage user={user} />} />
             <Route path="/cart" element={<Cart user={user} />} />
             <Route path="/dashboard/athletes" element={<AthletesDashboardPage user={user} />} />
             <Route path="/dashboard/products" element={<ProductsPageDashboard user={user} />} />

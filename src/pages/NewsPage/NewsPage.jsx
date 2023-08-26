@@ -25,7 +25,9 @@ import {
 export default function MultiActionAreaCard() {
   return (
   <>
-       
+       <Typography variant="h2" sx={{ mt: 4, mb: 5 }}>
+        News Page
+      </Typography>
        <container spacing={5} sx={{ maxWidth: 1000, margin: '0 auto' }}> 
         <Grid container spacing={5} sx={{ maxWidth: 1000, margin: '0 auto' }}>
       <Grid item xs={8} sm={5} md={4}>
@@ -299,12 +301,5 @@ export default function MultiActionAreaCard() {
     </>
   )
   
-  
- 
+
 }
-
-
-
-
-
-

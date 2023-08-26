@@ -8,18 +8,19 @@ import vi1mp4 from '../../assets/vi1.mp4';
 import { useEffect, useState } from 'react';
 import Button from '@mui/material/Button';
 import { getProduct } from '../../utilities/products-api';
-
 import './HomePage.css'
 import categories1 from "./../../assets/categories1.jpg"
 import categories2 from "./../../assets/categories2.jpg"
 import newspaper from "./../../assets/newspaper1.jpg"
 import { getAllAthletesFiltered } from '../../utilities/athletes-service';
-import { getImageForUser } from '../../utilities/userImage-service';
+import { getAllImages } from '../../utilities/userImage-service';
+import { Link } from 'react-router-dom'
 
 
 export default function HomePage() {
   const [products, setProducts] = useState([]);
   const [athletes, setAthletes] = useState([]);
+  const [images, setImages] = useState([]);
 
   useEffect(() => {
     fetchProducts();
@@ -90,31 +91,21 @@ export default function HomePage() {
     fetchAthletes();
   }, []);
 
-  // useEffect(() => {
-  //   async function fetchAthleteImages() {
-  //     try {
-  //       const fetchedImages = await Promise.all(
-  //         athletes.map(async (athlete) => {
-  //           const imageResponse = await getImageForUser(athlete.user._id);
-  //           return imageResponse.photo; // Assuming "photo" is the image URL field
-  //         })
-  //       );
-  //       console.log('Fetched images:', fetchedImages);
-  //       console.log('Original athletes:', athletes);
-        
-  //       const athletesWithImages = athletes.map((athlete, index) => ({
-  //         ...athlete,
-  //         image: fetchedImages[index]
-  //       }));
-        
-  //       console.log('Athletes with images:', athletesWithImages);
-  //       setAthletes(athletesWithImages);
-  //     } catch (error) {
-  //       console.error('Error fetching athlete images:', error);
-  //     }
-  //   }
-  //   fetchAthleteImages();
-  // }, [athletes]);
+  useEffect(() => {
+    console.log('useEffect triggered');
+    async function fetchAthletesImage() {
+      console.log('Before API call');
+      try {
+        const response = await getAllImages();
+        console.log('Image Reponse:', response);
+        setImages(response);
+        console.log('After setting state');
+      } catch (error) {
+        console.error('Error fetching Image:', error);
+      }
+    }
+    fetchAthletesImage();
+  }, []);
   
 
 
@@ -189,6 +180,7 @@ export default function HomePage() {
             </Typography>
 
           </div>
+          
           <div className="grid-container-home">
             {athletes.slice(0, 3).map((athlete) => (
               <div className="grid-item" key={athlete._id}>
@@ -200,13 +192,13 @@ export default function HomePage() {
                     transform: 'scale(1.05)'
                   }
                 }}>
+                  <Link to='/athletes'>
                   <CardActionArea>
                     <CardMedia
                       component="img"
                       height="220"
-                      image={athlete.image}
+                      image={images.photo}
                       alt="green iguana"
-
                     />
 
                     <CardContent>
@@ -218,6 +210,7 @@ export default function HomePage() {
                       </Typography>
                     </CardContent>
                   </CardActionArea>
+                  </Link>
                 </Card>
               </div>
             ))}
@@ -239,13 +232,13 @@ export default function HomePage() {
                     transform: 'scale(1.05)'
                   }
                 }}>
+                  <Link to='/products'>
                   <CardActionArea>
                     <CardMedia
                       component="img"
                       height="220"
                       image={product.photo}
                       alt="green iguana"
-
                     />
 
                     <CardContent>
@@ -257,6 +250,7 @@ export default function HomePage() {
                       </Typography>
                     </CardContent>
                   </CardActionArea>
+                  </Link>
                 </Card>
               </div>
             ))}
