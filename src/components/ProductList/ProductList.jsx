@@ -25,10 +25,6 @@ export default function ProductList() {
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
-  useEffect(() => {
-    fetchProducts();
-  }, []);
-
   const fetchProducts = async () => {
     try {
       const response = await getProduct();
@@ -37,6 +33,10 @@ export default function ProductList() {
       console.error("Error fetching products:", error);
     }
   };
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
