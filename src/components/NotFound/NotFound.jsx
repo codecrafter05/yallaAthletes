@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import './NotFound.css';
-import { Button, Container } from '@mui/material';
+import { Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 export default function NotFound() {

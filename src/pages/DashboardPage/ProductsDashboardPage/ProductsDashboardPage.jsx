@@ -6,7 +6,6 @@ import ProductList from '../../../components/ProductList/ProductList'
 import * as React from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import { Typography } from '@mui/material';
 
 export default function ProductsPageDashboard({user, setUser}){
 
