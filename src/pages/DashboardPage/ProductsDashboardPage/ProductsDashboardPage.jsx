@@ -20,6 +20,16 @@ export default function ProductsPageDashboard({user, setUser}){
       <ProductList /> // Replace this with your actual component for the Products List
     ];
   
+    if (user.role !== 'Admin' && user.role !== 'Manager') {
+      return (
+        <Container>
+          <Box sx={{ marginTop: '20px', marginBottom: '20px' }}>
+            <h1>You are not authorized to view this page.</h1>
+          </Box>
+        </Container>
+      );
+    }
+  
   return (
     <Container>
       <Box>

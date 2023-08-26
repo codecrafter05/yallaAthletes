@@ -209,7 +209,15 @@ export default function AthleteOffers ({ user }) {
   
 
 
-
+  if(user.role !== 'Athlete') { 
+    return (
+      <Container>
+        <Box sx={{ marginTop: '20px', marginBottom: '20px' }}>
+          <h1>You are not authorized to view this page.</h1>
+        </Box>
+      </Container>
+    );
+  }
 
   return (
     <Container>
