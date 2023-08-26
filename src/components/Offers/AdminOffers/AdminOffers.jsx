@@ -4,7 +4,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import { Box } from '@mui/material';
 import Container from '@mui/material/Container';
 
-export default function AdminOffers () {
+export default function AdminOffers ({ user }) {
   const [pendingOffers, setPendingOffers] = useState([]);
   const [acceptedOffers, setAcceptedOffers] = useState([]);
   const [rejectedOffers, setRejectedOffers] = useState([]);
@@ -125,6 +125,16 @@ export default function AdminOffers () {
     status: offer.status,
   }));
 
+  if(user.role !== 'Admin') { 
+    return (
+      <Container>
+        <Box sx={{ marginTop: '20px', marginBottom: '20px' }}>
+          <h1>You are not authorized to view this page.</h1>
+        </Box>
+      </Container>
+    );
+  } 
+  
   return (
     <Container>
       <Box sx={{ marginTop: '20px', marginBottom: '20px' }}>

@@ -12,6 +12,7 @@ import ListItemText from '@mui/material/ListItemText';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import './Dashboard.css';
+import Container from '@mui/material/Container';
 import ForwardTwoToneIcon from '@mui/icons-material/ForwardTwoTone';
 import SportsGymnasticsIcon from '@mui/icons-material/SportsGymnastics';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
@@ -59,6 +60,16 @@ export default function DashboardPage({ user, setUser }) {
     // Get the user's role
     const userRole = user ? user.role : '';
 
+  if (user.role !== 'Admin' && user.role !== 'Manager') {
+    return (
+      <Container>
+        <Box sx={{ marginTop: '20px', marginBottom: '20px' }}>
+          <h1>You are not authorized to view this page.</h1>
+        </Box>
+      </Container>
+    );
+  }
+
   return (
     <div>
       {user.role === 'Admin' || user.role === 'Manager' ? (
@@ -66,7 +77,7 @@ export default function DashboardPage({ user, setUser }) {
           Show SideBar
           <ForwardTwoToneIcon />
         </Button>
-      ) : null}
+      ) : null }
       <SwipeableDrawer
         anchor="left"
         open={state.left}
