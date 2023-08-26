@@ -15,6 +15,7 @@ import ProductsPageDashboard from '../DashboardPage/ProductsDashboardPage/Produc
 import OffersPageDashboard from '../DashboardPage/OffersDashboardPage/OffersDashboardPage'
 import Products from '../Products/Products';
 import AthletesDetailsPage from '../AthletesDetailPage/AthletesDetailPage';
+import RightsPage from '../RightsPage/RightsPage';
 import NotFound from '../../components/NotFound/NotFound';
 import './App.css';
 
@@ -35,11 +36,13 @@ function App() {
             <Route path="/aboutus" element={<AboutUsPage />} />
             <Route path="/profile" element={<ProfilePage user={user} />} />
             <Route path="/dashboard" element={<DashboardPage user={user} />} />
+            <Route path="/rights" element={<RightsPage user={user} />} />
             <Route path="/cart" element={<Cart user={user} />} />
             <Route path="/dashboard/athletes" element={<AthletesDashboardPage user={user} />} />
             <Route path="/dashboard/products" element={<ProductsPageDashboard user={user} />} />
             <Route path="/dashboard/offers" element={<OffersPageDashboard user={user}/>} />
             <Route path="/products" element={<Products />} />
+
             {/* <Route path='/products' element={<Products user={user} />} /> */}
             {/* Catch-all route for 404 */}
             <Route path="*" element={<NotFound />} />

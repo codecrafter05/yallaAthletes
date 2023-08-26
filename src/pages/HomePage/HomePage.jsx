@@ -8,6 +8,7 @@ import vi1mp4 from '../../assets/vi1.mp4';
 import { useEffect, useState } from 'react';
 import Button from '@mui/material/Button';
 import { getProduct } from '../../utilities/products-api';
+
 import './HomePage.css'
 import categories1 from "./../../assets/categories1.jpg"
 import categories2 from "./../../assets/categories2.jpg"
@@ -89,35 +90,31 @@ export default function HomePage() {
     fetchAthletes();
   }, []);
 
-  
-  useEffect(() => {
-    async function fetchAthleteImages() {
-      try {
-        const fetchedImages = await Promise.all(
-          athletes.map(async (athlete) => {
-            const imageResponse = await getImageForUser(athlete.user._id);
-            return imageResponse.photo;
-          })
-        );
-        console.log(`fetchedImages ==> ${fetchedImages}`)
-        return fetchedImages;
-      } catch (error) {
-        console.error('Error fetching athlete images:', error);
-        return [];
-      }
-    }
-  
-    async function updateAthleteImages() {
-      const fetchedImages = await fetchAthleteImages();
-      const athletesWithImages = athletes.map((athlete, index) => ({
-        ...athlete,
-        image: fetchedImages[index]
-      }));
-      setAthletes(athletesWithImages);
-    }
-  
-    updateAthleteImages();
-  }, []); // This should run only once on component mount
+  // useEffect(() => {
+  //   async function fetchAthleteImages() {
+  //     try {
+  //       const fetchedImages = await Promise.all(
+  //         athletes.map(async (athlete) => {
+  //           const imageResponse = await getImageForUser(athlete.user._id);
+  //           return imageResponse.photo; // Assuming "photo" is the image URL field
+  //         })
+  //       );
+  //       console.log('Fetched images:', fetchedImages);
+  //       console.log('Original athletes:', athletes);
+        
+  //       const athletesWithImages = athletes.map((athlete, index) => ({
+  //         ...athlete,
+  //         image: fetchedImages[index]
+  //       }));
+        
+  //       console.log('Athletes with images:', athletesWithImages);
+  //       setAthletes(athletesWithImages);
+  //     } catch (error) {
+  //       console.error('Error fetching athlete images:', error);
+  //     }
+  //   }
+  //   fetchAthleteImages();
+  // }, [athletes]);
   
 
 
