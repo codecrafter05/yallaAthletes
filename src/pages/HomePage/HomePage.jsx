@@ -14,8 +14,12 @@ import './HomePage.css'
 import categories1 from "./../../assets/categories1.jpg"
 import categories2 from "./../../assets/categories2.jpg"
 import newspaper from "./../../assets/newspaper1.jpg"
+import { getAllAthletesFiltered } from '../../utilities/athletes-service';
+
+
 export default function HomePage() {
   const [products, setProducts] = useState([]);
+  const [athletes, setAthletes] = useState([]);
 
   useEffect(() => {
     fetchProducts();
@@ -72,6 +76,20 @@ export default function HomePage() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  useEffect(() => {
+    async function fetchAthletes() {
+      try {
+        const response = await getAllAthletesFiltered('Approved'); // Fetch pending athletes
+        console.log('Fetched athletes:', response);
+        setAthletes(response); // Update the state with pending athletes' data
+      } catch (error) {
+        console.error('Error fetching athletes:', error);
+      }
+    }
+    fetchAthletes();
+  }, []);
+
 
   return (
     <>
@@ -145,24 +163,31 @@ export default function HomePage() {
 
           </div>
           <div className="grid-container-home">
-            {products.slice(0, 3).map((product) => (
-              <div className="grid-item" key={product}>
-                <Card sx={{ maxWidth: 345, height: '100%' }}>
+            {athletes.slice(0, 3).map((athlete) => (
+              <div className="grid-item" key={athlete._id}>
+                <Card sx={{
+                  maxWidth: 230, height: 310,
+                  borderRadius: 2,
+                  transition: 'transform 0.2s ease',
+                  '&:hover': {
+                    transform: 'scale(1.05)'
+                  }
+                }}>
                   <CardActionArea>
                     <CardMedia
                       component="img"
-                      height="80%"
-                      image={product.photo}
+                      height="220"
+                      image={athlete.photo}
                       alt="green iguana"
 
                     />
 
                     <CardContent>
-                      <Typography gutterBottom variant="h5" component="div">
-                        {product.name}
+                      <Typography gutterBottom variant="h6" component="div">
+                        {athlete.user.firstName}
                       </Typography>
                       <Typography variant="body2" color="text.secondary">
-                        {product.price}
+                        Nationality: {athlete.user.nationality}
                       </Typography>
                     </CardContent>
                   </CardActionArea>
@@ -179,22 +204,29 @@ export default function HomePage() {
           <div className="grid-container-home">
             {products.slice(0, 3).map((product) => (
               <div className="grid-item-home" key={product}>
-                <Card sx={{ maxWidth: 345, height: '100%' }}>
+                <Card sx={{
+                  maxWidth: 230, height: 310,
+                  transition: 'transform 0.2s ease',
+                  borderRadius: 2,
+                  '&:hover': {
+                    transform: 'scale(1.05)'
+                  }
+                }}>
                   <CardActionArea>
                     <CardMedia
                       component="img"
-                      height="80%"
+                      height="220"
                       image={product.photo}
                       alt="green iguana"
 
                     />
 
                     <CardContent>
-                      <Typography gutterBottom variant="h5" component="div">
+                      <Typography gutterBottom variant="h6" component="div">
                         {product.name}
                       </Typography>
                       <Typography variant="body2" color="text.secondary">
-                        {product.price}
+                        Price: {product.price} BD
                       </Typography>
                     </CardContent>
                   </CardActionArea>

@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-
 import { getAllAthletesFiltered } from '../../utilities/athletes-service';
 import { getImageForUser } from '../../utilities/userImage-service';
 import { Button, Container, TextField } from "@mui/material";
@@ -59,10 +58,10 @@ export default function AthleteListPage() {
 
                 <CardContent>
                   <Typography gutterBottom variant="h6" component="div">
-                    {athlete.name}
+                    Name: {athlete.user.firstName}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    Nationality: {athlete.nationality}
+                    Nationality: {athlete.user.nationality}
                   </Typography>
                 </CardContent>
               </CardActionArea>
