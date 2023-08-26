@@ -5,4 +5,6 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
 router.post('/', ensureLoggedIn, userImageCtrl.createImage);
 
+router.get('/', ensureLoggedIn, userImageCtrl.getImageForLoggedInUser);
+
 module.exports = router;
