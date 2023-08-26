@@ -21,14 +21,14 @@ import { useMediaQuery } from '@mui/material';
 
 
 export default function NavBar({ user, setUser }) {
-  const pages = ['Products', 'Athletes', 'News', 'AboutUs'];
+  const pages = ['Products', 'Athletes', 'News', 'AboutUs', 'Rights'];
   let settings = [];
   if (user.role === 'Admin' || user.role === 'Manager') {
     settings = ['Profile', 'Dashboard', 'Logout'];
   } else if (user.role === 'Athlete') {
     settings = ['Profile', 'Offers', 'Logout'];
   } else {
-    settings = ['Profile', 'Logout'];
+    settings = ['Profile', 'Logout', 'Rights'];
   }
 
   function handleLogOut() {
