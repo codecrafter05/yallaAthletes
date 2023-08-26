@@ -4,10 +4,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 300px;
+  height: auto;
+  padding: 2%;
   /* Adjust the height as needed */
-  box-shadow: none !important;
 }
+
 
 .abutusimgback {
   text-align: center;
@@ -141,25 +142,7 @@
   display: grid;
 }
 
-.video-container {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 10px 8px #ccc;
 
-}
-
-.video {
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  height: 100%;
-  object-fit: cover;
-}
 
 .typography-overlay {
   position: absolute;
@@ -214,7 +197,6 @@
 }
 
 .card-with-flex {
-  display: flex;
   flex-direction: column;
   background-color: white;
   border-radius: 10px;
@@ -326,6 +308,7 @@
 }
 
 /* 
+
 .sps {
   width: 100%;
 } */
@@ -447,6 +430,15 @@ body2 {
   .uper {
     width: 100%;
     margin-bottom: 20px;
+    padding: 0px;
+    width: 100%;
+    text-align: center;
+    border-radius: 30px !important;
+  }
+
+  .sps {
+    padding-left: 0px;
+    text-align: center;
   }
 
   .card-with-flex {
@@ -460,4 +452,31 @@ body2 {
     width: 80px;
     border-radius: 50%;
   }
+}
+
+
+
+
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+  }
+
+  .css-o2w69a-MuiTypography-root {
+    font-size: 2rem !important;
+    margin-top: 10px !important;
+  }
+
+  .aboutusimg-container {
+    height: auto;
+  }
+
+  h5 {
+    margin: 5px;
+    font-size: 1rem;
+  }
+}
+
+.aboutus {
+  margin: 5%;
 }

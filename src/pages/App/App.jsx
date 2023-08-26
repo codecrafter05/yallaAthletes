@@ -11,15 +11,13 @@ import NewsPage from '../NewsPage/NewsPage';
 import AboutUsPage from '../AboutUs/AboutUs';
 import DashboardPage from '../DashboardPage/DashboardPage'
 import Cart from '../Cart/Cart';
-import ProfileDashboardPage from '../DashboardPage/ProfileDashboardPage/ProfileDashboardPage'
-import UsersDashboardPage from '../DashboardPage/UsersDashboardPage/UsersDashboardPage'
 import AthletesDashboardPage from '../DashboardPage/AthletesDashboardPage/AthletesDashboardPage'
-import ManagerPageDashboard from '../DashboardPage/ManagerDashboardPage/ManagerDashboardPage'
 import ProductsPageDashboard from '../DashboardPage/ProductsDashboardPage/ProductsDashboardPage'
-import NewsPageDashboard from '../DashboardPage/NewsDashboardPage/NewsDashboardPage'
+import OffersPageDashboard from '../DashboardPage/OffersDashboardPage/OffersDashboardPage'
 import './App.css';
 import Products from '../Products/Products';
 import AthletesDetailsPage from '../AthletesDetailPage/AthletesDetailPage';
+import NotFound from '../../components/NotFound/NotFound';
 
 function App() {
   const [user, setUser] = useState(getUser());
@@ -34,20 +32,19 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/api/products" element={<NewOrderPage />} />
             <Route path="/athletes" element={<AthletesListPage />} />
-            <Route path="/athletes/:athleteId" element={<AthletesDetailsPage />} />
+            <Route path="/athletes/:athleteId" element={<AthletesDetailsPage user={user} />} />
             <Route path="/news" element={<NewsPage />} />
             <Route path="/aboutus" element={<AboutUsPage />} />
             <Route path="/profile" element={<ProfilePage user={user} />} />
             <Route path="/dashboard" element={<DashboardPage user={user} />} />
             <Route path="/cart" element={<Cart user={user} />} />
-            <Route path="/dashboard/profile" element={<ProfileDashboardPage />} />
-            <Route path="/dashboard/users" element={<UsersDashboardPage />} />
-            <Route path="/dashboard/athletes" element={<AthletesDashboardPage />} />
-            <Route path="/dashboard/manager" element={<ManagerPageDashboard />} />
-            <Route path="/dashboard/products" element={<ProductsPageDashboard />} />
-            <Route path="/dashboard/news" element={<NewsPageDashboard />} />
+            <Route path="/dashboard/athletes" element={<AthletesDashboardPage user={user} />} />
+            <Route path="/dashboard/products" element={<ProductsPageDashboard user={user} />} />
+            <Route path="/dashboard/offers" element={<OffersPageDashboard user={user}/>} />
             <Route path="/products" element={<Products />} />
             {/* <Route path='/products' element={<Products user={user} />} /> */}
+            {/* Catch-all route for 404 */}
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </>
         :

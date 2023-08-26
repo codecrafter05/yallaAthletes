@@ -16,15 +16,23 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
-const pages = ['Products', 'Athletes', 'News', 'AboutUs'];
-const settings = ['Profile', 'Dashboard', 'Logout'];
-
 export default function NavBar({ user, setUser }) {
+  const pages = ['Products', 'Athletes', 'News', 'AboutUs'];
+  let settings = [];
+  if(user.role === 'Admin' || user.role === 'Manager') {
+    settings = ['Profile', 'Dashboard', 'Logout'];
+  } else if(user.role === 'Athlete') {
+    settings = ['Profile', 'Offers', 'Logout'];
+  } else {
+    settings = ['Profile', 'Logout'];
+  }
+
   function handleLogOut() {
     // Remove token using the user service
     userService.logOut();
     // Update user state in App
     setUser(null);
+    window.location.href = '/'; // Change the URL as needed
   }
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -51,7 +59,7 @@ export default function NavBar({ user, setUser }) {
   };
 
   return (
-    <AppBar position="stick" style={{ backgroundColor: '#333333' }}>
+    <AppBar position="sticky" style={{ backgroundColor: '#333333' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -150,9 +158,7 @@ export default function NavBar({ user, setUser }) {
           </Box>
 
           <Box sx={{ flexGrow: 0, mr: 2}}>
-            <Tooltip title="Username">
             <Typography>Welcome, {`${user.firstName} ${user.lastName}`} </Typography>
-            </Tooltip>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
@@ -181,11 +187,13 @@ export default function NavBar({ user, setUser }) {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={setting === 'Logout' ? handleLogOut : handleCloseUserMenu} component={Link} to={`/${setting}`}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
+
+            {settings.map((setting) => (
+              <MenuItem key={setting} onClick={setting === 'Logout' ? handleLogOut : handleCloseUserMenu} component={Link} to={setting === 'Offers' ? '/Dashboard/Offers' : `/${setting}`}>
+                <Typography textAlign="center">{setting}</Typography>
+              </MenuItem>
+            ))}
+
             </Menu>
           </Box>
         </Toolbar>
