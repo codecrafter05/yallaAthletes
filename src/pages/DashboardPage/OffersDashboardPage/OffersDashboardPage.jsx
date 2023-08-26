@@ -18,19 +18,30 @@ export default function OffersPageDashboard({ user }){
     
   return (
     <Container>
-      <DashboardPage user={user} />
-      <h1>Offers</h1>
-      <hr />
       { user.role === 'Admin' && (
-        <AdminOffers user={user} />
+        <>
+          <h1>Admin Offers Page</h1>
+          <hr />
+          <DashboardPage user={user} />
+          <AdminOffers user={user} />
+        </>
       )}
 
       { user.role === 'Manager' && (
-        <ManagerOffers user={user} />
+        <>
+          <h1>Manager Offers Page</h1>
+          <hr />
+          <DashboardPage user={user} />
+          <ManagerOffers user={user} />
+        </>
       )}
 
       { user.role === 'Athlete' && (
+      <>
+        <h1>Athlete Offers Page</h1>
+        <hr />
         <AthleteOffers user={user} />
+      </>
       )}
     </Container>
   )
