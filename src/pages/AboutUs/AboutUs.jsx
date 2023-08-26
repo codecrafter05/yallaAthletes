@@ -10,12 +10,8 @@ import meImage from '../../assets/me.jpg';
 import hamadImage from '../../assets/hamad.jpg';
 import azizImage from '../../assets/aziz.jpg';
 import abbasImage from '../../assets/abbas.jpg';
-<<<<<<< HEAD
-import './AboutUs.css'
-=======
 import '../AboutUs/AboutUs.css';
 import { Container, Divider } from '@mui/material';
->>>>>>> 9207a36611b3932236d16c1ebb741efdc856aa70
 
 export default function AboutUsPage() {
   // const cardStyles = {
