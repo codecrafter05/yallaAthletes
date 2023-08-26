@@ -102,32 +102,32 @@ export default function AboutUsPage() {
 
         <div className="pageus">
 
-        <a href="https://www.linkedin.com/in/halhibshi/" target="_blank" rel="noopener noreferrer" className="card-link">
-            <Card className="card-with-flex nightmode-hover">
-              <CardMedia
-                component="img"
-                image={hamadImage}
-                alt="green iguana"
-                className="ms-image"
-                style={{
-                  height: '100px',
-                  width: '100px',
-                  borderRadius: '50%',
-                }}
-              />
-              <CardContent className="us">
-                <Typography gutterBottom variant="h5" component="div">
-                  Hamad Alhibshi
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Lizards are a widespread group of squamate reptiles, with over 6,000
-                </Typography>
-              </CardContent>
-            </Card>
-          </a>
 
-          <a href="https://www.linkedin.com/in/abbas9naser/" target="_blank" rel="noopener noreferrer" className="card-link">
-            <Card className="card-with-flex nightmode-hover">
+          <Card className="card-with-flex nightmode-hover">  <a href="https://www.linkedin.com/in/halhibshi/" target="_blank" rel="noopener noreferrer" className="card-link">
+            <CardMedia
+              component="img"
+              image={hamadImage}
+              alt="green iguana"
+              className="ms-image"
+              style={{
+                height: '100px',
+                width: '100px',
+                borderRadius: '50%',
+              }}
+            />
+            <CardContent className="us">
+              <Typography gutterBottom variant="h5" component="div">
+                Hamad Alhibshi
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                Backend developer, manages server-side development for yallaAthletes.
+              </Typography>
+            </CardContent> </a>
+          </Card>
+
+
+          <Card className="card-with-flex nightmode-hover">
+            <a href="https://www.linkedin.com/in/abbas9naser/" target="_blank" rel="noopener noreferrer" className="card-link">
               <CardMedia
                 component="img"
                 image={abbasImage}
@@ -146,62 +146,64 @@ export default function AboutUsPage() {
                 <Typography variant="body2" color="text.secondary">
                   Lizards are a widespread group of squamate reptiles, with over 6,000
                 </Typography>
-              </CardContent>
-            </Card>
-          </a>
-
-          <a href="https://www.linkedin.com/in/sayed-mustafa-qarooni-64161a161/" target="_blank" rel="noopener noreferrer" className="card-link">
-
-            <Card className="card-with-flex nightmode-hover" >
-              <CardMedia
-                component="img"
-                image={meImage}
-                alt="green iguana"
-                className="ms-image"
-                style={{
-                  height: '100px',
-                  width: '100px',
-                  borderRadius: '50%',
-                }}
-              />
-              <CardContent className="us">
-                <Typography gutterBottom variant="h5" component="div">
-                  Sayed Mustafa
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Lizards are a widespread group of squamate reptiles, with over 6,000
-                </Typography>
-              </CardContent>
-            </Card>
-          </a>
+              </CardContent></a>
+          </Card>
 
 
-          <a href="https://www.linkedin.com/in/sayed-mustafa-qarooni-64161a161/" target="_blank" rel="noopener noreferrer" className="card-link">
-            <Card className="card-with-flex nightmode-hover">
-              <CardMedia
-                component="img"
-                image={azizImage}
-                alt="green iguana"
-                className="ms-image"
-                style={{
-                  height: '100px',
-                  width: '100px',
-                  borderRadius: '50%',
-                }}
-              />
-              <CardContent className="us">
-                <Typography gutterBottom variant="h5" component="div">
-                  Abdulaziz Hijris
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Lizards are a widespread group of squamate reptiles, with over 6,000
-                </Typography>
-              </CardContent>
-            </Card>
-          </a>
+
+          <Card className="card-with-flex nightmode-hover" > <a href="https://www.linkedin.com/in/sayed-mustafa-qarooni-64161a161/" target="_blank" rel="noopener noreferrer" className="card-link">
+
+            <CardMedia
+              component="img"
+              image={meImage}
+              alt="green iguana"
+              className="ms-image"
+              style={{
+                height: '100px',
+                width: '100px',
+                borderRadius: '50%',
+              }}
+            />
+            <CardContent className="us">
+              <Typography gutterBottom variant="h5" component="div">
+                Sayed Mustafa
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                Front-end developer cooks attractive and user-friendly web interfaces.
+              </Typography>
+            </CardContent> </a>
+          </Card>
+
+
+
+
+          <Card className="card-with-flex nightmode-hover">  <a href="https://www.linkedin.com/in/sayed-mustafa-qarooni-64161a161/" target="_blank" rel="noopener noreferrer" className="card-link">
+            <CardMedia
+              component="img"
+              image={azizImage}
+              alt="green iguana"
+              className="ms-image"
+              style={{
+                height: '100px',
+                width: '100px',
+                borderRadius: '50%',
+              }}
+            />
+            <CardContent className="us">
+              <Typography gutterBottom variant="h5" component="div">
+                Abdulaziz Hijris
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                Front-end developer specialized in web interfaces using modern technologies.
+
+
+              </Typography>
+            </CardContent> </a>
+          </Card>
+
 
         </div>
-      </div>
+      </div >
 
 
 
