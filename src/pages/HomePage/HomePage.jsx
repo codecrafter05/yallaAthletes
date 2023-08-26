@@ -2,7 +2,7 @@ import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import { CardActionArea } from '@mui/material';
+import { Box, CardActionArea } from '@mui/material';
 import { Link } from 'react-router-dom';
 import Footer from '../../components/Newspagecomponents/Footer';
 import vi1mp4 from '../../assets/vi1.mp4';
@@ -147,26 +147,25 @@ export default function HomePage() {
           <div className="grid-container-home">
             {products.slice(0, 3).map((product) => (
               <div className="grid-item" key={product}>
-                <Card className="product-card-container-home">
-                  <div className="product-card-wrapper-home">
-                    <Link className="product-card-link-home" to="#">
-                      <CardMedia
-                        component="img"
-                        className="product-card-image"
-                        image={product.photo}
-                        alt={`image for ${product.name}`}
-                      />
-                      <CardContent className="product-card-content-home">
-                        <Typography variant="h6" color="black" component="p" className="product-card-name-home">
-                          {product.name}
-                        </Typography>
-                        <Typography variant="body2" color="black" component="p" className="product-card-description-home">
-                          {product.description}
-                        </Typography>
-                      </CardContent>
-                      <CardActions></CardActions>
-                    </Link>
-                  </div>
+                <Card sx={{ maxWidth: 345, height: '100%' }}>
+                  <CardActionArea>
+                    <CardMedia
+                      component="img"
+                      height="80%"
+                      image={product.photo}
+                      alt="green iguana"
+
+                    />
+
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="div">
+                        {product.name}
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        {product.price}
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
                 </Card>
               </div>
             ))}
@@ -180,26 +179,25 @@ export default function HomePage() {
           <div className="grid-container-home">
             {products.slice(0, 3).map((product) => (
               <div className="grid-item-home" key={product}>
-                <Card className="product-card-container-home">
-                  <div className="product-card-wrapper-home">
-                    <Link className="product-card-link-home" to="#">
-                      <CardMedia
-                        component="img"
-                        className="product-card-image"
-                        image={product.photo}
-                        alt={`image for ${product.name}`}
-                      />
-                      <CardContent className="product-card-content-home">
-                        <Typography variant="h6" color="black" component="p" className="product-card-name-home">
-                          {product.name}
-                        </Typography>
-                        <Typography variant="body2" color="black" component="p" className="product-card-description-home">
-                          {product.description}
-                        </Typography>
-                      </CardContent>
-                      <CardActions></CardActions>
-                    </Link>
-                  </div>
+                <Card sx={{ maxWidth: 345, height: '100%' }}>
+                  <CardActionArea>
+                    <CardMedia
+                      component="img"
+                      height="80%"
+                      image={product.photo}
+                      alt="green iguana"
+
+                    />
+
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="div">
+                        {product.name}
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        {product.price}
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
                 </Card>
               </div>
             ))}

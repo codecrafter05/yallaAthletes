@@ -5,6 +5,7 @@ import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
+import { CardActionArea, CardMedia } from "@mui/material";
 
 import "./products.css";
 
@@ -28,13 +29,13 @@ export default function Products() {
 
   return (
     <Container>
-      <Typography variant="h4" sx={{ mt: 4, mb: 2 }}>
+      <Typography variant="h2" sx={{ mt: 4, mb: 5 }}>
         Products Page
       </Typography>
-      <hr />
       <Grid container spacing={3}>
         {products.map((product) => (
           <Grid key={product._id} item xs={12} sm={6} md={4} lg={3}>
+<<<<<<< HEAD
             <Card
               className="product-card"
               sx={{
@@ -70,6 +71,33 @@ export default function Products() {
                   {product.description}
                 </Typography>
               </CardContent>
+=======
+            <Card sx={{
+              maxWidth: 230, height: 290,
+              transition: 'transform 0.2s ease',
+              '&:hover': {
+                transform: 'scale(1.05)'
+              }
+            }}>
+              <CardActionArea>
+                <CardMedia
+                  component="img"
+                  height="200"
+                  image={product.photo}
+                  alt="green iguana"
+
+                />
+
+                <CardContent>
+                  <Typography gutterBottom variant="h6" component="div">
+                    {product.name}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    Price: {product.price} BD
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+>>>>>>> b420b83ffa552167eead05793e188fd1a38629ef
             </Card>
           </Grid>
         ))}
