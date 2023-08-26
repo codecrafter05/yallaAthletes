@@ -125,6 +125,16 @@ export default function ManagerOffers ({ user }) {
     status: offer.status,
   }));
 
+  if(user.role !== 'Manager') { 
+    return (
+      <Container>
+        <Box sx={{ marginTop: '20px', marginBottom: '20px' }}>
+          <h1>You are not authorized to view this page.</h1>
+        </Box>
+      </Container>
+    );
+  }
+
   return (
     <Container>
       <Box sx={{ marginTop: '20px', marginBottom: '20px' }}>

@@ -194,6 +194,16 @@ export default function AthletesPageDashboard({user, setUser}) {
     athleteId: athlete._id,
   }));
 
+  if (user.role !== 'Admin' && user.role !== 'Manager' && user.role !== 'Athlete') {
+    return (
+      <Container>
+        <Box sx={{ marginTop: '20px', marginBottom: '20px' }}>
+          <h1>You are not authorized to view this page.</h1>
+        </Box>
+      </Container>
+    );
+  }
+
   return (
     <Container>
       <Box sx={{ marginTop: '20px', marginBottom: '20px' }}>
