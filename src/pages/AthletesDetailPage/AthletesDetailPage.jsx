@@ -78,7 +78,8 @@ export default function AthletesDetailsPage({ user }) {
 
 
   return (
-    <Container>
+    <Container className='allbox'style={{ width: '100%' }}>
+
       {athlete ? (
         <>
           <Paper elevation={10} style={{ padding: '15px', marginTop: '20px' }}>
@@ -87,69 +88,69 @@ export default function AthletesDetailsPage({ user }) {
             </Typography>
           </Paper>
 
-          <Box
+          <div
             style={{
-              className: "box",
+              className: "boxme",
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'center',
               alignItems: 'center',
-              margin: 'auto',
+              // margin: 'auto',
               width: '100%',
             }}
           >
 
 
 
-            <Card style={{ display: 'flex', margin: '20px', alignItems: 'center', borderRadius: '20px', padding: '20px', width: '70%' }}>
+            <Card style={{ display: 'flex', margin: '20px', alignItems: 'center', borderRadius: '20px', padding: '20px', width: '100%' }}>
               <div
                 style={{
                   backgroundImage: `url("https://www.themanual.com/wp-content/uploads/sites/9/2020/06/blue-raspberries.jpg?p=1")`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
-                  width: '300px',
+                  width: '18%',
                   height: '300px',
                   borderRadius: '10%',
                   overflow: 'hidden',
-                  marginLeft: '20px',
-                  marginRight: '20px',
+                  marginLeft: '8%',
+                  marginRight: '5%',
                 }}
               ></div>
 
 
 
 
-              <div style={{ display: 'flex', flexDirection: 'column', color: '#191D88', width: 'calc(100% - 240px)', padding: '1%', margin: 'outo' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', color: '#191D88',  padding: '1%', margin: 'outo' }}>
                 <div className="info-row" style={{ flex: 1, justifyContent: 'center', alignItems: 'center', marginBottom: '1px' }}>
                   <div className="info-box1">
                     <Typography variant="subtitle1">{athlete.user.firstName} {athlete.user.lastName} </Typography>
-                    <Typography variant="subtitle1"> {athlete.user.nationality}</Typography>
+                    {/* <Typography variant="subtitle1"> {athlete.user.nationality}</Typography> */}
                   </div>
                 </div>
 
-                <div className="info-row" style={{ background: 'rgba(180, 180, 180, 0.5)', padding: '10px', borderRadius: '4px', display: 'flex', justifyContent: 'center', alignItems: 'center', maxWidth: '200px', margin: '0 auto', marginBottom: '20px' }}>
-                  <Typography variant="subtitle1" style={{ fontSize: '20px', fontWeight: 'bold', color: 'white', textAlign: 'center' }}>
+                <div className="info-row" style={{ background: 'rgba(180, 180, 180, 0.5)', padding: '10px', borderRadius: '4px', display: 'flex', justifyContent: 'center', alignItems: 'center', margin: '0 auto', marginBottom: '20px' }}>
+                  <Typography variant="subtitle1" style={{fontWeight: 'bold', color: 'white', textAlign: 'center' }}>
                     <strong>Sport Type:</strong> {athlete.sportType}
-                    <EmojiEventsIcon style={{ fontSize: '18px' }} />
+                  <br/>
                     {/* <EmojiEventsIcon style={{ fontSize: '18px' }} />  */}
                     {/* <EmojiEventsIcon style={{ fontSize: '18px' }} />  */}
-                    <strong>Personal Record:</strong> {athlete.personalRecord}
+                    <strong>P.R:</strong> {athlete.personalRecord}
                   </Typography>
                 </div>
 
 
                 <div style={{ borderTop: "2px dashed rgba(180, 180, 180, 0.5) ", marginLeft: 20, marginRight: 20 }}></div>
 
-                <div className="info-box" style={{ width: '80%', margin: 'auto', padding: '20px', display: 'grid', gridTemplateColumns: 'repeat(1, 1fr)', gap: '20px', marginBottom: '0%' }}>
+                <div className="info-box" style={{ width: '100%', margin: 'auto', padding: '20px', display: 'grid', gridTemplateColumns: 'repeat(1, 1fr)', gap: '20px', marginBottom: '0%' }}>
                   <div className="info-row">
-                    <Typography variant="subtitle1"> <strong>DOB:</strong> {athlete.user.dateOfBirth} </Typography>
-                    <Typography variant="subtitle1"><strong>Age:</strong> {calculateAge(athlete.user?.dateOfBirth)}</Typography>
+                  <Typography variant="subtitle1">  <strong>Age:</strong> {calculateAge(athlete.user?.dateOfBirth)}<br/><strong>Nationality</strong> {athlete.user.nationality}<br/>
+                    <strong>DOB:</strong> {athlete.user.dateOfBirth} <br/>
+                
+                  <strong>Height:</strong> {athlete.height} cm <br/>
+                  <strong>Weight:</strong> {athlete.weight} kg</Typography>
                   </div>
-                  <div className="info-row" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '20px', alignItems: 'center' }}>
-                    <Typography variant="subtitle1"><strong>Height:</strong> {athlete.height} cm </Typography>
-                    <Typography variant="subtitle1"><strong>Weight:</strong> {athlete.weight} kg</Typography>
                   </div>
-                </div>
+                
 
 
 
@@ -166,8 +167,8 @@ export default function AthletesDetailsPage({ user }) {
 
               </div>
 
-              <Container component="main" maxWidth="xs">
-                <CssBaseline />
+              <Container component="main" maxWidth="xs" sx={{width:'50%'}}>
+                
                 {user.role === 'Manager' && (
                   <Box
                     sx={{
@@ -178,11 +179,9 @@ export default function AthletesDetailsPage({ user }) {
                       marginTop: 8,
                     }}
                   >
-                    <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-                      <LockOutlinedIcon />
-                    </Avatar>
+                    {/*   */}
                     <Typography component="h1" variant="h5">
-                      Sign up
+                     <strong>Make Offer</strong>
                     </Typography>
                     <Box
                       component="form"
@@ -319,7 +318,7 @@ export default function AthletesDetailsPage({ user }) {
     </Container> */}
 
 
-          </Box>
+          </div>
 
         </>
       ) : (
