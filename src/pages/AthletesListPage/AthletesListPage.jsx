@@ -48,24 +48,25 @@ export default function AthleteListPage() {
               }
             }}>
 
-              <CardActionArea> <Link to={`/athletes/${athlete._id}`} style={{ textDecoration: "none", color: 'black' }}>
-                <CardMedia
-                  component="img"
-                  height="200"
-                  image={athlete.photo}
-                  alt="green iguana"
+              <CardActionArea>
+                <Link to={`/athletes/${athlete._id}`} style={{ textDecoration: "none", color: 'black' }}>
+                  <CardMedia
+                    component="img"
+                    height="200"
+                    image={athlete.photo}
+                    alt="green iguana"
+                  />
 
-                />
+                  <CardContent>
+                    <Typography gutterBottom variant="h6" component="div">
+                      Name: {athlete.user.firstName}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      Nationality: {athlete.user.nationality}
+                    </Typography>
 
-                <CardContent>
-                  <Typography gutterBottom variant="h6" component="div">
-                    Name: {athlete.user.firstName}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    Nationality: {athlete.user.nationality}
-                  </Typography>
-
-                </CardContent>        </Link>
+                  </CardContent>
+                </Link>
               </CardActionArea>
 
             </Card>
