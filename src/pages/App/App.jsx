@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import AuthPage from '../AuthPage/AuthPage';
-import NewOrderPage from '../NewOrderPage/NewOrderPage';
 import NavBar from '../../components/NavBar/NavBar';
 import HomePage from '../HomePage/HomePage';
 import AthletesListPage from '../AthletesListPage/AthletesListPage';
@@ -14,10 +13,10 @@ import Cart from '../Cart/Cart';
 import AthletesDashboardPage from '../DashboardPage/AthletesDashboardPage/AthletesDashboardPage'
 import ProductsPageDashboard from '../DashboardPage/ProductsDashboardPage/ProductsDashboardPage'
 import OffersPageDashboard from '../DashboardPage/OffersDashboardPage/OffersDashboardPage'
-import './App.css';
 import Products from '../Products/Products';
 import AthletesDetailsPage from '../AthletesDetailPage/AthletesDetailPage';
 import NotFound from '../../components/NotFound/NotFound';
+import './App.css';
 
 function App() {
   const [user, setUser] = useState(getUser());
@@ -30,7 +29,6 @@ function App() {
           <Routes>
             {/* Route components in here */}
             <Route path="/" element={<HomePage />} />
-            <Route path="/api/products" element={<NewOrderPage />} />
             <Route path="/athletes" element={<AthletesListPage />} />
             <Route path="/athletes/:athleteId" element={<AthletesDetailsPage user={user} />} />
             <Route path="/news" element={<NewsPage />} />
