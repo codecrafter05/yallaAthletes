@@ -71,7 +71,7 @@ export default function DashboardPage({ user, setUser }) {
   }
 
   return (
-    <div>
+    <Container>
       {user.role === 'Admin' || user.role === 'Manager' ? (
         <Button onClick={toggleDrawer('left', true)} sx={{ display: 'flex', justifyContent: 'start' }}>
           Show SideBar
@@ -111,6 +111,6 @@ export default function DashboardPage({ user, setUser }) {
           </List>
         </Box>
       </SwipeableDrawer>
-    </div>
+    </Container>
   );
 }

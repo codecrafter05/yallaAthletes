@@ -102,6 +102,54 @@ export default function AboutUsPage() {
 
         <div className="pageus">
 
+        <a href="https://www.linkedin.com/in/halhibshi/" target="_blank" rel="noopener noreferrer" className="card-link">
+            <Card className="card-with-flex nightmode-hover">
+              <CardMedia
+                component="img"
+                image={hamadImage}
+                alt="green iguana"
+                className="ms-image"
+                style={{
+                  height: '100px',
+                  width: '100px',
+                  borderRadius: '50%',
+                }}
+              />
+              <CardContent className="us">
+                <Typography gutterBottom variant="h5" component="div">
+                  Hamad Alhibshi
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Lizards are a widespread group of squamate reptiles, with over 6,000
+                </Typography>
+              </CardContent>
+            </Card>
+          </a>
+
+          <a href="https://www.linkedin.com/in/abbas9naser/" target="_blank" rel="noopener noreferrer" className="card-link">
+            <Card className="card-with-flex nightmode-hover">
+              <CardMedia
+                component="img"
+                image={abbasImage}
+                alt="green iguana"
+                className="ms-image"
+                style={{
+                  height: '100px',
+                  width: '100px',
+                  borderRadius: '50%',
+                }}
+              />
+              <CardContent className="us">
+                <Typography gutterBottom variant="h5" component="div">
+                  Abbas Naser
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Lizards are a widespread group of squamate reptiles, with over 6,000
+                </Typography>
+              </CardContent>
+            </Card>
+          </a>
+
           <a href="https://www.linkedin.com/in/sayed-mustafa-qarooni-64161a161/" target="_blank" rel="noopener noreferrer" className="card-link">
 
             <Card className="card-with-flex nightmode-hover" >
@@ -152,54 +200,6 @@ export default function AboutUsPage() {
             </Card>
           </a>
 
-
-          <a href="https://www.linkedin.com/in/halhibshi/" target="_blank" rel="noopener noreferrer" className="card-link">
-            <Card className="card-with-flex nightmode-hover">
-              <CardMedia
-                component="img"
-                image={hamadImage}
-                alt="green iguana"
-                className="ms-image"
-                style={{
-                  height: '100px',
-                  width: '100px',
-                  borderRadius: '50%',
-                }}
-              />
-              <CardContent className="us">
-                <Typography gutterBottom variant="h5" component="div">
-                  Hamad Alhibshi
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Lizards are a widespread group of squamate reptiles, with over 6,000
-                </Typography>
-              </CardContent>
-            </Card>
-          </a>
-
-          <a href="https://www.linkedin.com/in/abbas9naser/" target="_blank" rel="noopener noreferrer" className="card-link">
-            <Card className="card-with-flex nightmode-hover">
-              <CardMedia
-                component="img"
-                image={abbasImage}
-                alt="green iguana"
-                className="ms-image"
-                style={{
-                  height: '100px',
-                  width: '100px',
-                  borderRadius: '50%',
-                }}
-              />
-              <CardContent className="us">
-                <Typography gutterBottom variant="h5" component="div">
-                  Abbas Naser
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Lizards are a widespread group of squamate reptiles, with over 6,000
-                </Typography>
-              </CardContent>
-            </Card>
-          </a>
         </div>
       </div>
 

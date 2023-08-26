@@ -3,6 +3,9 @@ const cloudinary = require('../../config/cloudinary')
 
 module.exports = {
   createImage,
+  getImageForLoggedInUser,
+  getImageForUser,
+  deleteImageForLoggedInUser
 }
 
 async function createImage(req, res) {
@@ -29,4 +32,31 @@ async function createImage(req, res) {
   }
 }
 
+async function getImageForLoggedInUser(req, res) {
+  try {
+    const image = await userImage.findOne({ user: req.user._id });
+    res.json(image);
+  } catch (err) {
+    console.error("Error getting image:", err);
+    res.status(400).json(err);
+  }
+}
 
+async function getImageForUser(req, res) {
+  try {
+    const image = await userImage.findOne({ user: req.params.id });
+    res.json(image);
+  } catch (err) {
+    console.error("Error getting image:", err);
+    res.status(400).json(err);
+  }
+}
+
+async function deleteImageForLoggedInUser(req, res) {
+  try {
+    await userImage.findOneAndDelete({ user: req.user._id });
+    res.json({ message: 'Image deleted successfully' });
+  } catch (error) {
+    res.status(500).json({ error: 'Error deleting image' });
+  }
+}

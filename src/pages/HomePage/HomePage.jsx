@@ -94,8 +94,6 @@ export default function HomePage() {
       </div>
       <div id="di" className="boxContainer-home">
 
-
-
         <div class="container-categories-flex">
           <div class="row-categories">
             <div class="col-categories">
@@ -138,12 +136,6 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-
-
-
-
-
-
 
         <div className="container-atl-home">
           <div className="text-container-home">
@@ -220,10 +212,6 @@ export default function HomePage() {
       <a href="#" class="scroll-to-top">
         <i class="fas fa-arrow-up">UP</i>
       </a>
-
-
-
-
 
       <Footer
         title="Unleash Your Potential, Conquer the Field"

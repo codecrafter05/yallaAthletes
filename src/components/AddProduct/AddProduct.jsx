@@ -98,12 +98,6 @@ function ProductForm({user, setUser}) {
               rowsMin={3}
               onChange={handleChange}
             />
-
-        </Box>
-      </Paper>
-
-      <Paper elevation={3} sx={{ padding: "16px", marginBottom: "16px" }}>
-        <Box sx={{ display: "flex", flexDirection: "column", gap: "16px" }}>
           <TextField
             type="number"
             label="Quantity"
