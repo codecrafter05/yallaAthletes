@@ -1,6 +1,8 @@
+import * as React from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import * as userService from '../../utilities/users-service';
-import * as React from 'react';
+import { getImageForLoggedInUser } from '../../utilities/userImage-service';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -35,8 +37,9 @@ export default function NavBar({ user, setUser }) {
     window.location.href = '/'; // Change the URL as needed
   }
 
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [anchorElUser, setAnchorElUser] = useState(null);
+  const [userImage, setUserImage] = useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -57,6 +60,20 @@ export default function NavBar({ user, setUser }) {
     isLoggedIn: true, // Change this based on user login status
     photo: '/static/images/avatar/2.jpg', // User's photo URL
   };
+
+  const fetchUserImage = async () => {
+    try {
+      const response = await getImageForLoggedInUser();
+      console.log('Fetched user image data:', response);
+      setUserImage(response.photo);
+    } catch (error) {
+      console.error("Error fetching user's image:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchUserImage();
+  }, []);
 
   return (
     <AppBar position="sticky" style={{ backgroundColor: '#333333' }}>
@@ -165,7 +182,7 @@ export default function NavBar({ user, setUser }) {
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
               {changingUserDp.isLoggedIn ? (
-                <Avatar alt="User Photo" src={user.photo} />
+                <Avatar alt="User Photo" src={userImage} />
               ) : (
                 <Avatar alt="Default Avatar" src="/static/images/default-avatar.jpg" />
               )}

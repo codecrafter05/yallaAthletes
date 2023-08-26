@@ -3,6 +3,7 @@ const cloudinary = require('../../config/cloudinary')
 
 module.exports = {
   createImage,
+  getImageForLoggedInUser,
 }
 
 async function createImage(req, res) {
@@ -29,4 +30,12 @@ async function createImage(req, res) {
   }
 }
 
-
+async function getImageForLoggedInUser(req, res) {
+  try {
+    const image = await userImage.findOne({ user: req.user._id });
+    res.json(image);
+  } catch (err) {
+    console.error("Error getting image:", err);
+    res.status(400).json(err);
+  }
+}
