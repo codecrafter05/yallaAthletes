@@ -15,15 +15,17 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import logoImg from '../../assets/logo.png'
+import { useMediaQuery } from '@mui/material';
+
 
 export default function NavBar({ user, setUser }) {
   const pages = ['Products', 'Athletes', 'News', 'AboutUs'];
   let settings = [];
-  if(user.role === 'Admin' || user.role === 'Manager') {
+  if (user.role === 'Admin' || user.role === 'Manager') {
     settings = ['Profile', 'Dashboard', 'Logout'];
-  } else if(user.role === 'Athlete') {
+  } else if (user.role === 'Athlete') {
     settings = ['Profile', 'Offers', 'Logout'];
   } else {
     settings = ['Profile', 'Logout'];
@@ -40,6 +42,10 @@ export default function NavBar({ user, setUser }) {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
   const [userImage, setUserImage] = useState(null);
+
+  const isNotMobile = useMediaQuery('(max-width:900px)'); // Adjust the breakpoint as needed
+  const isMobile = useMediaQuery('(max-width:300px)'); // Adjust the breakpoint as needed
+
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -78,24 +84,6 @@ export default function NavBar({ user, setUser }) {
     <AppBar position="sticky" style={{ backgroundColor: '#333333' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          <Typography
-            variant="h6"
-            noWrap
-            component={Link}
-            to="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            yallaAthletes
-          </Typography>
-
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -132,25 +120,17 @@ export default function NavBar({ user, setUser }) {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            LOGO
-          </Typography>
+
+          {isMobile ? null : (
+              <Link to="/">
+                <img
+                  src={logoImg}
+                  alt="yallaAthletes Logo"
+                  style={{ width: '100px', height: 'auto' }}
+                />
+              </Link>
+          )}
+
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
@@ -173,18 +153,20 @@ export default function NavBar({ user, setUser }) {
             </Tooltip>
           </Box>
 
-          <Box sx={{ flexGrow: 0, mr: 2}}>
-            <Typography>Welcome, {`${user.firstName} ${user.lastName}`} </Typography>
-          </Box>
+          {isNotMobile ? null : (
+            <Box sx={{ flexGrow: 0, mr: 2 }}>
+              <Typography>Welcome, {`${user.firstName} ${user.lastName}`} </Typography>
+            </Box>
+          )}
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-              {changingUserDp.isLoggedIn ? (
-                <Avatar alt="User Photo" src={userImage} />
-              ) : (
-                <Avatar alt="Default Avatar" src="/static/images/default-avatar.jpg" />
-              )}
+                {changingUserDp.isLoggedIn ? (
+                  <Avatar alt="User Photo" src={userImage} />
+                ) : (
+                  <Avatar alt="Default Avatar" src="/static/images/default-avatar.jpg" />
+                )}
               </IconButton>
             </Tooltip>
             <Menu
@@ -204,11 +186,11 @@ export default function NavBar({ user, setUser }) {
               onClose={handleCloseUserMenu}
             >
 
-            {settings.map((setting) => (
-              <MenuItem key={setting} onClick={setting === 'Logout' ? handleLogOut : handleCloseUserMenu} component={Link} to={setting === 'Offers' ? '/Dashboard/Offers' : `/${setting}`}>
-                <Typography textAlign="center">{setting}</Typography>
-              </MenuItem>
-            ))}
+              {settings.map((setting) => (
+                <MenuItem key={setting} onClick={setting === 'Logout' ? handleLogOut : handleCloseUserMenu} component={Link} to={setting === 'Offers' ? '/Dashboard/Offers' : `/${setting}`}>
+                  <Typography textAlign="center">{setting}</Typography>
+                </MenuItem>
+              ))}
 
             </Menu>
           </Box>

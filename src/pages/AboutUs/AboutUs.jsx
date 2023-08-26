@@ -26,7 +26,7 @@ export default function AboutUsPage() {
     <>
       <div className="aboutus">
 
-        <Typography variant="h2" >
+        <Typography variant="h2" className='a' >
           Our Story
 
         </Typography>

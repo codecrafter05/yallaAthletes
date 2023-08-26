@@ -79,6 +79,7 @@ function ProductForm({user, setUser}) {
             label="Product Name"
             name="name"
             placeholder="Enter Product Name"
+            required
             onChange={handleChange}
           />
           <FormControl>
@@ -95,19 +96,15 @@ function ProductForm({user, setUser}) {
               label="Write Product Details"
               placeholder="Write Product Details..."
               name="description"
+              required
               rowsMin={3}
               onChange={handleChange}
             />
-
-        </Box>
-      </Paper>
-
-      <Paper elevation={3} sx={{ padding: "16px", marginBottom: "16px" }}>
-        <Box sx={{ display: "flex", flexDirection: "column", gap: "16px" }}>
           <TextField
             type="number"
             label="Quantity"
             name="quantity"
+            required
             inputProps={{ min: "1", max: "5" }}
             onChange={handleChange}
           />
@@ -115,12 +112,14 @@ function ProductForm({user, setUser}) {
             type="number"
             label="Price"
             name="price"
+            required
             inputProps={{ min: "1", max: "5" }}
             onChange={handleChange}
           />
             <TextField
               type="file"
               name="photo"
+              required
               inputProps={{ accept: "image/*" }} 
               onChange={handleImageUpload}
             />

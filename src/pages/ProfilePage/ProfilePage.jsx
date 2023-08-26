@@ -4,6 +4,7 @@ import BecomeAthlete from '../../components/BecomeAthlete/BecomeAthlete';
 import EditUserProfile from '../../components/EditUserProfile/EditUserProfile';
 import { getAthlete, deleteAthlete } from '../../utilities/athletes-service';
 import { getUser, deleteUser } from "../../utilities/users-service";
+import { deleteImageForLoggedInUser } from '../../utilities/userImage-service';
 import { Container } from '@mui/material';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
@@ -75,7 +76,8 @@ export default function ProfilePage() {
           await deleteAthlete(); // Added optional chaining
         }
         // Delete user
-        await deleteUser(); // Added optional chaining
+        await deleteUser(); // delete user from database
+        await deleteImageForLoggedInUser(); // delete user's image from Cloudinary
         // Remove token from storage (log out the user)
         localStorage.removeItem('token');
 

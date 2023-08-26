@@ -2,7 +2,7 @@ import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import { CardActionArea } from '@mui/material';
+import { Box, CardActionArea } from '@mui/material';
 import { Link } from 'react-router-dom';
 import Footer from '../../components/Newspagecomponents/Footer';
 import vi1mp4 from '../../assets/vi1.mp4';
@@ -14,8 +14,12 @@ import './HomePage.css'
 import categories1 from "./../../assets/categories1.jpg"
 import categories2 from "./../../assets/categories2.jpg"
 import newspaper from "./../../assets/newspaper1.jpg"
+import { getAllAthletesFiltered } from '../../utilities/athletes-service';
+
+
 export default function HomePage() {
   const [products, setProducts] = useState([]);
+  const [athletes, setAthletes] = useState([]);
 
   useEffect(() => {
     fetchProducts();
@@ -73,6 +77,20 @@ export default function HomePage() {
     };
   }, []);
 
+  useEffect(() => {
+    async function fetchAthletes() {
+      try {
+        const response = await getAllAthletesFiltered('Approved'); // Fetch pending athletes
+        console.log('Fetched athletes:', response);
+        setAthletes(response); // Update the state with pending athletes' data
+      } catch (error) {
+        console.error('Error fetching athletes:', error);
+      }
+    }
+    fetchAthletes();
+  }, []);
+
+
   return (
     <>
       <div className='video-container-home'>
@@ -92,10 +110,9 @@ export default function HomePage() {
           </Button>
         </div>
       </div>
-      <div className="boxContainer-home">
+      <div id="di" className="boxContainer-home">
 
-
-        <div id="di" class="container-categories-flex">
+        <div class="container-categories-flex">
           <div class="row-categories">
             <div class="col-categories">
               <div class="image-container-categories">
@@ -138,12 +155,6 @@ export default function HomePage() {
           </div>
         </div>
 
-
-
-
-
-
-
         <div className="container-atl-home">
           <div className="text-container-home">
             <Typography sx={{ fontSize: 90 }}>
@@ -152,28 +163,34 @@ export default function HomePage() {
 
           </div>
           <div className="grid-container-home">
-            {products.slice(0, 3).map((product) => (
-              <div className="grid-item" key={product}>
-                <Card className="product-card-container-home">
-                  <div className="product-card-wrapper-home">
-                    <Link className="product-card-link-home" to="#">
-                      <CardMedia
-                        component="img"
-                        className="product-card-image"
-                        image={product.photo}
-                        alt={`image for ${product.name}`}
-                      />
-                      <CardContent className="product-card-content-home">
-                        <Typography variant="h6" color="black" component="p" className="product-card-name-home">
-                          {product.name}
-                        </Typography>
-                        <Typography variant="body2" color="black" component="p" className="product-card-description-home">
-                          {product.description}
-                        </Typography>
-                      </CardContent>
-                      <CardActions></CardActions>
-                    </Link>
-                  </div>
+            {athletes.slice(0, 3).map((athlete) => (
+              <div className="grid-item" key={athlete._id}>
+                <Card sx={{
+                  maxWidth: 230, height: 310,
+                  borderRadius: 2,
+                  transition: 'transform 0.2s ease',
+                  '&:hover': {
+                    transform: 'scale(1.05)'
+                  }
+                }}>
+                  <CardActionArea>
+                    <CardMedia
+                      component="img"
+                      height="220"
+                      image={athlete.photo}
+                      alt="green iguana"
+
+                    />
+
+                    <CardContent>
+                      <Typography gutterBottom variant="h6" component="div">
+                        {athlete.user.firstName}
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        Nationality: {athlete.user.nationality}
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
                 </Card>
               </div>
             ))}
@@ -187,26 +204,32 @@ export default function HomePage() {
           <div className="grid-container-home">
             {products.slice(0, 3).map((product) => (
               <div className="grid-item-home" key={product}>
-                <Card className="product-card-container-home">
-                  <div className="product-card-wrapper-home">
-                    <Link className="product-card-link-home" to="#">
-                      <CardMedia
-                        component="img"
-                        className="product-card-image"
-                        image={product.photo}
-                        alt={`image for ${product.name}`}
-                      />
-                      <CardContent className="product-card-content-home">
-                        <Typography variant="h6" color="black" component="p" className="product-card-name-home">
-                          {product.name}
-                        </Typography>
-                        <Typography variant="body2" color="black" component="p" className="product-card-description-home">
-                          {product.description}
-                        </Typography>
-                      </CardContent>
-                      <CardActions></CardActions>
-                    </Link>
-                  </div>
+                <Card sx={{
+                  maxWidth: 230, height: 310,
+                  transition: 'transform 0.2s ease',
+                  borderRadius: 2,
+                  '&:hover': {
+                    transform: 'scale(1.05)'
+                  }
+                }}>
+                  <CardActionArea>
+                    <CardMedia
+                      component="img"
+                      height="220"
+                      image={product.photo}
+                      alt="green iguana"
+
+                    />
+
+                    <CardContent>
+                      <Typography gutterBottom variant="h6" component="div">
+                        {product.name}
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        Price: {product.price} BD
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
                 </Card>
               </div>
             ))}
@@ -219,10 +242,6 @@ export default function HomePage() {
       <a href="#" class="scroll-to-top">
         <i class="fas fa-arrow-up">UP</i>
       </a>
-
-
-
-
 
       <Footer
         title="Unleash Your Potential, Conquer the Field"
