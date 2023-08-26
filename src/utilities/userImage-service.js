@@ -7,3 +7,7 @@ export async function createImage(imageData) {
 export async function getImageForLoggedInUser() {
   return userImageAPI.getImageForLoggedInUser();
 }
+
+export async function getImageForUser(id) {
+  return userImageAPI.getImageForUser(id);
+}
