@@ -113,7 +113,7 @@ function ProductForm({user, setUser}) {
             label="Price"
             name="price"
             required
-            inputProps={{ min: "1", max: "5" }}
+            inputProps={{ min: "1", max: "100" }}
             onChange={handleChange}
           />
             <TextField

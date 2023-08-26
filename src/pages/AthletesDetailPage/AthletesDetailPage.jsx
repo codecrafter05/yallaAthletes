@@ -72,7 +72,7 @@ export default function AthletesDetailsPage({ user }) {
 
 
   return (
-    <Container className='allbox'style={{ width: '100%' }}>
+    <Container className='allbox' style={{ width: '100%' }}>
 
       {athlete ? (
         <>
@@ -114,20 +114,17 @@ export default function AthletesDetailsPage({ user }) {
 
 
 
-              <div style={{ display: 'flex', flexDirection: 'column', color: '#191D88',  padding: '1%', margin: 'outo' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', color: 'black', padding: '1%', margin: 'outo' }}>
                 <div className="info-row" style={{ flex: 1, justifyContent: 'center', alignItems: 'center', marginBottom: '1px' }}>
                   <div className="info-box1">
-                    <Typography variant="subtitle1">{athlete.user.firstName} {athlete.user.lastName} </Typography>
-                    {/* <Typography variant="subtitle1"> {athlete.user.nationality}</Typography> */}
+                    <Typography variant="subtitle1"> {athlete.user.firstName} {athlete.user.lastName} </Typography>
                   </div>
                 </div>
 
                 <div className="info-row" style={{ background: 'rgba(180, 180, 180, 0.5)', padding: '10px', borderRadius: '4px', display: 'flex', justifyContent: 'center', alignItems: 'center', margin: '0 auto', marginBottom: '20px' }}>
-                  <Typography variant="subtitle1" style={{fontWeight: 'bold', color: 'white', textAlign: 'center' }}>
+                  <Typography variant="subtitle1" style={{ fontWeight: 'bold', color: 'white', textAlign: 'center' }}>
                     <strong>Sport Type:</strong> {athlete.sportType}
-                  <br/>
-                    {/* <EmojiEventsIcon style={{ fontSize: '18px' }} />  */}
-                    {/* <EmojiEventsIcon style={{ fontSize: '18px' }} />  */}
+                    <br />
                     <strong>P.R:</strong> {athlete.personalRecord}
                   </Typography>
                 </div>
@@ -137,14 +134,14 @@ export default function AthletesDetailsPage({ user }) {
 
                 <div className="info-box" style={{ width: '100%', margin: 'auto', padding: '20px', display: 'grid', gridTemplateColumns: 'repeat(1, 1fr)', gap: '20px', marginBottom: '0%' }}>
                   <div className="info-row">
-                  <Typography variant="subtitle1">  <strong>Age:</strong> {calculateAge(athlete.user?.dateOfBirth)}<br/><strong>Nationality</strong> {athlete.user.nationality}<br/>
-                    <strong>DOB:</strong> {athlete.user.dateOfBirth} <br/>
-                
-                  <strong>Height:</strong> {athlete.height} cm <br/>
-                  <strong>Weight:</strong> {athlete.weight} kg</Typography>
+                    <Typography variant="h6">  <strong>Age:</strong> {calculateAge(athlete.user?.dateOfBirth)}<br /><strong>Nationality</strong> {athlete.user.nationality}<br />
+                      <strong>DOB:</strong> {athlete.user.dateOfBirth} <br />
+
+                      <strong>Height:</strong> {athlete.height} cm <br />
+                      <strong>Weight:</strong> {athlete.weight} kg</Typography>
                   </div>
-                  </div>
-                
+                </div>
+
 
 
 
@@ -152,7 +149,7 @@ export default function AthletesDetailsPage({ user }) {
 
                 <div className="info-row" style={{ marginBottom: '20px' }}>
                   <div className="info-box-double" >
-                    <Typography>
+                    <Typography variant="h6">
                       <strong>Achievements:</strong>{athlete.achievements}<br />
                       <strong> Socials:</strong> {athlete.socials}
                     </Typography>
@@ -161,8 +158,8 @@ export default function AthletesDetailsPage({ user }) {
 
               </div>
 
-              <Container component="main" maxWidth="xs" sx={{width:'50%'}}>
-                
+              <Container component="main" maxWidth="xs" sx={{ width: '50%' }}>
+
                 {user.role === 'Manager' && (
                   <Box
                     sx={{
@@ -175,7 +172,7 @@ export default function AthletesDetailsPage({ user }) {
                   >
                     {/*   */}
                     <Typography component="h1" variant="h5">
-                     <strong>Make Offer</strong>
+                      <strong>Make Offer</strong>
                     </Typography>
                     <Box
                       component="form"
@@ -230,88 +227,7 @@ export default function AthletesDetailsPage({ user }) {
                   </Box>
                 )}
               </Container>
-
-
             </Card>
-
-
-
-
-
-
-            {/* <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      {user.role === 'Manager' && (
-        <Box
-          sx={{
-            width: '100%',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            marginTop: 8,
-          }}
-        >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign up
-          </Typography>
-          <Box
-            component="form"
-            noValidate
-            onSubmit={handleSubmit}
-            sx={{ mt: 3, width: '100%' }}
-          >
-            <Grid container spacing={2}>
-              <Grid item xs={12}>
-                <TextField
-                  type="number"
-                  label="Bid"
-                  name="bid"
-                  fullWidth
-                  inputProps={{ min: 0 }}
-                  onChange={(e) =>
-                    setOfferData({
-                      ...offerData,
-                      [e.target.name]: e.target.value,
-                    })
-                  }
-                  sx={{ marginBottom: '10px' }}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  type="text"
-                  label="Description"
-                  name="description"
-                  fullWidth
-                  onChange={(e) =>
-                    setOfferData({
-                      ...offerData,
-                      [e.target.name]: e.target.value,
-                    })
-                  }
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <Button
-                  type="submit"
-                  fullWidth
-                  variant="contained"
-                  color="success"
-                  sx={{ mt: 3, mb: 2 }}
-                >
-                  Add Offer
-                </Button>
-              </Grid>
-            </Grid>
-          </Box>
-        </Box>
-      )}
-    </Container> */}
-
-
           </div>
 
         </>
@@ -324,15 +240,3 @@ export default function AthletesDetailsPage({ user }) {
 }
 
 
-
-{/* <div className="info-box">
-        <Typography variant="subtitle1">Height: {athlete.height} cm </Typography>
-        <Typography variant="subtitle1">Weight: {athlete.weight} kg</Typography>
-      </div> */}
-
-{/* <div className="info-row">
-      <div className="info-box">
-        <Typography variant="subtitle1">Sport Type: {athlete.sportType} </Typography>
-        <Typography variant="subtitle1">Personal Record: {athlete.personalRecord}</Typography>
-      </div>
-    </div> */}
