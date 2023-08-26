@@ -13,3 +13,7 @@ export async function getImageForLoggedInUser() {
 export async function getImageForUser(id) {
   return sendRequest(`${BASE_URL}/${id}`);
 }
+
+export async function deleteImageForLoggedInUser() {
+  return sendRequest(BASE_URL, 'DELETE');
+}
