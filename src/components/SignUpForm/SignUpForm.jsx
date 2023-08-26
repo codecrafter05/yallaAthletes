@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { signUp } from '../../utilities/users-service';
+import { createImage } from '../../utilities/userImage-service';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
@@ -21,8 +22,10 @@ export default class SignUpForm extends Component {
     nationality: '',
     phone: '',
     error: '',
-    // photo: ''
+    photo: ''
   };
+
+
 
   handleSubmit = async (evt) => {
     evt.preventDefault();
@@ -34,13 +37,21 @@ export default class SignUpForm extends Component {
       // will resolve to the user object included in the
       // payload of the JSON Web Token (JWT)
       const user = await signUp(formData);
+      console.log(`user ==> ${user}`);
       // Update user state with user
       this.props.setUser(user);
-    } catch {
+
+      if (this.state.photo) {
+        // Upload the image and associate it with the user
+        const image = await createImage({ photo: this.state.photo, user: user._id });
+        console.log("Image created:", image);
+      }
+    } catch (err) {
       // Invalid signup
       this.setState({
         error: 'Sign Up Failed - Try Again'
       });
+      console.log(err);
     }
   }
 
@@ -55,43 +66,43 @@ export default class SignUpForm extends Component {
     this.props.setShowSignUp(false); // Call the function to switch back to the login form
   }
 
-  // handleImageUpload = (evt) => {
-  //   // get the image uploaded in input file, it will be the first element in files arr
-  //   const file = evt.target.files[0];
-  //   console.log(file);
+  handleImageUpload = (evt) => {
+    // get the image uploaded in input file, it will be the first element in files arr
+    const file = evt.target.files[0];
+    console.log(file);
 
-  //   this.transformFileData(file);
-  // }
-  // // transfer file/image to base64 string
-  // transformFileData = (file) => {
-  //   //The FileReader object lets web applications asynchronously read the contents of files (or raw data buffers) stored on the user's computer, using File or Blob objects to specify the file or data to read.
-  //   // FileReader can only access the contents of files that the user has explicitly selected, either using an HTML <input type="file"> element or by drag and drop
-  //   // filereader is js object
-  //   const reader = new FileReader();
+    this.transformFileData(file);
+  }
+  // transfer file/image to base64 string
+  transformFileData = (file) => {
+    //The FileReader object lets web applications asynchronously read the contents of files (or raw data buffers) stored on the user's computer, using File or Blob objects to specify the file or data to read.
+    // FileReader can only access the contents of files that the user has explicitly selected, either using an HTML <input type="file"> element or by drag and drop
+    // filereader is js object
+    const reader = new FileReader();
 
-  //   if (file) {
-  //     // Starts reading the contents of the specified Blob, once finished, the "result" attribute contains a data: URL representing the file's data.
-  //     reader.readAsDataURL(file);
-  //     // Fired when a read has completed, successfully or not.
-  //     reader.onloadend = () => {
-  //       console.log(reader.result);
-  //       this.setState(prevState => ({
-  //         ...prevState,
-  //         photo: reader.result
-  //       }));
+    if (file) {
+      // Starts reading the contents of the specified Blob, once finished, the "result" attribute contains a data: URL representing the file's data.
+      reader.readAsDataURL(file);
+      // Fired when a read has completed, successfully or not.
+      reader.onloadend = () => {
+        console.log(reader.result);
+        this.setState(prevState => ({
+          ...prevState,
+          photo: reader.result
+        }));
 
-  //       // setError("");
-  //     };
-  //   } else {
-  //     // no image
-  //     this.setState(prevState => ({
-  //       ...prevState,
-  //       photo: ""
-  //     }));
+        // setError("");
+      };
+    } else {
+      // no image
+      this.setState(prevState => ({
+        ...prevState,
+        photo: ""
+      }));
 
-  //     // setError("");
-  //   }
-  // }
+      // setError("");
+    }
+  }
 
 
 
@@ -171,14 +182,14 @@ export default class SignUpForm extends Component {
               />
             </Grid>
           </Grid>
-          {/* <TextField
+          <TextField
             margin="normal"
             fullWidth
             type="file"
             name="photo"
             inputProps={{ accept: "image/*" }}
             onChange={this.handleImageUpload}
-          /> */}
+          />
           <TextField
             margin="normal"
             required
