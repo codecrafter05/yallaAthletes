@@ -84,7 +84,7 @@ export default function AboutUsPage() {
                   Hamad Alhibshi
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Lizards are a widespread group of squamate reptiles, with over 6,000
+                  Backend developer, manages server-side development for yallaAthletes.
                 </Typography>
               </CardContent>
             </Card>
@@ -108,7 +108,7 @@ export default function AboutUsPage() {
                   Abbas Naser
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Lizards are a widespread group of squamate reptiles, with over 6,000
+                  Backend developer, manages server-side development for yallaAthletes.
                 </Typography>
               </CardContent>
             </Card>
@@ -133,7 +133,7 @@ export default function AboutUsPage() {
                   Sayed Mustafa
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Lizards are a widespread group of squamate reptiles, with over 6,000
+                Front-end developer cooks attractive and user-friendly web interfaces.
                 </Typography>
               </CardContent>
             </Card>
@@ -157,7 +157,7 @@ export default function AboutUsPage() {
                   Abdulaziz Hijris
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Lizards are a widespread group of squamate reptiles, with over 6,000
+                Front-end developer specialized in web interfaces using modern technologies.
                 </Typography>
               </CardContent>
             </Card>
