@@ -7,7 +7,7 @@ export async function createImage(imageData) {
 }
 
 export async function getAllImages(imageData) {
-  return sendRequest(BASE_URL, imageData);
+  return sendRequest(BASE_URL + "/all", imageData);
 }
 
 export async function getImageForLoggedInUser() {

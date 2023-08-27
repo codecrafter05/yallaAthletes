@@ -7,7 +7,7 @@ router.post('/', ensureLoggedIn, userImageCtrl.createImage);
 
 router.get('/', ensureLoggedIn, userImageCtrl.getImageForLoggedInUser);
 
-router.get('/', ensureLoggedIn, userImageCtrl.getAllImages);
+router.get('/all', ensureLoggedIn, userImageCtrl.getAllImages);
 
 router.get('/:id', ensureLoggedIn, userImageCtrl.getImageForUser);
 

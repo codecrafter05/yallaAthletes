@@ -58,6 +58,7 @@ export default function ManagerOffers ({ user }) {
     { field: 'athleteAge', headerName: 'Age', type: 'number', width: 120 },
     { field: 'sportType', headerName: 'Sport Type', sortable: false, width: 130 },
     { field: 'bid', headerName: 'Bid', sortable: false, width: 130 },
+    { field: 'email', headerName: 'Contact', sortable: false, width: 130 },
     {
       field: 'managerName',
       headerName: 'Manager Name',
@@ -98,6 +99,7 @@ export default function ManagerOffers ({ user }) {
     lastName: offer.user.lastName,
     bid: offer.bid,
     fullName: `${offer.user.firstName || ''} ${offer.user.lastName || ''}`,
+    email: offer.user.email,
     status: offer.status,
   }));
 
