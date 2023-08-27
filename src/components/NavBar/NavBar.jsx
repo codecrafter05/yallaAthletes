@@ -81,7 +81,7 @@ export default function NavBar({ user, setUser }) {
   }, []);
 
   return (
-    <AppBar position="sticky" style={{ backgroundColor: '#333333' }}>
+    <AppBar position="sticky" style={{ backgroundColor: '#333333'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>

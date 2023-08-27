@@ -14,8 +14,9 @@ const hardcodedAnswers = [
   "Certainly, I'm here to help what kind Problem",
   "Feel free to ask any questions you have.",
   "1- Check if the photo is uploaded successfully 2-Check if the photo size is less than 30MB  3- Ensure that your account is approved  4- Logout from the website then log in again",
+  "I'm sorry, I can't provide assistance in this case. Please contact our hotline 17711111 or visit our office in Seef area, Bahrain.",
   "Your most welcome! now I should leave because I need to go back to Sayed Mohammed and Rashid project, See you Later",
-  "I'm sorry, I can't provide assistance in this case. Please contact our hotline or visit our office in Seef area, Bahrain.",
+
 ];
 
 const SupportPage = () => {
