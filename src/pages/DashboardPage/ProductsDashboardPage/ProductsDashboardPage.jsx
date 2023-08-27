@@ -18,7 +18,7 @@ export default function ProductsPageDashboard({user, setUser}){
 
     const tabComponents = [
       <AddProduct />,
-      <ProductList /> // Replace this with your actual component for the Products List
+      <ProductList />
     ];
 
   if (user.role !== 'Admin' && user.role !== 'Manager') {
