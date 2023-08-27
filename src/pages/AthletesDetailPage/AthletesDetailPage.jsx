@@ -6,17 +6,21 @@ import { showAthleteDetails } from '../../utilities/athletes-service';
 import { createOffer } from "../../utilities/offers-service";
 import './AthletesDetailPage.css';
 import * as React from 'react';
-
 import Grid from '@mui/material/Grid';
+import { getImageForUser } from '../../utilities/userImage-service';
 
 
 export default function AthletesDetailsPage({ user }) {
   const { athleteId } = useParams();
   const [athlete, setAthlete] = useState(null);
+  const [images, setImages] = useState([])
+
   const initialOfferData = {
     user: user._id,
     athlete: '',
     athleteName: '',
+    athleteEmail: '',
+    managerEmail: '',
     sportType: '',
     bid: '',
     description: '',
@@ -31,6 +35,8 @@ export default function AthletesDetailsPage({ user }) {
         user: offerData.user,
         athlete: athlete.user?._id,
         athleteName: `${athlete.user.firstName} ${athlete.user.lastName}`,
+        athleteEmail: athlete.user?.email,
+        managerEmail: user.email,
         athleteAge: calculateAge(athlete.user?.dateOfBirth),
         sportType: athlete.sportType,
         bid: offerData.bid,
@@ -43,18 +49,30 @@ export default function AthletesDetailsPage({ user }) {
     }
   };
 
+  async function fetchAthletesImage(userId) {
+    try {
+      const response = await getImageForUser(userId);
+      setImages(response);
+    } catch (error) {
+      console.error('Error fetching Image:', error);
+    }
+  }
+
   const fetchAthleteDetails = async (athleteId) => {
     try {
       const response = await showAthleteDetails(athleteId);
       setAthlete(response);
+      fetchAthletesImage(response.user._id);
     } catch (error) {
       console.error("Error fetching athlete details:", error);
     }
   }
 
   useEffect(() => {
-    fetchAthleteDetails(athleteId);
+    fetchAthleteDetails(athleteId);// console.log(`This is working`)
   }, [athleteId]);
+
+
 
   const calculateAge = (dateOfBirth) => {
     const dob = new Date(dateOfBirth);
@@ -99,7 +117,7 @@ export default function AthletesDetailsPage({ user }) {
             <Card style={{ display: 'flex', margin: '20px', alignItems: 'center', borderRadius: '20px', padding: '20px', width: '100%' }}>
               <div
                 style={{
-                  backgroundImage: `url("https://www.themanual.com/wp-content/uploads/sites/9/2020/06/blue-raspberries.jpg?p=1")`,
+                  backgroundImage: `url(${images.photo})`, // Use image.photo for the photo URL
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                   width: '18%',

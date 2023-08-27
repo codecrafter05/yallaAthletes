@@ -24,11 +24,11 @@ export default function NavBar({ user, setUser }) {
   const pages = ['Products', 'Athletes', 'News', 'AboutUs', 'Rights', 'Support'];
   let settings = [];
   if (user.role === 'Admin' || user.role === 'Manager') {
-    settings = ['Profile', 'Dashboard', 'Logout', 'Rights', 'Support'];
+    settings = ['Profile', 'Dashboard', 'Logout'];
   } else if (user.role === 'Athlete') {
-    settings = ['Profile', 'Offers', 'Logout', 'Rights', 'Support'];
+    settings = ['Profile', 'Offers', 'Logout'];
   } else {
-    settings = ['Profile', 'Logout', 'Rights', 'Support'];
+    settings = ['Profile', 'Logout'];
   }
 
   function handleLogOut() {

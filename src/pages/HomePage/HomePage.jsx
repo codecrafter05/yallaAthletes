@@ -17,7 +17,7 @@ import { getAllImages } from '../../utilities/userImage-service';
 import { Link } from 'react-router-dom'
 
 
-export default function HomePage() {
+export default function HomePage({user}) {
   const [products, setProducts] = useState([]);
   const [athletes, setAthletes] = useState([]);
   const [images, setImages] = useState([]);
@@ -94,7 +94,7 @@ export default function HomePage() {
   useEffect(() => {
     console.log('useEffect triggered');
     async function fetchAthletesImage() {
-      console.log('Before API call');
+      console.log('Before call');
       try {
         const response = await getAllImages();
         console.log('Image Reponse:', response);
@@ -106,7 +106,7 @@ export default function HomePage() {
     }
     fetchAthletesImage();
   }, []);
-  
+
 
 
   return (
@@ -180,40 +180,45 @@ export default function HomePage() {
             </Typography>
 
           </div>
-          
-          <div className="grid-container-home">
-            {athletes.slice(0, 3).map((athlete) => (
-              <div className="grid-item" key={athlete._id}>
-                <Card sx={{
-                  maxWidth: 230, height: 310,
-                  borderRadius: 2,
-                  transition: 'transform 0.2s ease',
-                  '&:hover': {
-                    transform: 'scale(1.05)'
-                  }
-                }}>
-                  <Link to='/athletes'>
-                  <CardActionArea>
-                    <CardMedia
-                      component="img"
-                      height="220"
-                      // image={images.photo}
-                      alt="green iguana"
-                    />
 
-                    <CardContent>
-                      <Typography gutterBottom variant="h6" component="div">
-                        {athlete.user.firstName}
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        Nationality: {athlete.user.nationality}
-                      </Typography>
-                    </CardContent>
-                  </CardActionArea>
-                  </Link>
-                </Card>
-              </div>
-            ))}
+          <div className="grid-container-home">
+            {athletes.slice(0, 3).map((athlete) => {
+              // Find the corresponding image for the current athlete
+              const matchingImage = images.find(image => image.user === athlete.user._id);
+
+              return (
+                <div className="grid-item" key={athlete._id}>
+                  <Card sx={{
+                    maxWidth: 230, height: 310,
+                    borderRadius: 2,
+                    transition: 'transform 0.2s ease',
+                    '&:hover': {
+                      transform: 'scale(1.05)'
+                    }
+                  }}>
+                    <Link to='/athletes'>
+                      <CardActionArea>
+                        <CardMedia
+                          component="img"
+                          height="220"
+                          image={matchingImage ? matchingImage.photo : 'default-image-url.jpg'}
+                          alt="athlete"
+                        />
+
+                        <CardContent>
+                          <Typography gutterBottom variant="h6" component="div">
+                            {athlete.user.firstName}
+                          </Typography>
+                          <Typography variant="body2" color="text.secondary">
+                            Nationality: {athlete.user.nationality}
+                          </Typography>
+                        </CardContent>
+                      </CardActionArea>
+                    </Link>
+                  </Card>
+                </div>
+              );
+            })}
           </div>
         </div>
 
@@ -233,23 +238,23 @@ export default function HomePage() {
                   }
                 }}>
                   <Link to='/products'>
-                  <CardActionArea>
-                    <CardMedia
-                      component="img"
-                      height="220"
-                      image={product.photo}
-                      alt="green iguana"
-                    />
+                    <CardActionArea>
+                      <CardMedia
+                        component="img"
+                        height="220"
+                        image={product.photo}
+                        alt="green iguana"
+                      />
 
-                    <CardContent>
-                      <Typography gutterBottom variant="h6" component="div">
-                        {product.name}
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        Price: {product.price} BD
-                      </Typography>
-                    </CardContent>
-                  </CardActionArea>
+                      <CardContent>
+                        <Typography gutterBottom variant="h6" component="div">
+                          {product.name}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                          Price: {product.price} BD
+                        </Typography>
+                      </CardContent>
+                    </CardActionArea>
                   </Link>
                 </Card>
               </div>

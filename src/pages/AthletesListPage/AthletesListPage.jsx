@@ -5,12 +5,13 @@ import { Button, Container, TextField } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import { Typography, Card, CardActionArea, CardMedia, CardContent } from '@mui/material'; // Import Typography from Material-UI
 import { Link } from "react-router-dom";
+import { getAllImages } from "../../utilities/userImage-service";
 
 export default function AthleteListPage() {
 
 
   const [athletes, setAthletes] = useState([]);
-
+  const [images, setImages] = useState([]);
 
 
   useEffect(() => {
@@ -26,6 +27,21 @@ export default function AthleteListPage() {
     fetchAthletes();
   }, []);
 
+  useEffect(() => {
+    console.log('useEffect triggered');
+    async function fetchAthletesImage() {
+      console.log('Before call');
+      try {
+        const response = await getAllImages();
+        console.log('Image Reponse:', response);
+        setImages(response);
+        console.log('After setting state');
+      } catch (error) {
+        console.error('Error fetching Image:', error);
+      }
+    }
+    fetchAthletesImage();
+  }, []);
 
 
 
@@ -38,7 +54,9 @@ export default function AthleteListPage() {
 
 
       <Grid container spacing={3}>
-        {athletes.map((athlete) => (
+        {athletes.map((athlete) => {
+              const matchingImage = images.find(image => image.user === athlete.user._id);
+              return(
           <Grid key={athlete._id} item xs={12} sm={6} md={4} lg={3}>
             <Card sx={{
               maxWidth: 230, height: 290,
@@ -53,7 +71,7 @@ export default function AthleteListPage() {
                   <CardMedia
                     component="img"
                     height="200"
-                    image={athlete.photo}
+                    image={matchingImage ? matchingImage.photo : 'default-image-url.jpg'}
                     alt="green iguana"
                   />
 
@@ -71,7 +89,8 @@ export default function AthleteListPage() {
 
             </Card>
           </Grid>
-        ))}
+              )
+        })}
       </Grid>
 
     </Container>

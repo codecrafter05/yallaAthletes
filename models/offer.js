@@ -23,6 +23,16 @@ const offerSchema = new Schema({
     required: true
   },
 
+  athleteEmail:{
+    type: String,
+    required: true
+  },
+
+  managerEmail:{
+    type: String,
+    required: true
+  },
+
   sportType:{
     type: String,
     required: true
