@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Container } from '@mui/material'; // Import the Card component
+import { Container } from '@mui/material'; // Import the Card component
 import logodarkImg from '../../assets/logodark.png';
 
 export default function RightsPage() {

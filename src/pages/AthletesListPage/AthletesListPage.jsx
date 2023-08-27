@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { getAllAthletesFiltered } from '../../utilities/athletes-service';
-import { getImageForUser } from '../../utilities/userImage-service';
-import { Button, Container, TextField } from "@mui/material";
+import { Container } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import { Typography, Card, CardActionArea, CardMedia, CardContent } from '@mui/material'; // Import Typography from Material-UI
 import { Link } from "react-router-dom";
