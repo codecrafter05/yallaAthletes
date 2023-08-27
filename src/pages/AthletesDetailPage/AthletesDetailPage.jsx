@@ -120,7 +120,7 @@ export default function AthletesDetailsPage({ user }) {
                   backgroundImage: `url(${images.photo})`, // Use image.photo for the photo URL
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
-                  width: '18%',
+                  width: '270px',
                   height: '300px',
                   borderRadius: '10%',
                   overflow: 'hidden',
