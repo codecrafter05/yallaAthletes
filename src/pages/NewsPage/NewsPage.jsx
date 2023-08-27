@@ -10,7 +10,6 @@ import torImage from '../../assets/tor.jpg';
 import vvImage from '../../assets/vv.jpg';
 import nnImage from '../../assets/nn.jpg';
 import React from 'react';
-import { Box } from '@mui/material';
 import {
   Card,
   CardActionArea,

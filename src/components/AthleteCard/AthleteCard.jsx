@@ -9,7 +9,6 @@ function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
-let num = getRandomNumber(250, 400);
 
 export default function AthleteCard({ athlete }) {
   return (
