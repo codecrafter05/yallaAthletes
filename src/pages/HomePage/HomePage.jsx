@@ -94,7 +94,7 @@ export default function HomePage() {
   useEffect(() => {
     console.log('useEffect triggered');
     async function fetchAthletesImage() {
-      console.log('Before API call');
+      console.log('Before call');
       try {
         const response = await getAllImages();
         console.log('Image Reponse:', response);
