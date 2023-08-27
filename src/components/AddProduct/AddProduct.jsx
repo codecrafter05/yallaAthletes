@@ -97,7 +97,7 @@ function ProductForm({user, setUser}) {
               placeholder="Write Product Details..."
               name="description"
               required
-              rowsMin={3}
+              minRows={3}
               onChange={handleChange}
             />
           <TextField
