@@ -197,7 +197,7 @@ export default function HomePage() {
                     <CardMedia
                       component="img"
                       height="220"
-                      image={images.photo}
+                      // image={images.photo}
                       alt="green iguana"
                     />
 
