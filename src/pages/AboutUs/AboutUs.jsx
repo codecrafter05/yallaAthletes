@@ -10,14 +10,6 @@ import abbasImage from '../../assets/abbas.jpg';
 import '../AboutUs/AboutUs.css';
 
 export default function AboutUsPage() {
-  // const cardStyles = {
-  //   display: 'flex',
-  //   flexDirection: 'column',
-  //   alignItems: 'center',
-  //   padding: '16px',
-  //   borderRadius: '10px',
-  // };
-
   return (
     <>
       <div className="aboutus">
