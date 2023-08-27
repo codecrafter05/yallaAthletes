@@ -30,7 +30,7 @@ function App() {
           <NavBar user={user} setUser={setUser} />
           <Routes>
             {/* Route components in here */}
-            <Route path="/" element={<HomePage />} />
+            <Route path="/" element={<HomePage user={user}/>} />
             <Route path="/athletes" element={<AthletesListPage />} />
             <Route path="/athletes/:athleteId" element={<AthletesDetailsPage user={user} />} />
             <Route path="/news" element={<NewsPage />} />
