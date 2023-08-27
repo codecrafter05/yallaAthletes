@@ -300,6 +300,5 @@ export default function MultiActionAreaCard() {
     </>
   )
   
-  
- 
+
 }
