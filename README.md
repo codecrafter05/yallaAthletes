@@ -20,9 +20,12 @@ Welcome to YallaAthletes, your gateway to the world of sports where anyone can t
   <li>react: 18.2.0</li>
   <li>material UI: 5.14.5</li>
   <li>cloudinary: 1.40.0</li>
-  <li>bcrypt: 5.1.1</li>
   <li>dotenv: 16.3.1</li>
   <li>mongoose: 16.3.1</li>
+  <li>bcrypt: 5.1.1</li>
+  <li>jsonwebtoken: 8.5.1</li>
+  <li>express: 4.18.2</li>
+  <li>express-session: 1.17.3</li>
   <li>Prettier: Disabled</li>
 </ul>
 <br>
