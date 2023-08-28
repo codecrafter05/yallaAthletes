@@ -1,7 +1,6 @@
 <h1>Project 3 - yallaAthletes</h1>
 <h3>Introduction:</h3>
 Welcome to YallaAthletes, your gateway to the world of sports where anyone can transform into an athlete simply by applying themselves. At YallaAthletes, we believe that the power of athleticism lies within everyone, waiting to be unlocked. Our platform breaks down the barriers that often limit people's access to sports, making it possible for individuals from all walks of life to embrace their inner athlete and embark on a journey of physical excellence.
-
 <br>
 
 <h3>Technologies Used:</h3>
@@ -12,7 +11,6 @@ Welcome to YallaAthletes, your gateway to the world of sports where anyone can t
   <li>MongoDB</li>
   <li>Material UI</li>
 </ul>
-
 <br>
 
 <h3>Version Control:</h3>
@@ -21,22 +19,20 @@ Welcome to YallaAthletes, your gateway to the world of sports where anyone can t
   <li>Npm -v: 9.8.1</li>
   <li>Prettier: Disabled</li>
 </ul>
-
 <br>
-
 
 <h3>Entity Relations Diagram (ERD):</h3>
 <br>
 
-<img src='/Users/hamadalhibshi/Desktop/SEI/Project3/reactWeb/src/assets/erd.png' width='700px'>
+<img src='./src/assets/readMe/erd.png' width='700px'>
 <br>
 <br>
 
 <h3>Wireframes:</h3>
 <br>
 
-<img src='/Users/hamadalhibshi/Desktop/SEI/Project3/reactWeb/src/assets/readMe/wireframe2.jpg' width='700px'>
-<img src='/Users/hamadalhibshi/Desktop/SEI/Project3/reactWeb/src/assets/readMe/wireframe1.jpg' width='700px'>
+<img src='./src/assets/readMe/wireframe2.jpg' width='700px'>
+<img src='./src/assets/readMe/wireframe1.jpg' width='700px'>
 <br>
 <br>
 <br>
@@ -45,40 +41,40 @@ Welcome to YallaAthletes, your gateway to the world of sports where anyone can t
 <br>
 
 Sign Up Page - Anyone able to make an account in order to join our website.
-<img src='/Users/hamadalhibshi/Desktop/SEI/Project3/reactWeb/src/assets/readMe/signUp.png'>
+<img src='./src/assets/readMe/signUp.png'>
 
 Login Page - If a person already has an account, will be able to just login.
-<img src='/Users/hamadalhibshi/Desktop/SEI/Project3/reactWeb/src/assets/readMe/login.png'>
+<img src='./src/assets/readMe/login.png'>
 
 Home Page - Welcoming page to anyone that made an account.
-<img src='/Users/hamadalhibshi/Desktop/SEI/Project3/reactWeb/src/assets/readMe/home.png'>
+<img src='./src/assets/readMe/home.png'>
 
 Products Page - Any user of any role will be able to buy products.
-<img src='/Users/hamadalhibshi/Desktop/SEI/Project3/reactWeb/src/assets/readMe/products.png'>
+<img src='./src/assets/readMe/products.png'>
 
 Athletes Page - Any user can access this page to view the current Athletes.
-<img src='/Users/hamadalhibshi/Desktop/SEI/Project3/reactWeb/src/assets/readMe/athletes.png'>
+<img src='./src/assets/readMe/athletes.png'>
 
 Athletes Details - A manager will be able to contact an Athlete in order to make an offer.
-<img src='/Users/hamadalhibshi/Desktop/SEI/Project3/reactWeb/src/assets/readMe/athleteDetails.png'>
+<img src='./src/assets/readMe/athleteDetails.png'>
 
 Approve Athletes - Athlete would be able to accept or reject the offer that the manager has made.
-<img src='/Users/hamadalhibshi/Desktop/SEI/Project3/reactWeb/src/assets/readMe/approveAthlete.png'>
+<img src='./src/assets/readMe/approveAthlete.png'>
 
 Accept Offers - If accepted, the manager will have access to contact details of the Athelete.
-<img src='/Users/hamadalhibshi/Desktop/SEI/Project3/reactWeb/src/assets/readMe/acceptOffers.png'>
+<img src='./src/assets/readMe/acceptOffers.png'>
 
 Profile - Profile where users will be able to edit their personal details, as well as apply to become an Athlete.
-<img src='/Users/hamadalhibshi/Desktop/SEI/Project3/reactWeb/src/assets/readMe/profile.png'>
+<img src='./src/assets/readMe/profile.png'>
 
 News Page - Current news going on around the world related to sports.
-<img src='/Users/hamadalhibshi/Desktop/SEI/Project3/reactWeb/src/assets/readMe/news.png'>
+<img src='./src/assets/readMe/news.png'>
 
 Support Page - A place where users and Athletes will be able to contact us for more Information.
-<img src='/Users/hamadalhibshi/Desktop/SEI/Project3/reactWeb/src/assets/readMe/bot.png'>
+<img src='./src/assets/readMe/bot.png'>
 
 About Us Page - Details on the software engineers who developed this website as well as company goals.
-<img src='/Users/hamadalhibshi/Desktop/SEI/Project3/reactWeb/src/assets/readMe/aboutus.png'>
+<img src='./src/assets/readMe/aboutus.png'>
 
 <br>
 
