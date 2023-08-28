@@ -15,8 +15,14 @@ Welcome to YallaAthletes, your gateway to the world of sports where anyone can t
 
 <h3>Version Control:</h3>
 <ul>
-  <li>Node -v: 20.3.0</li>
-  <li>Npm -v: 9.8.1</li>
+  <li>node: 20.3.0</li>
+  <li>npm: 9.8.1</li>
+  <li>react: 18.2.0</li>
+  <li>material UI: 5.14.5</li>
+  <li>cloudinary: 1.40.0</li>
+  <li>bcrypt: 5.1.1</li>
+  <li>dotenv: 16.3.1</li>
+  <li>mongoose: 16.3.1</li>
   <li>Prettier: Disabled</li>
 </ul>
 <br>
@@ -47,13 +53,13 @@ Login Page - If a person already has an account, will be able to just login.
 <img src='./src/assets/readMe/login.png'>
 
 Home Page - Welcoming page to anyone that made an account.
-<img src='./src/assets/readMe/home.png'>
+<img src='./src/assets/readMe/Home.png'>
 
 Products Page - Any user of any role will be able to buy products.
-<img src='./src/assets/readMe/products.png'>
+<img src='./src/assets/readMe/Products.png'>
 
 Athletes Page - Any user can access this page to view the current Athletes.
-<img src='./src/assets/readMe/athletes.png'>
+<img src='./src/assets/readMe/Athletes.png'>
 
 Athletes Details - A manager will be able to contact an Athlete in order to make an offer.
 <img src='./src/assets/readMe/athleteDetails.png'>
